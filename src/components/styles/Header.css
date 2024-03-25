@@ -35,3 +35,11 @@ header {
   border-radius: 50%;
   background-color: black;
 }
+
+.logo_and_name{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+}

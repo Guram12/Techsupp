@@ -1,10 +1,17 @@
 import React from "react";
 import "../styles/Header.css";
+import logo_black from "../../assets/logo_techsupp_black.svg"
+import logo_white from "../../assets/logo_techsupp_white.svg"
+
 
 const Header = () => {
   return (
     <header>
-      <h1>TechSupp</h1>
+      <div className="logo_and_name" >
+        <img src={logo_black} alt="company logo" style={{ width: "100px" }} />
+        <h1>TechSupp</h1>
+      </div>
+
       <div className="header_right">
         <div className="voice">V</div>
         <div className="dark_mode">D</div>
