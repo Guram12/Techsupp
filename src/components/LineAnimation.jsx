@@ -6,8 +6,8 @@ export default function LineAnimationComponent({ showSplashScreen }) {
     // Declare WIDTH and HEIGHT with let so they can be reassigned.
     let WIDTH = window.innerWidth;
     let HEIGHT = window.innerHeight;
-    const WAVEHEIGHT = 50;
-    const FREQUENCY = 150;
+    const WAVEHEIGHT = 25;
+    const FREQUENCY = 100;
     const SPEED = 3;
     let xs = [];
     let tick = 0;
@@ -57,7 +57,7 @@ export default function LineAnimationComponent({ showSplashScreen }) {
   return (
     <div className="svg-container">
       {!showSplashScreen && (
-        <svg className="line_animation">
+        <svg className="line_animation" viewBox="0 0 WIDTH HEIGHT" preserveAspectRatio="xMidYMid meet" >
           <defs>
             <pattern
               id="img1"
