@@ -1,17 +1,14 @@
 import { useState, useEffect } from "react";
+import "./styles/LineAnimation.css";
 
-
-
-export default function LineAnimationComponent({showSplashScreen}) {
-
-
+export default function LineAnimationComponent({ showSplashScreen }) {
   useEffect(() => {
     // Declare WIDTH and HEIGHT with let so they can be reassigned.
     let WIDTH = window.innerWidth;
     let HEIGHT = window.innerHeight;
-    const WAVEHEIGHT = 60;
-    const FREQUENCY = 200;
-    const SPEED = 4;
+    const WAVEHEIGHT = 50;
+    const FREQUENCY = 150;
+    const SPEED = 3;
     let xs = [];
     let tick = 0;
 
@@ -23,12 +20,15 @@ export default function LineAnimationComponent({showSplashScreen}) {
     }
 
     function animate() {
-      let points = xs.map(x => {
+      let points = xs.map((x) => {
         let y = HEIGHT / 2 + WAVEHEIGHT * Math.sin((x + tick) / FREQUENCY);
         return [x, y];
       });
 
-      let path = "M" + points.map(p => `${p[0]},${p[1]}`).join(" L") + ` L ${WIDTH},${HEIGHT} L 0,${HEIGHT} Z`;
+      let path =
+        "M" +
+        points.map((p) => `${p[0]},${p[1]}`).join(" L") +
+        ` L ${WIDTH},${HEIGHT} L 0,${HEIGHT} Z`;
 
       const pathElement = document.querySelector("#wavePath");
       if (pathElement) {
@@ -54,14 +54,19 @@ export default function LineAnimationComponent({showSplashScreen}) {
     };
   }, [showSplashScreen]);
 
-
   return (
-    <div className='svg-container' >
+    <div className="svg-container">
       {!showSplashScreen && (
-        <svg>
+        <svg className="line_animation">
           <defs>
-            <pattern id="img1" patternUnits="userSpaceOnUse" width="100" height="200">
-              <image xlinkHref="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAADIC
+            <pattern
+              id="img1"
+              patternUnits="userSpaceOnUse"
+              width="100"
+              height="200"
+            >
+              <image
+                xlinkHref="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAADIC
         AIAAACRXtOWAAADQUlEQVR4nO3Uy3HrMBQEUb1cHADzX9EROKR5C7v8kWlpRiKJC6A7gltTB7is6
         3qp18vLi+p1WZal9TIbrevaepmN/rWeZaNlWd7e3lpfcd3r62vrE7aqyariE1yWpfUsG9X82WFlB6s
         gWLnBKghWbrAKgpUbrIJg5QarIFi5wSoIVm6wCoKVG6yCYOUGqyBYucEqCFZusAqClRusgmDlBqsgW
@@ -76,12 +81,17 @@ export default function LineAnimationComponent({showSplashScreen}) {
         PjDUbKz0z1mys9PBYE7LSw2NNyEqPjTUnKz021pys9MBY07LSA2NNy0rpWDOzUjrWzKwUjTU5K0VjTc5K/
         liwkj8WrGSOBav3rLFg9d79sWD12f2xYPXZnbFg9b07Y8Hqe7fGgtVVt8aC1VV/jgWr3/05Fqx+tz0WrDbb
         HgtWm22MBau/2hgLVn91PRasbnQ9Fqxu9GMsWN3ux1iwut3XWLC629dYsLrbx1iwcvoYC1ZOF8HK7iJY2f0H
-        mTYOVR+4YhkAAAAASUVORK5CYII=" x="0" y="0" width="100" height="200" />
+        mTYOVR+4YhkAAAAASUVORK5CYII="
+                x="0"
+                y="0"
+                width="100"
+                height="200"
+              />
             </pattern>
           </defs>
           <path id="wavePath" fill="url(#img1)"></path>
         </svg>
       )}
     </div>
-  )
+  );
 }

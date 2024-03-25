@@ -1,28 +1,20 @@
-import './App.css'
-// import techsupp_video from './assets/Comp 1.webm'
-import techsupp_video from './assets/splashvideo.webm'
-import { useState, useEffect } from 'react';
-import { Route, Routes, useLocation, Link } from "react-router-dom";
-import About from './components/About';
-import MainPage from './components/MainPage';
-
+import "./App.css";
+import techsupp_video from "./assets/splashvideo.webm";
+import { useState, useEffect } from "react";
+import { Route, Routes, Link } from "react-router-dom";
+import About from "./components/pages/About";
+import MainPage from "./components/pages/MainPage";
+import Header from "./components/Header/Header";
 
 function App() {
   const [showSplashScreen, setShowSplashScreen] = useState(true);
 
-
-
-
-
-
-
-
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowSplashScreen(false);
-    }, 4500); // 3000 milliseconds = 3 seconds
+    }, 4500);
 
-    return () => clearTimeout(timer); // Clean up the timer
+    return () => clearTimeout(timer);
   }, []);
 
   if (showSplashScreen) {
@@ -35,37 +27,30 @@ function App() {
           muted
           playsInline
           className="splashscreen_video"
-        >
-        </video>
+        ></video>
       </div>
     );
   }
 
-
   return (
-
-    <div className='main_container' >
-      <p>ფეიჯები აპპ კომპონენტისთვის, აქ მერე უნდა ჩავსვატ როუთები </p>
-      <Link to='about/' >
+    <div className="main_container">
+      <Header />
+      {/* <p>ფეიჯები აპპ კომპონენტისთვის, აქ მერე უნდა ჩავსვატ როუთები </p> */}
+      <Link to="about/">
         <button>about </button>
       </Link>
-      <Link to='/' >
+      <Link to="/">
         <button>main page </button>
       </Link>
       <Routes>
-        <Route
-          path="about/"
-          element={<About />}
-        />
+        <Route path="about/" element={<About />} />
         <Route
           path="/"
-          element={<MainPage  showSplashScreen={showSplashScreen}   />}
+          element={<MainPage showSplashScreen={showSplashScreen} />}
         />
-
       </Routes>
-
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -1,0 +1,37 @@
+header {
+  /* border: 1px solid red; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+}
+.header_right {
+  /* border: 1px solid green; */
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.menu_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 30px;
+  border: 1px solid black;
+  padding: 20px 25px 20px 25px;
+  border-radius: 30px;
+}
+.menu_button:hover .menu_dots {
+  flex-direction: column;
+}
+.menu_dots {
+  width: 10px;
+  display: flex;
+  gap: 3px;
+}
+.menu_dots div {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background-color: black;
+}
