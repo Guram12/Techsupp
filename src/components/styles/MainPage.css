@@ -15,6 +15,7 @@
 .mainpage_cont{
   display: flex;
   justify-content:space-around;
+  gap: 200px;
   align-items: center;
 }
 
@@ -22,6 +23,8 @@
   position: relative;
   margin-top: 500px;
   margin-left: 70px;
+  border: 2px solid red;
+
 }
 
 

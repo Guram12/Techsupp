@@ -12,6 +12,16 @@ export default function mainPage({ showSplashScreen }) {
     setActiveTab(id); // Update the active tab state
   };
 
+  const serviceNames = ["ვებსაიტები", "IT", "ანალიტიკა", "რებრენდინგი", "ანიმაცია", "მენიუ"];
+
+  const cardContents = [
+    { title: "ვებსაიტები დამზადება", content: "გთავაზობთ ნებისმიერი სირთულის ვებსაიტის დამზადებას თქვენი ბიზნესისთვის. ვებსაიტი შექმნა არის ერთ-ერთი პირველი ნაბიჯი ბიზნენის წარმატებისკენ" },
+    { title: "IT მომსახურება", content: "თქვენი ბიზნენის უწყვეტი მუშაობისთვის, ჩვენი გუნდი გაგიწევთ ნებისმიერი სირთულის IT მომსახურებას" },
+    { title: "ბიზნეს ანალიტიკის ავტომატიზაცია", content: "ბიზნეს ანალიტიკის ავტომატიზაცია დაგეხმარებათ რუტინული სამუშაოების თავიდან აცილებაში და დაზოგავს თქვენს დროს" },
+    { title: "ბრენდინგი/რებრენდინგი", content: "ბიზნესისთვის ახალი იმიჯის შექმნაში ჩვენი გუნდის კვალიფიციური პროფესიონალები დაგეხმარებიან" },
+    { title: "ანიმაციური ფოტო/ვიდეო", content: "ანიმაციური ფოტო/ვიდეოს აწყობა " },
+    { title: "ონლაინ მენიუ", content: "QR კოდიდით გახსნადი ონლაინ მენიუ თქვენი ბიზნესისტვის" },
+  ];
 
 
   return (
@@ -74,7 +84,7 @@ export default function mainPage({ showSplashScreen }) {
       <div>
         <section className="page">
           <ul className="tabs-controls">
-            {Array.from({ length: 6 }, (_, i) => (
+            {serviceNames.map((serviceName, i) => (
               <li key={i} className="tabs-controls__item">
                 <a
                   href="#!"
@@ -85,27 +95,41 @@ export default function mainPage({ showSplashScreen }) {
                   }}
                   data-id={i + 1}
                 >
-                  {`Tab ${String.fromCharCode(65 + i)}`}
+                  {serviceName}
                 </a>
               </li>
             ))}
           </ul>
           <section className="cards-container">
-            {Array.from({ length: 6 }, (_, i) => (
-              <div
-                key={i}
-                className={`card ${activeTab === i + 1 ? 'card--current' : 'hidden'}`} // Use 'hidden' class for inactive cards
-                id={`${i + 1}`}
-              >
-                <h1>{`${String.fromCharCode(65 + i)}. Lorem ipsum dolor sit amet`}</h1>
-                <p>
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                </p>
-              </div>
-            ))}
+            <section className="cards-container">
+              {cardContents.map((card, i) => (
+                <div
+                  key={i}
+                  className={`card ${activeTab === i + 1 ? 'card--current' : 'hidden'}`} // Use 'hidden' class for inactive cards
+                  id={`${i + 1}`}
+                >
+                  <h1>{card.title}</h1>
+                  <p style={{marginTop: "10px"}} >{card.content}</p>
+                </div>
+              ))}
+            </section>
+
           </section>
         </section>
       </div>
     </div>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+// no it is not working as i want, is the implementation of js correct ? 
+// I  am aiming to achieve. that  original JavaScript code is managing a stack of cards where non-active cards are positioned behind the active card and are slightly visible
