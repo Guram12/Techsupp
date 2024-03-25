@@ -4,9 +4,9 @@ export default function mainPage({ showSplashScreen }) {
   return (
     <div>
       <p>main page</p>
-      <div>
+      {/* <div>
         <LineAnimation showSplashScreen={showSplashScreen} />
-      </div>
+      </div> */}
     </div>
   );
 }
