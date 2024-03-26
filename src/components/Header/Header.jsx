@@ -17,6 +17,11 @@ export default function Header() {
 
       <div className="header_right">
         <div className="voice">V</div>
+        <div className="sound_container" >
+          <div class="loader">
+            <div class="justify-content-center jimu-primary-loading"></div>
+          </div>
+        </div>
         <div className="dark_mode">D</div>
         <div className="menu_button">
           <div className="menu_texts">
