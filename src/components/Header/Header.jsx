@@ -2,13 +2,16 @@ import React from "react";
 import "../styles/Header.css";
 import logo_black from "../../assets/logo_techsupp_black.svg"
 import logo_white from "../../assets/logo_techsupp_white.svg"
+import { Link } from "react-router-dom";
 
 
-const Header = () => {
+export default function Header() {
   return (
     <header>
       <div className="logo_and_name" >
-        <img src={logo_black} alt="company logo" style={{ width: "100px" }} />
+        <Link to="/" >
+          <img src={logo_black} alt="company logo" style={{ width: "100px" }} />
+        </Link>
         <h1>TechSupp</h1>
       </div>
 
@@ -29,4 +32,4 @@ const Header = () => {
     </header>
   );
 };
-export default Header;
+
