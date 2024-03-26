@@ -1,11 +1,19 @@
 import "../styles/card.scss"
 import { useState } from "react";
+import { useNavigate } from 'react-router-dom';
 
 
 
 export default function CardAnimation() {
 
   const [activeTab, setActiveTab] = useState(1); // This state tracks the active tab
+
+  const navigate = useNavigate();
+
+  const handleButtonClick = (path) => {
+    navigate(path);
+  };
+
 
   const handleTabClick = (id) => {
     setActiveTab(id); // Update the active tab state
@@ -14,23 +22,21 @@ export default function CardAnimation() {
   const serviceNames = ["ვებსაიტები", "IT", "ანალიტიკა", "რებრენდინგი", "ანიმაცია", "მენიუ"];
 
   const cardContents = [
-    { title: "ვებსაიტები დამზადება", button_content: "დაწყვრილებით", content: "გთავაზობთ ნებისმიერი სირთულის ვებსაიტის დამზადებას თქვენი ბიზნესისთვის. ვებსაიტი შექმნა არის ერთ-ერთი პირველი ნაბიჯი ბიზნენის წარმატებისკენ" },
-    { title: "IT მომსახურება", button_content: "დაწყვრილებით", content: "თქვენი ბიზნენის უწყვეტი მუშაობისთვის, ჩვენი გუნდი გაგიწევთ ნებისმიერი სირთულის IT მომსახურებას" },
-    { title: "ბიზნეს ანალიტიკის ავტომატიზაცია", button_content: "დაწყვრილებით", content: "ბიზნეს ანალიტიკის ავტომატიზაცია დაგეხმარებათ რუტინული სამუშაოების თავიდან აცილებაში და დაზოგავს თქვენს დროს" },
-    { title: "ბრენდინგი/რებრენდინგი", button_content: "დაწყვრილებით", content: "ბიზნესისთვის ახალი იმიჯის შექმნაში ჩვენი გუნდის კვალიფიციური პროფესიონალები დაგეხმარებიან" },
-    { title: "ანიმაციური ფოტო/ვიდეო", button_content: "დაწყვრილებით", content: "ანიმაციური ფოტო/ვიდეოს აწყობა " },
-    { title: "ონლაინ მენიუ", button_content: "დაწყვრილებით", content: "QR კოდიდით გახსნადი ონლაინ მენიუ თქვენი ბიზნესისტვის" },
+    { title: "ვებსაიტები დამზადება", button_content: "დაწყვრილებით",path: "/services/web-development", content: "გთავაზობთ ნებისმიერი სირთულის ვებსაიტის დამზადებას თქვენი ბიზნესისთვის. ვებსაიტი შექმნა არის ერთ-ერთი პირველი ნაბიჯი ბიზნენის წარმატებისკენ" },
+    { title: "IT მომსახურება", button_content: "დაწყვრილებით", path: "/services/it", content: "თქვენი ბიზნენის უწყვეტი მუშაობისთვის, ჩვენი გუნდი გაგიწევთ ნებისმიერი სირთულის IT მომსახურებას" },
+    { title: "ბიზნეს ანალიტიკის ავტომატიზაცია",path: "/services/analitycs", button_content: "დაწყვრილებით", content: "ბიზნეს ანალიტიკის ავტომატიზაცია დაგეხმარებათ რუტინული სამუშაოების თავიდან აცილებაში და დაზოგავს თქვენს დროს" },
+    { title: "ბრენდინგი/რებრენდინგი", button_content: "დაწყვრილებით",path: "/services/brending", content: "ბიზნესისთვის ახალი იმიჯის შექმნაში ჩვენი გუნდის კვალიფიციური პროფესიონალები დაგეხმარებიან" },
+    { title: "ანიმაციური ფოტო/ვიდეო", button_content: "დაწყვრილებით", path: "/services/animation", content: "ანიმაციური ფოტო/ვიდეოს აწყობა " },
+    { title: "ონლაინ მენიუ", button_content: "დაწყვრილებით",path: "/services/menu", content: "QR კოდიდით გახსნადი ონლაინ მენიუ თქვენი ბიზნესისტვის" },
   ];
 
   const getCardClassName = (index) => {
     // Base class for all cards
     let className = "card";
-    
     // Apply 'card--current' to the active card and the first card always has 'card--current'
     if (activeTab === index + 1 || index === 0) {
         className += " card--current";
     }
-
     // Apply 'hidden' to all non-active cards that come before the active one
     // and to the first card when it's not active
     if ((index < activeTab - 1) || (index === 0 && activeTab !== 1)) {
@@ -71,8 +77,8 @@ export default function CardAnimation() {
               >
                 <h1>{card.title}</h1>
                 <p style={{ marginTop: "10px" }} >{card.content}</p>
-                <button className="cta">
-                  <span class="hover-underline-animation"> {card.button_content} </span>
+                <button className="cta" onClick={() => handleButtonClick(card.path)} >
+                  <span className="hover-underline-animation"> {card.button_content} </span>
                   <svg
                     id="arrow-horizontal"
                     xmlns="http://www.w3.org/2000/svg"
