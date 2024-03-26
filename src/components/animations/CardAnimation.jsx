@@ -22,7 +22,23 @@ export default function CardAnimation() {
     { title: "ონლაინ მენიუ", button_content: "დაწყვრილებით", content: "QR კოდიდით გახსნადი ონლაინ მენიუ თქვენი ბიზნესისტვის" },
   ];
 
+  const getCardClassName = (index) => {
+    // Base class for all cards
+    let className = "card";
+    
+    // Apply 'card--current' to the active card and the first card always has 'card--current'
+    if (activeTab === index + 1 || index === 0) {
+        className += " card--current";
+    }
 
+    // Apply 'hidden' to all non-active cards that come before the active one
+    // and to the first card when it's not active
+    if ((index < activeTab - 1) || (index === 0 && activeTab !== 1)) {
+        className += " hidden";
+    }
+
+    return className;
+};
 
 
   return (
@@ -50,13 +66,12 @@ export default function CardAnimation() {
             {cardContents.map((card, i) => (
               <div
                 key={i}
-                className={`card ${activeTab === i + 1 ? 'card--current' : 'hidden'}`} // Applies 'card--current' to active card
+                className={getCardClassName(i)}
                 id={`${i + 1}`}
               >
                 <h1>{card.title}</h1>
                 <p style={{ marginTop: "10px" }} >{card.content}</p>
-                {/* <button className="service_button">{card.button_content}</button> */}
-                <button class="cta">
+                <button className="cta">
                   <span class="hover-underline-animation"> {card.button_content} </span>
                   <svg
                     id="arrow-horizontal"
