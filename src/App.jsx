@@ -56,28 +56,28 @@ function App() {
 
 
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowSplashScreen(false);
-    }, 4500);
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     setShowSplashScreen(false);
+  //   }, 4500);
 
-    return () => clearTimeout(timer);
-  }, []);
+  //   return () => clearTimeout(timer);
+  // }, []);
 
-  if (showSplashScreen) {
-    return (
-      <div className="splashscreen_container">
-        <video
-          src={techsupp_video}
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="splashscreen_video"
-        ></video>
-      </div>
-    );
-  }
+  // if (showSplashScreen) {
+  //   return (
+  //     <div className="splashscreen_container">
+  //       <video
+  //         src={techsupp_video}
+  //         autoPlay
+  //         loop
+  //         muted
+  //         playsInline
+  //         className="splashscreen_video"
+  //       ></video>
+  //     </div>
+  //   );
+  // }
 
 
   return (
