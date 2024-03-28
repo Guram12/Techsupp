@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@pixi/canvas-display": "^7.4.2",
+    "framer-motion": "^11.0.21",
     "pixi.js": "^8.0.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
