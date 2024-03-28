@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import "./styles/LineAnimation.css";
+import "../styles/LineAnimation.css";
 
 export default function LineAnimationComponent({ showSplashScreen }) {
   useEffect(() => {
