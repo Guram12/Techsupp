@@ -19,7 +19,7 @@ export default function CardAnimation() {
     setActiveTab(id); // Update the active tab state
   };
 
-  const serviceNames = ["ვებსაიტები", "IT", "ანალიტიკა", "რებრენდინგი", "ანიმაცია", "მენიუ"];
+  const serviceNames = ["ვებსაიტები", "IT", "ანალიტიკა", "რებრენდინგი", "ანიმაცია", "QR მენიუ"];
 
   const cardContents = [
     { title: "ვებსაიტები დამზადება", button_content: "დაწყვრილებით",path: "/services/web-development", content: "გთავაზობთ ნებისმიერი სირთულის ვებსაიტის დამზადებას თქვენი ბიზნესისთვის. ვებსაიტი შექმნა არის ერთ-ერთი პირველი ნაბიჯი ბიზნენის წარმატებისკენ" },
@@ -58,7 +58,7 @@ export default function CardAnimation() {
                 className={`tabs-controls__link ${activeTab === i + 1 ? 'tabs-controls__link--active' : ''}`}
                 onClick={(e) => {
                   e.preventDefault();
-                  handleTabClick(i + 1); // Correctly set the active tab based on the clicked tab
+                  handleTabClick(i + 1);
                 }}
                 data-id={i + 1}
               >
