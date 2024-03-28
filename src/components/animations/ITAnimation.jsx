@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import sheet_image from "../../assets/sheet_image.png"
 // import black_background from "../../assets/black_background_image.png"
 import white_background from "../../assets/white_background_image.png"
-
+import extenden_image from "../../assets/extended_whiteTest4.png"
 
 export default function ITAnimation() {
   const [curSlide, setCurSlide] = useState(1);
@@ -20,7 +20,6 @@ export default function ITAnimation() {
 
     const timeoutAnimation = setTimeout(initializeAnimation, 4500);
 
-    // Clean up timeouts
     return () => {
       clearTimeout(timeoutInitial);
       clearTimeout(timeoutAnimation);
@@ -59,31 +58,20 @@ export default function ITAnimation() {
             <div className="app__img">
               <img
                 onmousedown="return false"
-                // src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/537051/whiteTest4.png"
                 src={white_background}
                 alt="city"
               />
             </div>
             <div className="app__text app__text--1">
-              <div className="app__text-line app__text-line--4">imperdiet </div>
+              <div className="app__text-line app__text-line--4"  style={{fontSize: "16px"}} >კომპიუტერული სრული მომსახურება</div>
               <div className="app__text-line app__text-line--3">ut le</div>
               <div className="app__text-line app__text-line--2">non tincidunt </div>
-              {/* <div className="app__text-line app__text-line--1">
-                <img
-                  src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/537051/opus-attachment.png"
-                  alt=""
-                />
-              </div> */}
             </div>
             <div className="app__text app__text--2">
               <div className="app__text-line app__text-line--4">habitant</div>
               <div className="app__text-line app__text-line--3">ut eget</div>
               <div className="app__text-line app__text-line--2">Nam imperdiet</div>
               <div className="app__text-line app__text-line--1">
-                {/* <img
-                  src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/537051/opus-attachment.png"
-                  alt=""
-                /> */}
               </div>
             </div>
           </div>
