@@ -12,7 +12,7 @@ import BrendingPage from "./components/pages/BrendingPage";
 import AnimationPage from "./components/pages/AnimationPage";
 import AnaliticPage from "./components/pages/AnaliticPage";
 import background_audio_second from "./assets/background_second.mp3"
-
+import Members from "./components/pages/Members"
 
 
 function App() {
@@ -56,28 +56,28 @@ function App() {
 
 
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowSplashScreen(false);
-    }, 4500);
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     setShowSplashScreen(false);
+  //   }, 4500);
 
-    return () => clearTimeout(timer);
-  }, []);
+  //   return () => clearTimeout(timer);
+  // }, []);
 
-  if (showSplashScreen) {
-    return (
-      <div className="splashscreen_container">
-        <video
-          src={techsupp_video}
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="splashscreen_video"
-        ></video>
-      </div>
-    );
-  }
+  // if (showSplashScreen) {
+  //   return (
+  //     <div className="splashscreen_container">
+  //       <video
+  //         src={techsupp_video}
+  //         autoPlay
+  //         loop
+  //         muted
+  //         playsInline
+  //         className="splashscreen_video"
+  //       ></video>
+  //     </div>
+  //   );
+  // }
 
 
   return (
@@ -86,6 +86,8 @@ function App() {
       <audio ref={audioRef} src={background_audio_second} loop />
       <Link to="about/"><button>about </button></Link>
       <Link to="/"><button>main page </button></Link>
+      <Link to="/members"><button>members </button></Link>
+
       <Routes>
         <Route path="about/" element={<About />} />
         <Route path="/" element={<MainPage showSplashScreen={showSplashScreen} />}/>
@@ -95,6 +97,7 @@ function App() {
         <Route path="services/brending" element={<BrendingPage />} />
         <Route path="services/animation" element={<AnimationPage />} />
         <Route path="services/analitycs" element={<AnaliticPage />} />
+        <Route path="/members" element={<Members />} />
       </Routes>
     </div>
   );
