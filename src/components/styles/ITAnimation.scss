@@ -43,13 +43,13 @@ $appShadowClr: rgba(#000, 0.3);
 			left: 0;
 
 			&--1 {
-				background: url("../../assets/sheet_image.png")
+				background: url("../../assets/computer_processor_1.webp")
 					center center no-repeat;
 				background-size: cover;
 			}
 
 			&--2 {
-				background: url("../../assets/sheet_image.png")
+				background: url("../../assets/computer_cpu.jpg")
 					center center no-repeat;
 				background-size: cover;
 				opacity: 0;
@@ -73,7 +73,7 @@ $appShadowClr: rgba(#000, 0.3);
 			user-select: none;
 			@for $i from -4 through -1 {
 				&--#{abs($i)} {
-					transition: transform 1500ms 2000ms + 100ms * ($i - 1),
+					transition: transform 1500ms 1000ms + 100ms * ($i - 1),
 						opacity 1500ms 2750ms + 250ms * ($i - 1);
 				}
 			}
