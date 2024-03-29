@@ -5,7 +5,7 @@ import sheet_image from "../../assets/sheet_image.png"
 import white_background from "../../assets/white_background_image.png"
 import extenden_image from "../../assets/extended_whiteTest4.png"
 
-export default function ITAnimation() {
+export default function ITAnimation_1() {
   const [curSlide, setCurSlide] = useState(1);
   const [animation, setAnimation] = useState(true);
 
@@ -47,7 +47,7 @@ export default function ITAnimation() {
 
 
   return (
-    <div>
+ 
         <div className="cont">
           <div className={`mouse ${animation ? "scrolling" : ""}`} />
           <div className={`app ${curSlide === 2 ? "active" : ""} ${!animation ? "initial" : ""}`}>
@@ -83,6 +83,6 @@ export default function ITAnimation() {
             </ul>
           </div>
         </div>
-    </div>
+
   )
 }
