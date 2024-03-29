@@ -1,11 +1,11 @@
-import "../styles/ITAnimation.scss"
+import "../styles/ITAnimation_1.css"
 import React, { useState, useEffect } from 'react';
 import sheet_image from "../../assets/sheet_image.png"
 // import black_background from "../../assets/black_background_image.png"
 import white_background from "../../assets/white_background_image.png"
 import extenden_image from "../../assets/extended_whiteTest4.png"
 
-export default function ITAnimation() {
+export default function ITAnimation_1() {
   const [curSlide, setCurSlide] = useState(1);
   const [animation, setAnimation] = useState(true);
 
@@ -47,7 +47,7 @@ export default function ITAnimation() {
 
 
   return (
-    <div>
+ 
         <div className="cont">
           <div className={`mouse ${animation ? "scrolling" : ""}`} />
           <div className={`app ${curSlide === 2 ? "active" : ""} ${!animation ? "initial" : ""}`}>
@@ -60,6 +60,7 @@ export default function ITAnimation() {
                 onmousedown="return false"
                 src={white_background}
                 alt="city"
+                
               />
             </div>
             <div className="app__text app__text--1">
@@ -69,8 +70,8 @@ export default function ITAnimation() {
             </div>
             <div className="app__text app__text--2">
               <div className="app__text-line app__text-line--4">habitant</div>
-              <div className="app__text-line app__text-line--3">ut eget</div>
-              <div className="app__text-line app__text-line--2">Nam imperdiet</div>
+              {/* <div className="app__text-line app__text-line--3">ut eget</div>
+              <div className="app__text-line app__text-line--2">Nam imperdiet</div> */}
               <div className="app__text-line app__text-line--1">
               </div>
             </div>
@@ -82,6 +83,6 @@ export default function ITAnimation() {
             </ul>
           </div>
         </div>
-    </div>
+
   )
 }

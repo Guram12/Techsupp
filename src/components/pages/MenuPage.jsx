@@ -7,7 +7,7 @@
 export default function MenuPage(){
   return(
     <div>
-      Menu Page
+      <p style={{fontSize: "300px"}} >   Techsupp </p>
     </div>
   )
 }
