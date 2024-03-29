@@ -43,6 +43,7 @@ export default function Members() {
 
 
   const handleGalleryClick = (e) => {
+    console.log("clicked")
     const screenWidth = window.innerWidth;
     const clickX = e.clientX;
     const navigateDirection = clickX < screenWidth / 2 ? -1 : 1; // -1 for left, 1 for right
