@@ -1,4 +1,4 @@
-import "../styles/ITAnimation.scss"
+import "../styles/ITAnimation_1.css"
 import React, { useState, useEffect } from 'react';
 import sheet_image from "../../assets/sheet_image.png"
 // import black_background from "../../assets/black_background_image.png"
@@ -60,6 +60,7 @@ export default function ITAnimation() {
                 onmousedown="return false"
                 src={white_background}
                 alt="city"
+                
               />
             </div>
             <div className="app__text app__text--1">
@@ -69,8 +70,8 @@ export default function ITAnimation() {
             </div>
             <div className="app__text app__text--2">
               <div className="app__text-line app__text-line--4">habitant</div>
-              <div className="app__text-line app__text-line--3">ut eget</div>
-              <div className="app__text-line app__text-line--2">Nam imperdiet</div>
+              {/* <div className="app__text-line app__text-line--3">ut eget</div>
+              <div className="app__text-line app__text-line--2">Nam imperdiet</div> */}
               <div className="app__text-line app__text-line--1">
               </div>
             </div>
