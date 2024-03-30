@@ -18,7 +18,7 @@ import Members from "./components/pages/Members"
 function App() {
   const [showSplashScreen, setShowSplashScreen] = useState(true);
   const [isSoundOff, setIsSoundOff] = useState(false);
-  const [isDarkmodeOn, setIsDarkmodeOn] = useState(false);
+  const [isDarkmodeOn, setIsDarkmodeOn] = useState(true);
   const audioRef = useRef(null);
 
 
