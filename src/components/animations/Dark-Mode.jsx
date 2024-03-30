@@ -1,12 +1,12 @@
 import React from "react";
 import "../styles/DarkMode.css";
 
-const DarkMode = () => {
+export default function DarkMode(){
   return (
-    <div class="container">
-      <label class="toggle" for="switch">
-        <input id="switch" class="input" type="checkbox" />
-        <div class="icon icon--moon">
+    <div className="cont_dark_mode">
+      <label className="toggle" htmlFor="switch">
+        <input id="switch" className="input" type="checkbox" />
+        <div className="icon icon--moon">
           <svg
             height="32"
             width="32"
@@ -15,14 +15,14 @@ const DarkMode = () => {
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              clip-rule="evenodd"
+              clipRule="evenodd"
               d="M9.528 1.718a.75.75 0 01.162.819A8.97 8.97 0 009 6a9 9 0 009 9 8.97 8.97 0 003.463-.69.75.75 0 01.981.98 10.503 10.503 0 01-9.694 6.46c-5.799 0-10.5-4.701-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 01.818.162z"
-              fill-rule="evenodd"
+              fillRule="evenodd"
             ></path>
           </svg>
         </div>
 
-        <div class="icon icon--sun">
+        <div className="icon icon--sun">
           <svg
             height="32"
             width="32"
@@ -37,4 +37,4 @@ const DarkMode = () => {
     </div>
   );
 };
-export default DarkMode;
+
