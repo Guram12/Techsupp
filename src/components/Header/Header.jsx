@@ -3,6 +3,8 @@ import "../styles/Header.css";
 import logo_black from "../../assets/logo_techsupp_black.svg";
 import { Link } from "react-router-dom";
 import RightArrow from "../../assets/right.png";
+import { motion } from "framer-motion";
+import DarkMode from "../animations/Dark-Mode";
 
 export default function Header({ isSoundOff, toggleSound }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -12,10 +14,11 @@ export default function Header({ isSoundOff, toggleSound }) {
     { showArrow: false, showDot: false },
     { showArrow: false, showDot: false },
   ]);
-  // menu toggle, menu-close
+
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+
   const handleLinkHover = (index) => {
     setMenuState((prevMenuState) =>
       prevMenuState.map((item, i) =>
@@ -58,7 +61,10 @@ export default function Header({ isSoundOff, toggleSound }) {
             <div className="typing-shadow"></div>
           </div>
         </div>
-        <div className="dark_mode">D</div>
+        <div className="dark_mode">
+          <DarkMode />
+        </div>
+
         <div className="menu_button">
           <div className="menu_texts">
             <span
@@ -68,12 +74,22 @@ export default function Header({ isSoundOff, toggleSound }) {
               {isOpen ? "CLOSE" : "MENU"}
             </span>
           </div>
-          {/* Render your menu links here */}
           {isOpen && (
-            <div className="menu">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{
+                duration: 0.8,
+                delay: 0.5,
+                ease: [0, 0.71, 0.2, 1.01],
+              }}
+              className="menu"
+            >
               <div className="flex">
                 <Link
-                  className="menu_links"
+                  className={`menu_links ${
+                    menuState[0].showDot ? "active" : ""
+                  }`}
                   to="/link1"
                   onMouseEnter={() => handleLinkHover(0)}
                   onMouseLeave={() =>
@@ -99,7 +115,9 @@ export default function Header({ isSoundOff, toggleSound }) {
               </div>
               <div className="flex">
                 <Link
-                  className="menu_links"
+                  className={`menu_links ${
+                    menuState[1].showDot ? "active" : ""
+                  }`}
                   to="/link2"
                   onMouseEnter={() => handleLinkHover(1)}
                   onMouseLeave={() =>
@@ -123,7 +141,9 @@ export default function Header({ isSoundOff, toggleSound }) {
               </div>
               <div className="flex">
                 <Link
-                  className="menu_links"
+                  className={`menu_links ${
+                    menuState[2].showDot ? "active" : ""
+                  }`}
                   to="/link3"
                   onMouseEnter={() => handleLinkHover(2)}
                   onMouseLeave={() =>
@@ -147,7 +167,9 @@ export default function Header({ isSoundOff, toggleSound }) {
               </div>
               <div className="flex">
                 <Link
-                  className="menu_links"
+                  className={`menu_links ${
+                    menuState[3].showDot ? "active" : ""
+                  }`}
                   to="/link4"
                   onMouseEnter={() => handleLinkHover(3)}
                   onMouseLeave={() =>
@@ -169,7 +191,7 @@ export default function Header({ isSoundOff, toggleSound }) {
                   </div>
                 </Link>
               </div>
-            </div>
+            </motion.div>
           )}
           <div className="menu_dots">
             <div></div>

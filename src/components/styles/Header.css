@@ -3,7 +3,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 60px 20px 60px;
+  padding: 40px 60px 40px 60px;
 }
 .header_right {
   width: 300px;
@@ -18,7 +18,7 @@ header {
   justify-content: center;
   gap: 10px;
   height: 30px;
-  border: 1px solid #969595;
+  /* border: 1px solid #969595; */
   padding: 23px 29px 23px 29px;
   border-radius: 30px;
   box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
@@ -26,6 +26,7 @@ header {
 }
 .menu_button:hover .menu_dots {
   flex-direction: column;
+  transition: 1s;
 }
 .menu_dots {
   width: 10px;
@@ -54,6 +55,11 @@ header {
   box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
     rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
+.dark_mode {
+  border-radius: 50%;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
 .menu div {
   height: 50px;
   display: flex;
@@ -65,7 +71,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 8px 15px;
+  padding: 8px 25px;
 }
 .menu_links div {
   display: flex;
@@ -93,9 +99,12 @@ header {
   color: rgb(149, 145, 145);
 }
 .menu .menu_links:hover {
-  background-color: #d6d4d4;
+  background-color: #ebe4e4;
   border-radius: 20px;
   transition: 1s;
+}
+.menu_links.active:hover {
+  background-color: rgb(255, 255, 255);
 }
 .link_dott_menu {
   width: 10px;
@@ -104,9 +113,6 @@ header {
   align-items: center;
   justify-content: center;
 }
-/* .menu:hover .menu_links {
-  animation: rotateDot 1s ease-in-out forwards;
-} */
 
 .menu:hover .arrow_img {
   animation: rotateDot 1s ease-in-out forwards;
