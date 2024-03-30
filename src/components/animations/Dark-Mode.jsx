@@ -3,10 +3,10 @@ import "../styles/DarkMode.css";
 
 const DarkMode = () => {
   return (
-    <div class="container">
-      <label class="toggle" for="switch">
-        <input id="switch" class="input" type="checkbox" />
-        <div class="icon icon--moon">
+    <div className="cont_dark_mode">
+      <label className="toggle" for="switch">
+        <input id="switch" className="input" type="checkbox" />
+        <div className="icon icon--moon">
           <svg
             height="32"
             width="32"
@@ -22,7 +22,7 @@ const DarkMode = () => {
           </svg>
         </div>
 
-        <div class="icon icon--sun">
+        <div className="icon icon--sun">
           <svg
             height="32"
             width="32"
