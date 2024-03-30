@@ -46,7 +46,7 @@ header {
 } */
 .menu {
   width: 300px;
-  height: 300px;
+  height: 350px;
   display: flex;
   flex-direction: column;
   padding: 40px 30px;
@@ -65,7 +65,7 @@ header {
   flex-direction: column;
   justify-content: space-between;
   /* border: 1px solid red; */
-  padding: 10px 15px;
+  padding: 6px 10px;
   /* border: 1px solid green; */
 }
 
@@ -83,9 +83,12 @@ header {
   color: rgb(149, 145, 145);
 }
 .menu div:hover {
-  background-color: #b0afaf;
+  background-color: #c9c4c4;
   border-radius: 30px;
   transition: 1s;
+}
+.flex img {
+  width: 20px;
 }
 
 .logo_and_name {
