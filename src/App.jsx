@@ -18,10 +18,20 @@ import Members from "./components/pages/Members"
 function App() {
   const [showSplashScreen, setShowSplashScreen] = useState(true);
   const [isSoundOff, setIsSoundOff] = useState(false);
+  const [isDarkmodeOn, setIsDarkmodeOn] = useState(false);
   const audioRef = useRef(null);
 
-  const location = useLocation();
 
+
+  const handle_darkmode_change = (event) => {
+    console.log("clicked dark mode")
+    setIsDarkmodeOn(event.target.checked)
+  }
+
+
+
+
+  const location = useLocation();
 
   useEffect(() => {
     const startAudio = () => {
@@ -80,12 +90,18 @@ function App() {
   //   );
   // }
 
-
+  // 
   return (
-    <div className="main_container">
+    <div className={`main_container ${isDarkmodeOn ? "main_container_white" : "main_container_black"}`}>
       {!(location.pathname === "/members") && (
         <>
-          <Header isSoundOff={isSoundOff} toggleSound={toggleSound} />
+          <Header
+            isSoundOff={isSoundOff}
+            toggleSound={toggleSound}
+            isDarkmodeOn={isDarkmodeOn}
+            handle_darkmode_change={handle_darkmode_change}
+
+          />
           <Link to="about/"><button>about </button></Link>
           <Link to="/"><button>main page </button></Link>
           <Link to="/members"><button>members </button></Link>
