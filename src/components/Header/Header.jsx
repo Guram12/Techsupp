@@ -3,12 +3,40 @@ import "../styles/Header.css";
 import logo_black from "../../assets/logo_techsupp_black.svg";
 import { Link } from "react-router-dom";
 import RightArrow from "../../assets/right.png";
+import { motion } from "framer-motion";
+import DarkMode from "../animations/Dark-Mode";
 
 export default function Header({ isSoundOff, toggleSound }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [menuState, setMenuState] = useState([
+    { showArrow: false, showDot: false },
+    { showArrow: false, showDot: false },
+    { showArrow: false, showDot: false },
+    { showArrow: false, showDot: false },
+  ]);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
+  };
+
+  const handleLinkHover = (index) => {
+    setMenuState((prevMenuState) =>
+      prevMenuState.map((item, i) =>
+        i === index && !item.showDot
+          ? { ...item, showArrow: true }
+          : { ...item, showArrow: false }
+      )
+    );
+  };
+
+  const handleLinkClick = (index) => {
+    setMenuState((prevMenuState) =>
+      prevMenuState.map((item, i) =>
+        i === index
+          ? { ...item, showArrow: false, showDot: true }
+          : { ...item, showDot: false }
+      )
+    );
   };
 
   return (
@@ -22,7 +50,6 @@ export default function Header({ isSoundOff, toggleSound }) {
 
       <div className="header_right">
         <div className="sound_container" onClick={toggleSound}>
-          {/* loader container */}
           <div
             className={`typing-indicator ${isSoundOff ? "" : "stop-animation"}`}
           >
@@ -34,7 +61,10 @@ export default function Header({ isSoundOff, toggleSound }) {
             <div className="typing-shadow"></div>
           </div>
         </div>
-        <div className="dark_mode">D</div>
+        <div className="dark_mode">
+          <DarkMode />
+        </div>
+
         <div className="menu_button">
           <div className="menu_texts">
             <span
@@ -44,63 +74,124 @@ export default function Header({ isSoundOff, toggleSound }) {
               {isOpen ? "CLOSE" : "MENU"}
             </span>
           </div>
-          {/* Render your menu links here */}
           {isOpen && (
-            <div className="menu">
-              <div>
-                <Link className="menu_links" to="/link1">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{
+                duration: 0.8,
+                delay: 0.5,
+                ease: [0, 0.71, 0.2, 1.01],
+              }}
+              className="menu"
+            >
+              <div className="flex">
+                <Link
+                  className={`menu_links ${
+                    menuState[0].showDot ? "active" : ""
+                  }`}
+                  to="/link1"
+                  onMouseEnter={() => handleLinkHover(0)}
+                  onMouseLeave={() =>
+                    setMenuState((prevMenuState) =>
+                      prevMenuState.map((item) => ({
+                        ...item,
+                        showArrow: false,
+                      }))
+                    )
+                  }
+                  onClick={() => handleLinkClick(0)}
+                >
                   სერვისები
-                  <span>
-                    <img src={RightArrow} alt="" />
-                  </span>
+                  <div>
+                    {menuState[0].showArrow && !menuState[0].showDot && (
+                      <img className="arrow_img" src={RightArrow} alt="" />
+                    )}
+                    {menuState[0].showDot && (
+                      <div className="link_dott_menu">●</div>
+                    )}
+                  </div>
                 </Link>
-                {/* <Link className="sec_menu_links" to="/link1">
-                  სერვისები                   <span>
-                    <img src={RightArrow} alt="" />
-                  </span>
-                </Link> */}
               </div>
-              <div>
-                <Link className="menu_links" to="/link2">
-                  ჩვენს შესახებ{" "}
-                  <span>
-                    <img src={RightArrow} alt="" />
-                  </span>
+              <div className="flex">
+                <Link
+                  className={`menu_links ${
+                    menuState[1].showDot ? "active" : ""
+                  }`}
+                  to="/link2"
+                  onMouseEnter={() => handleLinkHover(1)}
+                  onMouseLeave={() =>
+                    setMenuState((prevMenuState) =>
+                      prevMenuState.map((item) => ({
+                        ...item,
+                        showArrow: false,
+                      }))
+                    )
+                  }
+                  onClick={() => handleLinkClick(1)}
+                >
+                  ჩვენს შესახებ
+                  <div>
+                    {menuState[1].showArrow && !menuState[1].showDot && (
+                      <img className="arrow_img" src={RightArrow} alt="" />
+                    )}
+                    {menuState[1].showDot && " ●"}
+                  </div>
                 </Link>
-                {/* <Link className="sec_menu_links" to="/link2">
-                  ჩვენს შესახებ                   <span>
-                    <img src={RightArrow} alt="" />
-                  </span>
-                </Link> */}
               </div>
-
-              <div>
-                <Link className="menu_links" to="/link3">
+              <div className="flex">
+                <Link
+                  className={`menu_links ${
+                    menuState[2].showDot ? "active" : ""
+                  }`}
+                  to="/link3"
+                  onMouseEnter={() => handleLinkHover(2)}
+                  onMouseLeave={() =>
+                    setMenuState((prevMenuState) =>
+                      prevMenuState.map((item) => ({
+                        ...item,
+                        showArrow: false,
+                      }))
+                    )
+                  }
+                  onClick={() => handleLinkClick(2)}
+                >
                   წევრები
-                  <span>
-                    <img src={RightArrow} alt="" />
-                  </span>
+                  <div>
+                    {menuState[2].showArrow && !menuState[2].showDot && (
+                      <img className="arrow_img" src={RightArrow} alt="" />
+                    )}
+                    {menuState[2].showDot && " ●"}
+                  </div>
                 </Link>
-                {/* <Link className="sec_menu_links" to="/link3">
-                  წევრები                   <span>
-                    <img src={RightArrow} alt="" />
-                  </span>
-                </Link> */}
               </div>
-              <div>
-                <Link className="menu_links" to="/link3">
+              <div className="flex">
+                <Link
+                  className={`menu_links ${
+                    menuState[3].showDot ? "active" : ""
+                  }`}
+                  to="/link4"
+                  onMouseEnter={() => handleLinkHover(3)}
+                  onMouseLeave={() =>
+                    setMenuState((prevMenuState) =>
+                      prevMenuState.map((item) => ({
+                        ...item,
+                        showArrow: false,
+                      }))
+                    )
+                  }
+                  onClick={() => handleLinkClick(3)}
+                >
                   კონტაქტები{" "}
-                  <span>
-                    <img src={RightArrow} alt="" />
-                  </span>
+                  <div>
+                    {menuState[3].showArrow && !menuState[3].showDot && (
+                      <img className="arrow_img" src={RightArrow} alt="" />
+                    )}
+                    {menuState[3].showDot && "●"}
+                  </div>
                 </Link>
-                {/* <Link className="sec_menu_links" to="/link3">
-                  კონტაქტები                   <span>
-                    <img src={RightArrow} alt="" />
-                  </span>
-                </Link> */}
               </div>
-            </div>
+            </motion.div>
           )}
           <div className="menu_dots">
             <div></div>
