@@ -12,9 +12,6 @@ header {
   align-items: center;
   justify-content: space-between;
 }
-/* .dark_mode {
-  border: 2px solid red;
-} */
 .menu_button {
   display: flex;
   align-items: center;
@@ -41,15 +38,12 @@ header {
   border-radius: 50%;
   background-color: black;
 }
-/* .menu_texts {
-  border: 2px solid red;
-} */
 .menu {
   width: 300px;
   height: 350px;
   display: flex;
   flex-direction: column;
-  padding: 40px 30px;
+  padding: 40px 30px 40px 30px;
   justify-content: space-between;
   right: 60px;
   border-radius: 18px;
@@ -61,12 +55,28 @@ header {
     rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
 .menu div {
+  height: 50px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+.menu_links {
   /* border: 1px solid red; */
-  padding: 6px 10px;
-  /* border: 1px solid green; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 15px;
+}
+.menu_links div {
+  display: flex;
+  justify-content: center;
+}
+.link_dott_menu {
+  width: 10px;
+  /* border: 1px solid red; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .menu div .menu_links {
@@ -82,10 +92,33 @@ header {
   text-decoration: none;
   color: rgb(149, 145, 145);
 }
-.menu div:hover {
-  background-color: #c9c4c4;
-  border-radius: 30px;
+.menu .menu_links:hover {
+  background-color: #d6d4d4;
+  border-radius: 20px;
   transition: 1s;
+}
+.link_dott_menu {
+  width: 10px;
+  /* border: 1px solid red; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* .menu:hover .menu_links {
+  animation: rotateDot 1s ease-in-out forwards;
+} */
+
+.menu:hover .arrow_img {
+  animation: rotateDot 1s ease-in-out forwards;
+}
+
+@keyframes rotateDot {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 .flex img {
   width: 20px;

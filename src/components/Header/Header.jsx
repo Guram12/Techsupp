@@ -71,7 +71,7 @@ export default function Header({ isSoundOff, toggleSound }) {
           {/* Render your menu links here */}
           {isOpen && (
             <div className="menu">
-              <div>
+              <div className="flex">
                 <Link
                   className="menu_links"
                   to="/link1"
@@ -87,15 +87,17 @@ export default function Header({ isSoundOff, toggleSound }) {
                   onClick={() => handleLinkClick(0)}
                 >
                   სერვისები
-                  <div className="flex">
+                  <div>
                     {menuState[0].showArrow && !menuState[0].showDot && (
-                      <img src={RightArrow} alt="" />
+                      <img className="arrow_img" src={RightArrow} alt="" />
                     )}
-                    {menuState[0].showDot && " ●"}
+                    {menuState[0].showDot && (
+                      <div className="link_dott_menu">●</div>
+                    )}
                   </div>
                 </Link>
               </div>
-              <div>
+              <div className="flex">
                 <Link
                   className="menu_links"
                   to="/link2"
@@ -111,15 +113,15 @@ export default function Header({ isSoundOff, toggleSound }) {
                   onClick={() => handleLinkClick(1)}
                 >
                   ჩვენს შესახებ
-                  <div className="flex">
+                  <div>
                     {menuState[1].showArrow && !menuState[1].showDot && (
-                      <img src={RightArrow} alt="" />
+                      <img className="arrow_img" src={RightArrow} alt="" />
                     )}
                     {menuState[1].showDot && " ●"}
                   </div>
                 </Link>
               </div>
-              <div>
+              <div className="flex">
                 <Link
                   className="menu_links"
                   to="/link3"
@@ -135,15 +137,15 @@ export default function Header({ isSoundOff, toggleSound }) {
                   onClick={() => handleLinkClick(2)}
                 >
                   წევრები
-                  <div className="flex">
+                  <div>
                     {menuState[2].showArrow && !menuState[2].showDot && (
-                      <img src={RightArrow} alt="" />
+                      <img className="arrow_img" src={RightArrow} alt="" />
                     )}
                     {menuState[2].showDot && " ●"}
                   </div>
                 </Link>
               </div>
-              <div>
+              <div className="flex">
                 <Link
                   className="menu_links"
                   to="/link4"
@@ -159,11 +161,11 @@ export default function Header({ isSoundOff, toggleSound }) {
                   onClick={() => handleLinkClick(3)}
                 >
                   კონტაქტები{" "}
-                  <div className="flex">
+                  <div>
                     {menuState[3].showArrow && !menuState[3].showDot && (
-                      <img src={RightArrow} alt="" />
+                      <img className="arrow_img" src={RightArrow} alt="" />
                     )}
-                    {menuState[3].showDot && " ●"}
+                    {menuState[3].showDot && "●"}
                   </div>
                 </Link>
               </div>
