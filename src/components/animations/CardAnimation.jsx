@@ -1,4 +1,4 @@
-import "../styles/card.scss"
+import "../styles/card.css"
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 
