@@ -77,13 +77,9 @@ export default function Members() {
           items={images}
           showPlayButton={false}
           showFullscreenButton={false}
-          showNav={false} // Ensure this is true if you want to show navigation arrows
+          showNav={false}
           infinite={true}
-         
         />
-        {/* Example navigation controls */}
-        {/* <button onClick={goToPreviousSlide}>Previous</button>
-        <button onClick={goToNextSlide}>Next</button> */}
       </div>
       <div className='header_container'>
         <TerminalTextAnimation />
