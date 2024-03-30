@@ -1,8 +1,9 @@
 import React from "react";
 import "../styles/DarkMode.css";
 
-export default function DarkMode(){
+export default function DarkMode() {
   return (
+
     <div className="cont_dark_mode">
       <label className="toggle" htmlFor="switch">
         <input id="switch" className="input" type="checkbox" />
