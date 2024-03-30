@@ -1,4 +1,4 @@
-import React, { useState , useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { Route, Routes, Link } from "react-router-dom";
 import ImageGallery from 'react-image-gallery';
 import '../styles/Members.css';
@@ -26,25 +26,34 @@ const images = [
 ];
 
 export default function Members() {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const galleryRef = useRef();
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   const handleGalleryClick = (event) => {
     const { clientX } = event;
     const { innerWidth } = window;
 
     if (clientX < innerWidth / 2) {
-      // Go to the previous image
-      console.log("clicked left")
-      setCurrentIndex(prevIndex => prevIndex > 0 ? prevIndex - 1 : images.length - 1);
+      goToPreviousSlide();
     } else {
-      console.log("clicked left")
-
-      // Go to the next image
-      setCurrentIndex(prevIndex => (prevIndex + 1) % images.length);
+      goToNextSlide();
     }
   };
+
+  const goToNextSlide = () => {
+    let nextSlideIndex = (currentSlide + 1) % images.length;
+    galleryRef.current.slideToIndex(nextSlideIndex);
+    setCurrentSlide(nextSlideIndex);
+  };
+
+  const goToPreviousSlide = () => {
+    let prevSlideIndex = (currentSlide - 1 + images.length) % images.length;
+    galleryRef.current.slideToIndex(prevSlideIndex);
+    setCurrentSlide(prevSlideIndex);
+  };
+
   return (
-    <div onClick={handleGalleryClick} >
+    <div  onClick={handleGalleryClick} >
       <div className="video-background">
         <video
           src={matrix_background}
@@ -64,15 +73,17 @@ export default function Members() {
       </div>
       <div className='slider_container'>
         <ImageGallery
+          ref={galleryRef}
           items={images}
-          startIndex={currentIndex}
           showPlayButton={false}
           showFullscreenButton={false}
-          showNav={false}
+          showNav={false} // Ensure this is true if you want to show navigation arrows
           infinite={true}
-          onSlide={index => setCurrentIndex(index)}
-          lazyLoad={true}
+         
         />
+        {/* Example navigation controls */}
+        {/* <button onClick={goToPreviousSlide}>Previous</button>
+        <button onClick={goToNextSlide}>Next</button> */}
       </div>
       <div className='header_container'>
         <TerminalTextAnimation />
