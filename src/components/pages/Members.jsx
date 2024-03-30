@@ -1,8 +1,8 @@
-import React, { useRef, useState } from 'react';
+import React, { useState , useRef } from 'react';
 import { Route, Routes, Link } from "react-router-dom";
 import ImageGallery from 'react-image-gallery';
 import '../styles/Members.css';
-import 'react-image-gallery/styles/css/image-gallery.css'; 
+import 'react-image-gallery/styles/css/image-gallery.css';
 import guram_profile from "../../assets/guram_1.png"
 import guram_1 from "../../assets/guram_1 copy.png"
 import guram_2 from "../../assets/guram_1 copy2.png"
@@ -14,44 +14,35 @@ import matrix_background from '../../assets/matrix.webm'
 import sheet from "../../assets/sheet_image.png"
 import TerminalTextAnimation from '../animations/TerminalTextAnimation';
 
-
-
+// Transform your image paths into the structure required by react-image-gallery
 const images = [
-  guram_1, sheet, guram_2, guram_3, guram_4, guram_5, guram_6
+  { original: guram_1 },
+  { original: sheet },
+  { original: guram_2 },
+  { original: guram_3 },
+  { original: guram_4 },
+  { original: guram_5 },
+  { original: guram_6 }
 ];
 
 export default function Members() {
-
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [direction, setDirection] = useState('right'); // 'left' or 'right'
-  const [prevIndex, setPrevIndex] = useState(null); // Initialize to null or appropriate value
 
+  const handleGalleryClick = (event) => {
+    const { clientX } = event;
+    const { innerWidth } = window;
 
-  const navigate = (direction) => {
-    setDirection(direction === -1 ? 'left' : 'right');
-    setCurrentIndex((prevIndex) => {
-      const newIndex = prevIndex + direction;
-      if (newIndex < 0) {
-        return images.length - 1; // Loop back to the last image
-      } else if (newIndex >= images.length) {
-        return 0; // Loop back to the first image
-      }
-      return newIndex;
-    });
-    setPrevIndex(currentIndex); // Set the previous index to the current one before updating
+    if (clientX < innerWidth / 2) {
+      // Go to the previous image
+      console.log("clicked left")
+      setCurrentIndex(prevIndex => prevIndex > 0 ? prevIndex - 1 : images.length - 1);
+    } else {
+      console.log("clicked left")
+
+      // Go to the next image
+      setCurrentIndex(prevIndex => (prevIndex + 1) % images.length);
+    }
   };
-
-
-  const handleGalleryClick = (e) => {
-    console.log("clicked")
-    const screenWidth = window.innerWidth;
-    const clickX = e.clientX;
-    const navigateDirection = clickX < screenWidth / 2 ? -1 : 1; // -1 for left, 1 for right
-    navigate(navigateDirection);
-  };
-
-
-
   return (
     <div onClick={handleGalleryClick} >
       <div className="video-background">
@@ -71,18 +62,20 @@ export default function Members() {
           </button>
         </Link>
       </div>
-      <div className='slider_container'  >
-        <img alt="Gallery"
-          key={`${images[currentIndex]}-${direction}`}
-          src={images[currentIndex]}
-          className={`personal_image ${direction === 'left' ? 'slide-in-left' : 'slide-in-right'}`}
+      <div className='slider_container'>
+        <ImageGallery
+          items={images}
+          startIndex={currentIndex}
+          showPlayButton={false}
+          showFullscreenButton={false}
+          showNav={false}
+          infinite={true}
+          onSlide={index => setCurrentIndex(index)}
+          lazyLoad={true}
         />
       </div>
-      <div className='header_container' >
-        {/* <div className='for_center_name' >
-        <p className="line-1 anim-typewriter">გურამ შანიდზე</p>
-        </div> */}
-        <TerminalTextAnimation/>
+      <div className='header_container'>
+        <TerminalTextAnimation />
       </div>
     </div>
   );
