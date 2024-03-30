@@ -37,6 +37,11 @@ export default function BrandingPage() {
         {animations[currentAnimationIndex]}
         </div>
         <p>dfwefwe fwewef wfe wef wef wefw wfe wef wef wfw wef wfe wfe wef wf wf f wef we</p>
+        <p>dfwefwe fwewef wfe wef wef wefw wfe wef wef wfw wef wfe wfe wef wf wf f wef we</p>
+        <p>dfwefwe fwewef wfe wef wef wefw wfe wef wef wfw wef wfe wfe wef wf wf f wef we</p>
+        <p>dfwefwe fwewef wfe wef wef wefw wfe wef wef wfw wef wfe wfe wef wf wf f wef we</p>
+        <p>dfwefwe fwewef wfe wef wef wefw wfe wef wef wfw wef wfe wfe wef wf wf f wef we</p>
+
       </div>
     </div>
   );
