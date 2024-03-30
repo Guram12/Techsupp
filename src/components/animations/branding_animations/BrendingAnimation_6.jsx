@@ -1,19 +1,30 @@
 import React, { useEffect, useRef } from 'react';
-import "../styles/BrendingAnimation.css"
-import natura from "../../animated_photos/2.png"
-import { gsap } from 'gsap';
-import "../styles/BrendingAnimation.css";
+import "../../styles/BrendingAnimation.css"
+import natura1 from "../../../animated_photos/6.png";
 
-export default function BrandingAnimation() {
+
+import { gsap } from 'gsap';
+
+
+export default function BrandingAnimation_6() {
+  // const options = {
+  //   imgSrc: natura, 
+  //   containerName: "placeholder",
+  //   rows: 5,
+  //   columns: 5,
+  //   margin: 2.5,
+  //   animTime: 0.3,
+  // };
+
   const options = {
-    imgSrc: natura, // Assuming you want to use your imported image instead of the placeholder from Unsplash
+    imgSrc: natura1,
     containerName: "placeholder",
-    rows: 5,
-    columns: 5,
-    margin: 2.5,
+    rows: 5, // Consider adjusting if necessary
+    columns: 5, // Consider adjusting if necessary
+    margin: 1.25, // Half of the original margin to maintain proportion
     animTime: 0.3,
   };
-
+  
   useEffect(() => {
     // Define fixTilePosition function before it's used
     const fixTilePosition = (tile, ind, w, h, c, r, time = 0) => {
