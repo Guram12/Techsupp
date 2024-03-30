@@ -3,4 +3,28 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Open Sans', sans-serif;
+  /* scrollbar-width: thin; 
+  scrollbar-color: rgb(95, 94, 94) transparent;  */
 }
+
+/* 
+html::-webkit-scrollbar {
+  width: 12px;
+}
+
+
+html::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: grey; 
+  border-radius: 6px; 
+}
+
+html::-webkit-scrollbar-thumb:hover {
+  background: darker grey; 
+}
+ */
+
+

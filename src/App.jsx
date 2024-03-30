@@ -111,7 +111,7 @@ function App() {
       <audio ref={audioRef} src={background_audio_second} loop muted />
 
       <Routes>
-        <Route path="about/" element={<About />} />
+        <Route path="about/" element={<About isDarkmodeOn={isDarkmodeOn} />} />
         <Route path="/" element={<MainPage showSplashScreen={showSplashScreen} />} />
         <Route path="services/web-development" element={<WebsitePage />} />
         <Route path="services/it" element={<ItPage />} />
