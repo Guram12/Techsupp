@@ -1,5 +1,5 @@
 import "../styles/MainPage.css"
-import "../styles/card.scss"
+import "../styles/card.css"
 import { useState } from "react";
 import CardAnimation from "../animations/CardAnimation";
 import CubeAnimation from "../animations/CubeAnimation";

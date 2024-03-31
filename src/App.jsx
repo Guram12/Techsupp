@@ -18,10 +18,33 @@ import Members from "./components/pages/Members"
 function App() {
   const [showSplashScreen, setShowSplashScreen] = useState(true);
   const [isSoundOff, setIsSoundOff] = useState(false);
+  const [isDarkmodeOn, setIsDarkmodeOn] = useState(true);
   const audioRef = useRef(null);
 
-  const location = useLocation();
 
+
+  const handle_darkmode_change = (event) => {
+    console.log("clicked dark mode")
+    setIsDarkmodeOn(event.target.checked)
+  }
+
+
+  useEffect(() => {
+    // Save the original background color
+    const originalBackgroundColor = document.body.style.backgroundColor;
+  
+    // Change background color based on the dark mode state
+    document.body.style.backgroundColor = !isDarkmodeOn ? 'black' : 'white';
+  
+    // Reset to original background color on cleanup
+    return () => {
+      document.body.style.backgroundColor = originalBackgroundColor;
+    };
+  }, [isDarkmodeOn]);
+  
+
+
+  const location = useLocation();
 
   useEffect(() => {
     const startAudio = () => {
@@ -80,32 +103,38 @@ function App() {
   //   );
   // }
 
-
+  // 
   return (
-    <div className="main_container">
-      {!(location.pathname === "/members") && (
-        <>
-          <Header isSoundOff={isSoundOff} toggleSound={toggleSound} />
-          <Link to="about/"><button>about </button></Link>
-          <Link to="/"><button>main page </button></Link>
-          <Link to="/members"><button>members </button></Link>
-        </>
+        <div className={`main_container ${isDarkmodeOn ? "main_container_white" : "main_container_black"}`}>
+          {!(location.pathname === "/members") && (
+            <>
+              <Header
+                isSoundOff={isSoundOff}
+                toggleSound={toggleSound}
+                isDarkmodeOn={isDarkmodeOn}
+                handle_darkmode_change={handle_darkmode_change}
 
-      )}
-      <audio ref={audioRef} src={background_audio_second} loop muted />
+              />
+              <Link to="about/"><button>about </button></Link>
+              <Link to="/"><button>main page </button></Link>
+              <Link to="/members"><button>members </button></Link>
+            </>
 
-      <Routes>
-        <Route path="about/" element={<About />} />
-        <Route path="/" element={<MainPage showSplashScreen={showSplashScreen} />} />
-        <Route path="services/web-development" element={<WebsitePage />} />
-        <Route path="services/it" element={<ItPage />} />
-        <Route path="services/menu" element={<MenuPage />} />
-        <Route path="services/brending" element={<BrendingPage />} />
-        <Route path="services/animation" element={<AnimationPage />} />
-        <Route path="services/analitycs" element={<AnaliticPage />} />
-        <Route path="/members" element={<Members />} />
-      </Routes>
-    </div>
+          )}
+          <audio ref={audioRef} src={background_audio_second} loop muted />
+
+          <Routes>
+            <Route path="about/" element={<About isDarkmodeOn={isDarkmodeOn} />} />
+            <Route path="/" element={<MainPage showSplashScreen={showSplashScreen} />} />
+            <Route path="services/web-development" element={<WebsitePage isDarkmodeOn={isDarkmodeOn} />} />
+            <Route path="services/it" element={<ItPage isDarkmodeOn={isDarkmodeOn}/>} />
+            <Route path="services/menu" element={<MenuPage isDarkmodeOn={isDarkmodeOn}/>} />
+            <Route path="services/brending" element={<BrendingPage isDarkmodeOn={isDarkmodeOn}/>} />
+            <Route path="services/animation" element={<AnimationPage isDarkmodeOn={isDarkmodeOn}/>} />
+            <Route path="services/analitycs" element={<AnaliticPage isDarkmodeOn={isDarkmodeOn} />} />
+            <Route path="/members" element={<Members />} />
+          </Routes>
+        </div>
   );
 }
 
