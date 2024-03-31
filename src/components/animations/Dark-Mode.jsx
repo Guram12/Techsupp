@@ -1,14 +1,6 @@
 import React from "react";
 import "../styles/DarkMode.css";
 
-<<<<<<< HEAD
-export default function DarkMode() {
-  return (
-
-    <div className="cont_dark_mode">
-      <label className="toggle" htmlFor="switch">
-        <input id="switch" className="input" type="checkbox" />
-=======
 
 
 export default function DarkMode({
@@ -26,7 +18,6 @@ export default function DarkMode({
           checked={isDarkmodeOn}
           onChange={handle_darkmode_change}
         />
->>>>>>> ea999fb0d82b9d9c0a2a64727055e4d45b760bf4
         <div className="icon icon--moon">
           <svg
             height="32"
