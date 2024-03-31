@@ -4,16 +4,18 @@ import Parallax from "../animations/Paralax"
 
 
 
-export default function MenuPage() {
+export default function MenuPage({ isDarkmodeOn }) {
   return (
     <div>
       <p>Techsupp </p>
 
+      <div>
+        <section>
+          <Parallax isDarkmodeOn={isDarkmodeOn} baseVelocity={-5}>website creation</Parallax>
+          <Parallax isDarkmodeOn={isDarkmodeOn} baseVelocity={5}>youur designe</Parallax>
+        </section>
+      </div>
 
-      <section>
-        <Parallax baseVelocity={-5}>qr menu qr menu </Parallax>
-        <Parallax baseVelocity={5}>qr menu qr menu </Parallax>
-      </section>
     </div>
   )
 }

@@ -126,12 +126,12 @@ function App() {
           <Routes>
             <Route path="about/" element={<About isDarkmodeOn={isDarkmodeOn} />} />
             <Route path="/" element={<MainPage showSplashScreen={showSplashScreen} />} />
-            <Route path="services/web-development" element={<WebsitePage />} />
-            <Route path="services/it" element={<ItPage />} />
-            <Route path="services/menu" element={<MenuPage />} />
-            <Route path="services/brending" element={<BrendingPage />} />
-            <Route path="services/animation" element={<AnimationPage />} />
-            <Route path="services/analitycs" element={<AnaliticPage />} />
+            <Route path="services/web-development" element={<WebsitePage isDarkmodeOn={isDarkmodeOn} />} />
+            <Route path="services/it" element={<ItPage isDarkmodeOn={isDarkmodeOn}/>} />
+            <Route path="services/menu" element={<MenuPage isDarkmodeOn={isDarkmodeOn}/>} />
+            <Route path="services/brending" element={<BrendingPage isDarkmodeOn={isDarkmodeOn}/>} />
+            <Route path="services/animation" element={<AnimationPage isDarkmodeOn={isDarkmodeOn}/>} />
+            <Route path="services/analitycs" element={<AnaliticPage isDarkmodeOn={isDarkmodeOn} />} />
             <Route path="/members" element={<Members />} />
           </Routes>
         </div>

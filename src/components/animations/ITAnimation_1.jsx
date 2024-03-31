@@ -57,7 +57,7 @@ export default function ITAnimation_1() {
             </div>
             <div className="app__img">
               <img
-                onmousedown="return false"
+                // onMouseDown="return false"
                 src={white_background}
                 alt="city"
                 

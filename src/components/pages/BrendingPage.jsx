@@ -12,7 +12,7 @@ import Parallax from "../animations/Paralax";
 
 
 
-export default function BrandingPage() {
+export default function BrandingPage({isDarkmodeOn}) {
   const [currentAnimationIndex, setCurrentAnimationIndex] = useState(0);
 
   const animations = [<BrandingAnimation />, <BrandingAnimation_2 />, <BrandingAnimation_3 />,
@@ -45,8 +45,8 @@ export default function BrandingPage() {
       </div>
       <div>
         <section>
-          <Parallax baseVelocity={-5}>Analitycs Analitycs</Parallax>
-          <Parallax baseVelocity={5}>Google sheet </Parallax>
+          <Parallax isDarkmodeOn={isDarkmodeOn} baseVelocity={-5}>Analitycs Analitycs</Parallax>
+          <Parallax isDarkmodeOn={isDarkmodeOn} baseVelocity={5}>Google sheet </Parallax>
         </section>
       </div>
     </div>
