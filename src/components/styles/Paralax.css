@@ -37,3 +37,8 @@ section {
   font-weight: 400;
   font-style: normal;
 }
+
+
+.night_mode_span {
+  color: white;
+}

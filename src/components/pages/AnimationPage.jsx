@@ -6,7 +6,7 @@ import Parallax from "../animations/Paralax"
 
 
 
-export default function AnimationPage() {
+export default function AnimationPage({isDarkmodeOn}) {
   return (
     <div>
       <p>video animation content and about will go here</p>
@@ -15,8 +15,8 @@ export default function AnimationPage() {
       </div>
 
       <section>
-        <Parallax baseVelocity={-5}>website creation</Parallax>
-        <Parallax baseVelocity={5}>youur designe</Parallax>
+        <Parallax isDarkmodeOn={isDarkmodeOn} baseVelocity={-5}>website creation</Parallax>
+        <Parallax isDarkmodeOn={isDarkmodeOn} baseVelocity={5}>youur designe</Parallax>
       </section>
 
     </div>

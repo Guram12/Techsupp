@@ -7,7 +7,7 @@ import "../styles/ITPage.css"
 
 
 
-export default function ItPage() {
+export default function ItPage({isDarkmodeOn}) {
   return (
     <div>
 
@@ -25,8 +25,8 @@ export default function ItPage() {
 
       <div className="it_paralax_container"  >
         <section>
-          <Paralax baseVelocity={-5}>IT service IT service</Paralax>
-          <Paralax baseVelocity={5}>IT service IT service</Paralax>
+          <Paralax isDarkmodeOn={isDarkmodeOn} baseVelocity={-5}>IT service IT service</Paralax>
+          <Paralax isDarkmodeOn={isDarkmodeOn} baseVelocity={5}>IT service IT service</Paralax>
         </section>
       </div>
       <div>
