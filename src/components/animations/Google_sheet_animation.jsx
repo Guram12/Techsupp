@@ -1,7 +1,9 @@
 import { motion, useAnimation } from 'framer-motion';
 import "../styles/Google_sheet_animation.css";
 import sheet_image from "../../assets/sheet_image.png";
-import image_1 from "../../assets/sheet.png";
+// import image_1 from "../../assets/sheet.png";
+import image_1 from "../../assets/sheet_1.png";
+
 
 export default function GoogleSheetAnimation({ isDarkmodeOn }) {
 
