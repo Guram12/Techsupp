@@ -1,6 +1,6 @@
 import VideoAnimation from "../animations/VideoAnimation"
 import  "../styles/AnimationPage.css"
-
+import Parallax from "../animations/Paralax"
 
 
 
@@ -13,6 +13,12 @@ export default function AnimationPage() {
       <div className="video_animation_container" >
         <VideoAnimation />
       </div>
+
+      <section>
+        <Parallax baseVelocity={-5}>website creation</Parallax>
+        <Parallax baseVelocity={5}>youur designe</Parallax>
+      </section>
+
     </div>
   )
 }
