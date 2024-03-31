@@ -1,15 +1,19 @@
-import WebsiteCardAnimation from "../animations/Website_cardAnimation"
+import Paralax from "../animations/Paralax"
 
 
-export default function WebsitePage(){
+export default function WebsitePage() {
   return (
     <div>
       WebService page
 
-      <WebsiteCardAnimation/>
-      
+
+      <section>
+        <Paralax baseVelocity={-5}>website creation</Paralax>
+        <Paralax baseVelocity={5}>youur designe</Paralax>
+      </section>
+
+
     </div>
   )
 }
-
 
