@@ -1,0 +1,39 @@
+.sheet_container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  height: 400px
+}
+
+
+
+.sheet_image{
+  width: 600px;
+  border-radius: 20px;
+
+}
+
+.shadow_dark {
+  box-shadow: 0 4px 20px 0 rgba(255, 255, 255, 0.397), 0 6px 20px 0 rgba(255, 255, 255, 0.418); /* Example shadow */
+
+}
+
+.shadow_light {
+  box-shadow: 0 4px 20px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); /* Example shadow */
+
+}
+.sheet_logo {
+  position: absolute;
+  left: 24%;
+  width: 200px;
+}
+
+@media (min-width: 1920px) {
+  .sheet_logo {
+    position: absolute;
+    left: 27%;
+    width: 200px;
+  }
+}
