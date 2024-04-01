@@ -1,12 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "../styles/Header.css";
 import logo_black from "../../assets/logo_techsupp_black.svg";
 import { Link } from "react-router-dom";
 import RightArrow from "../../assets/right.png";
 import { motion } from "framer-motion";
 import DarkMode from "../animations/Dark-Mode";
+import { CursorContext } from "../CursorContext/CursorContext";
+import { transition1 } from "../../Transitions";
 
-export default function Header({ isSoundOff, toggleSound }) {
+export default function Header({
+  isSoundOff,
+  toggleSound,
+  isDarkmodeOn,
+  handle_darkmode_change,
+}) {
   const [isOpen, setIsOpen] = useState(false);
   const [menuState, setMenuState] = useState([
     { showArrow: false, showDot: false },
@@ -14,7 +21,7 @@ export default function Header({ isSoundOff, toggleSound }) {
     { showArrow: false, showDot: false },
     { showArrow: false, showDot: false },
   ]);
-
+  const { mouseEnterHandler, mouseLeaveHandle } = useContext(CursorContext);
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
@@ -40,29 +47,72 @@ export default function Header({ isSoundOff, toggleSound }) {
   };
 
   return (
-    <header>
-      <div className="logo_and_name">
+    <motion.header
+    // className="header"
+    // initial={{ opacity: 0 }}
+    // animate={{ opacity: 1 }}
+    // exit={{ opacity: 0 }}
+    // transition={transition1}
+    >
+      <motion.div
+        initial={{ opacity: 0, y: "-50%" }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: "-50%" }}
+        transition={transition1}
+        onMouseEnter={mouseEnterHandler}
+        onMouseLeave={mouseLeaveHandle}
+        className="logo_and_name"
+      >
         <Link to="/">
           <img src={logo_black} alt="company logo" style={{ width: "100px" }} />
         </Link>
         <h1>TechSupp</h1>
-      </div>
+      </motion.div>
 
       <div className="header_right">
         <div className="sound_container" onClick={toggleSound}>
           <div
-            className={`typing-indicator ${isSoundOff ? "" : "stop-animation"}`}
+            className={`typing-indicator ${
+              isSoundOff ? "" : "stop-animation"
+            }  `}
           >
-            <div className="typing-circle"></div>
-            <div className="typing-circle"></div>
-            <div className="typing-circle"></div>
-            <div className="typing-shadow"></div>
-            <div className="typing-shadow"></div>
-            <div className="typing-shadow"></div>
+            <div
+              className={`typing-circle ${
+                isDarkmodeOn ? "typing-circle_white" : "typing-circle_black"
+              }`}
+            ></div>
+            <div
+              className={`typing-circle ${
+                isDarkmodeOn ? "typing-circle_white" : "typing-circle_black"
+              }`}
+            ></div>
+            <div
+              className={`typing-circle ${
+                isDarkmodeOn ? "typing-circle_white" : "typing-circle_black"
+              }`}
+            ></div>
+            <div
+              className={`typing-shadow ${
+                isDarkmodeOn ? "typing-shadow_white" : "typing-shadow_black"
+              }`}
+            ></div>
+            <div
+              className={`typing-shadow ${
+                isDarkmodeOn ? "typing-shadow_white" : "typing-shadow_black"
+              }`}
+            ></div>
+            <div
+              className={`typing-shadow ${
+                isDarkmodeOn ? "typing-shadow_white" : "typing-shadow_black"
+              }`}
+            ></div>
           </div>
         </div>
         <div className="dark_mode">
-          <DarkMode />
+          <DarkMode
+            isDarkmodeOn={isDarkmodeOn}
+            handle_darkmode_change={handle_darkmode_change}
+          />
         </div>
 
         <div className="menu_button">
@@ -199,6 +249,6 @@ export default function Header({ isSoundOff, toggleSound }) {
           </div>
         </div>
       </div>
-    </header>
+    </motion.header>
   );
 }

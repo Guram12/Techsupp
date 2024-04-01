@@ -8,6 +8,7 @@
 
 
 .container {
+  box-shadow: #a3a3a3;
   margin-left: 200px;
   margin-top: -200px;
   position: absolute;
@@ -36,7 +37,7 @@
         display: inline-block;
         width: 50px;
         height: 50px;
-        background: #dcdcdc;
+        background: #a3a3a3;
         z-index: calc(1 * var(--i));
         transition: 1.5s;
         &:hover {
@@ -55,7 +56,7 @@
           left: -40px;
           width: 40px;
           height: 100%;
-          background: #fff;
+          background: #d3d3d3;
           transform-origin: right;
           transform: skewY(45deg);
           transition: 1.5s;
@@ -67,7 +68,7 @@
           left: 0px;
           width: 100%;
           height: 40px;
-          background: #f2f2f2;
+          background: #c4c4c4;
           transform-origin: bottom;
           transform: skewX(45deg);
           transition: 1.5s;
