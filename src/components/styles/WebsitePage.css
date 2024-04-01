@@ -1,0 +1,68 @@
+.website_paralax_container{
+margin-top: 35px;
+margin-bottom: 300px;
+}
+
+.webservice_about_container{
+  margin-top: 400px;
+  width: 100%; /* Adjust based on your needs */
+  height: 600px; /* Adjust based on your needs */
+  background-image: url('../../assets/webservice.webp'); /* Link to your image */
+  background-size: cover; /* Cover the entire div */
+  background-position: center; /* Center the background image */
+  background-repeat: no-repeat; /* Do not repeat the image */
+  background-attachment: fixed; /* Fix the background image during scroll */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.webservice_child_cont{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  position: relative; /* Establish this container as the positioning context */
+  z-index: 1; /* Ensure content is layered above the pseudo-element */
+  /* background: rgba(255, 255, 255, 0.5); */
+  border-radius: 40px; /* Apply your desired border-radius */
+  overflow: hidden; 
+  width: 600px;
+  height: 400px;
+  
+}
+
+
+
+.webservice_child_cont::before {
+  content: ""; /* Required for pseudo-elements */
+  position: absolute;
+  top: -10px; /* Extend beyond the container to ensure complete coverage */
+  left: -10px; /* Extend beyond the container to ensure complete coverage */
+  right: -10px; /* Extend beyond the container to ensure complete coverage */
+  bottom: -10px; /* Extend beyond the container to ensure complete coverage */
+  background: inherit; /* Inherit the background from the parent container */
+  backdrop-filter: blur(25px); /* Apply the blur effect */
+  -webkit-backdrop-filter: blur(20px); /* For Safari compatibility */
+  z-index: -1; /* Position behind the container content */
+  border-radius: 40px; 
+  width: 600px;
+
+}
+
+.webservice_header{
+  color: aliceblue;
+
+}
+
+.webservice_header{
+  color: aliceblue;
+  width: 400px;
+  text-align: center;
+  margin-top: 30px;
+
+}

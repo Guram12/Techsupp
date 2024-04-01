@@ -8,8 +8,10 @@ import DarkMode from "../animations/Dark-Mode";
 import { CursorContext } from "../CursorContext/CursorContext";
 import { transition1 } from "../../Transitions";
 
-export default function Header({
-  isSoundOff,
+
+
+export default function Header({ 
+  isSoundOff, 
   toggleSound,
   isDarkmodeOn,
   handle_darkmode_change,
@@ -77,48 +79,23 @@ export default function Header({
       >
         <div className="sound_container" onClick={toggleSound}>
           <div
-            className={`typing-indicator ${
-              isSoundOff ? "" : "stop-animation"
-            }  `}
+            className={`typing-indicator ${isSoundOff ? "" : "stop-animation"}  `}
           >
-            <div
-              className={`typing-circle ${
-                isDarkmodeOn ? "typing-circle_white" : "typing-circle_black"
-              }`}
-            ></div>
-            <div
-              className={`typing-circle ${
-                isDarkmodeOn ? "typing-circle_white" : "typing-circle_black"
-              }`}
-            ></div>
-            <div
-              className={`typing-circle ${
-                isDarkmodeOn ? "typing-circle_white" : "typing-circle_black"
-              }`}
-            ></div>
-            <div
-              className={`typing-shadow ${
-                isDarkmodeOn ? "typing-shadow_white" : "typing-shadow_black"
-              }`}
-            ></div>
-            <div
-              className={`typing-shadow ${
-                isDarkmodeOn ? "typing-shadow_white" : "typing-shadow_black"
-              }`}
-            ></div>
-            <div
-              className={`typing-shadow ${
-                isDarkmodeOn ? "typing-shadow_white" : "typing-shadow_black"
-              }`}
-            ></div>
+            <div className={`typing-circle ${isDarkmodeOn ? "typing-circle_white" : "typing-circle_black"}`}></div>
+            <div className={`typing-circle ${isDarkmodeOn ? "typing-circle_white" : "typing-circle_black"}`}></div>
+            <div className={`typing-circle ${isDarkmodeOn ? "typing-circle_white" : "typing-circle_black"}`}></div>
+            <div className={`typing-shadow ${isDarkmodeOn ? "typing-shadow_white" : "typing-shadow_black"}`} ></div>
+            <div className={`typing-shadow ${isDarkmodeOn ? "typing-shadow_white" : "typing-shadow_black"}`}></div>
+            <div className={`typing-shadow ${isDarkmodeOn ? "typing-shadow_white" : "typing-shadow_black"}`}></div>
           </div>
         </div>
         <div className="dark_mode">
-          <DarkMode
+          <DarkMode 
             isDarkmodeOn={isDarkmodeOn}
             handle_darkmode_change={handle_darkmode_change}
           />
         </div>
+
 
         <div className="menu_button">
           <div className="menu_texts">

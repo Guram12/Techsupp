@@ -11,7 +11,7 @@ export default function DarkMode({
   
   return (
     <div className="cont_dark_mode">
-      <label className="toggle" htmlFor="switch">
+      <label className={`toggle ${isDarkmodeOn ? "toggle_white" : "toggle_black"   }`} htmlFor="switch">
         <input id="switch"
           className="input"
           type="checkbox"

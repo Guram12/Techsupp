@@ -8,11 +8,11 @@ import BrandingAnimation_3 from "../animations/branding_animations/BrendingAnima
 import BrandingAnimation_4 from "../animations/branding_animations/BrendingAnimation_4"
 import BrandingAnimation_5 from "../animations/branding_animations/BrendingAnimation_5"
 import BrandingAnimation_6 from "../animations/branding_animations/BrendingAnimation_6"
+import Parallax from "../animations/Paralax";
 
 
 
-
-export default function BrandingPage() {
+export default function BrandingPage({isDarkmodeOn}) {
   const [currentAnimationIndex, setCurrentAnimationIndex] = useState(0);
 
   const animations = [<BrandingAnimation />, <BrandingAnimation_2 />, <BrandingAnimation_3 />,
@@ -42,6 +42,12 @@ export default function BrandingPage() {
         <p>dfwefwe fwewef wfe wef wef wefw wfe wef wef wfw wef wfe wfe wef wf wf f wef we</p>
         <p>dfwefwe fwewef wfe wef wef wefw wfe wef wef wfw wef wfe wfe wef wf wf f wef we</p>
 
+      </div>
+      <div>
+        <section>
+          <Parallax isDarkmodeOn={isDarkmodeOn} baseVelocity={-5}>Analitycs Analitycs</Parallax>
+          <Parallax isDarkmodeOn={isDarkmodeOn} baseVelocity={5}>Google sheet </Parallax>
+        </section>
       </div>
     </div>
   );
