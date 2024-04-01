@@ -1,9 +1,67 @@
-.sheet_animation_cont{
+.sheet_animation_cont {
   margin-top: 40px;
   margin-bottom: 40px;
 }
 
-.sheet_paralax{
+.sheet_paralax {
   margin-top: 100px;
   margin-bottom: 200px;
+}
+
+
+.analitycs_card_container {
+  width: 100%;
+  height: 600px;
+  background-image: url('../../assets/analitic.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  margin-bottom: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: self-start;
+  flex-direction: column;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
+
+.analityc_card_down {
+  width: 300px;
+  height: 100px;
+  backdrop-filter: blur(25px);
+  border-radius: 25px;
+  padding: 10px;
+  backdrop-filter: blur(25px);
+  margin-left: 60px;
+  color: rgb(255, 252, 252);
+  margin-top: 40px;
+  background-color:transparent;
+  border: 1px solid #004e71;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-shadow: rgba(136, 136, 136, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 10px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+
+
+}
+
+.analityc_price_down{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 40px;
+  backdrop-filter: blur(25px);
+  border-radius: 25px;
+  padding: 10px;
+  backdrop-filter: blur(25px);
+  margin-left: 60px;
+  color: rgb(0, 0, 0);
+  margin-top: 40px;
+  font-weight: 700;
+  background-color:#ffffff;
+  margin-left: 100px;
+  /* border: 1px solid #f86259; */
 }
