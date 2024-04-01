@@ -50,7 +50,7 @@ function App() {
   
 
 
-  const location = useLocation();
+
 
   useEffect(() => {
     const startAudio = () => {
@@ -141,13 +141,13 @@ function App() {
             <Route path="services/analitycs" element={<AnaliticPage isDarkmodeOn={isDarkmodeOn} />} />
             <Route path="/members" element={<Members />} />
           </Routes>
+          {/* Cursor */}
+  {/* <motion.div
+    variants={cursorVariants}
+    animate={cursorBG}
+    className="cursor"
+  ></motion.div> */}
         </div>
-              {/* Cursor */}
-      {/* <motion.div
-        variants={cursorVariants}
-        animate={cursorBG}
-        className="cursor"
-      ></motion.div> */}
   );
 }
 
