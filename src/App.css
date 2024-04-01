@@ -26,15 +26,17 @@
 }
 
 /* cursor styles */
-.cursor {
+/* .cursor {
   width: 32px;
   height: 32px;
   background-color: black;
   top: 0;
   left: 0;
   position: fixed;
-  /* position: fixed; */
   pointer-events: none;
   z-index: 50;
   border-radius: 50px;
-}
+  background-color: rgb(14, 17, 18);
+  transform: translateX(886px) translateY(307px) translateZ(0px);
+  mix-blend-mode: normal;
+} */

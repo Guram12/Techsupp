@@ -21,7 +21,7 @@ export default function Header({
     { showArrow: false, showDot: false },
     { showArrow: false, showDot: false },
   ]);
-  const { mouseEnterHandler, mouseLeaveHandle } = useContext(CursorContext);
+  const { mouseEnterHandler, mouseLeaveHandler } = useContext(CursorContext);
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
@@ -47,20 +47,20 @@ export default function Header({
   };
 
   return (
-    <motion.header
-    // className="header"
-    // initial={{ opacity: 0 }}
-    // animate={{ opacity: 1 }}
-    // exit={{ opacity: 0 }}
-    // transition={transition1}
+    <header
+      className="header"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={transition1}
     >
       <motion.div
-        initial={{ opacity: 0, y: "-50%" }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: "-50%" }}
+        // initial={{ opacity: 0, y: "-50%" }}
+        // animate={{ opacity: 1, y: 0 }}
+        // exit={{ opacity: 0, y: "-50%" }}
         transition={transition1}
-        onMouseEnter={mouseEnterHandler}
-        onMouseLeave={mouseLeaveHandle}
+        onMouseEnter={mouseEnterHandler} // Corrected function name
+        onMouseLeave={mouseLeaveHandler}
         className="logo_and_name"
       >
         <Link to="/">
@@ -69,7 +69,12 @@ export default function Header({
         <h1>TechSupp</h1>
       </motion.div>
 
-      <div className="header_right">
+      <motion.div
+        transition={transition1}
+        onMouseEnter={mouseEnterHandler} // Corrected function name
+        onMouseLeave={mouseLeaveHandler}
+        className="header_right"
+      >
         <div className="sound_container" onClick={toggleSound}>
           <div
             className={`typing-indicator ${
@@ -248,7 +253,7 @@ export default function Header({
             <div></div>
           </div>
         </div>
-      </div>
-    </motion.header>
+      </motion.div>
+    </header>
   );
 }

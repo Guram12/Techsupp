@@ -8,7 +8,6 @@ header {
 
 .header_right {
   width: 300px;
-  /* border: 1px solid green; */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -186,15 +185,11 @@ header {
 
 .typing-circle_white {
   background-color: #000000;
-
 }
 
 .typing-circle_black {
   background-color: #fffcfc;
-
 }
-
-
 
 @keyframes typing-circle7124 {
   0% {
@@ -241,15 +236,11 @@ header {
 
 .typing-shadow_white {
   background-color: rgba(0, 0, 0, 0.2);
-
 }
 
 .typing-shadow_black {
   background-color: rgb(134, 134, 134);
-
 }
-
-
 
 @keyframes typing-shadow046 {
   0% {

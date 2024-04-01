@@ -14,8 +14,9 @@ import AnimationPage from "./components/pages/AnimationPage";
 import AnaliticPage from "./components/pages/AnaliticPage";
 import background_audio_second from "./assets/background_second.mp3";
 import Members from "./components/pages/Members";
-import { motion } from "framer-motion";
-import { CursorContext } from "./components/CursorContext/CursorContext";
+// import { motion } from "framer-motion";
+// import { CursorContext } from "./components/CursorContext/CursorContext";
+// import CursorProvider from "./components/CursorContext/CursorContext";
 
 function App() {
   const [showSplashScreen, setShowSplashScreen] = useState(true);
@@ -23,7 +24,7 @@ function App() {
   const [isDarkmodeOn, setIsDarkmodeOn] = useState(true);
   const audioRef = useRef(null);
 
-  const { cursorVariants, cursorBG } = useContext(CursorContext);
+  // const { cursorVariants, cursorBG } = useContext(CursorContext);
 
   const handle_darkmode_change = (event) => {
     console.log("clicked dark mode");
@@ -135,11 +136,11 @@ function App() {
         </Routes>
       </div>
       {/* Cursor */}
-      <motion.div
+      {/* <motion.div
         variants={cursorVariants}
         animate={cursorBG}
         className="cursor"
-      ></motion.div>
+      ></motion.div> */}
     </>
   );
 }

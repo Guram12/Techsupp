@@ -1,78 +1,62 @@
 import React, { useState, useEffect, createContext } from "react";
-import { debounce } from "lodash";
+import { motion } from "framer-motion";
+import { transition1 } from "../../Transitions";
 
-// create context
 export const CursorContext = createContext();
 
 const CursorProvider = ({ children }) => {
-  // cursor position
-  const [cursorPos, setCursorPos] = useState({
-    x: 0,
-    y: 0,
-  });
-
-  // cursor bg state
+  const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
   const [cursorBG, setCursorBG] = useState("default");
 
-  const mobileViewportIsActive = window.innerWidth < 768;
-
   useEffect(() => {
-    if (!mobileViewportIsActive) {
-      const handleMouseMove = debounce((e) => {
-        setCursorPos({
-          x: e.clientX,
-          y: e.clientY,
-        });
-      }, 10); // Adjust debounce time as needed
+    const handleMouseMove = (e) => {
+      setTimeout(() => {
+        setCursorPos({ x: e.clientX, y: e.clientY });
+      }, 100);
+    };
 
-      window.addEventListener("mousemove", handleMouseMove);
+    document.addEventListener("mousemove", handleMouseMove);
 
-      // REMOVE EVENT
-      return () => {
-        window.removeEventListener("mousemove", handleMouseMove);
-      };
-    } else {
-      setCursorBG("none");
-    }
-  }, [mobileViewportIsActive]);
+    return () => {
+      document.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, []);
 
-  // cursor variants
-  const cursorVariants = {
-    default: {
-      x: cursorPos.x - 16,
-      y: cursorPos.y - 16,
-      backgroundColor: "#0e1112",
-    },
-    text: {
-      width: "100px",
-      height: "100px",
-      x: cursorPos.x - 72,
-      y: cursorPos.y - 72,
-      backgroundColor: "#fff",
-      mixBlendMode: "difference",
-    },
-    none: {
-      width: 0,
-      height: 0,
-      backgroundColor: "rgba(255, 255, 255, 1)",
-    },
-  };
-
-  // mouse enter handle
   const mouseEnterHandler = () => {
     setCursorBG("text");
   };
 
-  // mouse leave handler
   const mouseLeaveHandler = () => {
     setCursorBG("default");
   };
 
+  // Calculate cursor dimensions
+  const cursorSize = cursorBG === "text" ? 70 : 32;
+  const halfCursorSize = cursorSize / 2;
+
   return (
     <CursorContext.Provider
-      value={{ cursorVariants, cursorBG, mouseEnterHandler, mouseLeaveHandler }}
+      value={{ cursorBG, mouseEnterHandler, mouseLeaveHandler }}
     >
       {children}
+      <motion.div
+        className="cursor"
+        style={{
+          width: cursorSize + "px",
+          height: cursorSize + "px",
+          backgroundColor: cursorBG === "text" ? "#fff" : "#0e1112",
+          position: "fixed",
+          top: `${cursorPos.y - halfCursorSize}px`, // Adjust for centering
+          left: `${cursorPos.x - halfCursorSize}px`, // Adjust for centering
+          zIndex: 9999,
+          borderRadius: "50%",
+          mixBlendMode: cursorBG === "text" ? "difference" : "normal",
+          pointerEvents: "none",
+        }}
+        variants={{ scale: cursorBG === "text" ? 1.5 : 1 }}
+        animate={{ scale: cursorBG === "text" ? 1.5 : 1 }}
+        transition={transition1}
+      ></motion.div>
     </CursorContext.Provider>
   );
 };
