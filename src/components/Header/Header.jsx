@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "../styles/Header.css";
 import logo_black from "../../assets/logo_techsupp_black.svg";
 import { Link } from "react-router-dom";
 import RightArrow from "../../assets/right.png";
 import { motion } from "framer-motion";
 import DarkMode from "../animations/Dark-Mode";
+import { CursorContext } from "../CursorContext/CursorContext";
+import { transition1 } from "../../Transitions";
+
 
 
 export default function Header({ 
@@ -20,7 +23,7 @@ export default function Header({
     { showArrow: false, showDot: false },
     { showArrow: false, showDot: false },
   ]);
-
+  const { mouseEnterHandler, mouseLeaveHandler } = useContext(CursorContext);
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
@@ -46,15 +49,34 @@ export default function Header({
   };
 
   return (
-    <header>
-      <div className="logo_and_name">
+    <header
+      className="header"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={transition1}
+    >
+      <motion.div
+        // initial={{ opacity: 0, y: "-50%" }}
+        // animate={{ opacity: 1, y: 0 }}
+        // exit={{ opacity: 0, y: "-50%" }}
+        transition={transition1}
+        onMouseEnter={mouseEnterHandler} // Corrected function name
+        onMouseLeave={mouseLeaveHandler}
+        className="logo_and_name"
+      >
         <Link to="/">
           <img src={logo_black} alt="company logo" style={{ width: "100px" }} />
         </Link>
         <h1>TechSupp</h1>
-      </div>
+      </motion.div>
 
-      <div className="header_right">
+      <motion.div
+        transition={transition1}
+        onMouseEnter={mouseEnterHandler} // Corrected function name
+        onMouseLeave={mouseLeaveHandler}
+        className="header_right"
+      >
         <div className="sound_container" onClick={toggleSound}>
           <div
             className={`typing-indicator ${isSoundOff ? "" : "stop-animation"}  `}
@@ -208,7 +230,7 @@ export default function Header({
             <div></div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </header>
   );
 }

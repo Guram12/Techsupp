@@ -8,7 +8,6 @@ header {
 
 .header_right {
   width: 300px;
-  /* border: 1px solid green; */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -57,7 +56,7 @@ header {
   position: absolute;
   z-index: 111111;
   background-color: rgb(255, 255, 255);
-  top: 100px;
+  top: 140px;
   box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
     rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
@@ -112,7 +111,9 @@ header {
 }
 
 .menu .menu_links:hover {
-  background-color: #ebe4e4;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+  background-color: #f4f3f3;
   border-radius: 20px;
   transition: 1s;
 }
@@ -184,15 +185,11 @@ header {
 
 .typing-circle_white {
   background-color: #000000;
-
 }
 
 .typing-circle_black {
   background-color: #fffcfc;
-
 }
-
-
 
 @keyframes typing-circle7124 {
   0% {
@@ -239,15 +236,11 @@ header {
 
 .typing-shadow_white {
   background-color: rgba(0, 0, 0, 0.2);
-
 }
 
 .typing-shadow_black {
   background-color: rgb(134, 134, 134);
-
 }
-
-
 
 @keyframes typing-shadow046 {
   0% {
