@@ -11,7 +11,7 @@ export default function Techsupp_name() {
       const randomIndex = Math.floor(Math.random() * newStates.length); // Choose a random div
       newStates[randomIndex] = true; // Set only this div to be animated
       setAnimateStates(newStates);
-    }, 5000); // Change every 7 seconds
+    }, 2000); // Change every 7 seconds
 
     return () => clearInterval(intervalId); // Cleanup on unmount
   }, []);

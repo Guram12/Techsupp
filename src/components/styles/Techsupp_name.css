@@ -34,69 +34,9 @@
 }
 
 .content__container__list.animate {
-  animation: change 15s infinite;
+  animation: change 10s infinite;
 }
 
-
-
-/* .content__container__list1 {
-  margin-top: 0;
-
-  text-align: left;
-  list-style: none;
-  animation: change 15s infinite;
-}
-
-
-.content__container__list2 {
-  margin-top: 0;
-
-  text-align: left;
-  list-style: none;
-  animation: change 15s infinite;
-}
-
-
-
-.content__container__list3 {
-  margin-top: 0;
-
-  text-align: left;
-  list-style: none;
-  animation: change 15s infinite;
-}
-
-
-.content__container__list4 {
-  margin-top: 0;
-
-  text-align: left;
-  list-style: none;
-  animation: change 15s infinite;
-}
-
-
-.content__container__list5 {
-  margin-top: 0;
-  text-align: left;
-  list-style: none;
-  animation: change 15s infinite;
-}
-
-
-.content__container__list6 {
-  margin-top: 0;
-  text-align: left;
-  list-style: none;
-  animation: change 15s infinite;
-}
-
-.content__container__list7 {
-  margin-top: 0;
-  text-align: left;
-  list-style: none;
-  animation: change 15s infinite;
-} */
 
 
 .content__container__list__item {
@@ -112,3 +52,4 @@
   66.64%, 79.3% { transform: translate3d(0, -50%, 0); }
   83.3%, 95.96% { transform: translate3d(0, -25%, 0); }
 }
+
