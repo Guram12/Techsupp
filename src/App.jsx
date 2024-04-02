@@ -14,9 +14,12 @@ import AnimationPage from "./components/pages/AnimationPage";
 import AnaliticPage from "./components/pages/AnaliticPage";
 import background_audio_second from "./assets/background_second.mp3";
 import Members from "./components/pages/Members";
+import CursorProvider from "./components/CursorContext/CursorContext.jsx";
+
 // import { motion } from "framer-motion";
 // import { CursorContext } from "./components/CursorContext/CursorContext";
-// import CursorProvider from "./components/CursorContext/CursorContext";
+
+
 
 function App() {
   const [showSplashScreen, setShowSplashScreen] = useState(true);
@@ -38,16 +41,16 @@ function App() {
   useEffect(() => {
     // Save the original background color
     const originalBackgroundColor = document.body.style.backgroundColor;
-  
+
     // Change background color based on the dark mode state
     document.body.style.backgroundColor = !isDarkmodeOn ? 'black' : 'white';
-  
+
     // Reset to original background color on cleanup
     return () => {
       document.body.style.backgroundColor = originalBackgroundColor;
     };
   }, [isDarkmodeOn]);
-  
+
 
 
 
@@ -112,42 +115,45 @@ function App() {
 
 
   return (
-        <div className={`main_container ${isDarkmodeOn ? "main_container_white" : "main_container_black"}`}>
-          {!(location.pathname === "/members") && (
-            <>
-              <Header
-                isSoundOff={isSoundOff}
-                toggleSound={toggleSound}
-                isDarkmodeOn={isDarkmodeOn}
-                handle_darkmode_change={handle_darkmode_change}
+    <CursorProvider isDarkmodeOn={isDarkmodeOn} >
 
-              />
-              <Link to="about/"><button>about </button></Link>
-              <Link to="/"><button>main page </button></Link>
-              <Link to="/members"><button>members </button></Link>
-            </>
+      <div className={`main_container ${isDarkmodeOn ? "main_container_white" : "main_container_black"}`}>
+        {!(location.pathname === "/members") && (
+          <>
+            <Header
+              isSoundOff={isSoundOff}
+              toggleSound={toggleSound}
+              isDarkmodeOn={isDarkmodeOn}
+              handle_darkmode_change={handle_darkmode_change}
 
-          )}
-          <audio ref={audioRef} src={background_audio_second} loop muted />
+            />
+            <Link to="about/"><button>about </button></Link>
+            <Link to="/"><button>main page </button></Link>
+            <Link to="/members"><button>members </button></Link>
+          </>
 
-          <Routes>
-            <Route path="about/" element={<About isDarkmodeOn={isDarkmodeOn} />} />
-            <Route path="/" element={<MainPage showSplashScreen={showSplashScreen} />} />
-            <Route path="services/web-development" element={<WebsitePage isDarkmodeOn={isDarkmodeOn} />} />
-            <Route path="services/it" element={<ItPage isDarkmodeOn={isDarkmodeOn}/>} />
-            <Route path="services/menu" element={<MenuPage isDarkmodeOn={isDarkmodeOn}/>} />
-            <Route path="services/brending" element={<BrendingPage isDarkmodeOn={isDarkmodeOn}/>} />
-            <Route path="services/animation" element={<AnimationPage isDarkmodeOn={isDarkmodeOn}/>} />
-            <Route path="services/analitycs" element={<AnaliticPage isDarkmodeOn={isDarkmodeOn} />} />
-            <Route path="/members" element={<Members />} />
-          </Routes>
-          {/* Cursor */}
-  {/* <motion.div
+        )}
+        <audio ref={audioRef} src={background_audio_second} loop muted />
+
+        <Routes>
+          <Route path="about/" element={<About isDarkmodeOn={isDarkmodeOn} />} />
+          <Route path="/" element={<MainPage showSplashScreen={showSplashScreen} />} />
+          <Route path="services/web-development" element={<WebsitePage isDarkmodeOn={isDarkmodeOn} />} />
+          <Route path="services/it" element={<ItPage isDarkmodeOn={isDarkmodeOn} />} />
+          <Route path="services/menu" element={<MenuPage isDarkmodeOn={isDarkmodeOn} />} />
+          <Route path="services/brending" element={<BrendingPage isDarkmodeOn={isDarkmodeOn} />} />
+          <Route path="services/animation" element={<AnimationPage isDarkmodeOn={isDarkmodeOn} />} />
+          <Route path="services/analitycs" element={<AnaliticPage isDarkmodeOn={isDarkmodeOn} />} />
+          <Route path="/members" element={<Members />} />
+        </Routes>
+        {/* Cursor */}
+        {/* <motion.div
     variants={cursorVariants}
     animate={cursorBG}
     className="cursor"
   ></motion.div> */}
-        </div>
+      </div>
+    </CursorProvider>
   );
 }
 
