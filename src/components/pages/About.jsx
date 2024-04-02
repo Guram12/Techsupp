@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from "react";
 import "../styles/About.css";
 
-export default function About({isDarkmodeOn}) {
+export default function About({ isDarkmodeOn }) {
   return (
-    <div className="abut_container" >
-
-
-
-      <div className="vawe_container" >
+    <div className="abut_container">
+      <div className="vawe_container">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 24 150 28"
@@ -39,7 +36,12 @@ export default function About({isDarkmodeOn}) {
               y="9"
               fill="rgba(255,255,255,0.3)"
             ></use>
-            <use xlinkHref="#gentle-wave" x="60" y="6" fill= {isDarkmodeOn? "#black" : "#white"} ></use>
+            <use
+              xlinkHref="#gentle-wave"
+              x="60"
+              y="6"
+              fill={isDarkmodeOn ? "#black" : "#white"}
+            ></use>
           </g>
         </svg>
       </div>

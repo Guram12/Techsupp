@@ -1,20 +1,20 @@
-import React, { useState, useRef } from 'react';
-import { Route, Routes, Link } from "react-router-dom";
-import ImageGallery from 'react-image-gallery';
-import '../styles/Members.css';
-import 'react-image-gallery/styles/css/image-gallery.css';
-import guram_profile from "../../assets/guram_1.png"
-import guram_1 from "../../assets/guram_1 copy.png"
-import guram_2 from "../../assets/guram_1 copy2.png"
-import guram_3 from "../../assets/guram_1 copy3.png"
-import guram_4 from "../../assets/guram_1 copy4.png"
-import guram_5 from "../../assets/guram_1 copy5.png"
-import guram_6 from "../../assets/guram_1 copy6.png"
-import matrix_background from '../../assets/matrix.webm'
-import sheet from "../../assets/sheet_image.png"
-import TerminalTextAnimation from '../animations/TerminalTextAnimation';
+import React, { useState, useRef, useContext, useEffect } from "react";
+import { Link } from "react-router-dom";
+import ImageGallery from "react-image-gallery";
+import "../styles/Members.css";
+import "react-image-gallery/styles/css/image-gallery.css";
+import guram_1 from "../../assets/guram_1 copy.png";
+import guram_2 from "../../assets/guram_1 copy2.png";
+import guram_3 from "../../assets/guram_1 copy3.png";
+import guram_4 from "../../assets/guram_1 copy4.png";
+import guram_5 from "../../assets/guram_1 copy5.png";
+import guram_6 from "../../assets/guram_1 copy6.png";
+import matrix_background from "../../assets/matrix.webm";
+import sheet from "../../assets/sheet_image.png";
+import TerminalTextAnimation from "../animations/TerminalTextAnimation";
+import { CursorContext } from "../CursorContext/CursorContext";
+import { motion } from "framer-motion";
 
-// Transform your image paths into the structure required by react-image-gallery
 const images = [
   { original: guram_1 },
   { original: sheet },
@@ -22,18 +22,30 @@ const images = [
   { original: guram_3 },
   { original: guram_4 },
   { original: guram_5 },
-  { original: guram_6 }
+  { original: guram_6 },
 ];
 
-export default function Members() {
+const Members = () => {
   const galleryRef = useRef();
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [cursorX, setCursorX] = useState(0);
+  const { mouseEnterHandler, mouseLeaveHandler, setIsMemberPage } =
+    useContext(CursorContext);
 
-  const handleGalleryClick = (event) => {
-    const { clientX } = event;
+  useEffect(() => {
+    setIsMemberPage(true); // Set isMemberPage to true when component mounts
+    return () => {
+      setIsMemberPage(false); // Set isMemberPage to false when component unmounts
+    };
+  }, []);
+
+  const handleMouseMove = (event) => {
+    setCursorX(event.clientX);
+  };
+
+  const handleGalleryClick = () => {
     const { innerWidth } = window;
-
-    if (clientX < innerWidth / 2) {
+    if (cursorX < innerWidth / 2) {
       goToPreviousSlide();
     } else {
       goToNextSlide();
@@ -53,7 +65,15 @@ export default function Members() {
   };
 
   return (
-    <div  onClick={handleGalleryClick} >
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      onMouseEnter={mouseEnterHandler}
+      onMouseLeave={mouseLeaveHandler}
+      onMouseMove={handleMouseMove}
+      onClick={handleGalleryClick}
+    >
       <div className="video-background">
         <video
           src={matrix_background}
@@ -71,7 +91,7 @@ export default function Members() {
           </button>
         </Link>
       </div>
-      <div className='slider_container'>
+      <div className="slider_container">
         <ImageGallery
           ref={galleryRef}
           items={images}
@@ -81,9 +101,11 @@ export default function Members() {
           infinite={true}
         />
       </div>
-      <div className='header_container'>
+      <div className="header_container">
         <TerminalTextAnimation />
       </div>
-    </div>
+    </motion.div>
   );
-}
+};
+
+export default Members;

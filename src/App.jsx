@@ -50,6 +50,11 @@ function App() {
   
 
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 9145797720b3b5a7bae273ab3b385ef5f9d7f980
   useEffect(() => {
     const startAudio = () => {
       // Play audio

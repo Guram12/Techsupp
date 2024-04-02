@@ -12,28 +12,14 @@ export default function WebsitePage({
   isDarkmodeOn,
 }) {
 
-  const controls = useAnimation();
-  const { ref, inView } = useInView({
-    triggerOnce: true, // Optional: Trigger animation only once
-    threshold: 0.5, // Trigger when 50% of the element is in view
-  });
-
-  React.useEffect(() => {
-    console.log("In view:", inView); // Debugging line
-    if (inView) {
-      controls.start({ x: 0, opacity: 1 });
-    }
-  }, [controls, inView]);
-
 
   return (
     <div>
       <Website_card_animation />
-      <div className="webservice_about_container" ref={ref}  >
+      <div className="webservice_about_container"  >
         <motion.div
-
-          initial={{ x: '100vw', opacity: 0 }}
-          animate={controls}
+          initial={{ x: '100vw'}}
+          animate={{ x: 0, opacity: 1 }}
           transition={{ type: 'spring', stiffness: 70 }}
         >
           <div className="webservice_child_cont">
@@ -66,7 +52,9 @@ export default function WebsitePage({
           <Paralax isDarkmodeOn={isDarkmodeOn} baseVelocity={5}>youur designe</Paralax>
         </section>
       </div>
-      <Website_cards/>
+      <div className='card_wb_container'>
+        <Website_cards />
+      </div>
     </div>
   )
 }
