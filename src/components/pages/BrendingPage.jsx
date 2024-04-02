@@ -9,10 +9,9 @@ import BrandingAnimation_4 from "../animations/branding_animations/BrendingAnima
 import BrandingAnimation_5 from "../animations/branding_animations/BrendingAnimation_5"
 import BrandingAnimation_6 from "../animations/branding_animations/BrendingAnimation_6"
 import Parallax from "../animations/Paralax";
+import testimage from "../../assets/web_icon.png"
 
-
-
-export default function BrandingPage({isDarkmodeOn}) {
+export default function BrandingPage({ isDarkmodeOn }) {
   const [currentAnimationIndex, setCurrentAnimationIndex] = useState(0);
 
   const animations = [<BrandingAnimation />, <BrandingAnimation_2 />, <BrandingAnimation_3 />,
@@ -34,13 +33,14 @@ export default function BrandingPage({isDarkmodeOn}) {
       {/* <Spline_logo/> */}
       <div className="branding_animation_container">
         <div className="each_animation" >
-        {animations[currentAnimationIndex]}
+          {animations[currentAnimationIndex]}
         </div>
-        <p>dfwefwe fwewef wfe wef wef wefw wfe wef wef wfw wef wfe wfe wef wf wf f wef we</p>
-        <p>dfwefwe fwewef wfe wef wef wefw wfe wef wef wfw wef wfe wfe wef wf wf f wef we</p>
-        <p>dfwefwe fwewef wfe wef wef wefw wfe wef wef wfw wef wfe wfe wef wf wf f wef we</p>
-        <p>dfwefwe fwewef wfe wef wef wefw wfe wef wef wfw wef wfe wfe wef wf wf f wef we</p>
-        <p>dfwefwe fwewef wfe wef wef wefw wfe wef wef wfw wef wfe wfe wef wf wf f wef we</p>
+        <div className="brending_about_up" >
+          <h1>ბრენდინგი/რებრენდინგი</h1>
+          <p>ბიზნესის იმიჯის შესაქმნელად აუცილებელია გქონდეთ საკუთარი ლოგო და დიზაინი.
+            ამ ყველაფერში კი ჩვენი გამოცდილი გუნდის წევრები დაგეხმარებიან. ისინი შექმნიან
+            თქვენზე მორგებულ დიზაინს და მოარგებენ თქვენს საიტსა თუ სოციალურ მედიას.</p>
+        </div>
 
       </div>
       <div>
@@ -49,6 +49,34 @@ export default function BrandingPage({isDarkmodeOn}) {
           <Parallax isDarkmodeOn={isDarkmodeOn} baseVelocity={5}>Google sheet </Parallax>
         </section>
       </div>
+      <div className="all_brending_cards_container" >
+        {/* pirveli konteineri  */}
+        <div className="rebrending_down_card_container" >
+          <div className="rebranding_down_card" ></div>
+          <img src={testimage} alt="brending icon" className="first_rebranding_image" />
+          <div className="rebranding_card_text" >
+            <p className="rebranding_card_text_p" >ბიზნესისთვის ლოგოს შექმნა</p>
+          </div>
+        </div>
+        {/* meore konteineri  */}
+        <div className="rebrending_down_card_container_1" >
+          <div className="rebranding_card_text2" >
+            <p className="rebranding_card_text_p2" >სავიზიტო ბარათების დიზაინი / ბრენდირება / რებრენდინგი</p>
+          </div>
+          <img src={testimage} alt="brending icon" className="second_rebranding_image" />
+          <div className="rebranding_down_card2" ></div>
+        </div>
+        {/* pirveli konteineri  */}
+        <div className="rebrending_down_card_container_3" >
+          <div className="rebranding_down_card_3" ></div>
+          <img src={testimage} alt="brending icon" className="first_rebranding_image_3" />
+          <div className="rebranding_card_text_3" >
+            <p className="rebranding_card_text_p_3" >UI/UX დიზაინის შექმნა თქვენი ბიზნესისთვის</p>
+          </div>
+        </div>
+
+      </div>
+
     </div>
   );
 }
