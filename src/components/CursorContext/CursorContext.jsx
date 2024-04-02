@@ -1,5 +1,5 @@
 import React, { useState, useEffect, createContext } from "react";
-import { motion } from "framer-motion";
+import { motion, useAnimation } from "framer-motion";
 import { transition1 } from "../../Transitions";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 import "../styles/CursorContext.css";
@@ -10,6 +10,7 @@ const CursorProvider = ({ children }) => {
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
   const [cursorBG, setCursorBG] = useState("default");
   const [isMemberPage, setIsMemberPage] = useState(false);
+  const arrowControls = useAnimation();
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -24,6 +25,21 @@ const CursorProvider = ({ children }) => {
       document.removeEventListener("mousemove", handleMouseMove);
     };
   }, []);
+
+  useEffect(() => {
+    if (isMemberPage) {
+      // Animate the arrow
+      arrowControls.start({
+        x: [0, -5, 0, 5, 0], // Define keyframes for x-axis motion
+        transition: {
+          repeat: Infinity, // Repeat the animation infinitely
+          duration: 1.5, // Duration for each loop
+        },
+      });
+    } else {
+      arrowControls.stop(); // Stop the animation if not on the member page
+    }
+  }, [isMemberPage, arrowControls]);
 
   const mouseEnterHandler = () => {
     setCursorBG(isMemberPage ? "blue" : "text");
@@ -47,7 +63,7 @@ const CursorProvider = ({ children }) => {
     >
       {children}
       <motion.div
-        className="cursor "
+        className="cursor"
         style={{
           width: cursorSize + "px",
           height: cursorSize + "px",
@@ -72,15 +88,22 @@ const CursorProvider = ({ children }) => {
         animate={{ scale: cursorBG === "text" ? 1.5 : 1 }}
         transition={transition1}
       >
-        {/* Conditionally render the arrow icon */}
         {isMemberPage && (
-          <div className="arrow">
+          <motion.div
+            className="arrow"
+            animate={arrowControls}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
             {cursorPos.x < window.innerWidth / 2 ? (
               <FiArrowLeft size={34} />
             ) : (
               <FiArrowRight size={34} />
             )}
-          </div>
+          </motion.div>
         )}
       </motion.div>
     </CursorContext.Provider>
