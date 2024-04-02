@@ -1,73 +1,36 @@
+import React, { useEffect, useState } from 'react';
 import "../styles/Techsupp_name.css";
 
 export default function Techsupp_name() {
+  // Initial state where no divs are selected for animation
+  const [animateStates, setAnimateStates] = useState(Array(8).fill(false));
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      const newStates = Array(8).fill(false); // Reset states
+      const randomIndex = Math.floor(Math.random() * newStates.length); // Choose a random div
+      newStates[randomIndex] = true; // Set only this div to be animated
+      setAnimateStates(newStates);
+    }, 5000); // Change every 7 seconds
+
+    return () => clearInterval(intervalId); // Cleanup on unmount
+  }, []);
+
+  const letters = ['T', 'e', 'c', 'h', 's', 'u', 'p', 'p'];
+
   return (
     <div className="main11111">
       <div className="content">
-        <div className="content__container">
-          <ul className="content__container__list">
-            <li className="content__container__list__item">T</li>
-            <li className="content__container__list__item">T</li>
-            <li className="content__container__list__item">T</li>
-            <li className="content__container__list__item">T</li>
-          </ul>
-        </div>
-        <div className="content__container">
-          <ul className="content__container__list1">
-            <li className="content__container__list__item">e</li>
-            <li className="content__container__list__item">e</li>
-            <li className="content__container__list__item">e</li>
-            <li className="content__container__list__item">e</li>
-          </ul>
-        </div>
-        <div className="content__container">
-          <ul className="content__container__list2">
-            <li className="content__container__list__item">c</li>
-            <li className="content__container__list__item">c</li>
-            <li className="content__container__list__item">c</li>
-            <li className="content__container__list__item">c</li>
-          </ul>
-        </div>
-        <div className="content__container">
-          <ul className="content__container__list3">
-            <li className="content__container__list__item">h</li>
-            <li className="content__container__list__item">h</li>
-            <li className="content__container__list__item">h</li>
-            <li className="content__container__list__item">h</li>
-          </ul>
-        </div>
-        <div className="content__container">
-          <ul className="content__container__list4">
-            <li className="content__container__list__item">s</li>
-            <li className="content__container__list__item">s</li>
-            <li className="content__container__list__item">s</li>
-            <li className="content__container__list__item">s</li>
-          </ul>
-        </div>
-        <div className="content__container">
-          <ul className="content__container__list5">
-            <li className="content__container__list__item">u</li>
-            <li className="content__container__list__item">u</li>
-            <li className="content__container__list__item">u</li>
-            <li className="content__container__list__item">u</li>
-          </ul>
-        </div>
-        <div className="content__container">
-          <ul className="content__container__list6">
-            <li className="content__container__list__item">p</li>
-            <li className="content__container__list__item">p</li>
-            <li className="content__container__list__item">p</li>
-            <li className="content__container__list__item">p</li>
-          </ul>
-        </div>
-        <div className="content__container">
-          <ul className="content__container__list7">
-            <li className="content__container__list__item">p</li>
-            <li className="content__container__list__item">p</li>
-            <li className="content__container__list__item">p</li>
-            <li className="content__container__list__item">p</li>
-          </ul>
-        </div>
+        {letters.map((letter, index) => (
+          <div className="content__container" key={index}>
+            <ul className={`content__container__list ${animateStates[index] ? 'animate' : ''}`}>
+              <li className="content__container__list__item">{letter}</li>
+              <li className="content__container__list__item">{letter}</li>
+              <li className="content__container__list__item">{letter}</li>
+              <li className="content__container__list__item">{letter}</li>
+            </ul>
+          </div>
+        ))}
       </div>
     </div>
   );
