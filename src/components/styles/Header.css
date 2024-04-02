@@ -155,6 +155,12 @@ header {
   gap: 10px;
 }
 
+
+.techsupp_main_name{
+  color: #000000;
+}
+
+
 /* ====================================== voice animation styles ====================================== */
 .sound_container {
   position: relative;
