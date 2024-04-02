@@ -86,9 +86,6 @@ const CursorProvider = ({ children  , isDarkmodeOn }) => {
           borderRadius: "50%",
           mixBlendMode: cursorBG === "text" && !isMemberPage ? "difference" : "normal",
           pointerEvents: "none",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
         }}
         animate={{ scale: cursorBG === "text" && !isMemberPage ? 1.5 : 1 }}
         transition={transition1}
