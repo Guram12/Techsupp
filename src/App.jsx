@@ -1,5 +1,5 @@
 import "./App.css";
-import techsupp_video from "./assets/splashvideo.webm";
+import techsupp_video from "./assets/Motion_media_files/splashvideo.webm";
 import { useState, useEffect, useRef, useContext } from "react";
 import { Route, Routes, Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
