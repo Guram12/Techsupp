@@ -43,7 +43,9 @@ export default function AnimationPage({ isDarkmodeOn }) {
     }
   }, [controls_1, inView1])
 
-
+const test_click = ()=> {
+  console.log("clicked")
+}
 
   return (
     <div>
