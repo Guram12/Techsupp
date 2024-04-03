@@ -1,23 +1,28 @@
 import VideoAnimation from "../animations/VideoAnimation"
-import  "../styles/AnimationPage.css"
+import "../styles/AnimationPage.css"
 import Parallax from "../animations/Paralax"
+import Motion_animation from "../animations/Motion_animation"
 
 
 
 
-
-export default function AnimationPage({isDarkmodeOn}) {
+export default function AnimationPage({ isDarkmodeOn }) {
   return (
     <div>
-      <p>video animation content and about will go here</p>
+      <div className="motion_video_container_up" >
+        {/* video content should go here */}
+        <Motion_animation isDarkmodeOn={isDarkmodeOn} />
+      </div>
+
+
+      <section>
+        <Parallax isDarkmodeOn={isDarkmodeOn} baseVelocity={-5}>motion designe</Parallax>
+        <Parallax isDarkmodeOn={isDarkmodeOn} baseVelocity={5}>motion designe</Parallax>
+      </section>
       <div className="video_animation_container" >
         <VideoAnimation />
       </div>
 
-      <section>
-        <Parallax isDarkmodeOn={isDarkmodeOn} baseVelocity={-5}>website creation</Parallax>
-        <Parallax isDarkmodeOn={isDarkmodeOn} baseVelocity={5}>youur designe</Parallax>
-      </section>
 
     </div>
   )
