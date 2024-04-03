@@ -16,7 +16,7 @@ export default function Techsupp_name() {
     return () => clearInterval(intervalId); // Cleanup on unmount
   }, []);
 
-  const letters = ['T', 'e', 'c', 'h', 's', 'u', 'p', 'p'];
+  const letters = ['T', 'e', 'c', 'h', 'S', 'u', 'p', 'p'];
 
   return (
     <div className="main11111">

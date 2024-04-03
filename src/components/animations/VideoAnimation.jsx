@@ -1,5 +1,5 @@
 import React, { useState , useEffect } from 'react';
-import '../styles/VideoAnimation.scss';
+import '../styles/VideoAnimation.css';
 import splashvideo from '../../assets/splashvideo.webm';
 import night_basement from "../../assets/night_basement.webm";
 

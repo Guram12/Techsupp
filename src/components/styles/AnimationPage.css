@@ -1,3 +1,16 @@
+
+.motion_video_container_up{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 500px;
+  overflow: hidden;
+}
+
+
+
+
+
 .video_animation_container{
   height: 400px;
   width: 100%;
