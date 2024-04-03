@@ -1,6 +1,6 @@
 import React from 'react';
 import "../styles/Motion_animation.css";
-import testvideo_webm from "../../assets/matrix.webm"
+import testvideo_webm from "../../assets/Motion_media_files/matrix.webm"
 import compresed_video from "../../assets/compreset_matric.mp4"
 
 export default function Motion_animation({isDarkmodeOn}) {
@@ -26,10 +26,7 @@ export default function Motion_animation({isDarkmodeOn}) {
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 900 100" 
           preserveAspectRatio="xMidYMid slice"
-          // className='poster_first_svg'
           className = {`poster_first_svg ${!isDarkmodeOn? "poster_first_svg_dark" : "poster_first_svg_white" } `}
-          // fill='white'
-
         >
           <defs>
             <mask id="mask" x="0" y="0" width="100%" height="100%">

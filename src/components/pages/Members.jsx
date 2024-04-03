@@ -9,7 +9,7 @@ import guram_3 from "../../assets/guram_1 copy3.png";
 import guram_4 from "../../assets/guram_1 copy4.png";
 import guram_5 from "../../assets/guram_1 copy5.png";
 import guram_6 from "../../assets/guram_1 copy6.png";
-import matrix_background from "../../assets/matrix.webm";
+import matrix_background from "../../assets/Motion_media_files/matrix.webm";
 import sheet from "../../assets/sheet_image.png";
 import TerminalTextAnimation from "../animations/TerminalTextAnimation";
 import { CursorContext } from "../CursorContext/CursorContext";
