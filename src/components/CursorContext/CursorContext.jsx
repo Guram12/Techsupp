@@ -4,12 +4,9 @@ import { transition1 } from "../../Transitions";
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 import "../styles/CursorContext.css";
 
-
-
-
 export const CursorContext = createContext();
 
-const CursorProvider = ({ children  , isDarkmodeOn }) => {
+const CursorProvider = ({ children, isDarkmodeOn }) => {
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
   const [cursorBG, setCursorBG] = useState("default");
   const [isMemberPage, setIsMemberPage] = useState(false);
@@ -19,7 +16,7 @@ const CursorProvider = ({ children  , isDarkmodeOn }) => {
     const handleMouseMove = (e) => {
       setTimeout(() => {
         setCursorPos({ x: e.clientX, y: e.clientY });
-      }, 200);
+      }, 50);
     };
 
     document.addEventListener("mousemove", handleMouseMove);
@@ -77,14 +74,20 @@ const CursorProvider = ({ children  , isDarkmodeOn }) => {
         style={{
           width: cursorSize + "px",
           height: cursorSize + "px",
-          backgroundColor: isMemberPage ? "white" : // Make cursor black on member page
-            cursorBG === "text" ? "#fff" :  (isDarkmodeOn ?  "black"  : "white" ),
+          backgroundColor: isMemberPage
+            ? "white" // Make cursor black on member page
+            : cursorBG === "text"
+            ? "#fff"
+            : isDarkmodeOn
+            ? "black"
+            : "white",
           position: "fixed",
           top: `${cursorPos.y - halfCursorSize}px`,
           left: `${cursorPos.x - halfCursorSize}px`,
           zIndex: 9999,
           borderRadius: "50%",
-          mixBlendMode: cursorBG === "text" && !isMemberPage ? "difference" : "normal",
+          mixBlendMode:
+            cursorBG === "text" && !isMemberPage ? "difference" : "normal",
           pointerEvents: "none",
           display: "flex",
           alignItems: "center",
