@@ -7,11 +7,10 @@ import { motion } from "framer-motion";
 import DarkMode from "../animations/Dark-Mode";
 import { CursorContext } from "../CursorContext/CursorContext";
 import { transition1 } from "../../Transitions";
+import Techsupp_name from "./Techsupp_name";
 
-
-
-export default function Header({ 
-  isSoundOff, 
+export default function Header({
+  isSoundOff,
   toggleSound,
   isDarkmodeOn,
   handle_darkmode_change,
@@ -57,18 +56,19 @@ export default function Header({
       transition={transition1}
     >
       <motion.div
-        // initial={{ opacity: 0, y: "-50%" }}
-        // animate={{ opacity: 1, y: 0 }}
-        // exit={{ opacity: 0, y: "-50%" }}
+        initial={{ opacity: 0, y: "-50%" }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: "-50%" }}
         transition={transition1}
-        onMouseEnter={mouseEnterHandler} // Corrected function name
+        onMouseEnter={mouseEnterHandler}
         onMouseLeave={mouseLeaveHandler}
         className="logo_and_name"
       >
         <Link to="/">
           <img src={logo_black} alt="company logo" style={{ width: "100px" }} />
         </Link>
-        <h1>TechSupp</h1>
+        {/* <h1 className="techsupp_main_name" >TechSupp</h1> */}
+        <Techsupp_name />
       </motion.div>
 
       <motion.div
@@ -79,23 +79,48 @@ export default function Header({
       >
         <div className="sound_container" onClick={toggleSound}>
           <div
-            className={`typing-indicator ${isSoundOff ? "" : "stop-animation"}  `}
+            className={`typing-indicator ${
+              isSoundOff ? "" : "stop-animation"
+            }  `}
           >
-            <div className={`typing-circle ${isDarkmodeOn ? "typing-circle_white" : "typing-circle_black"}`}></div>
-            <div className={`typing-circle ${isDarkmodeOn ? "typing-circle_white" : "typing-circle_black"}`}></div>
-            <div className={`typing-circle ${isDarkmodeOn ? "typing-circle_white" : "typing-circle_black"}`}></div>
-            <div className={`typing-shadow ${isDarkmodeOn ? "typing-shadow_white" : "typing-shadow_black"}`} ></div>
-            <div className={`typing-shadow ${isDarkmodeOn ? "typing-shadow_white" : "typing-shadow_black"}`}></div>
-            <div className={`typing-shadow ${isDarkmodeOn ? "typing-shadow_white" : "typing-shadow_black"}`}></div>
+            <div
+              className={`typing-circle ${
+                isDarkmodeOn ? "typing-circle_white" : "typing-circle_black"
+              }`}
+            ></div>
+            <div
+              className={`typing-circle ${
+                isDarkmodeOn ? "typing-circle_white" : "typing-circle_black"
+              }`}
+            ></div>
+            <div
+              className={`typing-circle ${
+                isDarkmodeOn ? "typing-circle_white" : "typing-circle_black"
+              }`}
+            ></div>
+            <div
+              className={`typing-shadow ${
+                isDarkmodeOn ? "typing-shadow_white" : "typing-shadow_black"
+              }`}
+            ></div>
+            <div
+              className={`typing-shadow ${
+                isDarkmodeOn ? "typing-shadow_white" : "typing-shadow_black"
+              }`}
+            ></div>
+            <div
+              className={`typing-shadow ${
+                isDarkmodeOn ? "typing-shadow_white" : "typing-shadow_black"
+              }`}
+            ></div>
           </div>
         </div>
         <div className="dark_mode">
-          <DarkMode 
+          <DarkMode
             isDarkmodeOn={isDarkmodeOn}
             handle_darkmode_change={handle_darkmode_change}
           />
         </div>
-
 
         <div className="menu_button">
           <div className="menu_texts">
@@ -122,7 +147,7 @@ export default function Header({
                   className={`menu_links ${
                     menuState[0].showDot ? "active" : ""
                   }`}
-                  to="/link1"
+                  to="/"
                   onMouseEnter={() => handleLinkHover(0)}
                   onMouseLeave={() =>
                     setMenuState((prevMenuState) =>
@@ -150,7 +175,7 @@ export default function Header({
                   className={`menu_links ${
                     menuState[1].showDot ? "active" : ""
                   }`}
-                  to="/link2"
+                  to="about/"
                   onMouseEnter={() => handleLinkHover(1)}
                   onMouseLeave={() =>
                     setMenuState((prevMenuState) =>
@@ -176,7 +201,7 @@ export default function Header({
                   className={`menu_links ${
                     menuState[2].showDot ? "active" : ""
                   }`}
-                  to="/link3"
+                  to="/members"
                   onMouseEnter={() => handleLinkHover(2)}
                   onMouseLeave={() =>
                     setMenuState((prevMenuState) =>
@@ -202,7 +227,7 @@ export default function Header({
                   className={`menu_links ${
                     menuState[3].showDot ? "active" : ""
                   }`}
-                  to="/link4"
+                  to="/contact"
                   onMouseEnter={() => handleLinkHover(3)}
                   onMouseLeave={() =>
                     setMenuState((prevMenuState) =>
@@ -214,7 +239,7 @@ export default function Header({
                   }
                   onClick={() => handleLinkClick(3)}
                 >
-                  კონტაქტები{" "}
+                  კონტაქტები
                   <div>
                     {menuState[3].showArrow && !menuState[3].showDot && (
                       <img className="arrow_img" src={RightArrow} alt="" />
