@@ -1,10 +1,19 @@
 import React, { useState, useEffect } from "react";
 import "../styles/About.css";
+import Footer from "../Header/Footer";
+
+
 
 export default function About({ isDarkmodeOn }) {
   return (
     <div className="abut_container">
-     
+      <div style={{ width: "100%", height: "600px" , backgroundColor: "black" , marginBottom: "300px"}} > </div>
+
+
+      <div className="footer_containet" >
+        <Footer />
+
+      </div>
     </div>
   );
 }

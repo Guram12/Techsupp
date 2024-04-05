@@ -1,13 +1,13 @@
-body {
+.body_footer {
   display: grid;
   grid-template-rows: 1fr 10rem auto;
   grid-template-areas: "main" "." "footer";
-  overflow-x: hidden;
+  height: 100px;
   background: #F5F7FA;
-  min-height: 100vh;
+  
   font-family: 'Open Sans', sans-serif;
 }
-body .footer {
+.body_footer .footer {
   z-index: 1;
   --footer-background: #ED5565;
   display: grid;
@@ -15,7 +15,7 @@ body .footer {
   grid-area: footer;
   min-height: 12rem;
 }
-body .footer .bubbles {
+.body_footer .footer .bubbles {
   position: absolute;
   top: 0;
   left: 0;
@@ -24,7 +24,7 @@ body .footer .bubbles {
   background: var(--footer-background);
   filter: url("#blob");
 }
-body .footer .bubbles .bubble {
+.body_footer .footer .bubbles .bubble {
   position: absolute;
   left: var(--position, 50%);
   background: var(--footer-background);
@@ -32,7 +32,7 @@ body .footer .bubbles .bubble {
   animation: bubble-size var(--time, 4s) ease-in infinite var(--delay, 0s), bubble-move var(--time, 4s) ease-in infinite var(--delay, 0s);
   transform: translate(-50%, 100%);
 }
-body .footer .content {
+.body_footer .footer  {
   z-index: 2;
   display: grid;
   grid-template-columns: 1fr auto;
@@ -40,35 +40,41 @@ body .footer .content {
   padding: 2rem;
   background: var(--footer-background);
 }
-body .footer .content a, body .footer .content p {
+.body_footer .footer  a, .body_footer .footer  p {
   color: #F5F7FA;
   text-decoration: none;
 }
-body .footer .content b {
+.body_footer .footer  b {
   color: white;
 }
-body .footer .content p {
+.body_footer .footer  p {
   margin: 0;
   font-size: 0.75rem;
 }
-body .footer .content > div {
+.body_footer .footer  > div {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-body .footer .content > div > div {
+.body_footer .footer  > div > div {
   margin: 0.25rem 0;
 }
-body .footer .content > div > div > * {
+.body_footer .footer  > div > div > * {
   margin-right: 0.5rem;
 }
-body .footer .content > div .image {
+.body_footer .footer  > div .image {
   align-self: center;
   width: 4rem;
   height: 4rem;
   margin: 0.25rem 0;
   background-size: cover;
   background-position: center;
+}
+
+.for_footer_filing{
+  height: 50px;
+  width: 100%;
+  background-color: #ED5565;
 }
 @keyframes bubble-size {
   0%, 75% {
