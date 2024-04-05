@@ -13,10 +13,20 @@
 
 
 .mainpage_cont{
+ color: transparent;   /* amas droebit vwer */
+}
+
+.mainpage_child_cont{
   display: flex;
   justify-content:space-around;
   gap: 200px;
   align-items: center;
+}
+
+
+.mainpage_main_footer_container{
+  margin-top: 1px;  /* droebit  */
+ overflow-x: hidden;
 }
 
 

@@ -22,12 +22,12 @@ export default function CardAnimation() {
   const serviceNames = ["ვებსაიტები", "IT", "ანალიტიკა", "რებრენდინგი", "ანიმაცია", "QR მენიუ"];
 
   const cardContents = [
-    { title: "ვებსაიტები დამზადება", button_content: "დაწყვრილებით",path: "/services/web-development", content: "გთავაზობთ ნებისმიერი სირთულის ვებსაიტის დამზადებას თქვენი ბიზნესისთვის. ვებსაიტი შექმნა არის ერთ-ერთი პირველი ნაბიჯი ბიზნენის წარმატებისკენ" },
+    { title: "ვებსაიტები დამზადება", button_content: "დაწყვრილებით", path: "/services/web-development", content: "გთავაზობთ ნებისმიერი სირთულის ვებსაიტის დამზადებას თქვენი ბიზნესისთვის. ვებსაიტი შექმნა არის ერთ-ერთი პირველი ნაბიჯი ბიზნენის წარმატებისკენ" },
     { title: "IT მომსახურება", button_content: "დაწყვრილებით", path: "/services/it", content: "თქვენი ბიზნენის უწყვეტი მუშაობისთვის, ჩვენი გუნდი გაგიწევთ ნებისმიერი სირთულის IT მომსახურებას" },
-    { title: "ბიზნეს ანალიტიკის ავტომატიზაცია",path: "/services/analitycs", button_content: "დაწყვრილებით", content: "ბიზნეს ანალიტიკის ავტომატიზაცია დაგეხმარებათ რუტინული სამუშაოების თავიდან აცილებაში და დაზოგავს თქვენს დროს" },
-    { title: "ბრენდინგი/რებრენდინგი", button_content: "დაწყვრილებით",path: "/services/brending", content: "ბიზნესისთვის ახალი იმიჯის შექმნაში ჩვენი გუნდის კვალიფიციური პროფესიონალები დაგეხმარებიან" },
+    { title: "ბიზნეს ანალიტიკის ავტომატიზაცია", path: "/services/analitycs", button_content: "დაწყვრილებით", content: "ბიზნეს ანალიტიკის ავტომატიზაცია დაგეხმარებათ რუტინული სამუშაოების თავიდან აცილებაში და დაზოგავს თქვენს დროს" },
+    { title: "ბრენდინგი/რებრენდინგი", button_content: "დაწყვრილებით", path: "/services/brending", content: "ბიზნესისთვის ახალი იმიჯის შექმნაში ჩვენი გუნდის კვალიფიციური პროფესიონალები დაგეხმარებიან" },
     { title: "ანიმაციური ფოტო/ვიდეო", button_content: "დაწყვრილებით", path: "/services/animation", content: "ანიმაციური ფოტო/ვიდეოს აწყობა " },
-    { title: "ონლაინ მენიუ", button_content: "დაწყვრილებით",path: "/services/menu", content: "QR კოდიდით გახსნადი ონლაინ მენიუ თქვენი ბიზნესისტვის" },
+    { title: "ონლაინ მენიუ", button_content: "დაწყვრილებით", path: "/services/menu", content: "QR კოდიდით გახსნადი ონლაინ მენიუ თქვენი ბიზნესისტვის" },
   ];
 
   const getCardClassName = (index) => {
@@ -35,16 +35,16 @@ export default function CardAnimation() {
     let className = "card";
     // Apply 'card--current' to the active card and the first card always has 'card--current'
     if (activeTab === index + 1 || index === 0) {
-        className += " card--current";
+      className += " card--current";
     }
     // Apply 'hidden' to all non-active cards that come before the active one
     // and to the first card when it's not active
     if ((index < activeTab - 1) || (index === 0 && activeTab !== 1)) {
-        className += " hidden";
+      className += " hidden";
     }
 
     return className;
-};
+  };
 
 
   return (
@@ -75,25 +75,24 @@ export default function CardAnimation() {
                 className={getCardClassName(i)}
                 id={`${i + 1}`}
               >
-                <h1>{card.title}</h1>
-                <p style={{ marginTop: "10px" }} >{card.content}</p>
-                <button className="cta" onClick={() => handleButtonClick(card.path)} >
-                  <span className="hover-underline-animation"> {card.button_content} </span>
-                  <svg
-                    id="arrow-horizontal"
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="30"
-                    height="10"
-                    viewBox="0 0 46 16"
-                  >
-                    <path
-                      id="Path_10"
-                      data-name="Path 10"
-                      d="M8,0,6.545,1.455l5.506,5.506H-30V9.039H12.052L6.545,14.545,8,16l8-8Z"
-                      transform="translate(30)"
-                    ></path>
-                  </svg>
-                </button>
+                <div className="card_content_child_container" >
+                  {/* pirveli shvili  */}
+                  <div>
+                    <h1 style={{ color: "black" }} >{card.title}</h1>
+                    <p style={{ marginTop: "10px", color: "black" }} >{card.content}</p>
+                  </div>
+
+                  {/* meore shvili  */}
+                  <div className="service_card_button_cont" >
+                    <button className="learn-more" onClick={() => handleButtonClick(card.path)}>
+                      <span className="circle" aria-hidden="true">
+                        <span className="icon arrow" />
+                      </span>
+                      <span className="button-text">დაწვრილებით</span>
+                    </button>
+                  </div>
+                </div>
+
 
               </div>
             ))}
