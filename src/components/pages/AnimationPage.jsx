@@ -43,9 +43,9 @@ export default function AnimationPage({ isDarkmodeOn }) {
     }
   }, [controls_1, inView1])
 
-const test_click = ()=> {
-  console.log("clicked")
-}
+  const test_click = () => {
+    console.log("clicked")
+  }
 
   return (
     <div>
@@ -93,7 +93,10 @@ const test_click = ()=> {
       <div className="video_animation_container" >
         <VideoAnimation />
       </div>
-          <Footer  isDarkmodeOn={isDarkmodeOn} />
+
+      <div style={{marginTop: "70px"}} >
+        <Footer isDarkmodeOn={isDarkmodeOn} />
+      </div>
 
     </div>
   )
