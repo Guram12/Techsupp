@@ -3,7 +3,6 @@ import "../styles/card.css"
 import { useState } from "react";
 import CardAnimation from "../animations/CardAnimation";
 import CubeAnimation from "../animations/CubeAnimation";
-// import LineAnimation from "../animations/LineAnimation"
 import MainPage_Footer from "../Header/MainPage_Footer";
 
 
@@ -15,12 +14,11 @@ export default function mainPage({ showSplashScreen }) {
       <div className="mainpage_child_cont">
         <CubeAnimation />
         <CardAnimation />
-        {/* <LineAnimation/> */}
       </div>
 
-      {/* <div className="mainpage_main_footer_container" >
+      <div className="mainpage_main_footer_container" >
         <MainPage_Footer />
-      </div> */}
+      </div>
 
     </div>
   );

@@ -1,12 +1,14 @@
 @import url("https://fonts.googleapis.com/css?family=Lato:400,400i,700");
 
 
-.mainpage_footer {
+
+.main_footer_container {
   width:100vw;
+
   bottom:0px
 }
-.mainpage_footer div {
-  background-color:#4478e3;
+.main_footer_container div {
+  background-color: var(--col-deepblue);
   margin: -5px 0px 0px 0px;
   padding:0px;
   color: #fff;
@@ -14,17 +16,7 @@
 }
 svg {
   width:100%;
-}
-.arrow {
-  stroke-width: .3px;
-  stroke:yellow;
-}
-.topball {
-  animation: ball 1.5s ease-in-out;
-  animation-iteration-count:infinite;
-  animation-direction: alternate;
-  animation-delay: 0.3s;
-  cursor:pointer;
+  overflow:visible;
 }
 
 .wave {
@@ -33,25 +25,36 @@ svg {
   fill: #000000;
 }
 .drop {
-  fill: transparent;
-  animation: drop 5s ease infinite normal;
-  stroke: #555555;
+  fill: var(--col-deepblue);
+  animation: drop 3.2s linear infinite normal;
+  stroke: var(--col-deepblue);
   stroke-width:0.5;
-  opacity:.6; 
-  transform: translateY(80%);
+  transform: translateY(25px) ;
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
 }
 .drop1 {
-  transform-origin: 20px 3px;
+  animation-delay: 3s;
+  animation-duration:3s;
 }
 .drop2 {
   animation-delay: 3s;
   animation-duration:3s;
-  transform-origin: 25px 3px;
 }
 .drop3 {
   animation-delay: -2s;
   animation-duration:3.4s;
-  transform-origin: 16px 3px;
+}
+.drop4 {
+  animation-delay: 1.7s;
+}
+.drop5 {
+  animation-delay: 2.7s;
+  animation-duration:3.1s;
+}
+.drop6 {
+  animation-delay: -2.1s;
+  animation-duration:3.2s;
 }
 .gooeff {
   	filter: url(#goo);
@@ -65,29 +68,38 @@ svg {
   animation-duration: 7s;
   opacity:.3;
 }
+
+.text_container_in_footer{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+.white_logo_in_footer{
+  width: 20px;
+}
+
 @keyframes drop {
   0% {
-    transform: translateY(80%); 
-    opacity:.6; 
+    transform: translateY(25px); 
   }
-  80% {
-    transform: translateY(80%); 
-    opacity:.6; 
+  30% {
+    transform: translateY(-10px) scale(.1);
   }
-  90% { 
-    transform: translateY(10%) ; 
-    opacity:.6; 
+  30.001% {
+    transform: translateY(25px) scale(1); 
+  }
+  70% {
+    transform: translateY(25px); 
   }
   100% { 
-    transform: translateY(0%) scale(1.5);  
-    stroke-width:0.2;
-    opacity:0; 
+    transform: translateY(-10px) scale(.1);  
   }
 }
 @keyframes wave {
   to {transform: translateX(-100%);}
 }
-@keyframes ball {
-  to {transform: translateY(20%);}
-}
+
 
