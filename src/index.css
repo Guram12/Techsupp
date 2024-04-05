@@ -3,29 +3,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Open Sans', sans-serif;
-
-}
-
-
-/* Style the scrollbar itself (in webkit browsers) */
-html::-webkit-scrollbar {
-  width: 12px; /* Width of the scrollbar */
-}
-
-/* Style the track of the scrollbar to be transparent */
-html::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-/* Style the handle of the scrollbar to be grey */
-html::-webkit-scrollbar-thumb {
-  background: grey; /* Grey scrollbar thumb */
-  border-radius: 6px; /* Rounded corners of the scrollbar thumb */
-}
-
-/* Optionally handle on hover */
-html::-webkit-scrollbar-thumb:hover {
-  background: darker grey; /* Slightly darker grey color on hover */
+  
 }
 
 /* Firefox scrollbar styling */
@@ -33,4 +11,29 @@ html::-webkit-scrollbar-thumb:hover {
   scrollbar-width: thin; /* "auto" or "thin" */
   scrollbar-color: rgb(95, 94, 94) transparent; /* thumb and track color */
 }
+
+body {
+  scroll-behavior: smooth;
+}
+
+/* Style the scrollbar itself (in webkit browsers) */
+html::-webkit-scrollbar {
+  width: 12px; /* Width of the scrollbar */
+}  
+
+/* Style the track of the scrollbar to be transparent */
+html::-webkit-scrollbar-track {
+  background: transparent;
+}  
+
+/* Style the handle of the scrollbar to be grey */
+html::-webkit-scrollbar-thumb {
+  background: grey; /* Grey scrollbar thumb */
+  border-radius: 6px; /* Rounded corners of the scrollbar thumb */
+}  
+
+/* Optionally handle on hover */
+html::-webkit-scrollbar-thumb:hover {
+  background: darker grey; /* Slightly darker grey color on hover */
+}  
 
