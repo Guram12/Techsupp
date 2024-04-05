@@ -2,6 +2,8 @@ import React from 'react';
 import "../styles/Motion_animation.css";
 import testvideo_webm from "../../assets/Motion_media_files/matrix.webm"
 import compresed_video from "../../assets/compreset_matric.mp4"
+import gurami from "../../assets/Motion_media_files/testimage_1.mp4"
+
 
 export default function Motion_animation({isDarkmodeOn}) {
   // Add any additional JavaScript or hooks here if necessary
@@ -16,11 +18,10 @@ export default function Motion_animation({isDarkmodeOn}) {
           loop
           preload="auto"
           className='poster_video_tag'
-        
         // poster="your_poster_image_url" // Uncomment and replace with your poster image URL
         >
-          <source src={testvideo_webm} type="video/webm" />
-          <source src={compresed_video} type="video/mp4" />
+          {/* <source src={testvideo_webm} type="video/webm" /> */}
+          <source src={gurami} type="video/mp4" />
         </video>
         <svg
           xmlns="http://www.w3.org/2000/svg"

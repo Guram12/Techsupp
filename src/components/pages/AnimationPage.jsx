@@ -7,7 +7,7 @@ import Motion_animation from "../animations/Motion_animation"
 import test_motion_video from "../../assets/Motion_media_files/test_motion_video.webm"
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-
+import Footer from "../Header/Footer"
 
 export default function AnimationPage({ isDarkmodeOn }) {
 
@@ -93,7 +93,7 @@ const test_click = ()=> {
       <div className="video_animation_container" >
         <VideoAnimation />
       </div>
-
+          <Footer  isDarkmodeOn={isDarkmodeOn} />
 
     </div>
   )

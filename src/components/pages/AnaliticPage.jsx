@@ -5,6 +5,8 @@ import Paralax from "../animations/Paralax"
 import Google_sheet_animation from "../animations/Google_sheet_animation"
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import Footer from "../Header/Footer";
+
 
 export default function AnaliticPage({ isDarkmodeOn }) {
 
@@ -75,7 +77,9 @@ export default function AnaliticPage({ isDarkmodeOn }) {
         </motion.div>
 
       </div>
-
+      <div>
+        <Footer  isDarkmodeOn={isDarkmodeOn} />
+      </div>
 
     </div>
   )

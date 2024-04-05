@@ -27,3 +27,11 @@ canvas {
   animation: moveWave 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
   animation-delay: -2s; /* Adjust this value to change the animation's speed */
 }
+
+
+.footer_containet{
+  width: 100%;
+
+  background-color: rgb(39, 41, 41);
+
+}
