@@ -3,10 +3,10 @@ import "../styles/Footer.css"
 
 
 
-export default function Footer() {
+export default function Footer({isDarkmodeOn}) {
   // Generating bubbles with unique styles
   const bubbles = Array.from({ length: 128 }).map((_, index) => ({
-    size: `${2 + Math.random() * 6}rem`,
+    size: `${2 + Math.random() * 7}rem`,
     distance: `${6 + Math.random() * 4}rem`,
     position: `${-5 + Math.random() * 100}%`,
     time: `${2 + Math.random() * 2}s`,
@@ -17,7 +17,7 @@ export default function Footer() {
     <div className="body_footer" >
 
       <div className="main">
-        <div className="footer">
+        <div className={`footer  ${isDarkmodeOn? "footer_dark" : "footer_light" } `}  >
           <div className="bubbles">
             {bubbles.map((bubble, index) => (
               <div
@@ -48,7 +48,7 @@ export default function Footer() {
           </defs>
         </svg>
       </div>
-      <div className="for_footer_filing" >
+      <div className={`for_footer_filing ${!isDarkmodeOn ? "for_footer_filing_light" : "for_footer_filing_dark"  }     `} >
 
       </div>
     </div>

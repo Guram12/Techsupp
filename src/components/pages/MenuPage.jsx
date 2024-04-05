@@ -4,7 +4,7 @@ import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import Parallax from "../animations/Paralax"
 import QRcodeAnimation from "../animations/QRcode_animation"
-
+import Footer from "../Header/Footer";
 
 
 
@@ -51,7 +51,9 @@ export default function MenuPage({ isDarkmodeOn }) {
 
         </motion.div>
       </div>
-
+      <div>
+        <Footer isDarkmodeOn={isDarkmodeOn} />
+      </div>
     </div>
   )
 }

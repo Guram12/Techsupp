@@ -2,19 +2,30 @@
   display: grid;
   grid-template-rows: 1fr 10rem auto;
   grid-template-areas: "main" "." "footer";
-  height: 100px;
+  height: 90px;
   background: #F5F7FA;
   
   font-family: 'Open Sans', sans-serif;
 }
 .body_footer .footer {
   z-index: 1;
-  --footer-background: #ED5565;
   display: grid;
   position: relative;
   grid-area: footer;
   min-height: 12rem;
 }
+
+.footer_dark  {
+  --footer-background: #000000;
+  
+}
+
+.footer_light {
+  --footer-background: #ffffff;
+
+}
+
+
 .body_footer .footer .bubbles {
   position: absolute;
   top: 0;
@@ -72,10 +83,20 @@
 }
 
 .for_footer_filing{
-  height: 50px;
+  height: 30px;
   width: 100%;
-  background-color: #ED5565;
 }
+
+.for_footer_filing_dark{
+  
+  background-color: #000000;
+}
+
+.for_footer_filing_light{
+  background-color: #ffffff;
+
+}
+
 @keyframes bubble-size {
   0%, 75% {
     width: var(--size, 4rem);

@@ -3,7 +3,7 @@ import ITAnimation_2 from "../animations/ITAnimation_2"
 import ITAnimation_3 from "../animations/ITAnimation_3"
 import Paralax from "../animations/Paralax"
 import "../styles/ITPage.css"
-
+import Footer from "../Header/Footer"
 
 
 
@@ -31,6 +31,10 @@ export default function ItPage({isDarkmodeOn}) {
       </div>
       <div>
         aq  chaiwereba informacia mocemuli servisebis Sesaxeb
+      </div>
+
+      <div>
+        <Footer  isDarkmodeOn={isDarkmodeOn} />
       </div>
     </div>
   )

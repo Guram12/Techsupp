@@ -11,7 +11,7 @@ export default function About({ isDarkmodeOn }) {
 
 
       <div className="footer_containet" >
-        <Footer />
+        <Footer isDarkmodeOn={isDarkmodeOn} />
 
       </div>
     </div>

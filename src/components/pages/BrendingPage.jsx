@@ -12,7 +12,7 @@ import Parallax from "../animations/Paralax";
 import branding_logo from "../../assets/branding_logo.png"
 import visit_card from "../../assets/branding_visit_card.png"
 import ui_ux_logo from "../../assets/branding_UI-UX.png"
-
+import Footer from "../Header/Footer";
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
@@ -148,7 +148,9 @@ export default function BrandingPage({ isDarkmodeOn }) {
             <p >99 ლარიდან</p>
           </motion.div>
         </div>
-
+      <div>
+        <Footer isDarkmodeOn={isDarkmodeOn} />
+      </div>
     </div>
   );
 }
