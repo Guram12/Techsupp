@@ -12,7 +12,7 @@
   display: grid;
   position: relative;
   grid-area: footer;
-  min-height: 12rem;
+  min-height: 5rem;
 }
 
 .footer_dark  {
@@ -83,7 +83,7 @@
 }
 
 .for_footer_filing{
-  height: 30px;
+  height: 65px;
   width: 100%;
 }
 

@@ -6,7 +6,7 @@ import "../styles/Footer.css"
 export default function Footer({isDarkmodeOn}) {
   // Generating bubbles with unique styles
   const bubbles = Array.from({ length: 128 }).map((_, index) => ({
-    size: `${2 + Math.random() * 7}rem`,
+    size: `${2 + Math.random() * 5}rem`,
     distance: `${6 + Math.random() * 4}rem`,
     position: `${-5 + Math.random() * 100}%`,
     time: `${2 + Math.random() * 2}s`,
@@ -29,6 +29,7 @@ export default function Footer({isDarkmodeOn}) {
                   '--position': bubble.position,
                   '--time': bubble.time,
                   '--delay': bubble.delay,
+                  marginBottom: "66px"
                 }}
               ></div>
             ))}
