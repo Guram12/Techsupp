@@ -5,6 +5,8 @@ import "../styles/Members.css";
 import "react-image-gallery/styles/css/image-gallery.css";
 import person_guram from "../../assets/member_images/black_guram.png"
 import person_guram_1 from "../../assets/member_images/black_guram_1.png"
+import person_guram_2 from "../../assets/member_images/black_guram_2.png"
+
 import matrix_background from "../../assets/Motion_media_files/compreset_matric.webm";
 import TerminalTextAnimation from "../animations/TerminalTextAnimation";
 import { CursorContext } from "../CursorContext/CursorContext";
@@ -13,10 +15,19 @@ import { motion } from "framer-motion";
 const images = [
   { original: person_guram },
   { original: person_guram_1 },
+  { original: person_guram_2 },
 
 ];
 
-const Members = () => {
+// es desqribsheni aucileblad unda emtxvevodes tanmimdevrobashi image cvladshi chasmul adamianebis agweras 
+const person_description = [
+  {description: "<span>გურამ შანიძე<br/>Full-stack web developer</span><br/>" },
+  {description: "<span>ფისო, რომეო <br/>მეგრელი</span><br/>" },
+  {description: "<span>ნინო რობაქიძე<br/>მონა</span><br/>" }
+
+]
+
+export default function  Members(){
   const galleryRef = useRef();
   const [currentSlide, setCurrentSlide] = useState(0);
   const [cursorX, setCursorX] = useState(0);
@@ -93,10 +104,10 @@ const Members = () => {
         />
       </div>
       <div className="header_container">
-        <TerminalTextAnimation />
+        <TerminalTextAnimation  text={person_description[currentSlide].description}    />
       </div>
     </motion.div>
   );
 };
 
-export default Members;
+
