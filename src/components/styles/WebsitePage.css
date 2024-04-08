@@ -3,6 +3,16 @@
   margin-bottom: 50px;
 }
 
+.website_page_title{
+  width: 100%;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+
 .webservice_about_container {
 
   width: 100%;

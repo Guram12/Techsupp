@@ -40,7 +40,6 @@ export default function Parallax({ isDarkmodeOn ,children, baseVelocity = 100 })
 
     baseX.set(baseX.get() + moveBy);
   });
-  console.log(isDarkmodeOn , "from paralax")
   return (
     <div className="parallax">
       <motion.div className="scroller" style={{ x }}>
