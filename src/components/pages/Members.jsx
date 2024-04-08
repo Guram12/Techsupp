@@ -8,6 +8,7 @@ import person_guram_1 from "../../assets/member_images/black_guram_1.png"
 import person_guram_2 from "../../assets/member_images/black_guram_2.png"
 
 import matrix_background from "../../assets/Motion_media_files/compreset_matric.webm";
+
 import TerminalTextAnimation from "../animations/TerminalTextAnimation";
 import { CursorContext } from "../CursorContext/CursorContext";
 import { motion } from "framer-motion";

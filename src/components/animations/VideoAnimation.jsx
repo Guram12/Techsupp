@@ -3,13 +3,13 @@ import '../styles/VideoAnimation.css';
 import splashvideo from '../../assets/Motion_media_files/splashvideo.webm';
 import night_basement from "../../assets/Motion_media_files/night_basement.webm";
 import techsupp_name_video from "../../assets/Motion_media_files/techsupp_name_video.mp4"
-
+import bottle_animated_video from "../../assets/Motion_media_files/bottle_animated_video.webm"
 
 export default function VideoAnimation() {
-  // Separate state for each video
   const [isChecked1, setIsChecked1] = useState(false);
   const [isChecked2, setIsChecked2] = useState(false);
   const [isChecked3, setIsChecked3] = useState(false);
+  const [isChecked4, setIsChecked4] = useState(false);
 
 
   // const handleCheckboxChange1 = (event) => {
@@ -34,6 +34,7 @@ export default function VideoAnimation() {
       setIsChecked1(false);
       setIsChecked2(false);
       setIsChecked3(false);
+      setIsChecked4(false)
       document.querySelector('body').style.overflow = 'auto'; // Enable scroll when closing videos
     };
     const maindiv = document.querySelector(".main_animation_page_container");
@@ -52,7 +53,7 @@ export default function VideoAnimation() {
     // After state update, check if any checkbox is checked to determine scroll behavior
     toggleScroll();
   };
-  
+
 
   // Function to toggle the website scroll
   const toggleScroll = () => {
@@ -67,7 +68,7 @@ export default function VideoAnimation() {
   return (
     <div className='main_animation_page_container' onClick={(e) => e.stopPropagation()}   >
       {/* 1 video animation  */}
-      {!isChecked2 && !isChecked3 && (
+      {!isChecked2 && !isChecked3 && !isChecked4 && (
         <div className="wrapper">
           <input type="checkbox" checked={isChecked1} onChange={handleCheckboxChange(setIsChecked1)} />
           <div className="video">
@@ -79,8 +80,8 @@ export default function VideoAnimation() {
         </div>
       )}
       {/* 2 video animation  */}
-      {!isChecked1 && !isChecked3 && (
-        <div className="wrapper1">
+      {!isChecked1 && !isChecked3 && !isChecked4 && (
+        <div className="wrapper">
           <input type="checkbox" checked={isChecked2} onChange={handleCheckboxChange(setIsChecked2)} />
           <div className="video">
             <video src={splashvideo} loop muted autoPlay playsInline></video>
@@ -91,11 +92,23 @@ export default function VideoAnimation() {
         </div>
       )}
       {/* 3 video animation  */}
-      {!isChecked2 && !isChecked1 && (
-        <div className="wrapper2">
-          <input type="checkbox" checked={isChecked3}  onChange={handleCheckboxChange(setIsChecked3)} />
+      {!isChecked2 && !isChecked1 && !isChecked4 && (
+        <div className="wrapper">
+          <input type="checkbox" checked={isChecked3} onChange={handleCheckboxChange(setIsChecked3)} />
           <div className="video">
             <video src={techsupp_name_video} loop muted autoPlay playsInline></video>
+          </div>
+          <div className="text">
+            <span data-text="Techsupp animation"></span>
+          </div>
+        </div>
+      )}
+      {/* 4 video animation  */}
+      {!isChecked2 && !isChecked1 && !isChecked3  && (
+        <div className="wrapper">
+          <input type="checkbox" checked={isChecked4} onChange={handleCheckboxChange(setIsChecked4)} />
+          <div className="video">
+            <video src={bottle_animated_video} loop muted autoPlay ></video>
           </div>
           <div className="text">
             <span data-text="Techsupp animation"></span>
