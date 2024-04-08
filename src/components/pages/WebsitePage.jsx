@@ -15,8 +15,8 @@ export default function WebsitePage({
 
   return (
     <div>
-      <div style={{position: "relative" , height : "400px" , color: "black"}} >
-        <Website_card_animation />
+      <div className='website_page_title' >
+        <Website_card_animation isDarkmodeOn={isDarkmodeOn} />
       </div>
       <div className="webservice_about_container"  >
         <motion.div
