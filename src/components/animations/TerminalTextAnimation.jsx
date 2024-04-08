@@ -1,13 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import "../styles/TerminalTextAnimation.css";
 
 export default function TerminalTextAnimation({text}) {
   const [typedText, setTypedText] = useState("");
-  // const text = "<span>გურამ შანიძე<br/>Full-stack web developer</span><br/>";
   const cursorHtml = '<span class="blinker">|</span>';
+  const typingTimeoutRef = useRef(null); // Use a ref to store the timeout, so it can be cleared when the component unmounts or text changes
 
   useEffect(() => {
-    setTypedText("");
+    // Clear any ongoing typing animation when text changes
+    if (typingTimeoutRef.current) {
+      clearTimeout(typingTimeoutRef.current);
+    }
+
+    setTypedText(""); // Reset typed text
     let index = 0;
     let isTag = false;
 
@@ -25,10 +30,17 @@ export default function TerminalTextAnimation({text}) {
       if (char === ">") isTag = false;
       
       const delay = isTag ? 0 : 60;
-      setTimeout(type, delay);
+      typingTimeoutRef.current = setTimeout(type, delay);
     };
 
     type();
+
+    // Cleanup function to clear the timeout when the component unmounts or text changes
+    return () => {
+      if (typingTimeoutRef.current) {
+        clearTimeout(typingTimeoutRef.current);
+      }
+    };
   }, [text]);
 
   return (
