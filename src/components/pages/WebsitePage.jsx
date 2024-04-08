@@ -15,10 +15,12 @@ export default function WebsitePage({
 
   return (
     <div>
-      <Website_card_animation />
+      <div style={{position: "relative" , height : "400px" , color: "black"}} >
+        <Website_card_animation />
+      </div>
       <div className="webservice_about_container"  >
         <motion.div
-          initial={{ x: '100vw'}}
+          initial={{ x: '100vw' }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ type: 'spring', stiffness: 70 }}
         >

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import "../styles/Techsupp_name.css";
 
-export default function Techsupp_name() {
+export default function Techsupp_name({ isDarkmodeOn }) {
   // Initial state where no divs are selected for animation
   const [animateStates, setAnimateStates] = useState(Array(8).fill(false));
 
@@ -20,7 +20,7 @@ export default function Techsupp_name() {
 
   return (
     <div className="main11111">
-      <div className="content">
+      <div className="content" style={{ color: `${!isDarkmodeOn ? "white" : "black"} ` }} >
         {letters.map((letter, index) => (
           <div className="content__container" key={index}>
             <ul className={`content__container__list ${animateStates[index] ? 'animate' : ''}`}>
