@@ -12,6 +12,7 @@
   "dependencies": {
     "@motionone/utils": "^10.17.0",
     "@pixi/canvas-display": "^7.4.2",
+    "animejs": "^3.2.2",
     "framer-motion": "^11.0.24",
     "gsap": "^3.12.5",
     "lodash": "^4.17.21",

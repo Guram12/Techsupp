@@ -1,9 +1,6 @@
-/* .abut_container{
-
-} */
-
 .vawe_container {
-  margin-top: 400px; /* droebit vwer amas */
+  margin-top: 400px;
+  /* droebit vwer amas */
 }
 
 canvas {
@@ -18,20 +15,59 @@ canvas {
   0% {
     transform: translateX(0);
   }
+
   100% {
     transform: translateX(-90px);
   }
 }
 
-.parallax > use {
+.parallax>use {
   animation: moveWave 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
-  animation-delay: -2s; /* Adjust this value to change the animation's speed */
+  animation-delay: -2s;
+  /* Adjust this value to change the animation's speed */
 }
 
 
-.footer_containet{
+.footer_containet {
   width: 100%;
-
   background-color: rgb(39, 41, 41);
+}
+
+
+.about_text_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 600px;
+
+}
+
+.about_text_child_container {
+  width: 600px;
+  height: 500px;
+  background-color: transparent;
+  backdrop-filter: blur(15px);
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px;
+  padding: 10px;
+  border-radius: 10%;
+  z-index: 99;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 40px;
+  
+}
+
+
+.about_title {
+  color: black;
+}
+
+.about_paragraph {
+  color: black;
 
 }
