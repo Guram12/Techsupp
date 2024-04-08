@@ -8,6 +8,8 @@ import test_motion_video from "../../assets/Motion_media_files/test_motion_video
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import Footer from "../Header/Footer"
+import motion_background from "../../assets/Motion_media_files/motion_background.webm"
+
 
 export default function AnimationPage({ isDarkmodeOn }) {
 
@@ -75,7 +77,8 @@ export default function AnimationPage({ isDarkmodeOn }) {
             objectFit: 'cover',
             zIndex: '-1',
           }}>
-            <source src={test_motion_video} type="video/webm" />
+
+            <source src={motion_background} type="video/webm" />
           </video>
         </div>
       </div>
