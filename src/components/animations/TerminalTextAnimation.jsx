@@ -4,7 +4,8 @@ import "../styles/TerminalTextAnimation.css";
 export default function TerminalTextAnimation() {
   const [typedText, setTypedText] = useState("");
   const data = "<span>გურამ შანიძე<br/>Full-stack web developer</span><br/>";
-  
+  const cursorHtml = '<span class="blinker">|</span>';
+
   useEffect(() => {
     let index = 0;
     let isTag = false;
@@ -12,18 +13,16 @@ export default function TerminalTextAnimation() {
     const type = () => {
       let text = data.slice(0, ++index);
       if (text === data) {
-        // When the typing animation completes, stop updating the text.
-        // The cursor will continue to blink due to the CSS animation.
+        setTypedText(text + cursorHtml); // Append cursor at the end of the typing
         return;
       }
 
-      setTypedText(text);
+      setTypedText(text + cursorHtml); // Append cursor dynamically as typing progresses
 
       const char = text.slice(-1);
       if (char === "<") isTag = true;
       if (char === ">") isTag = false;
       
-      // Determine delay dynamically for typing effect and HTML tags
       const delay = isTag ? 0 : 60;
       setTimeout(type, delay);
     };
@@ -34,7 +33,6 @@ export default function TerminalTextAnimation() {
   return (
     <div className="typing-container">
       <div className="typing" dangerouslySetInnerHTML={{ __html: typedText }} />
-      <span className='blinker'>|</span>
     </div>
   );
 }
