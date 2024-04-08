@@ -1,19 +1,35 @@
 import React, { useState, useEffect } from "react";
 import "../styles/About.css";
 import Footer from "../Header/Footer";
-
+import AboutAnimation from "../animations/About_animation";
 
 
 export default function About({ isDarkmodeOn }) {
   return (
     <div className="abut_container">
-      <div style={{ width: "100%", height: "600px" , backgroundColor: "black" , marginBottom: "300px"}} > </div>
+      <div  >
+        <AboutAnimation />
+      </div>
+
+      <div className="about_text_container" >
+        <div className="about_text_child_container" >
+        <h1 className="about_title" >ჩვენს შესახებ</h1>
+        <p className="about_paragraph" >TechSupp-ი არის ქართული მრავალპროფილური სტარტაპი , რომელიც თქვენს ბიზნესს ახალ საფეხურზე აიყვანს,
+          ჩვენი გუნდი დაგეხმარებათ, შექმნათ ახალი ვიზუალი თქვენი ბიზნესისთვის, განავითაროთ იგი, გაიმარტივოთ
+          სამუშაო პროცესი და რაც მთავარია ყველანაირი წყვეტის გარეშე მიყვეთ საქმის კურსს. ჩვენი გუნდი იქნება
+          თქვენი კომპასი ციფრულ ლაბირინთში.</p>
+        </div>
 
 
+      </div>
+      <div style={{ height: "200px", marginTop: "100px" }} >
+
+      </div>
+      {/* 
       <div className="footer_containet" >
         <Footer isDarkmodeOn={isDarkmodeOn} />
 
-      </div>
+      </div> */}
     </div>
   );
 }
