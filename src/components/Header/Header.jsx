@@ -1,6 +1,7 @@
 import React, { useState, useContext } from "react";
 import "../styles/Header.css";
 import logo_black from "../../assets/logo_techsupp_black.svg";
+import logo_white from "../../assets/logo_techsupp_white.svg";
 import { Link } from "react-router-dom";
 import RightArrow from "../../assets/right.png";
 import { motion } from "framer-motion";
@@ -66,10 +67,10 @@ export default function Header({
         className="logo_and_name"
       >
         <Link to="/">
-          <img src={logo_black} alt="company logo" style={{ width: "100px" }} />
+          <img src={ isDarkmodeOn?  logo_black :  logo_white} alt="company logo" style={{ width: "100px"  }} />
         </Link>
         {/* <h1 className="techsupp_main_name" >TechSupp</h1> */}
-        <Techsupp_name />
+        <Techsupp_name isDarkmodeOn={isDarkmodeOn} />
       </motion.div>
 
       <motion.div

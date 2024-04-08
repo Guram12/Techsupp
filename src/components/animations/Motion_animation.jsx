@@ -1,25 +1,29 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import "../styles/Motion_animation.css";
-import testvideo_webm from "../../assets/Motion_media_files/matrix.webm"
-import compresed_video from "../../assets/compreset_matric.mp4"
-import motion_animation from "../../assets/Motion_media_files/motion_name_animation.webm"
+import motion_animation_white from "../../assets/Motion_media_files/motion_name_animation.webm"
+import motion_animation_black from "../../assets/Motion_media_files/motion_name_animation_black.webm"
 
 
+export default function Motion_animation({ isDarkmodeOn }) {
 
-export default function Motion_animation({isDarkmodeOn}) {
+
+  useEffect(() => {
+    console.log("clicked from animation  page  " , isDarkmodeOn)
+  }, [isDarkmodeOn])
 
   return (
     <div className='main_poster_video_container' >
-        <video
-          autoPlay
-          playsInline
-          muted
-          loop
-          preload="auto"
-          className='poster_video_tag'
-        >
-          <source src={motion_animation} type="video/webm" />
-        </video>
+      <video
+        key={isDarkmodeOn ? 'dark' : 'light'}
+        autoPlay
+        playsInline
+        muted
+        loop
+        preload="auto"
+        className='poster_video_tag'
+      >
+        <source src={!isDarkmodeOn?  motion_animation_black : motion_animation_white} type="video/webm" />
+      </video>
     </div>
   );
 }

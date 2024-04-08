@@ -1,49 +1,52 @@
-@import url(https://fonts.googleapis.com/css?family=Comfortaa:400,700,300);
+@import url(https://fonts.googleapis.com/css?family=Share+Tech+Mono);
 
-.all_svg_cont {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  margin-top: 30px;
-  margin-bottom: 30px;
+
+.decode-text {
+  width: 100%;
+  font-size: 30px;
+  text-align: center;
 }
-
-.web_swg {
-  width: 100px;
-  height: 100px;
-  margin: 20px;
+.space {
   display: inline-block;
+  width: 10px;
 }
-.web_swg {
-  stroke: grey; /* This sets the stroke color to grey for the SVG itself, if applicable */
-  fill: grey; /* This sets the fill color to grey for the SVG itself, if applicable */
-}
-
-.web_swg * {
-  stroke: grey !important; /* This sets the stroke color to grey for all elements inside the SVG */
-  fill: rgb(255, 255, 255) !important; /* This sets the fill color to grey for all elements inside the SVG */
-}
-
-
-.made-with-love {
-  margin-top: 20px;
-  padding: 10px;
-  font-size: 10px;
-  font-family: arial;
-  color: #fff;
-}
-.made-with-love i {
-  font-style: normal;
-  color: #fff;
-  font-size: 14px;
+.text-animation {
+  display: inline-block;
   position: relative;
-  top: 2px;
+  color: transparent;
+  text-transform: uppercase;
 }
-.made-with-love a {
-  color: #fff;
-  text-decoration: none;
+.text-animation:before {
+  content: "";
+  color: black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: #0e182d;
+  width: 0;
+  height: 1.2em;
+  -webkit-transform: translate(-50%, -55%);
+  -ms-transform: translate(-50%, -55%);
+  transform: translate(-50%, -55%);
 }
-.made-with-love a:hover {
-  text-decoration: underline;
+.text-animation.state-1:before {
+  width: 1px;
+}
+.text-animation.state-2:before {
+  width: 0.9em;
+}
+.text-animation.state-3 {
+  color: black;
+}
+.text-animation.state-3:before {
+  width: 0;
+}
+#refresh {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  cursor: pointer;
+}
+div {
+  font-family: "Share Tech Mono", monospace;
 }
