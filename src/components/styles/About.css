@@ -31,6 +31,7 @@ canvas {
 .footer_containet {
   width: 100%;
   background-color: rgb(39, 41, 41);
+  margin-top: 200px;
 }
 
 
@@ -58,7 +59,7 @@ canvas {
   flex-wrap: wrap;
   flex-direction: column;
   gap: 20px;
-  
+
 }
 
 
@@ -70,3 +71,90 @@ canvas {
   color: black;
 
 }
+
+.about_paralax_container{
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+
+
+
+.about_example_container {
+  margin-top: 40px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 70px;
+}
+
+.about_example_child_container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  height: 270px;
+}
+
+/* ===============================================  storkhome example styles ================================== */
+.storkhome_image {
+  width: 400px;
+}
+
+.storkhome_title_and_p_cont {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  align-content: flex-start;
+  justify-content: space-around;
+  align-items: flex-start;
+  height: 100%;
+
+}
+
+.storkhome_title {
+  color: black;
+  text-shadow: 3px;
+}
+
+.storkhome_title_and_p_cont a {
+  text-decoration: none;
+  /* Removes the underline from the link */
+}
+
+.storkhome_title_and_p_cont a:hover,
+.storkhome_title_and_p_cont a:active,
+.storkhome_title_and_p_cont a:visited {
+  text-decoration: none;
+  /* Ensures the underline is removed on hover, active, and visited states */
+}
+
+.storkhome_title_and_p_cont a .storkhome_title:hover {
+  text-decoration: none;
+
+  text-shadow: 2px 2px 4px #555555;
+}
+
+
+.storkhome_paragraph {
+  max-width: 400px;
+  color: black;
+}
+
+.sheet_mbded{
+  width: 400px;
+  height: 250px;
+}
+
+.storkhome_title:hover {
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); /* Example shadow with RGBA color */
+}
+
+
+
+
+/* =======================================google sheet iframe styles ============================================== */
+
