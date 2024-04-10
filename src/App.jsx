@@ -16,7 +16,7 @@ import background_audio_second from "./assets/valorant.mp3";
 import Members from "./components/pages/Members";
 import CursorProvider from "./components/CursorContext/CursorContext.jsx";
 import Contact from "./components/pages/Contact.jsx";
-
+import FacebookMSG from "./components/FacebookMSG.jsx";
 
 // import { motion } from "framer-motion";
 // import { CursorContext } from "./components/CursorContext/CursorContext";
@@ -78,7 +78,6 @@ function App() {
         });
     };
 
-    // Add event listener to the document to start audio on first click
     document.addEventListener("click", startAudio);
 
     // Cleanup function to remove the event listener
@@ -163,7 +162,9 @@ function App() {
     className="cursor"
   ></motion.div> */}
       </div>
+
       <div className="facebook_container" >
+        <FacebookMSG />
       </div>
     </CursorProvider>
   );
