@@ -125,7 +125,6 @@ function App() {
 
   return (
     <CursorProvider isDarkmodeOn={isDarkmodeOn} >
-          <FacebookMSG/>
       <div className={`main_container ${isDarkmodeOn ? "main_container_white" : "main_container_black"}`}>
         {!(location.pathname === "/members") && (
           <>
@@ -163,6 +162,9 @@ function App() {
     animate={cursorBG}
     className="cursor"
   ></motion.div> */}
+      </div>
+      <div className="facebook_container" >
+        <FacebookMSG />
       </div>
     </CursorProvider>
   );
