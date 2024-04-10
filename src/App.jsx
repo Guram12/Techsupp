@@ -78,7 +78,6 @@ function App() {
         });
     };
 
-    // Add event listener to the document to start audio on first click
     document.addEventListener("click", startAudio);
 
     // Cleanup function to remove the event listener
@@ -163,6 +162,7 @@ function App() {
     className="cursor"
   ></motion.div> */}
       </div>
+
       <div className="facebook_container" >
         <FacebookMSG />
       </div>
