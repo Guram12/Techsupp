@@ -15,6 +15,8 @@ import AnaliticPage from "./components/pages/AnaliticPage";
 import background_audio_second from "./assets/valorant.mp3";
 import Members from "./components/pages/Members";
 import CursorProvider from "./components/CursorContext/CursorContext.jsx";
+import Contact from "./components/pages/Contact.jsx";
+
 
 // import { motion } from "framer-motion";
 // import { CursorContext } from "./components/CursorContext/CursorContext";
@@ -25,6 +27,7 @@ function App() {
   const [showSplashScreen, setShowSplashScreen] = useState(true);
   const [isSoundOff, setIsSoundOff] = useState(false);
   const [isDarkmodeOn, setIsDarkmodeOn] = useState(true);
+
   const audioRef = useRef(null);
 
 
@@ -52,9 +55,15 @@ function App() {
   }, [isDarkmodeOn]);
 
 
+  // ================================= for setting contact  context massage =============================
+  const [contactMessage, setContactMessage] = useState('default value');
+
+  const handle_context_change = (event) => {
+    setContactMessage(event)
+  }
 
 
-
+  // =====================================================================================================
   useEffect(() => {
     const startAudio = () => {
       // Play audio
@@ -90,28 +99,28 @@ function App() {
     setIsSoundOff(!isSoundOff);
   };
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowSplashScreen(false);
-    }, 4500);
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     setShowSplashScreen(false);
+  //   }, 4500);
 
-    return () => clearTimeout(timer);
-  }, []);
+  //   return () => clearTimeout(timer);
+  // }, []);
 
-  if (showSplashScreen) {
-    return (
-      <div className="splashscreen_container">
-        <video
-          src={techsupp_video}
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="splashscreen_video"
-        ></video>
-      </div>
-    );
-  }
+  // if (showSplashScreen) {
+  //   return (
+  //     <div className="splashscreen_container">
+  //       <video
+  //         src={techsupp_video}
+  //         autoPlay
+  //         loop
+  //         muted
+  //         playsInline
+  //         className="splashscreen_video"
+  //       ></video>
+  //     </div>
+  //   );
+  // }
 
 
   return (
@@ -129,17 +138,19 @@ function App() {
             />
             <Link to="about/"><button>about </button></Link>
             <Link to="/"><button>main page </button></Link>
+            <Link to="contact/"><button>contact</button></Link>
             {/* <Link to="/members"><button>members </button></Link> */}
           </>
 
         )}
-        <audio ref={audioRef} src={background_audio_second} loop  />
+        <audio ref={audioRef} src={background_audio_second} loop muted />
 
         <Routes>
           <Route path="about/" element={<About isDarkmodeOn={isDarkmodeOn} />} />
+          <Route path="contact/" element={<Contact isDarkmodeOn={isDarkmodeOn} contactMessage={contactMessage} />} />
           <Route path="/" element={<MainPage showSplashScreen={showSplashScreen} />} />
           <Route path="services/web-development" element={<WebsitePage isDarkmodeOn={isDarkmodeOn} />} />
-          <Route path="services/it" element={<ItPage isDarkmodeOn={isDarkmodeOn} />} />
+          <Route path="services/it" element={<ItPage isDarkmodeOn={isDarkmodeOn} handle_context_change={handle_context_change} />} />
           <Route path="services/menu" element={<MenuPage isDarkmodeOn={isDarkmodeOn} />} />
           <Route path="services/brending" element={<BrendingPage isDarkmodeOn={isDarkmodeOn} />} />
           <Route path="services/animation" element={<AnimationPage isDarkmodeOn={isDarkmodeOn} />} />
