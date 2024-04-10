@@ -16,7 +16,7 @@ import background_audio_second from "./assets/valorant.mp3";
 import Members from "./components/pages/Members";
 import CursorProvider from "./components/CursorContext/CursorContext.jsx";
 import Contact from "./components/pages/Contact.jsx";
-
+import FacebookMSG from "./components/FacebookMSG.jsx";
 
 // import { motion } from "framer-motion";
 // import { CursorContext } from "./components/CursorContext/CursorContext";
@@ -125,7 +125,7 @@ function App() {
 
   return (
     <CursorProvider isDarkmodeOn={isDarkmodeOn} >
-
+          <FacebookMSG/>
       <div className={`main_container ${isDarkmodeOn ? "main_container_white" : "main_container_black"}`}>
         {!(location.pathname === "/members") && (
           <>
