@@ -56,7 +56,7 @@ function App() {
 
 
   // ================================= for setting contact  context massage =============================
-  const [contactMessage, setContactMessage] = useState('default value');
+  const [contactMessage, setContactMessage] = useState('');
 
   const handle_context_change = (event) => {
     setContactMessage(event)
