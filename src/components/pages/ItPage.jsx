@@ -1,25 +1,25 @@
-import ITAnimation_1 from "../animations/ITAnimation_1"
-import ITAnimation_2 from "../animations/ITAnimation_2"
-import ITAnimation_3 from "../animations/ITAnimation_3"
 import Paralax from "../animations/Paralax"
 import "../styles/ITPage.css"
 import Footer from "../Header/Footer"
+import It_header_animation from "../animations/It_header_animation"
 
 
+export default function ItPage({ isDarkmodeOn }) {
 
-export default function ItPage({isDarkmodeOn}) {
+
   return (
     <div>
 
       <div className="it_container" >
-        <div className="animation_cont" >
-          <ITAnimation_1 />
-        </div>
-        <div className="animation_cont" >
-          <ITAnimation_2 />
-        </div>
-        <div className="animation_cont" >
-          <ITAnimation_3 />
+        <div className="it_background_header_image" >
+          <div className="it_child_title_container" >
+            <h1 className="it_title" >IT მომსახურება</h1>
+            <p className="it_paragraph" >თქვენი ბიზნესის უწყვეტ მუშაობაში ჩვენი გამოცდილი გუნდი დაგეხმარებათ.
+              დღევანდელ რეალობაში ყველა მსხვილი თუ მცირე ბიზნესი დამოკიდებულია ელექტრონულ
+              მოწყობილობებზე, მათმა ხარვეზით მუშაობამ კი შეიძლება პროცესები ძალიან შეაფერხოს,
+              შესაბამისად საჭიროა მათი მუდმივი კონტროლი. ჩვენი გუნდი დაგეხმარებათ სწრაფად და
+              მარტივად მოაგვაროთ მსგავსი ტიპის პრობლემები.</p>
+          </div>
         </div>
       </div>
 
@@ -34,7 +34,7 @@ export default function ItPage({isDarkmodeOn}) {
       </div>
 
       <div>
-        <Footer  isDarkmodeOn={isDarkmodeOn} />
+        <Footer isDarkmodeOn={isDarkmodeOn} />
       </div>
     </div>
   )

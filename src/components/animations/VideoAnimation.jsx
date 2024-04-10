@@ -3,7 +3,7 @@ import '../styles/VideoAnimation.css';
 import splashvideo from '../../assets/Motion_media_files/splashvideo.webm';
 import night_basement from "../../assets/Motion_media_files/night_basement.webm";
 import techsupp_name_video from "../../assets/Motion_media_files/techsupp_name_video.mp4"
-import bottle_animated_video from "../../assets/Motion_media_files/bottle_animated_video.webm"
+import bottle_animated_video from "../../assets/Motion_media_files/bottle_animated_video.mp4"
 
 export default function VideoAnimation() {
   const [isChecked1, setIsChecked1] = useState(false);
