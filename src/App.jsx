@@ -12,7 +12,7 @@ import MenuPage from "./components/pages/MenuPage";
 import BrendingPage from "./components/pages/BrendingPage";
 import AnimationPage from "./components/pages/AnimationPage";
 import AnaliticPage from "./components/pages/AnaliticPage";
-import background_audio_second from "./assets/background_second.mp3";
+import background_audio_second from "./assets/valorant.mp3";
 import Members from "./components/pages/Members";
 import CursorProvider from "./components/CursorContext/CursorContext.jsx";
 
@@ -90,28 +90,28 @@ function App() {
     setIsSoundOff(!isSoundOff);
   };
 
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {
-  //     setShowSplashScreen(false);
-  //   }, 4500);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowSplashScreen(false);
+    }, 4500);
 
-  //   return () => clearTimeout(timer);
-  // }, []);
+    return () => clearTimeout(timer);
+  }, []);
 
-  // if (showSplashScreen) {
-  //   return (
-  //     <div className="splashscreen_container">
-  //       <video
-  //         src={techsupp_video}
-  //         autoPlay
-  //         loop
-  //         muted
-  //         playsInline
-  //         className="splashscreen_video"
-  //       ></video>
-  //     </div>
-  //   );
-  // }
+  if (showSplashScreen) {
+    return (
+      <div className="splashscreen_container">
+        <video
+          src={techsupp_video}
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="splashscreen_video"
+        ></video>
+      </div>
+    );
+  }
 
 
   return (
@@ -129,11 +129,11 @@ function App() {
             />
             <Link to="about/"><button>about </button></Link>
             <Link to="/"><button>main page </button></Link>
-            <Link to="/members"><button>members </button></Link>
+            {/* <Link to="/members"><button>members </button></Link> */}
           </>
 
         )}
-        <audio ref={audioRef} src={background_audio_second} loop muted />
+        <audio ref={audioRef} src={background_audio_second} loop  />
 
         <Routes>
           <Route path="about/" element={<About isDarkmodeOn={isDarkmodeOn} />} />
@@ -144,7 +144,7 @@ function App() {
           <Route path="services/brending" element={<BrendingPage isDarkmodeOn={isDarkmodeOn} />} />
           <Route path="services/animation" element={<AnimationPage isDarkmodeOn={isDarkmodeOn} />} />
           <Route path="services/analitycs" element={<AnaliticPage isDarkmodeOn={isDarkmodeOn} />} />
-          <Route path="/members" element={<Members />} />
+          {/* <Route path="/members" element={<Members />} /> */}
         </Routes>
         {/* Cursor */}
         {/* <motion.div
