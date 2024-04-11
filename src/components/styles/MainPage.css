@@ -25,12 +25,19 @@
 }
 
 
+
 .mainpage_main_footer_container {
-  margin-top: -350px;
-  /* sxvanairad ar swordeba es ddedamotynuli merominda ise, animaciis bralia */
+  margin-top: -90px;  /* sxvanairad ar swordeba es ddedamotynuli merominda ise, animaciis bralia */
   overflow-x: hidden;
 }
 
+
+
+@media (max-width: 480px) {
+  .mainpage_child_cont{
+    overflow: hidden;
+  }
+}
 
 
 /* =============================================  service button styles ========================================= */

@@ -78,8 +78,8 @@ export default function CardAnimation() {
                 <div className="card_content_child_container" >
                   {/* pirveli shvili  */}
                   <div>
-                    <h1 style={{ color: "black" }} >{card.title}</h1>
-                    <p style={{ marginTop: "10px", color: "black" }} >{card.content}</p>
+                    <h1 className="catd_h1_tag"  >{card.title}</h1>
+                    <p  style={{ marginTop: "10px", color: "black" }} >{card.content}</p>
                   </div>
 
                   {/* meore shvili  */}

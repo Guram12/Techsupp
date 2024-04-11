@@ -195,9 +195,7 @@ function App() {
   ></motion.div> */}
       </div>
 
-      <div className="facebook_container">
-        <FacebookMSG />
-      </div>
+      <div className="facebook_container">{/* <FacebookMSG /> */}</div>
     </CursorProvider>
   );
 }

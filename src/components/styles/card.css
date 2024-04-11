@@ -147,18 +147,47 @@ h1 {
 
 @media (max-width: 480px) {
 
+	.page {
+		max-width: 340px;
+	}
+
 	.tabs-controls {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
+
+		margin: 0px;
+		padding-bottom: 10px;
+		width: 100%;
 	}
 
 	.card {
-		width: 300px;
+		width: 250px;
 		height: 400px;
+		padding: 10px;
 	}
+
+
+	.cards-container {
+		width: 340px;
+		max-width: 340px;
+	}
+
+	.card--current {
+		width: 250px;
+	}
+
+.cards-container{
+	padding-left: 7px;
 }
+
+
+
+}
+
+
+
 
 
 /* =================================================== card content container stules  ========================================= */
