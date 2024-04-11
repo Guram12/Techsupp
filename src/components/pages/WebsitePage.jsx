@@ -6,7 +6,7 @@ import { motion, useAnimation } from 'framer-motion';
 import web_icon from "../../assets/web_icon.png"
 import { useInView } from 'react-intersection-observer';
 import Website_cards from '../animations/Website_cards';
-
+import Footer from '../Header/Footer';
 
 export default function WebsitePage({
   isDarkmodeOn,
@@ -15,10 +15,12 @@ export default function WebsitePage({
 
   return (
     <div>
-      <Website_card_animation />
+      <div className='website_page_title' >
+        <Website_card_animation isDarkmodeOn={isDarkmodeOn} />
+      </div>
       <div className="webservice_about_container"  >
         <motion.div
-          initial={{ x: '100vw'}}
+          initial={{ x: '100vw' }}
           animate={{ x: 0, opacity: 1 }}
           transition={{ type: 'spring', stiffness: 70 }}
         >
@@ -54,6 +56,9 @@ export default function WebsitePage({
       </div>
       <div className='card_wb_container'>
         <Website_cards />
+      </div>
+      <div>
+        <Footer isDarkmodeOn={isDarkmodeOn} />
       </div>
     </div>
   )

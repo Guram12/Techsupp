@@ -5,6 +5,8 @@ import Paralax from "../animations/Paralax"
 import Google_sheet_animation from "../animations/Google_sheet_animation"
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import Footer from "../Header/Footer";
+
 
 export default function AnaliticPage({ isDarkmodeOn }) {
 
@@ -17,7 +19,7 @@ export default function AnaliticPage({ isDarkmodeOn }) {
   const controlsFirst = useAnimation();
   const controlsSecond = useAnimation();
   const controlsThird = useAnimation();
-  const controlsFourth= useAnimation();
+  const controlsFourth = useAnimation();
 
   // Setting up Intersection Observer
   const { ref, inView } = useInView({
@@ -33,7 +35,7 @@ export default function AnaliticPage({ isDarkmodeOn }) {
       controlsFourth.start({ ...animate, transition: { delay: 0.8 } }); // Adding more delay
 
     }
-  }, [inView, controlsFirst, controlsSecond, controlsThird,controlsFourth]);
+  }, [inView, controlsFirst, controlsSecond, controlsThird, controlsFourth]);
 
 
 
@@ -42,6 +44,8 @@ export default function AnaliticPage({ isDarkmodeOn }) {
       <div className="sheet_animation_cont" >
         <Google_sheet_animation isDarkmodeOn={isDarkmodeOn} />
       </div>
+      <div>
+        </div>
       <div className="sheet_paralax" >
         <section>
           <Paralax isDarkmodeOn={isDarkmodeOn} baseVelocity={-5}>google sheet analitycs</Paralax>
@@ -73,9 +77,10 @@ export default function AnaliticPage({ isDarkmodeOn }) {
         >
           <p>700 ლარიდან / თვეში</p>
         </motion.div>
-
       </div>
-
+      <div>
+        <Footer isDarkmodeOn={isDarkmodeOn} />
+      </div>
 
     </div>
   )

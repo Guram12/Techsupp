@@ -1,0 +1,117 @@
+.body_footer {
+  display: grid;
+  grid-template-rows: 1fr 10rem auto;
+  grid-template-areas: "main" "." "footer";
+  height: 90px;
+  background: #F5F7FA;
+  
+  font-family: 'Open Sans', sans-serif;
+}
+.body_footer .footer {
+  z-index: 1;
+  display: grid;
+  position: relative;
+  grid-area: footer;
+  min-height: 5rem;
+}
+
+.footer_dark  {
+  --footer-background: #000000;
+  
+}
+
+.footer_light {
+  --footer-background: #ffffff;
+
+}
+
+
+.body_footer .footer .bubbles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1rem;
+  background: var(--footer-background);
+  filter: url("#blob");
+}
+.body_footer .footer .bubbles .bubble {
+  position: absolute;
+  left: var(--position, 50%);
+  background: var(--footer-background);
+  border-radius: 100%;
+  animation: bubble-size var(--time, 4s) ease-in infinite var(--delay, 0s), bubble-move var(--time, 4s) ease-in infinite var(--delay, 0s);
+  transform: translate(-50%, 100%);
+}
+.body_footer .footer  {
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  grid-gap: 4rem;
+  padding: 2rem;
+  background: var(--footer-background);
+}
+.body_footer .footer  a, .body_footer .footer  p {
+  color: #F5F7FA;
+  text-decoration: none;
+}
+.body_footer .footer  b {
+  color: white;
+}
+.body_footer .footer  p {
+  margin: 0;
+  font-size: 0.75rem;
+}
+.body_footer .footer  > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.body_footer .footer  > div > div {
+  margin: 0.25rem 0;
+}
+.body_footer .footer  > div > div > * {
+  margin-right: 0.5rem;
+}
+.body_footer .footer  > div .image {
+  align-self: center;
+  width: 4rem;
+  height: 4rem;
+  margin: 0.25rem 0;
+  background-size: cover;
+  background-position: center;
+}
+
+.for_footer_filing{
+  height: 60px;
+  width: 100%;
+}
+
+.for_footer_filing_dark{
+  
+  background-color: #000000;
+}
+
+.for_footer_filing_light{
+  background-color: #ffffff;
+
+}
+
+@keyframes bubble-size {
+  0%, 75% {
+    width: var(--size, 4rem);
+    height: var(--size, 4rem);
+  }
+  100% {
+    width: 0rem;
+    height: 0rem;
+  }
+}
+@keyframes bubble-move {
+  0% {
+    bottom: -4rem;
+  }
+  100% {
+    bottom: var(--distance, 10rem);
+  }
+}

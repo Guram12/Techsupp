@@ -1,9 +1,7 @@
 .service_animation_coontainer{
   position: relative;
-  margin-top: 500px;
-  margin-left: 70px;
-  border: 2px solid red;
-
+  margin-left: 60px;
+  margin-top: 200px;
 }
 
 
@@ -77,3 +75,10 @@
     }
   }
 }
+
+
+@media (max-width: 480px) {
+  .service_animation_coontainer{
+    display: none;
+  }
+} 

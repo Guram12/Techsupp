@@ -1,40 +1,51 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import "../styles/TerminalTextAnimation.css";
 
-export default function TerminalTextAnimation() {
+export default function TerminalTextAnimation({text}) {
   const [typedText, setTypedText] = useState("");
-  const data = "<span>გურამ შანიძე<br/>Full-stack web developer</span><br/>";
-  
+  const cursorHtml = '<span class="blinker">|</span>';
+  const typingTimeoutRef = useRef(null); // Use a ref to store the timeout, so it can be cleared when the component unmounts or text changes
+
   useEffect(() => {
+    // Clear any ongoing typing animation when text changes
+    if (typingTimeoutRef.current) {
+      clearTimeout(typingTimeoutRef.current);
+    }
+
+    setTypedText(""); // Reset typed text
     let index = 0;
     let isTag = false;
 
     const type = () => {
-      let text = data.slice(0, ++index);
-      if (text === data) {
-        // When the typing animation completes, stop updating the text.
-        // The cursor will continue to blink due to the CSS animation.
+      let slice = text.slice(0, ++index);
+      if (slice === text) {
+        setTypedText(text + cursorHtml); // Append cursor at the end of the typing
         return;
       }
 
-      setTypedText(text);
+      setTypedText(slice + cursorHtml); // Append cursor dynamically as typing progresses
 
-      const char = text.slice(-1);
+      const char = slice.slice(-1);
       if (char === "<") isTag = true;
       if (char === ">") isTag = false;
       
-      // Determine delay dynamically for typing effect and HTML tags
       const delay = isTag ? 0 : 60;
-      setTimeout(type, delay);
+      typingTimeoutRef.current = setTimeout(type, delay);
     };
 
     type();
-  }, [data]);
+
+    // Cleanup function to clear the timeout when the component unmounts or text changes
+    return () => {
+      if (typingTimeoutRef.current) {
+        clearTimeout(typingTimeoutRef.current);
+      }
+    };
+  }, [text]);
 
   return (
     <div className="typing-container">
       <div className="typing" dangerouslySetInnerHTML={{ __html: typedText }} />
-      <span className='blinker'>|</span>
     </div>
   );
 }

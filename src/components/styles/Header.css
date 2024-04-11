@@ -3,7 +3,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 40px 60px 40px 60px;
+  padding: 35px 55px 35px 55px;
 }
 
 .header_right {
@@ -11,33 +11,63 @@ header {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  /* border: 1px solid red; */
 }
 
 .menu_button {
+  /* border: 1px solid blue; */
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
-  height: 30px;
+  height: 20px;
   /* border: 1px solid #969595; */
-  padding: 23px 29px 23px 29px;
-  border-radius: 30px;
+  padding: 25px 25px 25px 25px;
+  border-radius: 50px;
   box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
     rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
-
-.menu_button:hover .menu_dots {
+.menu_arrow_img {
+  width: 18px;
+}
+.menu_button:hover .menu_arrow {
   flex-direction: column;
   transition: 1s;
+  /* animation: rotateDot 1s ease-in-out forwards; */
+  /* border: 1px solid red; */
+}
+.menu_button:active .menu_arrow {
+  animation: rotateDot 1s ease-in-out forwards;
 }
 
-.menu_dots {
-  width: 10px;
+@keyframes rotateDot {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(90deg);
+  }
+}
+/* .menu_arrow {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-bottom: 10px solid black;
+  transition: transform 1s;
+}
+
+.rotated {
+  transform: rotate(90deg);
+} */
+.menu_arrow {
+  /* width: 10px; */
   display: flex;
   gap: 3px;
 }
 
-.menu_dots div {
+.menu_arrow div {
   width: 4px;
   height: 4px;
   border-radius: 50%;
@@ -153,6 +183,11 @@ header {
   justify-content: center;
   align-items: center;
   gap: 10px;
+  /* border: 1px solid red; */
+}
+
+.techsupp_main_name {
+  color: #000000;
 }
 
 /* ====================================== voice animation styles ====================================== */
@@ -163,6 +198,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+  /* border: 1px solid; */
 }
 
 .typing-indicator {
@@ -273,4 +309,37 @@ header {
 .stop-animation .typing-circle,
 .stop-animation .typing-shadow {
   animation: none;
+}
+
+@media screen and (max-width: 500px) {
+  header {
+    /* border: 2px solid blue; */
+    padding: 15px 8px 15px 8px;
+  }
+  .company_logo {
+    display: none;
+  }
+  .header_right {
+    width: 170px;
+  }
+  .menu_button {
+    width: 45px;
+    height: 45px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+  }
+  .sound_container {
+    width: 55px;
+    height: 35px;
+  }
+  .typing-circle {
+    width: 7px;
+    height: 7px;
+  }
+  .menu_texts {
+    display: none;
+  }
 }

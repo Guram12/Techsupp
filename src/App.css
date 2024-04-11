@@ -1,6 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 
+* {
+  font-family: "Nunito", sans-serif;
+
+}
 
 .splashscreen_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   /* overflow-y: hidden; */
   height: 100vh;
@@ -15,7 +23,8 @@
 .main_container {
   padding: 0;
   /* Apply a transition to the background-color property */
-  transition: background-color 0.5s ease; /* Transition time can be adjusted */
+  transition: background-color 0.5s ease;
+  /* Transition time can be adjusted */
   /* height: 1100px; */
 }
 
@@ -43,4 +52,3 @@
   transform: translateX(886px) translateY(307px) translateZ(0px);
   mix-blend-mode: normal;
 } */
-

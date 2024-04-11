@@ -1,5 +1,5 @@
 import "./App.css";
-import techsupp_video from "./assets/splashvideo.webm";
+import techsupp_video from "./assets/Motion_media_files/splashvideo.webm";
 import { useState, useEffect, useRef, useContext } from "react";
 import { Route, Routes, Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
@@ -12,18 +12,21 @@ import MenuPage from "./components/pages/MenuPage";
 import BrendingPage from "./components/pages/BrendingPage";
 import AnimationPage from "./components/pages/AnimationPage";
 import AnaliticPage from "./components/pages/AnaliticPage";
-import background_audio_second from "./assets/background_second.mp3";
+import background_audio_second from "./assets/valorant.mp3";
 import Members from "./components/pages/Members";
+import CursorProvider from "./components/CursorContext/CursorContext.jsx";
+import Contact from "./components/pages/Contact.jsx";
+import FacebookMSG from "./components/FacebookMSG.jsx";
+
 // import { motion } from "framer-motion";
 // import { CursorContext } from "./components/CursorContext/CursorContext";
-// import CursorProvider from "./components/CursorContext/CursorContext";
 
 function App() {
   const [showSplashScreen, setShowSplashScreen] = useState(true);
   const [isSoundOff, setIsSoundOff] = useState(false);
   const [isDarkmodeOn, setIsDarkmodeOn] = useState(true);
-  const audioRef = useRef(null);
 
+  const audioRef = useRef(null);
 
   // const { cursorVariants, cursorBG } = useContext(CursorContext);
 
@@ -32,29 +35,32 @@ function App() {
     setIsDarkmodeOn(event.target.checked);
   };
 
-
   const location = useLocation();
 
   useEffect(() => {
     // Save the original background color
     const originalBackgroundColor = document.body.style.backgroundColor;
-  
+
     // Change background color based on the dark mode state
-    document.body.style.backgroundColor = !isDarkmodeOn ? 'black' : 'white';
-  
+    document.body.style.backgroundColor = !isDarkmodeOn ? "black" : "white";
+
     // Reset to original background color on cleanup
     return () => {
       document.body.style.backgroundColor = originalBackgroundColor;
     };
   }, [isDarkmodeOn]);
-  
 
 
-<<<<<<< HEAD
-=======
+  // ================================= for setting contact  context massage =============================
+  const [contactMessage, setContactMessage] = useState("");
 
 
->>>>>>> 9145797720b3b5a7bae273ab3b385ef5f9d7f980
+  const handle_context_change = (event) => {
+    setContactMessage(event);
+  };
+
+  // =====================================================================================================
+
   useEffect(() => {
     const startAudio = () => {
       // Play audio
@@ -69,7 +75,6 @@ function App() {
         });
     };
 
-    // Add event listener to the document to start audio on first click
     document.addEventListener("click", startAudio);
 
     // Cleanup function to remove the event listener
@@ -113,44 +118,88 @@ function App() {
   //   );
   // }
 
-
   return (
-        <div className={`main_container ${isDarkmodeOn ? "main_container_white" : "main_container_black"}`}>
-          {!(location.pathname === "/members") && (
-            <>
-              <Header
-                isSoundOff={isSoundOff}
-                toggleSound={toggleSound}
+    <CursorProvider isDarkmodeOn={isDarkmodeOn}>
+      <div
+        className={`main_container ${
+          isDarkmodeOn ? "main_container_white" : "main_container_black"
+        }`}
+      >
+        {!(location.pathname === "/members") && (
+          <>
+            <Header
+              isSoundOff={isSoundOff}
+              toggleSound={toggleSound}
+              isDarkmodeOn={isDarkmodeOn}
+              handle_darkmode_change={handle_darkmode_change}
+            />
+            {/* <Link to="about/"><button>about </button></Link> */}
+            {/* <Link to="/"><button>main page </button></Link> */}
+            {/* <Link to="contact/"><button>contact</button></Link> */}
+            {/* <Link to="/members"><button>members </button></Link> */}
+          </>
+        )}
+        <audio ref={audioRef} src={background_audio_second} loop muted />
+
+        <Routes>
+          <Route
+            path="about/"
+            element={<About isDarkmodeOn={isDarkmodeOn} />}
+          />
+          <Route
+            path="contact/"
+            element={
+              <Contact
                 isDarkmodeOn={isDarkmodeOn}
-                handle_darkmode_change={handle_darkmode_change}
-
+                contactMessage={contactMessage}
               />
-              <Link to="about/"><button>about </button></Link>
-              <Link to="/"><button>main page </button></Link>
-              <Link to="/members"><button>members </button></Link>
-            </>
-
-          )}
-          <audio ref={audioRef} src={background_audio_second} loop muted />
-
-          <Routes>
-            <Route path="about/" element={<About isDarkmodeOn={isDarkmodeOn} />} />
-            <Route path="/" element={<MainPage showSplashScreen={showSplashScreen} />} />
-            <Route path="services/web-development" element={<WebsitePage isDarkmodeOn={isDarkmodeOn} />} />
-            <Route path="services/it" element={<ItPage isDarkmodeOn={isDarkmodeOn}/>} />
-            <Route path="services/menu" element={<MenuPage isDarkmodeOn={isDarkmodeOn}/>} />
-            <Route path="services/brending" element={<BrendingPage isDarkmodeOn={isDarkmodeOn}/>} />
-            <Route path="services/animation" element={<AnimationPage isDarkmodeOn={isDarkmodeOn}/>} />
-            <Route path="services/analitycs" element={<AnaliticPage isDarkmodeOn={isDarkmodeOn} />} />
-            <Route path="/members" element={<Members />} />
-          </Routes>
-          {/* Cursor */}
-  {/* <motion.div
+            }
+          />
+          <Route
+            path="/"
+            element={<MainPage showSplashScreen={showSplashScreen} />}
+          />
+          <Route
+            path="services/web-development"
+            element={<WebsitePage isDarkmodeOn={isDarkmodeOn} />}
+          />
+          <Route
+            path="services/it"
+            element={
+              <ItPage
+                isDarkmodeOn={isDarkmodeOn}
+                handle_context_change={handle_context_change}
+              />
+            }
+          />
+          <Route
+            path="services/menu"
+            element={<MenuPage isDarkmodeOn={isDarkmodeOn} />}
+          />
+          <Route
+            path="services/brending"
+            element={<BrendingPage isDarkmodeOn={isDarkmodeOn} />}
+          />
+          <Route
+            path="services/animation"
+            element={<AnimationPage isDarkmodeOn={isDarkmodeOn} />}
+          />
+          <Route
+            path="services/analitycs"
+            element={<AnaliticPage isDarkmodeOn={isDarkmodeOn} />}
+          />
+          {/* <Route path="/members" element={<Members />} /> */}
+        </Routes>
+        {/* Cursor */}
+        {/* <motion.div
     variants={cursorVariants}
     animate={cursorBG}
     className="cursor"
   ></motion.div> */}
-        </div>
+      </div>
+
+      <div className="facebook_container">{/* <FacebookMSG /> */}</div>
+    </CursorProvider>
   );
 }
 
