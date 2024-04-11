@@ -5,9 +5,18 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: white;
   padding: 20px 30px;
   transition: transform 0.3s ease;
+  transition: background-color 0.5s ease;
+}
+
+.header_night {
+  background-color: rgb(0, 0, 0);
+
+}
+
+.header_lignt {
+  background-color: white;
 }
 
 .header-shadow {
@@ -38,7 +47,11 @@
   border-radius: 50px;
   box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
     rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    background-color: #ffffff;
+color: #000000;
 }
+
+
 .menu_arrow_img {
   width: 18px;
 }
@@ -109,10 +122,21 @@
   border-radius: 18px;
   position: absolute;
   z-index: 111111;
-  background-color: rgb(255, 255, 255);
   top: 140px;
   box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
-    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+  rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+  border: 1px solid grey;
+}
+
+
+.menu_dark {
+  background-color: #000000;
+  
+}
+
+.menu_light {
+  background-color: rgb(255, 255, 255);
+  
 }
 
 .dark_mode {
@@ -155,9 +179,20 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: black;
   font-size: 20px;
+  color: #000000;
 }
+
+
+.menu div .dark_menu_item{
+  color: white ;
+  
+}
+
+.light_menu_item{
+  color: #000000;
+}
+
 
 .menu div .sec_menu_links {
   text-decoration: none;
@@ -170,7 +205,11 @@
   background-color: #f4f3f3;
   border-radius: 20px;
   transition: 1s;
+  color: #000000;
 }
+
+
+
 
 .menu_links.active:hover {
   background-color: rgb(255, 255, 255);
@@ -266,7 +305,7 @@
     right: 0;
     background-color: rgb(255, 255, 255);
     justify-content: center;
-    gap: px;
+    gap: 15px;
     /* border: 3px solid blue;  */
   }
   /* .menu {
