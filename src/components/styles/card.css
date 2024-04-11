@@ -147,9 +147,9 @@ h1 {
 
 @media (max-width: 480px) {
 
-.page {
-	max-width: 340px;
-}
+	.page {
+		max-width: 340px;
+	}
 
 	.tabs-controls {
 		display: flex;
@@ -169,7 +169,7 @@ h1 {
 	}
 
 
-	.cards-container{
+	.cards-container {
 		width: 340px;
 		max-width: 340px;
 	}
@@ -177,6 +177,10 @@ h1 {
 	.card--current {
 		width: 250px;
 	}
+
+.cards-container{
+	padding-left: 7px;
+}
 
 
 
