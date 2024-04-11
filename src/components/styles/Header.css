@@ -225,3 +225,64 @@
   /* border: 1px solid; */
 }
 
+@media screen and (max-width: 500px) {
+  .header {
+    /* border: 2px solid blue;  */
+    padding: 15px 8px 15px 8px;
+  }
+  .company_logo {
+    display: none;
+  }
+  .header_right {
+    width: 170px;
+  }
+  .menu_button {
+    width: 45px;
+    height: 45px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+  }
+  .sound_container {
+    width: 55px;
+    height: 35px;
+  }
+  .typing-circle {
+    width: 7px;
+    height: 7px;
+  }
+  .menu_texts {
+    display: none;
+  }
+  .menu {
+    top: 100px;
+    height: 300px;
+    margin-right: 10px;
+    /* margin-left: 13px; */
+    /* width: 100%; */
+    /* margin-right: 113px; */
+    right: 0;
+    background-color: rgb(255, 255, 255);
+    justify-content: center;
+    gap: px;
+    /* border: 3px solid blue;  */
+  }
+  /* .menu {
+    width: 300px;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    padding: 40px 30px 40px 30px;
+    justify-content: space-between;
+    right: 60px;
+    border-radius: 18px;
+    position: absolute;
+    z-index: 111111;
+    background-color: rgb(255, 255, 255);
+    top: 140px;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+      rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+  } */
+}
