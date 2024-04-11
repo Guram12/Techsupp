@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import "../styles/Header.css";
 import logo_black from "../../assets/logo_techsupp_black.svg";
 import logo_white from "../../assets/logo_techsupp_white.svg";
@@ -10,6 +10,8 @@ import { CursorContext } from "../CursorContext/CursorContext";
 import { transition1 } from "../../Transitions";
 import Techsupp_name from "./Techsupp_name";
 import { FiArrowRight } from "react-icons/fi";
+import SoundAnimation from "../animations/SoundAnimation";
+
 
 export default function Header({
   isSoundOff,
@@ -19,12 +21,25 @@ export default function Header({
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const [menuState, setMenuState] = useState([
-    { showArrow: false, showDot: false },
+    { showArrow: false, showDot: true },
     { showArrow: false, showDot: false },
     { showArrow: false, showDot: false },
     { showArrow: false, showDot: false },
   ]);
   const { mouseEnterHandler, mouseLeaveHandler } = useContext(CursorContext);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.pageYOffset > 0);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
@@ -51,7 +66,7 @@ export default function Header({
 
   return (
     <header
-      className="header"
+      className={`header ${isScrolled ? "header-shadow" : ""}`}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -84,42 +99,10 @@ export default function Header({
         onMouseLeave={mouseLeaveHandler}
         className="header_right"
       >
-        <div className="sound_container" onClick={toggleSound}>
-          <div
-            className={`typing-indicator ${isSoundOff ? "" : "stop-animation"}`}
-          >
-            <div
-              className={`typing-circle ${
-                isDarkmodeOn ? "typing-circle_white" : "typing-circle_black"
-              }`}
-            ></div>
-            <div
-              className={`typing-circle ${
-                isDarkmodeOn ? "typing-circle_white" : "typing-circle_black"
-              }`}
-            ></div>
-            <div
-              className={`typing-circle ${
-                isDarkmodeOn ? "typing-circle_white" : "typing-circle_black"
-              }`}
-            ></div>
-            <div
-              className={`typing-shadow ${
-                isDarkmodeOn ? "typing-shadow_white" : "typing-shadow_black"
-              }`}
-            ></div>
-            <div
-              className={`typing-shadow ${
-                isDarkmodeOn ? "typing-shadow_white" : "typing-shadow_black"
-              }`}
-            ></div>
-            <div
-              className={`typing-shadow ${
-                isDarkmodeOn ? "typing-shadow_white" : "typing-shadow_black"
-              }`}
-            ></div>
-          </div>
+        <div className="sound_container" >
+          <SoundAnimation isSoundOff={isSoundOff} toggleSound={toggleSound} />
         </div>
+        
         <div className="dark_mode">
           <DarkMode
             isDarkmodeOn={isDarkmodeOn}
@@ -128,11 +111,8 @@ export default function Header({
         </div>
 
         <div className="menu_button" onClick={toggleMenu}>
-          <div className="menu_texts">
-            <span
-              className={`menu_texts_menu ${isOpen ? "rotate" : ""}`}
-              onClick={toggleMenu}
-            >
+          <div className="menu_texts" onClick={toggleMenu}>
+            <span className="menu_texts_menu " onClick={toggleMenu}>
               {isOpen ? "CLOSE" : "MENU"}
             </span>
           </div>
@@ -149,9 +129,8 @@ export default function Header({
             >
               <div className="flex">
                 <Link
-                  className={`menu_links ${
-                    menuState[0].showDot ? "active" : ""
-                  }`}
+                  className={`menu_links ${menuState[0].showDot ? "active" : ""
+                    }`}
                   to="/services"
                   onMouseEnter={() => handleLinkHover(0)}
                   onMouseLeave={() =>
@@ -177,9 +156,8 @@ export default function Header({
               </div>
               <div className="flex">
                 <Link
-                  className={`menu_links ${
-                    menuState[1].showDot ? "active" : ""
-                  }`}
+                  className={`menu_links ${menuState[1].showDot ? "active" : ""
+                    }`}
                   to="/about"
                   onMouseEnter={() => handleLinkHover(1)}
                   onMouseLeave={() =>
@@ -229,9 +207,8 @@ export default function Header({
               </div> */}
               <div className="flex">
                 <Link
-                  className={`menu_links ${
-                    menuState[3].showDot ? "active" : ""
-                  }`}
+                  className={`menu_links ${menuState[3].showDot ? "active" : ""
+                    }`}
                   to="/contact"
                   onMouseEnter={() => handleLinkHover(3)}
                   onMouseLeave={() =>
@@ -255,8 +232,18 @@ export default function Header({
               </div>
             </motion.div>
           )}
-          <div className="menu_arrow">
-            <img className="menu_arrow_img" src={RightArrow} alt="/" />
+          {/* const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  }; */}
+          <div className="menu_arrow" onClick={toggleMenu}>
+            {/* Arrow */}
+            <img
+              className={`menu_arrow_img ${
+                isOpen ? "rotate-down" : "rotate_up"
+              }`}
+              src={RightArrow}
+              alt="/"
+            />
           </div>
         </div>
       </motion.div>

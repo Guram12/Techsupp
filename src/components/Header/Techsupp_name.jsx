@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import "../styles/Techsupp_name.css";
 
 export default function Techsupp_name({ isDarkmodeOn }) {
@@ -16,14 +16,21 @@ export default function Techsupp_name({ isDarkmodeOn }) {
     return () => clearInterval(intervalId); // Cleanup on unmount
   }, []);
 
-  const letters = ['T', 'e', 'c', 'h', 'S', 'u', 'p', 'p'];
+  const letters = ["T", "e", "c", "h", "S", "u", "p", "p"];
 
   return (
     <div className="main11111">
-      <div className="content" style={{ color: `${!isDarkmodeOn ? "white" : "black"} ` }} >
+      <div
+        className="content"
+        style={{ color: `${!isDarkmodeOn ? "white" : "black"} ` }}
+      >
         {letters.map((letter, index) => (
           <div className="content__container" key={index}>
-            <ul className={`content__container__list ${animateStates[index] ? 'animate' : ''}`}>
+            <ul
+              className={`content__container__list ${
+                animateStates[index] ? "animate" : ""
+              }`}
+            >
               <li className="content__container__list__item">{letter}</li>
               <li className="content__container__list__item">{letter}</li>
               <li className="content__container__list__item">{letter}</li>
