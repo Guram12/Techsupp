@@ -27,8 +27,7 @@
 
 
 .mainpage_main_footer_container {
-  
-  /* sxvanairad ar swordeba es ddedamotynuli merominda ise, animaciis bralia */
+  margin-top: -90px;  /* sxvanairad ar swordeba es ddedamotynuli merominda ise, animaciis bralia */
   overflow-x: hidden;
 }
 
