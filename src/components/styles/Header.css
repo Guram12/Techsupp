@@ -36,7 +36,7 @@ header {
   /* animation: rotateDot 1s ease-in-out forwards; */
   /* border: 1px solid red; */
 }
-.menu_button:active .menu_arrow {
+/* .menu_button:active .menu_arrow {
   animation: rotateDot 1s ease-in-out forwards;
 }
 
@@ -48,7 +48,19 @@ header {
   to {
     transform: rotate(90deg);
   }
+} */
+/* .menu_button:active + .menu_arrow {
+  transform: rotate(90deg);
+} */
+.rotate-down {
+  transform: rotate(90deg);
+  transition: 1s;
 }
+.rotate_up {
+  /* transform: rotate3d(0deg);  */
+  transition: 1s;
+}
+
 /* .menu_arrow {
   width: 0;
   height: 0;

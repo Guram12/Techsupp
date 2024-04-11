@@ -25,6 +25,10 @@ export default function Header({
     { showArrow: false, showDot: false },
   ]);
   const { mouseEnterHandler, mouseLeaveHandler } = useContext(CursorContext);
+  // const [arrowDown, setArrowDown] = useState(false);
+  // const rotateArrow = () => {
+  //   setArrowDown(!arrowDown);
+  // };
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
@@ -128,11 +132,8 @@ export default function Header({
         </div>
 
         <div className="menu_button" onClick={toggleMenu}>
-          <div className="menu_texts">
-            <span
-              className={`menu_texts_menu ${isOpen ? "rotate" : ""}`}
-              onClick={toggleMenu}
-            >
+          <div className="menu_texts" onClick={toggleMenu}>
+            <span className="menu_texts_menu " onClick={toggleMenu}>
               {isOpen ? "CLOSE" : "MENU"}
             </span>
           </div>
@@ -255,8 +256,18 @@ export default function Header({
               </div>
             </motion.div>
           )}
-          <div className="menu_arrow">
-            <img className="menu_arrow_img" src={RightArrow} alt="/" />
+          {/* const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  }; */}
+          <div className="menu_arrow" onClick={toggleMenu}>
+            {/* Arrow */}
+            <img
+              className={`menu_arrow_img ${
+                isOpen ? "rotate-down" : "rotate_up"
+              }`}
+              src={RightArrow}
+              alt="/"
+            />
           </div>
         </div>
       </motion.div>
