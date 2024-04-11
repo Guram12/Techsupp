@@ -1,8 +1,6 @@
-
-.typing-container{
+.typing-container {
   color: aliceblue;
 }
-
 
 .blinker {
   opacity: 1;
@@ -14,10 +12,9 @@
 }
 
 @keyframes blinker {
-  to { 
-    visibility: hidden; 
+  to {
+    visibility: hidden;
   }
 }
 
-
-/* const data = "<span>გურამ შანიძე<br/>Full-stack web developer</span><br/>"; */
+/* const data = "<span>გურამ წანიძე<br/>Full-stack web developer</span><br/>"; */
