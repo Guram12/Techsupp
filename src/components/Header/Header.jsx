@@ -11,7 +11,7 @@ import { transition1 } from "../../Transitions";
 import Techsupp_name from "./Techsupp_name";
 import { useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
-
+import SoundAnimation from "../animations/SoundAnimation";
 
 export default function Header({
   isSoundOff,
