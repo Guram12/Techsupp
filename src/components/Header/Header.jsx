@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import "../styles/Header.css";
 import logo_black from "../../assets/logo_techsupp_black.svg";
 import logo_white from "../../assets/logo_techsupp_white.svg";
@@ -19,12 +19,25 @@ export default function Header({
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const [menuState, setMenuState] = useState([
-    { showArrow: false, showDot: false },
+    { showArrow: false, showDot: true },
     { showArrow: false, showDot: false },
     { showArrow: false, showDot: false },
     { showArrow: false, showDot: false },
   ]);
   const { mouseEnterHandler, mouseLeaveHandler } = useContext(CursorContext);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.pageYOffset > 0);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
@@ -51,7 +64,7 @@ export default function Header({
 
   return (
     <header
-      className="header"
+      className={`header ${isScrolled ? "header-shadow" : ""}`}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -128,11 +141,8 @@ export default function Header({
         </div>
 
         <div className="menu_button" onClick={toggleMenu}>
-          <div className="menu_texts">
-            <span
-              className={`menu_texts_menu ${isOpen ? "rotate" : ""}`}
-              onClick={toggleMenu}
-            >
+          <div className="menu_texts" onClick={toggleMenu}>
+            <span className="menu_texts_menu " onClick={toggleMenu}>
               {isOpen ? "CLOSE" : "MENU"}
             </span>
           </div>
@@ -255,8 +265,18 @@ export default function Header({
               </div>
             </motion.div>
           )}
-          <div className="menu_arrow">
-            <img className="menu_arrow_img" src={RightArrow} alt="/" />
+          {/* const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  }; */}
+          <div className="menu_arrow" onClick={toggleMenu}>
+            {/* Arrow */}
+            <img
+              className={`menu_arrow_img ${
+                isOpen ? "rotate-down" : "rotate_up"
+              }`}
+              src={RightArrow}
+              alt="/"
+            />
           </div>
         </div>
       </motion.div>
