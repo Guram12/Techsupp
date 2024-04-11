@@ -12,6 +12,7 @@ import Techsupp_name from "./Techsupp_name";
 import { useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 
+
 export default function Header({
   isSoundOff,
   toggleSound,
@@ -93,130 +94,93 @@ export default function Header({
           {/* <h1 className="techsupp_main_name" >TechSupp</h1> */}
           <Techsupp_name isDarkmodeOn={isDarkmodeOn} />
         </motion.div>
+      <motion.div
+        transition={transition1}
+        onMouseEnter={mouseEnterHandler} // Corrected function name
+        onMouseLeave={mouseLeaveHandler}
+        className="header_right"
+      >
+        <div className="sound_container" >
+          <SoundAnimation isSoundOff={isSoundOff} toggleSound={toggleSound} />
+        </div>
+        
+        <div className="dark_mode">
+          <DarkMode
+            isDarkmodeOn={isDarkmodeOn}
+            handle_darkmode_change={handle_darkmode_change}
+          />
+        </div>
 
-        <motion.div
-          transition={transition1}
-          onMouseEnter={mouseEnterHandler} // Corrected function name
-          onMouseLeave={mouseLeaveHandler}
-          className="header_right"
-        >
-          <div className="sound_container" onClick={toggleSound}>
-            <div
-              className={`typing-indicator ${
-                isSoundOff ? "" : "stop-animation"
-              }`}
+        <div className="menu_button" onClick={toggleMenu}>
+          <div className="menu_texts" onClick={toggleMenu}>
+            <span className="menu_texts_menu " onClick={toggleMenu}>
+              {isOpen ? "CLOSE" : "MENU"}
+            </span>
+          </div>
+          {isOpen && (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{
+                duration: 0.8,
+                delay: 0.5,
+                ease: [0, 0.71, 0.2, 1.01],
+              }}
+              className="menu"
             >
-              <div
-                className={`typing-circle ${
-                  isDarkmodeOn ? "typing-circle_white" : "typing-circle_black"
-                }`}
-              ></div>
-              <div
-                className={`typing-circle ${
-                  isDarkmodeOn ? "typing-circle_white" : "typing-circle_black"
-                }`}
-              ></div>
-              <div
-                className={`typing-circle ${
-                  isDarkmodeOn ? "typing-circle_white" : "typing-circle_black"
-                }`}
-              ></div>
-              <div
-                className={`typing-shadow ${
-                  isDarkmodeOn ? "typing-shadow_white" : "typing-shadow_black"
-                }`}
-              ></div>
-              <div
-                className={`typing-shadow ${
-                  isDarkmodeOn ? "typing-shadow_white" : "typing-shadow_black"
-                }`}
-              ></div>
-              <div
-                className={`typing-shadow ${
-                  isDarkmodeOn ? "typing-shadow_white" : "typing-shadow_black"
-                }`}
-              ></div>
-            </div>
-          </div>
-          <div className="dark_mode">
-            <DarkMode
-              isDarkmodeOn={isDarkmodeOn}
-              handle_darkmode_change={handle_darkmode_change}
-            />
-          </div>
-
-          <div className="menu_button" onClick={toggleMenu}>
-            <div className="menu_texts" onClick={toggleMenu}>
-              <span className="menu_texts_menu " onClick={toggleMenu}>
-                {isOpen ? "CLOSE" : "MENU"}
-              </span>
-            </div>
-            {isOpen && (
-              <motion.div
-                initial={{ opacity: 0, scale: 0.5 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{
-                  duration: 0.8,
-                  delay: 0.5,
-                  ease: [0, 0.71, 0.2, 1.01],
-                }}
-                className="menu"
-              >
-                <div className="flex">
-                  <Link
-                    className={`menu_links ${
-                      menuState[0].showDot ? "active" : ""
+              <div className="flex">
+                <Link
+                  className={`menu_links ${menuState[0].showDot ? "active" : ""
                     }`}
-                    to="/services"
-                    onMouseEnter={() => handleLinkHover(0)}
-                    onMouseLeave={() =>
-                      setMenuState((prevMenuState) =>
-                        prevMenuState.map((item) => ({
-                          ...item,
-                          showArrow: false,
-                        }))
-                      )
-                    }
-                    onClick={() => handleLinkClick(0)}
-                  >
-                    სერვისები
-                    <div>
-                      {menuState[0].showArrow && !menuState[0].showDot && (
-                        <img className="arrow_img" src={RightArrow} alt="" />
-                      )}
-                      {menuState[0].showDot && (
-                        <div className="link_dott_menu">●</div>
-                      )}
-                    </div>
-                  </Link>
-                </div>
-                <div className="flex">
-                  <Link
-                    className={`menu_links ${
-                      menuState[1].showDot ? "active" : ""
+                  to="/services"
+                  onMouseEnter={() => handleLinkHover(0)}
+                  onMouseLeave={() =>
+                    setMenuState((prevMenuState) =>
+                      prevMenuState.map((item) => ({
+                        ...item,
+                        showArrow: false,
+                      }))
+                    )
+                  }
+                  onClick={() => handleLinkClick(0)}
+                >
+                  სერვისები
+                  <div>
+                    {menuState[0].showArrow && !menuState[0].showDot && (
+                      <img className="arrow_img" src={RightArrow} alt="" />
+                    )}
+                    {menuState[0].showDot && (
+                      <div className="link_dott_menu">●</div>
+                    )}
+                  </div>
+                </Link>
+              </div>
+              <div className="flex">
+                <Link
+                  className={`menu_links ${menuState[1].showDot ? "active" : ""
                     }`}
-                    to="/about"
-                    onMouseEnter={() => handleLinkHover(1)}
-                    onMouseLeave={() =>
-                      setMenuState((prevMenuState) =>
-                        prevMenuState.map((item) => ({
-                          ...item,
-                          showArrow: false,
-                        }))
-                      )
-                    }
-                    onClick={() => handleLinkClick(1)}
-                  >
-                    ჩვენს შესახებ
-                    <div>
-                      {menuState[1].showArrow && !menuState[1].showDot && (
-                        <img className="arrow_img" src={RightArrow} alt="" />
-                      )}
-                      {menuState[1].showDot && " ●"}
-                    </div>
-                  </Link>
-                </div>
-                {/* <div className="flex">
+                  to="/about"
+                  onMouseEnter={() => handleLinkHover(1)}
+                  onMouseLeave={() =>
+                    setMenuState((prevMenuState) =>
+                      prevMenuState.map((item) => ({
+                        ...item,
+                        showArrow: false,
+                      }))
+                    )
+                  }
+                  onClick={() => handleLinkClick(1)}
+                >
+                  ჩვენს შესახებ
+                  <div>
+                    {menuState[1].showArrow && !menuState[1].showDot && (
+                      <img className="arrow_img" src={RightArrow} alt="" />
+                    )}
+                    {menuState[1].showDot && " ●"}
+                  </div>
+                </Link>
+              </div>
+              {/* <div className="flex">
                 <Link
                   className={`menu_links ${
                     menuState[2].showDot ? "active" : ""
