@@ -17,7 +17,7 @@ export default function mainPage({ showSplashScreen }) {
       </div>
 
       <div className="mainpage_main_footer_container" >
-        <MainPage_Footer />
+        {/* <MainPage_Footer /> */}
       </div>
 
     </div>

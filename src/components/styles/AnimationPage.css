@@ -13,11 +13,13 @@
   width: 100%;
   height: 700px;
   margin-top: 40px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
 
 }
 
 .motion_text_container {
-  position: absolute;
   z-index: 4;
   background-color: transparent;
   width: 300px;
@@ -33,25 +35,28 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: rgb(19, 24, 99);
+  margin-right: 150px;
 }
 
-.motion_text_container::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  backdrop-filter: blur(40px);
-  /* Adjust the blur value as needed */
-  z-index: -1;
+
+.motion_child_blur_container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; 
+  overflow: hidden;
 }
 
 
 .motion_paragraph {
+  position: relative;
   text-align: center;
+  z-index: 1;
+   
 }
-
 
 .motion_video_container {
   width: 100%;
@@ -105,9 +110,46 @@
 /* ===================================================================================================================== */
 
 .video_animation_container {
-  height: 400px;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.animation_footer_container{
+  margin-top: 200px;
+}
+
+
+@media screen and (max-width: 500px) {
+  .motion_video_container_up {
+    height: 150px;
+  }
+
+  .motion_example_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .motion_background_video_container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 700px;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+
+  .motion_text_container {
+
+    margin-right: 0px;
+  }
+
+
 }

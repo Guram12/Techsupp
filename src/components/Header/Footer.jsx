@@ -1,14 +1,38 @@
 import "../styles/Footer.css"
 // import "../styles/Footer.scss"
-
+import React , { useState , useEffect } from "react";
 
 
 export default function Footer({isDarkmodeOn}) {
+  const [isMobileView, setIsMobileView] = useState(window.innerWidth < 768);
+
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobileView(window.innerWidth < 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+
+//   size: `${2 + Math.random() * 1}rem`,
+//   distance: `${6 + Math.random() * 10}rem`,
+//   position: `${-5 + Math.random() * 95}%`,
+//   time: `${2 + Math.random() * 2}s`,
+//   delay: `${-1 * (2 + Math.random() * 2)}s`,
+// }));
+
+
   // Generating bubbles with unique styles
   const bubbles = Array.from({ length: 128 }).map((_, index) => ({
-    size: `${2 + Math.random() * 5}rem`,
-    distance: `${6 + Math.random() * 4}rem`,
-    position: `${-5 + Math.random() * 100}%`,
+    size: `${2 + Math.random() * (!isMobileView ?   5 : 1 )}rem`,
+    distance: `${6 + Math.random() * (!isMobileView ? 4 : 2)}rem`,
+    position: `${-5 + Math.random() * (!isMobileView ? 100 : 98 )}%`,
     time: `${2 + Math.random() * 2}s`,
     delay: `${-1 * (2 + Math.random() * 2)}s`,
   }));

@@ -6,6 +6,9 @@
 }
 
 .splashscreen_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   /* overflow-y: hidden; */
   height: 100vh;

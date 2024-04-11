@@ -12,6 +12,21 @@ import motion_background from "../../assets/Motion_media_files/motion_background
 
 
 export default function AnimationPage({ isDarkmodeOn }) {
+  const [isMobileView, setIsMobileView] = useState(window.innerWidth < 768);
+
+
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobileView(window.innerWidth < 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
 
   const animate = { x: 0 };
@@ -45,9 +60,7 @@ export default function AnimationPage({ isDarkmodeOn }) {
     }
   }, [controls_1, inView1])
 
-  const test_click = () => {
-    console.log("clicked")
-  }
+
 
   return (
     <div>
@@ -67,7 +80,11 @@ export default function AnimationPage({ isDarkmodeOn }) {
           initial={{ x: '100vw' }}
           transition={{ type: 'spring', stiffness: 70, delay: 1 }}
         >
-          <p className="motion_paragraph" >აქ დავწერთ თუ რას ვთავაზობთ მომხმარებელს მოტიონ დიზაინის სერვისში , და ქვემოთ დავწერთ დაახლოებიტ ფასებს </p>
+          <div className="motion_child_blur_container" >
+            <p className="motion_paragraph" >აქ დავწერთ
+              თუ რას ვთავაზობთ მომხმარებელს მოტიონ დიზაინის
+              სერვისში , და ქვემოთ დავწერთ დაახლოებიტ ფასებს </p>
+          </div>
         </motion.div>
 
         <div className="motion_video_container" >
@@ -82,22 +99,23 @@ export default function AnimationPage({ isDarkmodeOn }) {
           </video>
         </div>
       </div>
-
-      <div className="motion_example_container" ref={ref1}   >
-        <motion.div className={`motion_example_child_container  ${!isDarkmodeOn ? "motion_example_child_container_dark" : "motion_example_child_container_light"}`}
-          animate={controls_1}
-          initial={{ x: '100vw' }}
-          transition={{ type: 'spring', stiffness: 70, delay: 0.5 }}
-        >
-          <p className="motion_example_text" >იხილეთ მაგალიტები</p>
-        </motion.div>
-      </div>
+      {!isMobileView && (
+        <div className="motion_example_container" ref={ref1}   >
+          <motion.div className={`motion_example_child_container  ${!isDarkmodeOn ? "motion_example_child_container_dark" : "motion_example_child_container_light"}`}
+            animate={controls_1}
+            initial={{ x: '100vw' }}
+            transition={{ type: 'spring', stiffness: 70, delay: 0.5 }}
+          >
+            <p className="motion_example_text" >იხილეთ მაგალიტები</p>
+          </motion.div>
+        </div>
+      )}
 
       <div className="video_animation_container" >
         <VideoAnimation />
       </div>
 
-      <div style={{marginTop: "70px"}} >
+      <div className="animation_footer_container" >
         <Footer isDarkmodeOn={isDarkmodeOn} />
       </div>
 
