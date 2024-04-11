@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import "../styles/Header.css";
 import logo_black from "../../assets/logo_techsupp_black.svg";
 import logo_white from "../../assets/logo_techsupp_white.svg";
@@ -19,16 +19,25 @@ export default function Header({
 }) {
   const [isOpen, setIsOpen] = useState(false);
   const [menuState, setMenuState] = useState([
-    { showArrow: false, showDot: false },
+    { showArrow: false, showDot: true },
     { showArrow: false, showDot: false },
     { showArrow: false, showDot: false },
     { showArrow: false, showDot: false },
   ]);
   const { mouseEnterHandler, mouseLeaveHandler } = useContext(CursorContext);
-  // const [arrowDown, setArrowDown] = useState(false);
-  // const rotateArrow = () => {
-  //   setArrowDown(!arrowDown);
-  // };
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.pageYOffset > 0);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
@@ -55,7 +64,7 @@ export default function Header({
 
   return (
     <header
-      className="header"
+      className={`header ${isScrolled ? "header-shadow" : ""}`}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}

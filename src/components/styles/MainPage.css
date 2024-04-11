@@ -8,11 +8,9 @@
   }
 }
 
-
-
 .mainpage_cont {
   color: transparent;
-  /* amas droebit vwer */
+  padding-top: 100px;
 }
 
 .mainpage_child_cont {
@@ -24,21 +22,16 @@
   position: relative;
 }
 
-
-
 .mainpage_main_footer_container {
-  margin-top: -90px;  /* sxvanairad ar swordeba es ddedamotynuli merominda ise, animaciis bralia */
+  margin-top: -90px;
   overflow-x: hidden;
 }
 
-
-
 @media (max-width: 480px) {
-  .mainpage_child_cont{
+  .mainpage_child_cont {
     overflow: hidden;
   }
 }
-
 
 /* =============================================  service button styles ========================================= */
 .cta {
@@ -49,7 +42,6 @@
 
 .cta span {
   padding-bottom: 7px;
-  /* letter-spacing: 4px; */
   font-size: 14px;
   padding-right: 15px;
   text-transform: uppercase;
@@ -91,6 +83,5 @@
   transform: scaleX(1);
   transform-origin: bottom left;
 }
-
 
 /* ================================================================================================================ */
