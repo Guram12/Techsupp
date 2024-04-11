@@ -11,15 +11,11 @@
 
 .toggle_white {
   box-shadow: 0 0 50px 20px rgba(0, 0, 0, 0.1);
-
 }
 
 .toggle_black {
   box-shadow: 0 0 50px 20px rgba(179, 178, 178, 0.342);
-  
 }
-
-
 
 .input {
   display: none;
@@ -46,4 +42,10 @@
 #switch:checked ~ .icon--sun {
   transition-delay: 200ms;
   transform: scale(1) rotate(360deg);
+}
+@media screen and (max-width: 500px) {
+  .toggle {
+    width: 45px;
+    height: 45px;
+  }
 }

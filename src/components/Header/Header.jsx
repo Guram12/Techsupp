@@ -9,7 +9,7 @@ import DarkMode from "../animations/Dark-Mode";
 import { CursorContext } from "../CursorContext/CursorContext";
 import { transition1 } from "../../Transitions";
 import Techsupp_name from "./Techsupp_name";
-
+import { FiArrowRight } from "react-icons/fi";
 
 export default function Header({
   isSoundOff,
@@ -67,7 +67,12 @@ export default function Header({
         className="logo_and_name"
       >
         <Link to="/">
-          <img src={ isDarkmodeOn?  logo_black :  logo_white} alt="company logo" style={{ width: "100px"  }} />
+          <img
+            src={isDarkmodeOn ? logo_black : logo_white}
+            alt="company logo"
+            style={{ width: "100px" }}
+            className="company_logo"
+          />
         </Link>
         {/* <h1 className="techsupp_main_name" >TechSupp</h1> */}
         <Techsupp_name isDarkmodeOn={isDarkmodeOn} />
@@ -81,14 +86,38 @@ export default function Header({
       >
         <div className="sound_container" onClick={toggleSound}>
           <div
-            className={`typing-indicator ${isSoundOff ? "" : "stop-animation"}  `}
+            className={`typing-indicator ${isSoundOff ? "" : "stop-animation"}`}
           >
-            <div className={`typing-circle ${isDarkmodeOn ? "typing-circle_white" : "typing-circle_black"}`}></div>
-            <div className={`typing-circle ${isDarkmodeOn ? "typing-circle_white" : "typing-circle_black"}`}></div>
-            <div className={`typing-circle ${isDarkmodeOn ? "typing-circle_white" : "typing-circle_black"}`}></div>
-            <div className={`typing-shadow ${isDarkmodeOn ? "typing-shadow_white" : "typing-shadow_black"}`} ></div>
-            <div className={`typing-shadow ${isDarkmodeOn ? "typing-shadow_white" : "typing-shadow_black"}`}></div>
-            <div className={`typing-shadow ${isDarkmodeOn ? "typing-shadow_white" : "typing-shadow_black"}`}></div>
+            <div
+              className={`typing-circle ${
+                isDarkmodeOn ? "typing-circle_white" : "typing-circle_black"
+              }`}
+            ></div>
+            <div
+              className={`typing-circle ${
+                isDarkmodeOn ? "typing-circle_white" : "typing-circle_black"
+              }`}
+            ></div>
+            <div
+              className={`typing-circle ${
+                isDarkmodeOn ? "typing-circle_white" : "typing-circle_black"
+              }`}
+            ></div>
+            <div
+              className={`typing-shadow ${
+                isDarkmodeOn ? "typing-shadow_white" : "typing-shadow_black"
+              }`}
+            ></div>
+            <div
+              className={`typing-shadow ${
+                isDarkmodeOn ? "typing-shadow_white" : "typing-shadow_black"
+              }`}
+            ></div>
+            <div
+              className={`typing-shadow ${
+                isDarkmodeOn ? "typing-shadow_white" : "typing-shadow_black"
+              }`}
+            ></div>
           </div>
         </div>
         <div className="dark_mode">
@@ -98,8 +127,7 @@ export default function Header({
           />
         </div>
 
-
-        <div className="menu_button">
+        <div className="menu_button" onClick={toggleMenu}>
           <div className="menu_texts">
             <span
               className={`menu_texts_menu ${isOpen ? "rotate" : ""}`}
@@ -121,9 +149,10 @@ export default function Header({
             >
               <div className="flex">
                 <Link
-                  className={`menu_links ${menuState[0].showDot ? "active" : ""
-                    }`}
-                  to="/link1"
+                  className={`menu_links ${
+                    menuState[0].showDot ? "active" : ""
+                  }`}
+                  to="/services"
                   onMouseEnter={() => handleLinkHover(0)}
                   onMouseLeave={() =>
                     setMenuState((prevMenuState) =>
@@ -148,9 +177,10 @@ export default function Header({
               </div>
               <div className="flex">
                 <Link
-                  className={`menu_links ${menuState[1].showDot ? "active" : ""
-                    }`}
-                  to="/link2"
+                  className={`menu_links ${
+                    menuState[1].showDot ? "active" : ""
+                  }`}
+                  to="/about"
                   onMouseEnter={() => handleLinkHover(1)}
                   onMouseLeave={() =>
                     setMenuState((prevMenuState) =>
@@ -171,11 +201,12 @@ export default function Header({
                   </div>
                 </Link>
               </div>
-              <div className="flex">
+              {/* <div className="flex">
                 <Link
-                  className={`menu_links ${menuState[2].showDot ? "active" : ""
-                    }`}
-                  to="/link3"
+                  className={`menu_links ${
+                    menuState[2].showDot ? "active" : ""
+                  }`}
+                  to="members/ "
                   onMouseEnter={() => handleLinkHover(2)}
                   onMouseLeave={() =>
                     setMenuState((prevMenuState) =>
@@ -195,12 +226,13 @@ export default function Header({
                     {menuState[2].showDot && " ●"}
                   </div>
                 </Link>
-              </div>
+              </div> */}
               <div className="flex">
                 <Link
-                  className={`menu_links ${menuState[3].showDot ? "active" : ""
-                    }`}
-                  to="/link4"
+                  className={`menu_links ${
+                    menuState[3].showDot ? "active" : ""
+                  }`}
+                  to="/contact"
                   onMouseEnter={() => handleLinkHover(3)}
                   onMouseLeave={() =>
                     setMenuState((prevMenuState) =>
@@ -223,9 +255,8 @@ export default function Header({
               </div>
             </motion.div>
           )}
-          <div className="menu_dots">
-            <div></div>
-            <div></div>
+          <div className="menu_arrow">
+            <img className="menu_arrow_img" src={RightArrow} alt="/" />
           </div>
         </div>
       </motion.div>
