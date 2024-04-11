@@ -10,6 +10,8 @@ import { CursorContext } from "../CursorContext/CursorContext";
 import { transition1 } from "../../Transitions";
 import Techsupp_name from "./Techsupp_name";
 import { FiArrowRight } from "react-icons/fi";
+import SoundAnimation from "../animations/SoundAnimation";
+
 
 export default function Header({
   isSoundOff,
@@ -84,42 +86,10 @@ export default function Header({
         onMouseLeave={mouseLeaveHandler}
         className="header_right"
       >
-        <div className="sound_container" onClick={toggleSound}>
-          <div
-            className={`typing-indicator ${isSoundOff ? "" : "stop-animation"}`}
-          >
-            <div
-              className={`typing-circle ${
-                isDarkmodeOn ? "typing-circle_white" : "typing-circle_black"
-              }`}
-            ></div>
-            <div
-              className={`typing-circle ${
-                isDarkmodeOn ? "typing-circle_white" : "typing-circle_black"
-              }`}
-            ></div>
-            <div
-              className={`typing-circle ${
-                isDarkmodeOn ? "typing-circle_white" : "typing-circle_black"
-              }`}
-            ></div>
-            <div
-              className={`typing-shadow ${
-                isDarkmodeOn ? "typing-shadow_white" : "typing-shadow_black"
-              }`}
-            ></div>
-            <div
-              className={`typing-shadow ${
-                isDarkmodeOn ? "typing-shadow_white" : "typing-shadow_black"
-              }`}
-            ></div>
-            <div
-              className={`typing-shadow ${
-                isDarkmodeOn ? "typing-shadow_white" : "typing-shadow_black"
-              }`}
-            ></div>
-          </div>
+        <div className="sound_container" >
+          <SoundAnimation isSoundOff={isSoundOff} toggleSound={toggleSound} />
         </div>
+        
         <div className="dark_mode">
           <DarkMode
             isDarkmodeOn={isDarkmodeOn}
@@ -149,9 +119,8 @@ export default function Header({
             >
               <div className="flex">
                 <Link
-                  className={`menu_links ${
-                    menuState[0].showDot ? "active" : ""
-                  }`}
+                  className={`menu_links ${menuState[0].showDot ? "active" : ""
+                    }`}
                   to="/services"
                   onMouseEnter={() => handleLinkHover(0)}
                   onMouseLeave={() =>
@@ -177,9 +146,8 @@ export default function Header({
               </div>
               <div className="flex">
                 <Link
-                  className={`menu_links ${
-                    menuState[1].showDot ? "active" : ""
-                  }`}
+                  className={`menu_links ${menuState[1].showDot ? "active" : ""
+                    }`}
                   to="/about"
                   onMouseEnter={() => handleLinkHover(1)}
                   onMouseLeave={() =>
@@ -229,9 +197,8 @@ export default function Header({
               </div> */}
               <div className="flex">
                 <Link
-                  className={`menu_links ${
-                    menuState[3].showDot ? "active" : ""
-                  }`}
+                  className={`menu_links ${menuState[3].showDot ? "active" : ""
+                    }`}
                   to="/contact"
                   onMouseEnter={() => handleLinkHover(3)}
                   onMouseLeave={() =>

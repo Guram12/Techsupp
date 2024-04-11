@@ -136,7 +136,7 @@ function App() {
             {/* <Link to="/members"><button>members </button></Link> */}
           </>
         )}
-        <audio ref={audioRef} src={background_audio_second} loop muted />
+        <audio ref={audioRef} src={background_audio_second} loop  />
 
         <Routes>
           <Route
