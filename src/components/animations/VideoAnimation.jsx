@@ -10,22 +10,25 @@ export default function VideoAnimation() {
   const [isChecked2, setIsChecked2] = useState(false);
   const [isChecked3, setIsChecked3] = useState(false);
   const [isChecked4, setIsChecked4] = useState(false);
+  const [isMobileView, setIsMobileView] = useState(window.innerWidth < 768);
 
 
-  // const handleCheckboxChange1 = (event) => {
-  //   event.stopPropagation(); 
-  //   setIsChecked1(!isChecked1);
-  // };
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobileView(window.innerWidth < 768);
+    };
 
-  // const handleCheckboxChange2 = (event) => {
-  //   event.stopPropagation();
-  //   setIsChecked2(!isChecked2);
-  // };
+    window.addEventListener('resize', handleResize);
 
-  // const handleCheckboxChange3 = (event) => {
-  //   event.stopPropagation(); 
-  //   setIsChecked3(!isChecked3);
-  // };
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+useEffect(()=> {
+  console.log("sigane" ,isMobileView)
+
+},[isMobileView])
 
 
   useEffect(() => {
@@ -65,56 +68,93 @@ export default function VideoAnimation() {
     }
   };
 
+
   return (
     <div className='main_animation_page_container' onClick={(e) => e.stopPropagation()}   >
-      {/* 1 video animation  */}
-      {!isChecked2 && !isChecked3 && !isChecked4 && (
-        <div className="wrapper">
-          <input type="checkbox" checked={isChecked1} onChange={handleCheckboxChange(setIsChecked1)} />
-          <div className="video">
-            <video src={night_basement} loop muted autoPlay playsInline></video>
-          </div>
-          <div className="text">
-            <span data-text="Night basement"></span>
-          </div>
+      {!isMobileView ?
+        <div>
+          {/* 1 video animation  */}
+          {!isChecked2 && !isChecked3 && !isChecked4 && (
+            <div className="wrapper">
+              <input type="checkbox" checked={isChecked1} onChange={handleCheckboxChange(setIsChecked1)} />
+              <div className="video">
+                <video src={night_basement} loop muted autoPlay playsInline></video>
+              </div>
+              <div className="text">
+                <span data-text="Night basement"></span>
+              </div>
+            </div>
+          )}
+
+          {/* 2 video animation  */}
+          {!isChecked1 && !isChecked3 && !isChecked4 && (
+            <div className="wrapper">
+              <input type="checkbox" checked={isChecked2} onChange={handleCheckboxChange(setIsChecked2)} />
+              <div className="video">
+                <video src={splashvideo} loop muted autoPlay playsInline></video>
+              </div>
+              <div className="text">
+                <span data-text="Techsupp animation"></span>
+              </div>
+            </div>
+          )}
+
+          {/* 3 video animation  */}
+          {!isChecked2 && !isChecked1 && !isChecked4 && (
+            <div className="wrapper">
+              <input type="checkbox" checked={isChecked3} onChange={handleCheckboxChange(setIsChecked3)} />
+              <div className="video">
+                <video src={techsupp_name_video} loop muted autoPlay playsInline></video>
+              </div>
+              <div className="text">
+                <span data-text="Techsupp animation"></span>
+              </div>
+            </div>
+          )}
+
+          {/* 4 video animation  */}
+          {!isChecked2 && !isChecked1 && !isChecked3 && (
+            <div className="wrapper">
+              <input type="checkbox" checked={isChecked4} onChange={handleCheckboxChange(setIsChecked4)} />
+              <div className="video">
+                <video src={bottle_animated_video} loop muted autoPlay ></video>
+              </div>
+              <div className="text">
+                <span data-text="Techsupp animation"></span>
+              </div>
+            </div>
+          )}
         </div>
-      )}
-      {/* 2 video animation  */}
-      {!isChecked1 && !isChecked3 && !isChecked4 && (
-        <div className="wrapper">
-          <input type="checkbox" checked={isChecked2} onChange={handleCheckboxChange(setIsChecked2)} />
-          <div className="video">
-            <video src={splashvideo} loop muted autoPlay playsInline></video>
+        :
+        // aqedan iwyeba mobailis video conteinerebi  
+        <div className='simple_animation_page_container'>
+
+          {/* 1 video containeri  */}
+          <div className="mobile_video_container">
+            <h2>NIGHT BASEMENT</h2>
+            <video className='mobile_video_tags' src={night_basement} loop muted autoPlay playsInline controls></video>
           </div>
-          <div className="text">
-            <span data-text="Techsupp animation"></span>
+
+          {/* 2 video containeri  */}
+          <div className="mobile_video_container">
+            <h2>TECHSUPP SPLASH ART</h2>
+            <video className='mobile_video_tags' src={splashvideo} loop muted autoPlay playsInline controls></video>
           </div>
+
+          {/* 3 video containeri  */}
+          <div className="mobile_video_container">
+            <h2>TECHSUPP</h2>
+            <video className='mobile_video_tags' src={techsupp_name_video} loop muted autoPlay playsInline controls></video>
+          </div>
+
+          {/* 4 video containeri  */}
+          <div className="mobile_video_container">
+            <h2>APPLE JUICE</h2>
+            <video className='mobile_video_tags' src={bottle_animated_video} loop muted autoPlay playsInline controls></video>
+          </div>
+
         </div>
-      )}
-      {/* 3 video animation  */}
-      {!isChecked2 && !isChecked1 && !isChecked4 && (
-        <div className="wrapper">
-          <input type="checkbox" checked={isChecked3} onChange={handleCheckboxChange(setIsChecked3)} />
-          <div className="video">
-            <video src={techsupp_name_video} loop muted autoPlay playsInline></video>
-          </div>
-          <div className="text">
-            <span data-text="Techsupp animation"></span>
-          </div>
-        </div>
-      )}
-      {/* 4 video animation  */}
-      {!isChecked2 && !isChecked1 && !isChecked3  && (
-        <div className="wrapper">
-          <input type="checkbox" checked={isChecked4} onChange={handleCheckboxChange(setIsChecked4)} />
-          <div className="video">
-            <video src={bottle_animated_video} loop muted autoPlay ></video>
-          </div>
-          <div className="text">
-            <span data-text="Techsupp animation"></span>
-          </div>
-        </div>
-      )}
+      }
     </div>
   );
 };

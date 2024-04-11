@@ -127,13 +127,13 @@ function App() {
       <div className={`main_container ${isDarkmodeOn ? "main_container_white" : "main_container_black"}`}>
         {!(location.pathname === "/members") && (
           <>
-            <Header
+            {/* <Header
               isSoundOff={isSoundOff}
               toggleSound={toggleSound}
               isDarkmodeOn={isDarkmodeOn}
               handle_darkmode_change={handle_darkmode_change}
 
-            />
+            /> */}
             <Link to="about/"><button>about </button></Link>
             <Link to="/"><button>main page </button></Link>
             <Link to="contact/"><button>contact</button></Link>
@@ -164,7 +164,7 @@ function App() {
       </div>
 
       <div className="facebook_container" >
-        <FacebookMSG />
+        {/* <FacebookMSG /> */}
       </div>
     </CursorProvider>
   );
