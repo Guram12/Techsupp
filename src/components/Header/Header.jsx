@@ -72,7 +72,7 @@ export default function Header({
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -50 }}
-        className={`header ${isScrolled ? "header-shadow" : ""}`}
+        className={`header ${isScrolled ? "header-shadow" : ""} ${!isDarkmodeOn ? "header_night" : "header_lignt" } `}
       >
         <motion.div
           initial={{ opacity: 0, y: "-50%" }}
@@ -111,7 +111,7 @@ export default function Header({
           />
         </div>
 
-        <div className="menu_button" onClick={toggleMenu}>
+        <div className= "menu_button" onClick={toggleMenu}>
           <div className="menu_texts" onClick={toggleMenu}>
             <span className="menu_texts_menu " onClick={toggleMenu}>
               {isOpen ? "CLOSE" : "MENU"}
@@ -126,13 +126,13 @@ export default function Header({
                 delay: 0.5,
                 ease: [0, 0.71, 0.2, 1.01],
               }}
-              className="menu"
+              className={`menu ${!isDarkmodeOn ? "menu_dark" : "menu_light" }   `}
             >
               <div className="flex">
                 <Link
                   className={`menu_links ${menuState[0].showDot ? "active" : ""
-                    }`}
-                  to="/services"
+                    }   ${ !isDarkmodeOn? "dark_menu_item" : "light_menu_item" } `}
+                  to="/"
                   onMouseEnter={() => handleLinkHover(0)}
                   onMouseLeave={() =>
                     setMenuState((prevMenuState) =>
@@ -158,7 +158,7 @@ export default function Header({
               <div className="flex">
                 <Link
                   className={`menu_links ${menuState[1].showDot ? "active" : ""
-                    }`}
+                    } ${ !isDarkmodeOn? "dark_menu_item" : "light_menu_item" }  `}
                   to="/about"
                   onMouseEnter={() => handleLinkHover(1)}
                   onMouseLeave={() =>
@@ -210,7 +210,7 @@ export default function Header({
                   <Link
                     className={`menu_links ${
                       menuState[3].showDot ? "active" : ""
-                    }`}
+                    } ${ !isDarkmodeOn? "dark_menu_item" : "light_menu_item" }  `}
                     to="/contact"
                     onMouseEnter={() => handleLinkHover(3)}
                     onMouseLeave={() =>
