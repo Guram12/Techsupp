@@ -12,7 +12,6 @@
 
 .header_night {
   background-color: rgb(0, 0, 0);
-
 }
 
 .header_lignt {
@@ -47,10 +46,9 @@
   border-radius: 50px;
   box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
     rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
-    background-color: #ffffff;
-color: #000000;
+  background-color: #ffffff;
+  color: #000000;
 }
-
 
 .menu_arrow_img {
   width: 18px;
@@ -124,19 +122,16 @@ color: #000000;
   z-index: 111111;
   top: 140px;
   box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
-  rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
   border: 1px solid grey;
 }
 
-
 .menu_dark {
   background-color: #000000;
-  
 }
 
 .menu_light {
   background-color: rgb(255, 255, 255);
-  
 }
 
 .dark_mode {
@@ -183,16 +178,13 @@ color: #000000;
   color: #000000;
 }
 
-
-.menu div .dark_menu_item{
-  color: white ;
-  
+.menu div .dark_menu_item {
+  color: white;
 }
 
-.light_menu_item{
+.light_menu_item {
   color: #000000;
 }
-
 
 .menu div .sec_menu_links {
   text-decoration: none;
@@ -207,9 +199,6 @@ color: #000000;
   transition: 1s;
   color: #000000;
 }
-
-
-
 
 .menu_links.active:hover {
   background-color: rgb(255, 255, 255);
