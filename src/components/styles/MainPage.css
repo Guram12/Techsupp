@@ -9,25 +9,32 @@
 }
 
 .mainpage_cont {
+  width: 100%;
+  /* display: flex; */
   color: transparent;
-  /* padding-top: 100px; */
+  /* border: 1px solid red; */
 }
 
 .mainpage_child_cont {
   display: flex;
-  justify-content: space-around;
-  gap: 200px;
+  /* border: 1px solid red; */
+  justify-content: space-evenly;
+  /* gap: 200px; */
   align-items: center;
-  position: relative;
+  /* position: relative; */
 }
 
 .mainpage_main_footer_container {
-  /* margin-top: -90px; */
   overflow-x: hidden;
 }
+.pirveli {
+  /* border: 1px solid blue; */
+}
+.meore {
+  /* border: 1px solid rgb(0, 255, 60); */
+}
 
-
-@media (max-width: 480px) {
+@media (max-width: 500px) {
   .mainpage_child_cont {
     overflow: hidden;
   }
