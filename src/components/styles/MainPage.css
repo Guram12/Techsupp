@@ -16,16 +16,16 @@
 .mainpage_child_cont {
   display: flex;
   justify-content: space-around;
-  flex-wrap: wrap;
   gap: 200px;
   align-items: center;
   position: relative;
 }
 
 .mainpage_main_footer_container {
-  margin-top: -90px;
+  /* margin-top: -90px; */
   overflow-x: hidden;
 }
+
 
 @media (max-width: 480px) {
   .mainpage_child_cont {

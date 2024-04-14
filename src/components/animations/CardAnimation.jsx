@@ -4,9 +4,8 @@ import { useNavigate } from 'react-router-dom';
 
 
 
-export default function CardAnimation() {
+export default function CardAnimation({activeTab ,handleTabClick }) {
 
-  const [activeTab, setActiveTab] = useState(1); // This state tracks the active tab
 
   const navigate = useNavigate();
 
@@ -15,9 +14,6 @@ export default function CardAnimation() {
   };
 
 
-  const handleTabClick = (id) => {
-    setActiveTab(id); // Update the active tab state
-  };
 
   const serviceNames = ["ვებსაიტები", "IT", "ანალიტიკა", "რებრენდინგი", "ანიმაცია", "QR მენიუ"];
 
@@ -48,7 +44,7 @@ export default function CardAnimation() {
 
 
   return (
-    <div>
+    <div className="mainpage_bigmom_container" >
       <section className="page">
         <ul className="tabs-controls">
           {serviceNames.map((serviceName, i) => (
