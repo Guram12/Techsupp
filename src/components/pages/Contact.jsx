@@ -1,6 +1,6 @@
 import "../styles/Contact.css"
 import React, { useState } from 'react';
-
+import Compass from "../animations/Compass";
 
 
 
@@ -37,20 +37,23 @@ export default function Contact({ contactMessage }) {
       console.error('Error:', error);
     }
   };
-  
+
   return (
-    <div>
-      comtact
+    <div style={{paddingTop: "100px"}} >
+      {/* comtact
       <div className="contact_input_container" >
-      <form onSubmit={handleSubmit}>
-      <div className="contact_input_container">
-        <input type="text" placeholder="Additional Description" value={inputValue} onChange={e => setInputValue(e.target.value)} />
-        <input type="text" placeholder="Name" value={name} onChange={e => setName(e.target.value)} />
-        <input type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} />
-        <input type="text" placeholder="Mobile" value={mobile} onChange={e => setMobile(e.target.value)} />
-        <button type="submit">Send</button>
-      </div>
-    </form>
+        <form onSubmit={handleSubmit}>
+          <div className="contact_input_container">
+            <input type="text" placeholder="Additional Description" value={inputValue} onChange={e => setInputValue(e.target.value)} />
+            <input type="text" placeholder="Name" value={name} onChange={e => setName(e.target.value)} />
+            <input type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} />
+            <input type="text" placeholder="Mobile" value={mobile} onChange={e => setMobile(e.target.value)} />
+            <button type="submit">Send</button>
+          </div>
+        </form>
+      </div> */}
+      <div>
+        <Compass/>
       </div>
     </div>
   )
