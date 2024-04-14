@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import "../styles/Compas.css";
+import north_black from "../../assets/north .png"
+
+import logo_black from "../../assets/logo_techsupp_black.svg";
+import logo_white from "../../assets/logo_techsupp_white.svg";
 
 const Compass = () => {
   const [angle, setAngle] = useState(0);
@@ -18,10 +22,11 @@ const Compass = () => {
   };
 
   return (
-    <div>
+    <div className='compas_main_container' >
 
       <div className="compass">
-        <div className="arrow" style={{ transform: `rotate(${angle}deg)` }}></div>
+        {/* <div className="arrow" style={{ transform: `rotate(${angle}deg)` }}></div> */}
+        <img src={north_black} alt="north arrow" className="arrow" style={{ transform: `rotate(${angle}deg)` }} />
         {points.map((point, index) => (
           <button
             className="compass_button"

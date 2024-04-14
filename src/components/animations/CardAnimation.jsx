@@ -48,7 +48,7 @@ export default function CardAnimation() {
 
 
   return (
-    <div>
+    <div className="mainpage_bigmom_container" >
       <section className="page">
         <ul className="tabs-controls">
           {serviceNames.map((serviceName, i) => (
