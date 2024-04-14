@@ -82,12 +82,14 @@ export default function CardAnimation({ activeTab, handleTabClick }) {
   return (
     <div className="mainpage_bigmom_container">
       <section className="page">
-        {/* <ul className="tabs-controls">
+        <ul className="tabs-controls">
           {serviceNames.map((serviceName, i) => (
             <li key={i} className="tabs-controls__item">
               <a
                 href="#!"
-                className={`tabs-controls__link ${activeTab === i + 1 ? 'tabs-controls__link--active' : ''}`}
+                className={`tabs-controls__link ${
+                  activeTab === i + 1 ? "tabs-controls__link--active" : ""
+                }`}
                 onClick={(e) => {
                   e.preventDefault();
                   handleTabClick(i + 1);
@@ -98,7 +100,7 @@ export default function CardAnimation({ activeTab, handleTabClick }) {
               </a>
             </li>
           ))}
-        </ul> */}
+        </ul>
         <section className="cards-container">
           <section className="cards-container">
             {cardContents.map((card, i) => (
