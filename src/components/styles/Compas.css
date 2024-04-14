@@ -1,3 +1,9 @@
+
+.compas_main_container{
+  position: relative;
+  width: 400px;
+  height: 400px;
+}
 .compass {
   position: relative;
   width: 200px;
@@ -9,6 +15,9 @@
   justify-content: center;
   align-items: center;
   margin-top: 200px;
+  background: url('../../assets/compas.png') no-repeat 50% / 90% ;
+  color: #000000;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.5);
 }
 
 .arrow {
@@ -38,53 +47,12 @@
   transform-origin: center center;
   transition: transform 0.6s ease;
 }
+
+@media screen and (max-width : 500px) {
+  .compas_main_container {
+    display: none;
+  }
+}
+
 /* ============================================================================================ */
 
-
-.compas_main_container{
-  position: relative;
-  width: 400px;
-  height: 400px;
-}
-
-.compass, .compass::before, .compass::after {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
-.compass {
-  width: 200px;
-  height: 200px;
-  margin: auto;
-  background: url('../../assets/compas.png') no-repeat 50% / 90% ;
-  color: #000000;
-  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.5);
-}
-.compass::before, .compass::after {
-  content: '';
-  z-index: -1;
-  margin: -5%;
-  border-radius: 50%;
-  box-shadow: inset 0 0 0 2px;
-  animation: clipMe 8s linear infinite;
-}
-.compass::before {
-  animation-delay: -4s;
-}
-
-@keyframes clipMe {
-  0%, 100% {
-    clip: rect(0px, 220px, 2px, 0px);
- }
-  25% {
-    clip: rect(0px, 2px, 220px, 0px);
- }
-  50% {
-    clip: rect(218px, 220px, 220px, 0px);
- }
-  75% {
-    clip: rect(0px, 220px, 220px, 218px);
- }
-}

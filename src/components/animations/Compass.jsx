@@ -5,8 +5,7 @@ import north_black from "../../assets/north .png"
 import logo_black from "../../assets/logo_techsupp_black.svg";
 import logo_white from "../../assets/logo_techsupp_white.svg";
 
-const Compass = () => {
-  const [angle, setAngle] = useState(0);
+const Compass = ({angle ,rotateTo }) => {
 
   const points = [
     { label: 'ვებსაიტი', angle: 0, rotate: 0 },
@@ -17,9 +16,7 @@ const Compass = () => {
     { label: 'QR', angle: 300, rotate: -300 }
   ];
 
-  const rotateTo = (angle) => {
-    setAngle(angle);
-  };
+
 
   return (
     <div className='compas_main_container' >
@@ -34,7 +31,7 @@ const Compass = () => {
             style={{
               transform: `rotate(${point.angle}deg)`
             }}
-            onClick={() => rotateTo(point.angle)}>
+               onClick={() => rotateTo(point.angle, index + 1)}> 
             <span
               className="compass_text"
               style={{
