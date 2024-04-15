@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import "./Transition.css";
-import logo_white from "../../assets/logo_techsupp_white.svg"
+import logo_white from "../../assets/logo_techsupp_white.svg";
 
 
 const transition = (OgComponent) => {
