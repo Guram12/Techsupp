@@ -50,7 +50,7 @@ export default function MainPage_Footer() {
           <use id="wave1" className="wave" xlinkHref="#wave" x={0} y={1} />
         </g>
       </svg>
-      <div style={{ color: "grey" }}  className="text_container_in_footer" >
+      <div style={{ color: "grey" }} className="text_container_in_footer" >
         <p>Powered by TechSupp</p>
         <img className="white_logo_in_footer" src={techsupp_logo_white} alt="" />
       </div>

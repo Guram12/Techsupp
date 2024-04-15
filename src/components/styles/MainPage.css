@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Georgian:wght@100..900&display=swap');
+
+
 @keyframes animate {
   0% {
     filter: hue-rotate(0deg);
@@ -10,7 +13,7 @@
 
 .mainpage_cont {
   color: transparent;
-  /* padding-top: 100px; */
+  padding-top: 100px;
 }
 
 .mainpage_child_cont {
@@ -21,6 +24,43 @@
   position: relative;
 }
 
+.slogan_container {
+  color: #000000;
+  position: absolute;
+  top: 50px;
+}
+
+.slogan {
+  font-family: "Noto Serif Georgian", serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 30px;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+.movable_arrow {
+  width: 40px;
+  transition: transform 0.1s linear;
+  /* Smooth rotation */
+  display: block;
+  /* Ensures the image is block level */
+  margin: auto;
+  /* Centers the image within its container */
+  transform-origin: center center;
+  /* Ensures rotation around the center */
+}
+
+
+.slogan_child_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+
 .mainpage_main_footer_container {
   /* margin-top: -90px; */
   overflow-x: hidden;
@@ -30,7 +70,25 @@
 @media (max-width: 480px) {
   .mainpage_child_cont {
     overflow: hidden;
+    height: 1100px;
+    gap: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: self-start;
   }
+
+  .slogan_container {
+    /* display: none; */
+    text-align: center;
+
+  }
+
+  .slogan {
+    font-size: 18px;
+
+  }
+
+
 }
 
 /* =============================================  service button styles ========================================= */
