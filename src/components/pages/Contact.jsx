@@ -1,10 +1,10 @@
 import "../styles/Contact.css"
 import React, { useState } from 'react';
 import Compass from "../animations/Compass";
+import transition from "../Header/Transition";
 
 
-
-export default function Contact({ contactMessage }) {
+function Contact({ contactMessage }) {
   const [inputValue, setInputValue] = useState(contactMessage);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -40,7 +40,6 @@ export default function Contact({ contactMessage }) {
 
   return (
     <div style={{paddingTop: "100px"}} >
-      {/* comtact
       <div className="contact_input_container" >
         <form onSubmit={handleSubmit}>
           <div className="contact_input_container">
@@ -51,16 +50,9 @@ export default function Contact({ contactMessage }) {
             <button type="submit">Send</button>
           </div>
         </form>
-      </div> */}
-      <div>
-        <Compass/>
       </div>
     </div>
   )
 }
 
-
-
-
-// AKfycbx0MAIn2p2o-iF6MW4mwlTNCfxEqRse_ifCiaqiAUvkCXUOuKKuedkhi2A0rEWgJrfuwg
-// https://script.google.com/macros/s/AKfycbx0MAIn2p2o-iF6MW4mwlTNCfxEqRse_ifCiaqiAUvkCXUOuKKuedkhi2A0rEWgJrfuwg/exec
+export default  transition(Contact)

@@ -7,15 +7,17 @@ import MainPage_Footer from "../Header/MainPage_Footer";
 import Compass from "../animations/Compass";
 import "../styles/Compas.css"
 import rotatable_compass from "../../assets/rotatable_arrow.png"
+import transition from "../Header/Transition";
 
-
-export default function mainPage({ showSplashScreen }) {
+ const mainPage = ({ showSplashScreen }) => {
   const [angle, setAngle] = useState(0);
   const [activeTab, setActiveTab] = useState(1); 
 
   const [arrow_angle, setArrow_angle] = useState(0);
 
 
+
+  
 
   const rotateTo = (angle, tabId) => {
     setAngle(angle);
@@ -70,3 +72,5 @@ return (
     </div>
   );
 }
+
+export default  transition(mainPage);

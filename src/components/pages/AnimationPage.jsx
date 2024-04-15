@@ -9,9 +9,9 @@ import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import Footer from "../Header/Footer"
 import motion_background from "../../assets/Motion_media_files/motion_background.webm"
+import transition from "../Header/Transition"
 
-
-export default function AnimationPage({ isDarkmodeOn }) {
+ function AnimationPage({ isDarkmodeOn }) {
   const [isMobileView, setIsMobileView] = useState(window.innerWidth < 768);
 
 
@@ -60,6 +60,10 @@ export default function AnimationPage({ isDarkmodeOn }) {
     }
   }, [controls_1, inView1])
 
+
+  useEffect(()=> {
+    console.log("darkmode props from animation page " , isDarkmodeOn)
+  },[isDarkmodeOn])
 
 
   return (
@@ -123,3 +127,4 @@ export default function AnimationPage({ isDarkmodeOn }) {
   )
 }
 
+export default transition(AnimationPage)

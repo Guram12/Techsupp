@@ -15,9 +15,9 @@ import ui_ux_logo from "../../assets/branding_UI-UX.png"
 import Footer from "../Header/Footer";
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import transition from "../Header/Transition";
 
-
-export default function BrandingPage({ isDarkmodeOn }) {
+ function  BrandingPage({ isDarkmodeOn }) {
   const [currentAnimationIndex, setCurrentAnimationIndex] = useState(0);
 
   const animations = [<BrandingAnimation />, <BrandingAnimation_2 />, <BrandingAnimation_3 />,
@@ -154,3 +154,6 @@ export default function BrandingPage({ isDarkmodeOn }) {
     </div>
   );
 }
+
+
+export default transition(BrandingPage)
