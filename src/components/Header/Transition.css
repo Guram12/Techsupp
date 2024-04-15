@@ -23,3 +23,17 @@
   z-index: 9999999999999999;
 
 }
+
+
+.loaded_logo{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.company_logo_image_tag{
+  width: 200px;
+}

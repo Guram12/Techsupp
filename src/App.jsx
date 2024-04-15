@@ -17,11 +17,10 @@ import CursorProvider from "./components/CursorContext/CursorContext.jsx";
 import Contact from "./components/pages/Contact.jsx";
 import FacebookMSG from "./components/FacebookMSG.jsx";
 import { AnimatePresence } from "framer-motion";
-import transition from "./components/Header/Transition.jsx";
+
 // import { motion } from "framer-motion";
 // import { CursorContext } from "./components/CursorContext/CursorContext";
 
-const AnimationPageWithTransition = transition(AnimationPage);
 
 
 
@@ -135,10 +134,6 @@ const secondlocation = useLocation()
               isDarkmodeOn={isDarkmodeOn}
               handle_darkmode_change={handle_darkmode_change}
             />
-            {/* <Link to="about/"><button>about </button></Link> */}
-            {/* <Link to="/"><button>main page </button></Link> */}
-            {/* <Link to="contact/"><button>contact</button></Link> */}
-            {/* <Link to="/members"><button>members </button></Link> */}
           </>
         )}
         <audio ref={audioRef} src={background_audio_second} loop muted />
@@ -149,8 +144,6 @@ const secondlocation = useLocation()
             <Route path="about/" element={<About isDarkmodeOn={isDarkmodeOn} />} />
             <Route path="contact/" element={<Contact isDarkmodeOn={isDarkmodeOn} contactMessage={contactMessage} />} />
             <Route path="/" index element={<MainPage showSplashScreen={showSplashScreen} />} />
-
-            <Route path="/animation" element={<AnimationPageWithTransition isDarkmodeOn={isDarkmodeOn} />} />
 
 
             <Route path="services/web-development" element={<WebsitePage isDarkmodeOn={isDarkmodeOn} />} />
