@@ -10,8 +10,9 @@
   overflow: hidden;
   height: 350px;
   width: 100%;
+  padding-top: 90px;
+  /* margin-bottom: 100px; */
 }
-
 
 .poster_header {
   position: relative;
@@ -20,12 +21,10 @@
   margin: 0 auto;
 }
 
-
 .poster_video_tag {
   width: 100%;
   height: auto;
 }
-
 
 .poster_first_svg {
   position: absolute;
@@ -44,9 +43,7 @@
 }
 .poster_first_svg_white {
   fill: white;
-
 }
-
 
 .poster_text {
   font-family: Biko, sans-serif;

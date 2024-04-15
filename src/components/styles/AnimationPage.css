@@ -6,7 +6,6 @@
   overflow: hidden;
 }
 
-
 .motion_background_video_container {
   position: relative;
   overflow: hidden;
@@ -16,7 +15,6 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-
 }
 
 .motion_text_container {
@@ -39,23 +37,20 @@
   margin-right: 150px;
 }
 
-
 .motion_child_blur_container {
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative; 
+  position: relative;
   overflow: hidden;
 }
-
 
 .motion_paragraph {
   position: relative;
   text-align: center;
   z-index: 1;
-   
 }
 
 .motion_video_container {
@@ -73,7 +68,6 @@
   width: 100%;
   overflow: hidden;
 }
-
 
 .motion_example_child_container {
   /* background-color: black; */
@@ -106,7 +100,6 @@
   font-style: normal;
 }
 
-
 /* ===================================================================================================================== */
 
 .video_animation_container {
@@ -116,14 +109,17 @@
   align-items: center;
 }
 
-.animation_footer_container{
-  margin-top: 200px;
+.animation_footer_container {
+  /* margin-top: 200px; */
 }
-
+.parent_div {
+  /* padding-top: 20px; */
+}
 
 @media screen and (max-width: 500px) {
   .motion_video_container_up {
     height: 150px;
+    /* padding-top: 50px; */
   }
 
   .motion_example_container {
@@ -143,13 +139,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
   }
 
   .motion_text_container {
-
     margin-right: 0px;
   }
-
-
 }
