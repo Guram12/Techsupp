@@ -29,6 +29,10 @@ import transition from "../Header/Transition";
   }, [inView, controls])
 
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div>
       <QRcodeAnimation />

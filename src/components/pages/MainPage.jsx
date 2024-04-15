@@ -50,7 +50,9 @@ import transition from "../Header/Transition";
 //     setArrow_angle(angle);
 // };
 
-
+useEffect(() => {
+  window.scrollTo(0, 0);
+}, []);
 
 return (
   <div className="mainpage_cont"  >  

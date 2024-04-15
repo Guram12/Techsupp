@@ -67,6 +67,10 @@ export default function  Members(){
     setCurrentSlide(prevSlideIndex);
   };
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
