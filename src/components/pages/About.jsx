@@ -36,6 +36,10 @@ const  About = ({ isDarkmodeOn, handle_cursor_on_of, is_cursor_on }) => {
     delay: 0.2
   }
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="abut_container">
       <div  >

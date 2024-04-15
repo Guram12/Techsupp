@@ -38,6 +38,10 @@ function Contact({ contactMessage }) {
     }
   };
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div style={{paddingTop: "100px"}} >
       <div className="contact_input_container" >

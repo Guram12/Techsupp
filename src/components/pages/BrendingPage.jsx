@@ -82,7 +82,10 @@ import transition from "../Header/Transition";
     }
   }, [inView4, controlsFourth]);
   
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
   return (
     <div>
       {/* <SplineAnimation/> */}

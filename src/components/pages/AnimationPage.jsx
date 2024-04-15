@@ -63,6 +63,10 @@ import transition from "../Header/Transition"
   },[isDarkmodeOn])
 
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="parent_div">
       <div className="motion_video_container_up">

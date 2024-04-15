@@ -37,7 +37,9 @@ function AnaliticPage({ isDarkmodeOn }) {
     }
   }, [inView, controlsFirst, controlsSecond, controlsThird, controlsFourth]);
 
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div>

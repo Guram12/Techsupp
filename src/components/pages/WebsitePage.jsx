@@ -20,6 +20,10 @@ function WebsitePage({
   });
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
+  useEffect(() => {
     if (inView) {
       control_card_selection.start({
         y: 0,

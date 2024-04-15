@@ -44,7 +44,9 @@ export default function ItPage({ isDarkmodeOn, handle_context_change }) {
     navigate('/contact');
   };
 
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div>
