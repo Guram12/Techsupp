@@ -137,10 +137,26 @@
 }
 
 @media screen and (max-width: 500px) {
-  .it_container {
-  }
   .it_child_title_container {
     width: 80%;
     font-size: 14px;
+    display: block;  /* Ensuring it's not hidden */
+    opacity: 1;      /* Making sure it's fully visible */
+    width: auto; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .it_paragraph{
+    width: 320px;
+  }
+  .it_card_container{
+
+    height: 1900px;
+  }
+  .sheet_image{
+    margin-top: 200px;
   }
 }

@@ -1,5 +1,5 @@
 import "../styles/Contact.css"
-import React, { useState } from 'react';
+import React, { useState  , useEffect} from 'react';
 import Compass from "../animations/Compass";
 import transition from "../Header/Transition";
 
@@ -41,6 +41,8 @@ function Contact({ contactMessage }) {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+
 
   return (
     <div style={{paddingTop: "100px"}} >
