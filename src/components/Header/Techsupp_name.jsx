@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "../styles/Techsupp_name.css";
+import { useNavigate } from "react-router-dom";
 
 export default function Techsupp_name({ isDarkmodeOn }) {
   // Initial state where no divs are selected for animation
@@ -18,8 +19,18 @@ export default function Techsupp_name({ isDarkmodeOn }) {
 
   const letters = ["T", "e", "c", "h", "S", "u", "p", "p"];
 
+
+  const navigate = useNavigate()
+
+  const handle_techsupp_name_container_click = () => {
+    navigate("")
+    console.log("clicked")
+  }
+
+
+
   return (
-    <div className="main11111">
+    <div className="main11111" onClick={handle_techsupp_name_container_click} >
       <div
         className="content"
         style={{ color: `${!isDarkmodeOn ? "white" : "black"} ` }}
@@ -27,9 +38,8 @@ export default function Techsupp_name({ isDarkmodeOn }) {
         {letters.map((letter, index) => (
           <div className="content__container" key={index}>
             <ul
-              className={`content__container__list ${
-                animateStates[index] ? "animate" : ""
-              }`}
+              className={`content__container__list ${animateStates[index] ? "animate" : ""
+                }`}
             >
               <li className="content__container__list__item">{letter}</li>
               <li className="content__container__list__item">{letter}</li>

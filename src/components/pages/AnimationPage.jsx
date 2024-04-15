@@ -1,16 +1,19 @@
-import React from "react";
-import { useState, useEffect } from "react";
-import VideoAnimation from "../animations/VideoAnimation";
-import "../styles/AnimationPage.css";
-import Parallax from "../animations/Paralax";
-import Motion_animation from "../animations/Motion_animation";
-import test_motion_video from "../../assets/Motion_media_files/test_motion_video.webm";
-import { motion, useAnimation } from "framer-motion";
-import { useInView } from "react-intersection-observer";
-import Footer from "../Header/Footer";
-import motion_background from "../../assets/Motion_media_files/motion_background.webm";
 
-export default function AnimationPage({ isDarkmodeOn }) {
+import React from "react"
+import { useState, useEffect } from "react"
+import VideoAnimation from "../animations/VideoAnimation"
+import "../styles/AnimationPage.css"
+import Parallax from "../animations/Paralax"
+import Motion_animation from "../animations/Motion_animation"
+import test_motion_video from "../../assets/Motion_media_files/test_motion_video.webm"
+import { motion, useAnimation } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+import Footer from "../Header/Footer"
+import motion_background from "../../assets/Motion_media_files/motion_background.webm"
+import transition from "../Header/Transition"
+
+ function AnimationPage({ isDarkmodeOn }) {
+
   const [isMobileView, setIsMobileView] = useState(window.innerWidth < 768);
 
   useEffect(() => {
@@ -51,7 +54,14 @@ export default function AnimationPage({ isDarkmodeOn }) {
     if (inView1) {
       controls_1.start(animate, transition);
     }
-  }, [controls_1, inView1]);
+
+  }, [controls_1, inView1])
+
+
+  useEffect(()=> {
+    console.log("darkmode props from animation page " , isDarkmodeOn)
+  },[isDarkmodeOn])
+
 
   return (
     <div className="parent_div">
@@ -127,3 +137,7 @@ export default function AnimationPage({ isDarkmodeOn }) {
     </div>
   );
 }
+
+
+export default transition(AnimationPage)
+

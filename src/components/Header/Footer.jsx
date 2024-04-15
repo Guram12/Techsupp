@@ -1,9 +1,9 @@
 import "../styles/Footer.css"
 // import "../styles/Footer.scss"
 import React , { useState , useEffect } from "react";
+import transition from "./Transition";
 
-
-export default function Footer({isDarkmodeOn}) {
+function Footer({isDarkmodeOn}) {
   const [isMobileView, setIsMobileView] = useState(window.innerWidth < 768);
 
 
@@ -27,6 +27,10 @@ export default function Footer({isDarkmodeOn}) {
 //   delay: `${-1 * (2 + Math.random() * 2)}s`,
 // }));
 
+
+useEffect(()=> {
+  console.log("darkmode from footer" , isDarkmodeOn)
+},[isDarkmodeOn])
 
   // Generating bubbles with unique styles
   const bubbles = Array.from({ length: 128 }).map((_, index) => ({
@@ -79,3 +83,5 @@ export default function Footer({isDarkmodeOn}) {
     </div>
   );
 };
+
+export default transition(Footer)
