@@ -1,0 +1,58 @@
+.compas_main_container {
+  position: relative;
+  width: 400px;
+  height: 550px;
+  display: flex;
+  align-items: end;
+}
+.compass {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  border: 3px solid black;
+  border-radius: 50%;
+  margin: 50px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 170px;
+  margin-left: 180px;
+  background: url('../../assets/compas.png') no-repeat 50% / 90% ;
+  color: #000000;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.5);
+}
+
+.arrow {
+  width: 80px;
+  height: 80px;
+
+  transform-origin: 50% 100%;
+  transition: transform 0.6s ease;
+  margin-bottom: 76px;
+}
+
+.compass_button {
+  position: absolute;
+  bottom: 250px;
+  width: 80px; /* Adjust as necessary */
+  text-align: center;
+  transform-origin: 50% 180px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  user-select: none;
+}
+
+.compass_text {
+  display: block;
+  transform-origin: center center;
+  transition: transform 0.6s ease;
+}
+
+@media screen and (max-width: 500px) {
+  .compas_main_container {
+    display: none;
+  }
+}
+
+/* ============================================================================================ */

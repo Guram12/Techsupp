@@ -7,8 +7,10 @@ import web_icon from "../../assets/web_icon.png"
 import { useInView } from 'react-intersection-observer';
 import Website_cards from '../animations/Website_cards';
 import Footer from '../Header/Footer';
+import transition from '../Header/Transition';
 
-export default function WebsitePage({
+
+ function WebsitePage({
   isDarkmodeOn,
 }) {
 
@@ -66,3 +68,4 @@ export default function WebsitePage({
 }
 
 
+export default transition(WebsitePage);

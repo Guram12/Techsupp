@@ -7,6 +7,14 @@ h1 {
   color: #423e37;
 }
 
+.mainpage_bigmom_container {
+  width: 900px;
+  /* display: flex; */
+  /* align-items: center; */
+  height: 600px;
+  /* display: none; */
+}
+
 .page {
   overflow: hidden;
   margin-top: 100px;
@@ -25,6 +33,8 @@ h1 {
   box-sizing: border-box;
   padding: 50px 0 100px;
   list-style-type: none;
+  display: none;
+
 }
 
 .tabs-controls__link {
@@ -63,6 +73,7 @@ h1 {
   width: 500px;
   height: calc(100vh - 205px);
   margin: 0 auto;
+  padding-top: 60px;
 }
 
 .card {
@@ -91,33 +102,27 @@ h1 {
 }
 
 .card.hidden:nth-of-type(1) {
-  transform: rotate(-38deg) translateX(101%) translateY(-50%) scale(0.2)
-    skewX(5deg) skewY(2deg);
+  transform: rotate(-38deg) translateX(101%) translateY(-50%) scale(0.2) skewX(5deg) skewY(2deg);
 }
 
 .card.hidden:nth-of-type(2) {
-  transform: rotate(-54deg) translateX(101%) translateY(-27%) scale(0.8)
-    skewX(7deg) skewY(3deg);
+  transform: rotate(-54deg) translateX(101%) translateY(-27%) scale(0.8) skewX(7deg) skewY(3deg);
 }
 
 .card.hidden:nth-of-type(3) {
-  transform: rotate(-41deg) translateX(101%) translateY(-50%) scale(0.5)
-    skewX(3deg) skewY(3deg);
+  transform: rotate(-41deg) translateX(101%) translateY(-50%) scale(0.5) skewX(3deg) skewY(3deg);
 }
 
 .card.hidden:nth-of-type(4) {
-  transform: rotate(-2deg) translateX(101%) translateY(-25%) scale(0.2)
-    skewX(5deg) skewY(10deg);
+  transform: rotate(-2deg) translateX(101%) translateY(-25%) scale(0.2) skewX(5deg) skewY(10deg);
 }
 
 .card.hidden:nth-of-type(5) {
-  transform: rotate(-71deg) translateX(101%) translateY(-60%) scale(0.6)
-    skewX(8deg) skewY(4deg);
+  transform: rotate(-71deg) translateX(101%) translateY(-60%) scale(0.6) skewX(8deg) skewY(4deg);
 }
 
 .card.hidden:nth-of-type(6) {
-  transform: rotate(-74deg) translateX(101%) translateY(-18%) scale(0.3)
-    skewX(8deg) skewY(1deg);
+  transform: rotate(-74deg) translateX(101%) translateY(-18%) scale(0.3) skewX(8deg) skewY(1deg);
 }
 
 .card:nth-of-type(1) {
@@ -154,16 +159,21 @@ h1 {
   .page {
     max-width: 340px;
   }
+.mainpage_bigmom_container {
+  width: auto;
+
+}
 
   .tabs-controls {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
-    margin: 0px;
+    margin-top: 30px;
+    /* margin: 0px; */
     padding-bottom: 10px;
     width: 100%;
+
   }
 
   .card {
@@ -175,6 +185,8 @@ h1 {
   .cards-container {
     width: 340px;
     max-width: 340px;
+    padding-top: 20px;
+
   }
 
   .card--current {
@@ -291,3 +303,4 @@ button:hover .circle .icon.arrow {
 button:hover .button-text {
   color: #fff;
 }
+

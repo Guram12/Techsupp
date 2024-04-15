@@ -13,6 +13,8 @@ import { useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import SoundAnimation from "../animations/SoundAnimation";
 
+
+
 export default function Header({
   isSoundOff,
   toggleSound,
