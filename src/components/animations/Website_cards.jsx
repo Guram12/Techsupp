@@ -13,8 +13,6 @@ export default function Website_cards({ isDarkmodeOn }) {
   const [toggle_left_down_card, setToggle_left_down_card] = useState(true);
   const [toggle_right_down_card, setToggle_right_down_card] = useState(0);
 
-
-
   const leveled_icons = [logo_level_1, logo_level_2, logo_level_3]
 
   const prices = ["900 ლარიდან", "2000 ლარიდან", "3000 ლარიდან"]
@@ -134,7 +132,7 @@ export default function Website_cards({ isDarkmodeOn }) {
             className="first_down_card_container"
             initial={{ x: '-100vw' }}
             animate={{ x: 0 }}
-            transition={{ type: 'spring', stiffness: 70, delay: 2 }}
+            transition={{ type: 'spring', stiffness: 70, delay: 1.5 }}
 
           >
             <img className="animated_nowncards_logo" src={leveled_icons[activeCard]} alt="website logo" />
@@ -166,7 +164,7 @@ export default function Website_cards({ isDarkmodeOn }) {
             className="second_down_card_container"
             initial={{ x: '100vw' }}
             animate={{ x: 0 }}
-            transition={{ type: 'spring', stiffness: 70, delay: 2 }}
+            transition={{ type: 'spring', stiffness: 70, delay: 1.5 }}
           >
             <h1 className="hown_card_price" >{prices[activeCard]}</h1>
           </motion.div>
