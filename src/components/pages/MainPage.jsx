@@ -1,10 +1,12 @@
 import "../styles/MainPage.css";
 import "../styles/card.css";
+
 import { useState, useEffect , useRef } from "react";
 import CardAnimation from "../animations/CardAnimation";
 import CubeAnimation from "../animations/CubeAnimation";
 import MainPage_Footer from "../Header/MainPage_Footer";
 import Compass from "../animations/Compass";
+
 import "../styles/Compas.css"
 import rotatable_compass from "../../assets/rotatable_arrow.png"
 import transition from "../Header/Transition";
@@ -13,11 +15,9 @@ import transition from "../Header/Transition";
   const [angle, setAngle] = useState(0);
   const [activeTab, setActiveTab] = useState(1); 
 
+
   const [arrow_angle, setArrow_angle] = useState(0);
 
-
-
-  
 
   const rotateTo = (angle, tabId) => {
     setAngle(angle);
@@ -28,7 +28,6 @@ import transition from "../Header/Transition";
   const handleTabClick = (id) => {
     setActiveTab(id); 
   }
-
 
 
 //   const containerRef = useRef(null);
@@ -73,4 +72,6 @@ return (
   );
 }
 
+
 export default  transition(mainPage);
+
