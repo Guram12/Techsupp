@@ -33,6 +33,10 @@
   top: 50px;
 }
 
+.sogan_child_container{
+  margin-top: 120px;
+}
+
 .slogan {
   font-family: "Noto Serif Georgian", serif;
   font-optical-sizing: auto;
@@ -66,12 +70,6 @@
 
 .mainpage_main_footer_container {
   overflow-x: hidden;
-}
-.pirveli {
-  /* border: 1px solid blue; */
-}
-.meore {
-  /* border: 1px solid rgb(0, 255, 60); */
 }
 
 @media (max-width: 500px) {
