@@ -68,4 +68,10 @@
   .analitycs_card_container {
     align-items: center;
   }
+  .analityc_card_down{
+    margin-left: 0px;
+  }
+  .analityc_price_down{
+    margin-left: 0px;
+  }
 }

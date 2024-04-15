@@ -9,6 +9,10 @@ import it_card_image from "../../assets/it_card_image.jpg"
 
 
 export default function ItPage({ isDarkmodeOn, handle_context_change }) {
+  
+
+  // const isMobile = window.innerWidth <= 500;  // Simple check for mobile devices
+  // const initial = { x: isMobile ? '0vw' : '100vw' };
 
   const initial = { x: '100vw' };
   const animate = { x: 0 };
@@ -22,7 +26,7 @@ export default function ItPage({ isDarkmodeOn, handle_context_change }) {
   // Setting up Intersection Observer
   const { ref, inView } = useInView({
     triggerOnce: true,
-    threshold: 0.6, // Adjust this value based on when you want the animation to start
+    threshold: 0.1,  // Lowered threshold for better mobile compatibility
   });
 
 
@@ -47,6 +51,10 @@ export default function ItPage({ isDarkmodeOn, handle_context_change }) {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+
+
+
 
   return (
     <div>
@@ -93,6 +101,8 @@ export default function ItPage({ isDarkmodeOn, handle_context_change }) {
             დაგვიკავშირდით
           </button>
         </motion.div>
+
+        {/* card containers  */}
         <motion.div
           className="it_child_card_container"
           initial={initial}
