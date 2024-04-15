@@ -1,5 +1,5 @@
 import "../styles/Website_cards.css"
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 // import website_animated_logo from "../../assets/website_logo.webp"
 import logo_level_1 from "../../assets/logo_lvl_1.png"
@@ -15,15 +15,13 @@ export default function Website_cards({ isDarkmodeOn }) {
 
 
 
+  const leveled_icons = [logo_level_1, logo_level_2, logo_level_3]
 
-const leveled_icons = [ logo_level_1 , logo_level_2 , logo_level_3]
-
-const prices = ["900 ლარიდან" , "2000 ლარიდან" , "3000 ლარიდან"]
+  const prices = ["900 ლარიდან", "2000 ლარიდან", "3000 ლარიდან"]
 
   const cards = [
     {
       title: 'ერთ გვერდიანი საიტი',
-      copy: 'Check out all of these gorgeous mountain trips with beautiful views of, you guessed it, the mountains',
       button: 'ფუნქციონალი',
       services: ['სამართავი პანელი', 'სოციალური ქსელების ინტეგრაცია', 'ონლაინ ჩატი', "მობილურის ვერსია",
         "სლაიდშოუ", "night/light რეჟიმი", "ვიზიტორების სტატისტიკა", "ფოტო/ვიდეო", "ფაილის გადმოწერის ფუნქცია",
@@ -33,7 +31,6 @@ const prices = ["900 ლარიდან" , "2000 ლარიდან" , "30
 
     {
       title: 'სავიზიტო ვებსაიტი',
-      copy: 'Plan your next beach trip with these fabulous destinations',
       button: 'ფუნქციონალი',
       services: ["სამართავი პანელი", "სოციალური ქსელების ინტეგრაცია", "ონლაინ ჩატი", "მობილურის ვერსია", "სლაიდშოუ", "night/light რეჟიმი",
         "ვიზიტორების სტატისტიკა", "ფოტო/ვიდეო", "ფაილის გადმოწერის ფუნქცია", "სიახლეები", "კლიენტის მოდული", "პარტნიორი კომპანიები", "ნავიგაციის ბარი",
@@ -41,7 +38,6 @@ const prices = ["900 ლარიდან" , "2000 ლარიდან" , "30
     },
     {
       title: 'ონლაინ მაღაზია',
-      copy: 'It’s the desert you’ve always dreamed of',
       button: 'ფუნქციონალი',
       services: ["სამართავი პანელი", "სოციალური ქსელების ინტეგრაცია", "ონლაინ ჩატი", "მობილურის ვერსია", "სლაიდშოუ", "night/light რეჟიმი",
         "ვიზიტორების სტატისტიკა", "ფოტო/ვიდეო", "ფაილის გადმოწერის ფუნქცია", "სიახლეები", "კლიენტის მოდული", "პარტნიორი კომპანიები", "ძიება",
@@ -51,6 +47,7 @@ const prices = ["900 ლარიდან" , "2000 ლარიდან" , "30
     },
   ];
 
+  const detailsContainerRef = useRef(null);
 
   const handle_card_button_click = (index) => {
     console.log(index)
@@ -59,13 +56,20 @@ const prices = ["900 ლარიდან" , "2000 ლარიდან" , "30
     setToggle_left_down_card(!toggle_left_down_card)
     setToggle_right_down_card(toggle_right_down_card + 1)
 
+    if (detailsContainerRef.current) {
+      detailsContainerRef.current.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
   }
+
 
   const Card = ({ title, copy, button, index }) => (
     <div className="card_wb">
       <div className="content_wb">
         <h2 className="title_wb">{title}</h2>
-        <p className="copy_wb">{copy}</p>
+
         <button className="btn_wb" onClick={() => handle_card_button_click(index)} >{button}</button>
       </div>
     </div>
@@ -123,16 +127,16 @@ const prices = ["900 ლარიდან" , "2000 ლარიდან" , "30
           animate="visible"
           key={toggle_card_header}
         >   {activeCard !== null ? cards[activeCard].title : ''}</motion.h1>
-        <div className="wb_catd_and_icon_container" >
+        <div className="wb_catd_and_icon_container" ref={detailsContainerRef} >
 
           <motion.div
             key={toggle_left_down_card}
             className="first_down_card_container"
             initial={{ x: '-100vw' }}
             animate={{ x: 0 }}
-            transition={{ type: 'spring', stiffness: 70 ,delay: 2 }}
+            transition={{ type: 'spring', stiffness: 70, delay: 2 }}
 
-          >   
+          >
             <img className="animated_nowncards_logo" src={leveled_icons[activeCard]} alt="website logo" />
           </motion.div>
           <div>
@@ -142,6 +146,7 @@ const prices = ["900 ლარიდან" , "2000 ლარიდან" , "30
               initial="hidden"
               animate="visible"
               key={activeCard}
+
             >
               <ul>
                 {activeCard !== null && cards[activeCard].services.map((service, index) => (
@@ -155,13 +160,13 @@ const prices = ["900 ლარიდან" , "2000 ლარიდან" , "30
                 ))}
               </ul>
             </motion.div>
-          </div> 
+          </div>
           <motion.div
             key={toggle_right_down_card}
             className="second_down_card_container"
             initial={{ x: '100vw' }}
             animate={{ x: 0 }}
-            transition={{ type: 'spring', stiffness: 70  , delay: 2}}
+            transition={{ type: 'spring', stiffness: 70, delay: 2 }}
           >
             <h1 className="hown_card_price" >{prices[activeCard]}</h1>
           </motion.div>

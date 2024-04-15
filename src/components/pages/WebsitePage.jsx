@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import "../styles/WebsitePage.css"
 import Paralax from "../animations/Paralax"
 import Website_card_animation from "../animations/Website_card_animation"
@@ -10,13 +10,27 @@ import Footer from '../Header/Footer';
 import transition from '../Header/Transition';
 
 
- function WebsitePage({
+function WebsitePage({
   isDarkmodeOn,
 }) {
+  const control_card_selection = useAnimation();
+  const { ref, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.6, // Adjust this value based on when you want the animation to start
+  });
+
+  useEffect(() => {
+    if (inView) {
+      control_card_selection.start({
+        y: 0,
+        transition: { duration: 0.6, delay: 0, type: 'spring', stiffness: 70, damping: 20 }
+      });
+    }
+  }, [inView, control_card_selection]);
 
 
   return (
-    <div>
+    <div style={{ paddingTop: "50px" }} >
       <div className='website_page_title' >
         <Website_card_animation isDarkmodeOn={isDarkmodeOn} />
       </div>
@@ -31,7 +45,7 @@ import transition from '../Header/Transition';
             <p className="webservice_header">
               ჩვენი გუნდი დაგეხმარებათ, დაამზადოთ სასურველი ვებსაიტი, უმოკლეს დროში.
               ამასთან, გთავაზობთ, უმაღლესი ხარისხის მომსახურებას, როგორც სამუშაოს
-              დასრულების ასევე მუშაობის პროცესში.  
+              დასრულების ასევე მუშაობის პროცესში.
               დედლაინის დადგენა პროექტის სირთულიდან გამომდინარე ხდება. თანხის გადახდა კი სამუშაოს დასრულების შემდეგ.
               გახდი ჩვენი პარტნიორი და მიიღე უმაღლესი ხარისხის მომსახურება ტექსაპის პროფესიონალებისგან.
             </p>
@@ -57,7 +71,16 @@ import transition from '../Header/Transition';
           <Paralax isDarkmodeOn={isDarkmodeOn} baseVelocity={5}>youur designe</Paralax>
         </section>
       </div>
-      <div className='card_wb_container'>
+      <div className='card_wb_container' >
+        <div className={`child_website_allcards_title 
+         ${isDarkmodeOn ? "child_website_allcards_paragraph_dark" : "child_website_allcards_paragraph_white"}`}
+         ref={ref}
+        >
+          <motion.p className='child_website_allcards_paragraph'
+            initial={{ y: '100vh' }}
+            animate={control_card_selection}
+          >გთხოვთ აირჩიოთ სასურველი ვებსაიტის ტიპი</motion.p>
+        </div>
         <Website_cards />
       </div>
       <div>
@@ -69,3 +92,4 @@ import transition from '../Header/Transition';
 
 
 export default transition(WebsitePage);
+

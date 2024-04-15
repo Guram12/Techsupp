@@ -3,6 +3,33 @@
   margin-bottom: 50px;
 }
 
+.card_wb_container{
+  overflow: hidden;
+}
+
+.child_website_allcards_title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  overflow: hidden;
+}
+
+.child_website_allcards_paragraph{
+  font-size: 25px;
+  text-align: center;
+}
+
+.child_website_allcards_paragraph_dark {
+  color: black;
+}
+
+.child_website_allcards_paragraph_white {
+  color: white;
+}
+
+
+
 .website_page_title {
   width: 100%;
   height: 150px;
@@ -126,6 +153,8 @@
   align-items: center;
   flex-wrap: wrap;
   width: 100%;
+  border: 1px solid red;
+  margin-top: 50px;
 }
 
 .first_down_card_container {
@@ -133,6 +162,7 @@
   justify-content: center;
   width: 300px;
   margin-left: 30px;
+
 }
 
 .animated_nowncards_logo {
@@ -149,4 +179,17 @@
   .website_page_title {
     padding-top: 80px;
   }
+  .wb_catd_and_icon_container{
+    margin-top: 100px;
+    gap: 30px;
+  }
+  .webservice_child_cont{
+    width: 300px;
+    height: 500px;
+
+  }
+  .webservice_header{
+    width: 290px;
+  }
+
 }

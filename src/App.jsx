@@ -18,8 +18,6 @@ import CursorProvider from "./components/CursorContext/CursorContext.jsx";
 import Contact from "./components/pages/Contact.jsx";
 import FacebookMSG from "./components/FacebookMSG.jsx";
 
-// import { motion } from "framer-motion";
-// import { CursorContext } from "./components/CursorContext/CursorContext";
 
 function App() {
   const [showSplashScreen, setShowSplashScreen] = useState(true);
@@ -38,13 +36,9 @@ function App() {
   const location = useLocation();
 
   useEffect(() => {
-    // Save the original background color
+
     const originalBackgroundColor = document.body.style.backgroundColor;
-
-    // Change background color based on the dark mode state
     document.body.style.backgroundColor = !isDarkmodeOn ? "black" : "white";
-
-    // Reset to original background color on cleanup
     return () => {
       document.body.style.backgroundColor = originalBackgroundColor;
     };
@@ -54,7 +48,6 @@ function App() {
   // ================================= for setting contact  context massage =============================
   const [contactMessage, setContactMessage] = useState("");
 
-
   const handle_context_change = (event) => {
     setContactMessage(event);
   };
@@ -63,7 +56,6 @@ function App() {
 
   useEffect(() => {
     const startAudio = () => {
-      // Play audio
       audioRef.current
         .play()
         .then(() => {
@@ -76,7 +68,6 @@ function App() {
     };
 
     document.addEventListener("click", startAudio);
-
     // Cleanup function to remove the event listener
     return () => {
       document.removeEventListener("click", startAudio);
@@ -91,32 +82,31 @@ function App() {
         console.error("Playback failed:", error);
       });
     }
-    // Update state to reflect the new state of playback
     setIsSoundOff(!isSoundOff);
   };
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowSplashScreen(false);
-    }, 4500);
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     setShowSplashScreen(false);
+  //   }, 4500);
 
-    return () => clearTimeout(timer);
-  }, []);
+  //   return () => clearTimeout(timer);
+  // }, []);
 
-  if (showSplashScreen) {
-    return (
-      <div className="splashscreen_container">
-        <video
-          src={techsupp_video}
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="splashscreen_video"
-        ></video>
-      </div>
-    );
-  }
+  // if (showSplashScreen) {
+  //   return (
+  //     <div className="splashscreen_container">
+  //       <video
+  //         src={techsupp_video}
+  //         autoPlay
+  //         loop
+  //         muted
+  //         playsInline
+  //         className="splashscreen_video"
+  //       ></video>
+  //     </div>
+  //   );
+  // }
 
   return (
     <CursorProvider isDarkmodeOn={isDarkmodeOn}>
