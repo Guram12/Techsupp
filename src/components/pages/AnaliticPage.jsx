@@ -6,9 +6,9 @@ import Google_sheet_animation from "../animations/Google_sheet_animation"
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import Footer from "../Header/Footer";
+import transition from "../Header/Transition";
 
-
-export default function AnaliticPage({ isDarkmodeOn }) {
+function AnaliticPage({ isDarkmodeOn }) {
 
   const initial = { x: '-100vw' };
   const animate = { x: 0 };
@@ -87,3 +87,4 @@ export default function AnaliticPage({ isDarkmodeOn }) {
 }
 
 
+export default transition(AnaliticPage);

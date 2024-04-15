@@ -1,8 +1,7 @@
 import "./App.css";
 import techsupp_video from "./assets/Motion_media_files/splashvideo.webm";
 import { useState, useEffect, useRef, useContext } from "react";
-import { Route, Routes, Link } from "react-router-dom";
-import { useLocation } from "react-router-dom";
+import { Route, Routes, Link, useLocation } from "react-router-dom";
 import About from "./components/pages/About";
 import MainPage from "./components/pages/MainPage";
 import Header from "./components/Header/Header";
@@ -17,9 +16,13 @@ import Members from "./components/pages/Members";
 import CursorProvider from "./components/CursorContext/CursorContext.jsx";
 import Contact from "./components/pages/Contact.jsx";
 import FacebookMSG from "./components/FacebookMSG.jsx";
+import { AnimatePresence } from "framer-motion";
 
 // import { motion } from "framer-motion";
 // import { CursorContext } from "./components/CursorContext/CursorContext";
+
+
+
 
 function App() {
   const [showSplashScreen, setShowSplashScreen] = useState(true);
@@ -34,6 +37,8 @@ function App() {
     console.log("clicked dark mode");
     setIsDarkmodeOn(event.target.checked);
   };
+
+const secondlocation = useLocation()
 
   const location = useLocation();
 
@@ -118,9 +123,8 @@ function App() {
   return (
     <CursorProvider isDarkmodeOn={isDarkmodeOn}>
       <div
-        className={`main_container ${
-          isDarkmodeOn ? "main_container_white" : "main_container_black"
-        }`}
+        className={`main_container ${isDarkmodeOn ? "main_container_white" : "main_container_black"
+          }`}
       >
         {!(location.pathname === "/members") && (
           <>
@@ -130,69 +134,27 @@ function App() {
               isDarkmodeOn={isDarkmodeOn}
               handle_darkmode_change={handle_darkmode_change}
             />
-            {/* <Link to="about/"><button>about </button></Link> */}
-            {/* <Link to="/"><button>main page </button></Link> */}
-            {/* <Link to="contact/"><button>contact</button></Link> */}
-            {/* <Link to="/members"><button>members </button></Link> */}
           </>
         )}
         <audio ref={audioRef} src={background_audio_second} loop muted />
+        <AnimatePresence mode="wait" >
 
-        <Routes>
-          <Route
-            path="about/"
-            element={<About isDarkmodeOn={isDarkmodeOn} />}
-          />
-          <Route
-            path="contact/"
-            element={
-              <Contact
-                isDarkmodeOn={isDarkmodeOn}
-                contactMessage={contactMessage}
-              />
-            }
-          />
-          <Route
-            path="/"
-            element={<MainPage showSplashScreen={showSplashScreen} />}
-          />
-          <Route
-            path="services/web-development"
-            element={<WebsitePage isDarkmodeOn={isDarkmodeOn} />}
-          />
-          <Route
-            path="services/it"
-            element={
-              <ItPage
-                isDarkmodeOn={isDarkmodeOn}
-                handle_context_change={handle_context_change}
-              />
-            }
-          />
-          <Route
-            path="services/menu"
-            element={<MenuPage isDarkmodeOn={isDarkmodeOn} />}
-          />
-          <Route
-            path="services/brending"
-            element={<BrendingPage isDarkmodeOn={isDarkmodeOn} />}
-          />
-          <Route
-            path="services/animation"
-            element={<AnimationPage isDarkmodeOn={isDarkmodeOn} />}
-          />
-          <Route
-            path="services/analitycs"
-            element={<AnaliticPage isDarkmodeOn={isDarkmodeOn} />}
-          />
-          {/* <Route path="/members" element={<Members />} /> */}
-        </Routes>
-        {/* Cursor */}
-        {/* <motion.div
-    variants={cursorVariants}
-    animate={cursorBG}
-    className="cursor"
-  ></motion.div> */}
+          <Routes location={secondlocation} key={secondlocation.pathname} >
+            <Route path="/*" element={<MainPage isDarkmodeOn={isDarkmodeOn} />} />
+            <Route path="about/" element={<About isDarkmodeOn={isDarkmodeOn} />} />
+            <Route path="contact/" element={<Contact isDarkmodeOn={isDarkmodeOn} contactMessage={contactMessage} />} />
+            <Route path="/" index element={<MainPage showSplashScreen={showSplashScreen} />} />
+
+
+            <Route path="services/web-development" element={<WebsitePage isDarkmodeOn={isDarkmodeOn} />} />
+            <Route path="services/it" element={<ItPage isDarkmodeOn={isDarkmodeOn} handle_context_change={handle_context_change} />} />
+            <Route path="services/menu" element={<MenuPage isDarkmodeOn={isDarkmodeOn} />} />
+            <Route path="services/brending" element={<BrendingPage isDarkmodeOn={isDarkmodeOn} />} />
+            <Route path="services/animation" element={<AnimationPage isDarkmodeOn={isDarkmodeOn} />} />
+            <Route path="services/analitycs" element={<AnaliticPage isDarkmodeOn={isDarkmodeOn} />} />
+            {/* <Route path="/members" element={<Members />} /> */}
+          </Routes>
+        </AnimatePresence>
       </div>
 
       <div className="facebook_container">{/* <FacebookMSG /> */}</div>

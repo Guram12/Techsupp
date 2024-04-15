@@ -10,9 +10,9 @@ import pos_terminal_image from "../../assets/pos_terminal_image.jpg"
 import GoogleSheetEmbed from "../Google_mbd_component/Google_Sheet_MBD";
 import Parallax from "../animations/Paralax";
 import Modal from 'react-modal'; // This assumes you're using react-modal
+import transition from "../Header/Transition";
 
-
-export default function About({ isDarkmodeOn, handle_cursor_on_of, is_cursor_on }) {
+const  About = ({ isDarkmodeOn, handle_cursor_on_of, is_cursor_on }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
 
@@ -147,7 +147,7 @@ export default function About({ isDarkmodeOn, handle_cursor_on_of, is_cursor_on 
 }
 
 
-
+export default transition(About);
 
 
 

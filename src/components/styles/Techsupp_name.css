@@ -23,6 +23,7 @@
   font-weight: 600;
   overflow: hidden;
   height: 40px;
+  cursor: pointer;
 }
 
 .content__container__list {

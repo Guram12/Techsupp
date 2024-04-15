@@ -5,10 +5,10 @@ import { useInView } from 'react-intersection-observer';
 import Parallax from "../animations/Paralax"
 import QRcodeAnimation from "../animations/QRcode_animation"
 import Footer from "../Header/Footer";
+import transition from "../Header/Transition";
 
 
-
-export default function MenuPage({ isDarkmodeOn }) {
+ function MenuPage({ isDarkmodeOn }) {
 
   const animate = { x: 0 };
 
@@ -59,5 +59,5 @@ export default function MenuPage({ isDarkmodeOn }) {
 }
 
 
-
+export default transition(MenuPage);
 
