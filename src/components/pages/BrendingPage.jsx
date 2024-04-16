@@ -17,7 +17,7 @@ import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import transition from "../Header/Transition";
 
- function  BrandingPage({ isDarkmodeOn }) {
+function BrandingPage({ isDarkmodeOn }) {
   const [currentAnimationIndex, setCurrentAnimationIndex] = useState(0);
 
   const animations = [<BrandingAnimation />, <BrandingAnimation_2 />, <BrandingAnimation_3 />,
@@ -34,7 +34,7 @@ import transition from "../Header/Transition";
   }, [animations.length]);
 
   const initial_price = { x: '-100vw' };
-  const transition_price ={
+  const transition_price = {
     type: 'spring',
     stiffness: 70,
     delay: 0.5
@@ -81,11 +81,99 @@ import transition from "../Header/Transition";
       });
     }
   }, [inView4, controlsFourth]);
-  
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  
+
+  // ==============================================   logic for animating text in each card ==================================
+
+  // ===================================>>>>>>   animate logo toext  and price
+  const initialText = { x: '100vw', opacity: 0 };
+  const animateText = { x: 0, opacity: 1 };
+  const transitionText = {
+    type: 'spring',
+    stiffness: 40,
+    delay: 0.1
+  };
+
+  const transition_logo_price = {
+    type: 'spring',
+    stiffness: 60,
+    delay: 0.9
+  };
+
+  const [refText, inViewText] = useInView({ triggerOnce: true, threshold: 0.5 });
+  const controlsText = useAnimation();
+
+  useEffect(() => {
+    if (inViewText) {
+      controlsText.start(animateText, transitionText);
+      controlsText.start(animateText, transition_logo_price);
+
+    }
+  }, [inViewText, controlsText]);
+
+  // ===================================>>>>>>   animate logo toext 
+
+  const initia_branding_lText = { x: '-100vw', opacity: 0 };
+  const animate_brandingText = { x: 0, opacity: 1 };
+  const transition_branding_Text = {
+    type: 'spring',
+    stiffness: 40,
+    delay: 0.1
+  };
+
+  const transition_branding_price = {
+    type: 'spring',
+    stiffness: 60,
+    delay: 0.9
+  };
+
+
+  const [ref_branding_Text, inView_branding_Text] = useInView({ triggerOnce: true, threshold: 0.5 });
+  const controls_branding_Text = useAnimation();
+
+
+  useEffect(() => {
+    if (inView_branding_Text) {
+      controls_branding_Text.start(animate_brandingText, transition_branding_Text);
+
+    }
+  }, [inView_branding_Text, controls_branding_Text]);
+
+  // ===================================>>>>>>   animate ui/ux  text 
+
+  const initia_ui_lText = { x: '100vw', opacity: 0 };
+  const animate_ui_Text = { x: 0, opacity: 1 };
+  const transition_ui_Text = {
+    type: 'spring',
+    stiffness: 40,
+    delay: 0.1
+  };
+
+  const transition_ui_price = {
+    type: 'spring',
+    stiffness: 60,
+    delay: 0.9
+  };
+
+
+  const [ref_ui_Text, inView_ui_Text] = useInView({ triggerOnce: true, threshold: 0.5 });
+  const controls_ui_Text = useAnimation();
+
+
+  useEffect(() => {
+    if (inView_ui_Text) {
+      controls_ui_Text.start(animate_ui_Text, transition_ui_Text);
+
+    }
+  }, [inView_ui_Text, controls_ui_Text]);
+
+
+
+  // =========================================================================================================================
+
   return (
     <div>
       {/* <SplineAnimation/> */}
@@ -94,7 +182,7 @@ import transition from "../Header/Transition";
         <div className="each_animation" >
           {animations[currentAnimationIndex]}
         </div>
-        <div className={`${!isDarkmodeOn ?  "brending_about_up_dark" : "brending_about_up" }`} >
+        <div className={`${!isDarkmodeOn ? "brending_about_up_dark" : "brending_about_up"}`} >
           <h1 className={`${!isDarkmodeOn ? "branding_h1_color_dark" : "branding_h1_color_white"}`} >ბრენდინგი/რებრენდინგი</h1>
           <p>ბიზნესის იმიჯის შესაქმნელად აუცილებელია გქონდეთ საკუთარი ლოგო და დიზაინი.
             ამ ყველაფერში კი ჩვენი გამოცდილი გუნდის წევრები დაგეხმარებიან. ისინი შექმნიან
@@ -115,14 +203,38 @@ import transition from "../Header/Transition";
           <motion.img src={branding_logo} alt="brending icon" className="rebranding_image_1"
             initial={initial}
             animate={controlsFirst} />
-          <div className="rebranding_card_text" >
-            <p className="rebranding_card_text_p" >ბიზნესისთვის ლოგოს შექმნა</p>
+          <div className="rebranding_card_text" ref={refText} >
+            <motion.p className="rebranding_card_text_p"
+              initial={initialText}
+              animate={controlsText}
+              transition={transitionText}>
+              ბიზნესისთვის ლოგოს შექმნა
+            </motion.p>
+            <motion.p
+              initial={initialText}
+              animate={controlsText}
+              transition={transition_logo_price}
+            >
+              99 ლარიდან
+            </motion.p>
           </div>
         </div>
         {/* meore konteineri  */}
         <div className="rebrending_down_card_container_1" ref={ref2}>
-          <div className="rebranding_card_text2" >
-            <p className="rebranding_card_text_p2" >სავიზიტო ბარათების დიზაინი / ბრენდირება / რებრენდინგი</p>
+          <div className="rebranding_card_text2" ref={ref_branding_Text} >
+            <motion.p
+              initial={initia_branding_lText}
+              animate={controls_branding_Text}
+              transition={transition_branding_Text}
+              className="rebranding_card_text_p2" >სავიზიტო ბარათების დიზაინი / ბრენდირება / რებრენდინგი
+            </motion.p>
+            <motion.p
+              initial={initia_branding_lText}
+              animate={controls_branding_Text}
+              transition={transition_branding_price}
+            >
+              400 ლარიდან
+            </motion.p>
           </div>
           <motion.img src={visit_card} alt="brending icon" className="rebranding_image_2"
             initial={initial}
@@ -137,20 +249,32 @@ import transition from "../Header/Transition";
             initial={initial}
             animate={controlsThird}
           />
-          <div className="rebranding_card_text_3" >
-            <p className="rebranding_card_text_p_3" >UI/UX დიზაინის შექმნა თქვენი ბიზნესისთვის</p>
+          <div className="rebranding_card_text_3" ref={ref_ui_Text} >
+            <motion.p
+              initial={initia_ui_lText}
+              animate={controls_ui_Text}
+              transition={transition_ui_Text}
+              className="rebranding_card_text_p_3" >UI/UX დიზაინის შექმნა თქვენი ბიზნესისთვის
+            </motion.p>
+            <motion.p
+              initial={initia_ui_lText}
+              animate={controls_ui_Text}
+              transition={transition_ui_price}
+            >
+              800 ლარიდან
+            </motion.p>
           </div>
         </div>
       </div>
-        <div className="rebranding_price_container" ref={ref4}>
-          <motion.div
-            initial={initial_price}
-            animate={controlsFourth}
-            className="rebranding_price_child_cont"
-          >
-            <p >99 ლარიდან</p>
-          </motion.div>
-        </div>
+      <div className="rebranding_price_container" ref={ref4}>
+        <motion.div
+          initial={initial_price}
+          animate={controlsFourth}
+          className="rebranding_price_child_cont"
+        >
+          <button  className={`${isDarkmodeOn ? "contact_us_button" : "contact_us_button_dark"}`}  >დაგვიკავშირდით</button>
+        </motion.div>
+      </div>
       <div>
         <Footer isDarkmodeOn={isDarkmodeOn} />
       </div>
@@ -161,7 +285,3 @@ import transition from "../Header/Transition";
 
 export default transition(BrandingPage)
 
-
-// 99
-// 400
-// 800
