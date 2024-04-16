@@ -6,6 +6,9 @@
   overflow: hidden;
 }
 
+
+
+
 .motion_background_video_container {
   position: relative;
   overflow: hidden;
@@ -143,5 +146,8 @@
 
   .motion_text_container {
     margin-right: 0px;
+  }
+  .motion_paralax_cont{
+    margin-top: 30px;
   }
 }
