@@ -94,8 +94,8 @@ import transition from "../Header/Transition";
         <div className="each_animation" >
           {animations[currentAnimationIndex]}
         </div>
-        <div className="brending_about_up" >
-          <h1>ბრენდინგი/რებრენდინგი</h1>
+        <div className={`${!isDarkmodeOn ?  "brending_about_up_dark" : "brending_about_up" }`} >
+          <h1 className={`${!isDarkmodeOn ? "branding_h1_color_dark" : "branding_h1_color_white"}`} >ბრენდინგი/რებრენდინგი</h1>
           <p>ბიზნესის იმიჯის შესაქმნელად აუცილებელია გქონდეთ საკუთარი ლოგო და დიზაინი.
             ამ ყველაფერში კი ჩვენი გამოცდილი გუნდის წევრები დაგეხმარებიან. ისინი შექმნიან
             თქვენზე მორგებულ დიზაინს და მოარგებენ თქვენს საიტსა თუ სოციალურ მედიას.</p>
@@ -103,7 +103,7 @@ import transition from "../Header/Transition";
 
       </div>
       <div>
-        <section>
+        <section className="branding_paralax_container" >
           <Parallax isDarkmodeOn={isDarkmodeOn} baseVelocity={-5}>Analitycs Analitycs</Parallax>
           <Parallax isDarkmodeOn={isDarkmodeOn} baseVelocity={5}>Google sheet </Parallax>
         </section>
@@ -160,3 +160,8 @@ import transition from "../Header/Transition";
 
 
 export default transition(BrandingPage)
+
+
+// 99
+// 400
+// 800

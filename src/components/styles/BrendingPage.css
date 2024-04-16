@@ -1,8 +1,10 @@
 .branding_animation_container {
   text-align: center;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 100px;
 }
 
 .each_animation {
@@ -17,6 +19,32 @@
   gap: 40px;
   justify-content: center;
   max-width: 500px;
+  color: black;
+}
+
+.brending_about_up_dark {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 40px;
+  justify-content: center;
+  max-width: 500px;
+  color: rgb(255, 255, 255);
+}
+
+
+.branding_h1_color_dark {
+  color: white;
+}
+
+.branding_h1_color_white {
+  color: black;
+}
+
+
+.branding_paralax_container {
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 /* ================================================  for all cards container ===================================================== */
@@ -73,7 +101,7 @@
 
 .rebranding_image_1 {
   position: absolute;
-  width: 600px;
+  width: 400px;
   z-index: 4;
 }
 
@@ -124,7 +152,7 @@
 
 .rebranding_image_2 {
   position: absolute;
-  width: 600px;
+  width: 400px;
   z-index: 4;
 }
 
@@ -183,7 +211,7 @@
 
 .rebranding_image_3 {
   position: absolute;
-  width: 600px;
+  width: 400px;
   z-index: 4;
 }
 
@@ -209,7 +237,7 @@
 
 /* ============================================   price container ========================================== */
 
-.rebranding_price_container{
+.rebranding_price_container {
   width: 100%;
   height: 300px;
   display: flex;
@@ -217,7 +245,7 @@
   align-items: center;
 }
 
-.rebranding_price_child_cont{
+.rebranding_price_child_cont {
   display: flex;
   justify-content: center;
   align-items: center;
