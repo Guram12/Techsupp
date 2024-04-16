@@ -56,3 +56,13 @@
 .poster_rect {
   fill: white;
 }
+
+
+@media screen and (max-width: 500px) {
+  .poster_video_tag{
+
+  }
+  .main_poster_video_container{
+
+  }
+}

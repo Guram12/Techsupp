@@ -73,7 +73,7 @@ import transition from "../Header/Transition"
         {/* video content should go here */}
         <Motion_animation isDarkmodeOn={isDarkmodeOn} />
       </div>
-      <section>
+      <section className="motion_paralax_cont" >
         <Parallax isDarkmodeOn={isDarkmodeOn} baseVelocity={-5}>
           motion designe
         </Parallax>

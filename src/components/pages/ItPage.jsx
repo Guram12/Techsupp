@@ -1,12 +1,13 @@
 import Paralax from "../animations/Paralax"
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom"; // Corrected import
+import { useNavigate } from "react-router-dom"; 
 import "../styles/ITPage.css"
 import Footer from "../Header/Footer"
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import it_card_image from "../../assets/it_card_image.jpg"
-
+import internet_cabel from "../../assets/internet_cabel.webp"
+import computer_service from "../../assets/computer-service.webp"
+import computer_repair from "../../assets/laptop_repair.webp"
 
 export default function ItPage({ isDarkmodeOn, handle_context_change }) {
   
@@ -86,14 +87,14 @@ export default function ItPage({ isDarkmodeOn, handle_context_change }) {
       </div>
       <div className="it_card_container" ref={ref} >
         <motion.div
-          className="it_child_card_container"
+          className={`it_child_card_container ${isDarkmodeOn? "it_card_dark" : "it_card_light"}`}
           initial={initial}
           animate={control_first}
           whileHover={{
             y: -10,
             boxShadow: "0px 10px 20px rgba(0,0,0,0.2)"
           }}>
-          <img src={it_card_image} alt="it service image" className="it_image_dard" />
+          <img src={computer_service} alt="it service image" className="it_image_dard" />
           <p className="it_catd_paragraph" >კომპიუტერული სრული მომსახურება</p>
           <button
             onClick={() => handleButtonClick('კომპიუტერული სრული მომსახურება')}
@@ -104,14 +105,14 @@ export default function ItPage({ isDarkmodeOn, handle_context_change }) {
 
         {/* card containers  */}
         <motion.div
-          className="it_child_card_container"
+          className={`it_child_card_container ${isDarkmodeOn? "it_card_dark" : "it_card_light"}`}
           initial={initial}
           animate={control_second}
           whileHover={{
             y: -10,
             boxShadow: "0px 10px 20px rgba(0,0,0,0.2)"
           }}>
-          <img src={it_card_image} alt="it service image" className="it_image_dard" />
+          <img src={internet_cabel} alt="it service image" className="it_image_dard" />
           <p className="it_catd_paragraph">ინტრნეტ კაბელების გაყვანა და ნებისმიერი მოწყობილობისთვის გაწერა</p>
           <button
             onClick={() => handleButtonClick('hardware და sofrware მომსახურება')}
@@ -120,7 +121,7 @@ export default function ItPage({ isDarkmodeOn, handle_context_change }) {
           </button>
         </motion.div>
         <motion.div
-          className="it_child_card_container"
+          className={`it_child_card_container ${isDarkmodeOn? "it_card_dark" : "it_card_light"}`}
           initial={initial}
           animate={control_third}
           whileHover={{
@@ -128,7 +129,7 @@ export default function ItPage({ isDarkmodeOn, handle_context_change }) {
             boxShadow: "0px 10px 20px rgba(0,0,0,0.2)"
           }}
         >
-          <img src={it_card_image} alt="it service image" className="it_image_dard" />
+          <img src={computer_repair} alt="it service image" className="it_image_dard" />
           <p className="it_catd_paragraph">კომპიუტერების და ნებისმიერი ელექტრონული მოწყობილობის დიაგნოსტიკა შეკეთება</p>
           <button
             onClick={() => handleButtonClick('ელექტრონული მოწყობილობების დიაგნოსტიკა')}
