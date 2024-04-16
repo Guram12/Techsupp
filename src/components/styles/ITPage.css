@@ -76,7 +76,7 @@
   height: 440px;
   border-radius: 20px;
   border: 1px solid rgb(114, 114, 114);
-  box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 5px, rgba(0, 0, 0, 0.15) 0px 10px 10px;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 5px, rgba(99, 83, 83, 0.15) 0px 10px 10px;
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
@@ -86,13 +86,13 @@
   transition: transform 0.5s;
 }
 
-.it_card_dark{
+.it_card_dark {
   background-color: rgb(255, 255, 255);
 
 }
 
-.it_card_light{
-  background-color: aliceblue;
+.it_card_light {
+  background-color: rgb(0, 0, 0);
 
 }
 
@@ -104,12 +104,25 @@
   left: 0;
   width: 100%;
   height: 100%;
-  pointer-events: none; /* Allow hover events to pass through */
+  pointer-events: none;
+  /* Allow hover events to pass through */
   transition: opacity 0.5s;
+
 }
+
 .it_child_card_container:hover .it_child_card_container::before {
   opacity: 1;
 }
+
+.it_card_text_button {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  height: 200px;
+}
+
+
 .it_image_dard {
   width: 240px;
   border-radius: 3%;
@@ -119,6 +132,19 @@
   max-width: 290px;
   text-align: center;
 }
+
+.it_catd_paragraph_dark {
+  color: black;
+
+}
+
+.it_catd_paragraph_whit {
+  color: white;
+
+}
+
+
+
 
 .it_price_container {
   width: 100%;
@@ -141,27 +167,101 @@
   border-radius: 15px;
 }
 
+.it_child_price_dark {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 40px;
+  color: white;
+  background-color: rgb(0, 0, 0);
+  box-shadow: rgba(255, 255, 255, 0.87) 0px 3px 2px,
+    rgba(172, 172, 172, 0.3) 0px 1px 3px -3px, rgba(153, 153, 153, 0.2) 0px -3px 0px;
+  border-radius: 15px;
+  border: 1px solid rgb(122, 122, 122);
+}
+
+/* ================================================= cadr dagvicavshirdi button styles =============================================== */
+
+.contact_us_button {
+  background-color: white;
+  color: black;
+  border-radius: 10em;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 1em 2em;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  border: 1px solid black;
+  box-shadow: 0 0 0 0 black;
+}
+
+.contact_us_button:hover {
+  transform: translateY(-4px) translateX(-2px);
+  box-shadow: 2px 5px 0 0 black;
+}
+
+.contact_us_button:active {
+  transform: translateY(2px) translateX(1px);
+  box-shadow: 0 0 0 0 black;
+}
+
+.contact_us_button_dark {
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  border-radius: 10em;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 1em 2em;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  border: 1px solid rgb(85, 85, 85);
+  box-shadow: 0 0 0 0 rgb(255, 255, 255);
+}
+
+
+.contact_us_button_dark:hover {
+  transform: translateY(-4px) translateX(-2px);
+  box-shadow: 2px 5px 0 0 rgb(255, 255, 255);
+}
+
+.contact_us_button_dark:active {
+  transform: translateY(2px) translateX(1px);
+  box-shadow: 0 0 0 0 rgb(255, 255, 255);
+}
+
+
+/* =================================================================================================================== */
+
+
+
+
+
 @media screen and (max-width: 500px) {
   .it_child_title_container {
     width: 80%;
     font-size: 14px;
-    display: block;  /* Ensuring it's not hidden */
-    opacity: 1;      /* Making sure it's fully visible */
-    width: auto; 
+    display: block;
+    /* Ensuring it's not hidden */
+    opacity: 1;
+    /* Making sure it's fully visible */
+    width: auto;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 10px;
   }
 
-  .it_paragraph{
+  .it_paragraph {
     width: 320px;
   }
-  .it_card_container{
+
+  .it_card_container {
 
     height: 1900px;
   }
-  .sheet_image{
+
+  .sheet_image {
     margin-top: 200px;
   }
 }

@@ -1,6 +1,6 @@
 import Paralax from "../animations/Paralax"
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 import "../styles/ITPage.css"
 import Footer from "../Header/Footer"
 import { motion, useAnimation } from 'framer-motion';
@@ -10,7 +10,7 @@ import computer_service from "../../assets/computer-service.webp"
 import computer_repair from "../../assets/laptop_repair.webp"
 
 export default function ItPage({ isDarkmodeOn, handle_context_change }) {
-  
+
 
   // const isMobile = window.innerWidth <= 500;  // Simple check for mobile devices
   // const initial = { x: isMobile ? '0vw' : '100vw' };
@@ -86,8 +86,9 @@ export default function ItPage({ isDarkmodeOn, handle_context_change }) {
         </section>
       </div>
       <div className="it_card_container" ref={ref} >
+        {/* 1 card container  */}
         <motion.div
-          className={`it_child_card_container ${isDarkmodeOn? "it_card_dark" : "it_card_light"}`}
+          className={`it_child_card_container ${isDarkmodeOn ? "it_card_dark" : "it_card_light"}`}
           initial={initial}
           animate={control_first}
           whileHover={{
@@ -95,17 +96,22 @@ export default function ItPage({ isDarkmodeOn, handle_context_change }) {
             boxShadow: "0px 10px 20px rgba(0,0,0,0.2)"
           }}>
           <img src={computer_service} alt="it service image" className="it_image_dard" />
-          <p className="it_catd_paragraph" >კომპიუტერული სრული მომსახურება</p>
-          <button
-            onClick={() => handleButtonClick('კომპიუტერული სრული მომსახურება')}
-            className="view-details-btn" >
-            დაგვიკავშირდით
-          </button>
+
+          <div className="it_card_text_button" >
+            <p className={`it_catd_paragraph  ${isDarkmodeOn ? "it_catd_paragraph_dark" : "it_catd_paragraph_whit"}`} >
+              კომპიუტერული სრული მომსახურება</p>
+            <button
+              onClick={() => handleButtonClick('კომპიუტერული სრული მომსახურება')}
+              className={`${isDarkmodeOn ? "contact_us_button" : "contact_us_button_dark"}`}>
+              დაგვიკავშირდით
+            </button>
+          </div>
+
         </motion.div>
 
-        {/* card containers  */}
+        {/* 2 card container  */}
         <motion.div
-          className={`it_child_card_container ${isDarkmodeOn? "it_card_dark" : "it_card_light"}`}
+          className={`it_child_card_container ${isDarkmodeOn ? "it_card_dark" : "it_card_light"}`}
           initial={initial}
           animate={control_second}
           whileHover={{
@@ -113,15 +119,22 @@ export default function ItPage({ isDarkmodeOn, handle_context_change }) {
             boxShadow: "0px 10px 20px rgba(0,0,0,0.2)"
           }}>
           <img src={internet_cabel} alt="it service image" className="it_image_dard" />
-          <p className="it_catd_paragraph">ინტრნეტ კაბელების გაყვანა და ნებისმიერი მოწყობილობისთვის გაწერა</p>
-          <button
-            onClick={() => handleButtonClick('hardware და sofrware მომსახურება')}
-            className="view-details-btn">
-            დაგვიკავშირდით
-          </button>
+
+          <div className="it_card_text_button" >
+            <p className={`it_catd_paragraph  ${isDarkmodeOn ? "it_catd_paragraph_dark" : "it_catd_paragraph_whit"}`} >
+              ინტრნეტ კაბელების გაყვანა და ნებისმიერი მოწყობილობისთვის გაწერა</p>
+            <button
+              onClick={() => handleButtonClick('hardware და sofrware მომსახურება')}
+              className={`${isDarkmodeOn ? "contact_us_button" : "contact_us_button_dark"}`}>
+              დაგვიკავშირდით
+            </button>
+          </div>
+
         </motion.div>
+
+        {/* 3 card container  */}
         <motion.div
-          className={`it_child_card_container ${isDarkmodeOn? "it_card_dark" : "it_card_light"}`}
+          className={`it_child_card_container ${isDarkmodeOn ? "it_card_dark" : "it_card_light"}`}
           initial={initial}
           animate={control_third}
           whileHover={{
@@ -130,15 +143,20 @@ export default function ItPage({ isDarkmodeOn, handle_context_change }) {
           }}
         >
           <img src={computer_repair} alt="it service image" className="it_image_dard" />
-          <p className="it_catd_paragraph">კომპიუტერების და ნებისმიერი ელექტრონული მოწყობილობის დიაგნოსტიკა შეკეთება</p>
-          <button
-            onClick={() => handleButtonClick('ელექტრონული მოწყობილობების დიაგნოსტიკა')}
-            className="view-details-btn">
-            დაგვიკავშირდით
-          </button>
+
+          <div className="it_card_text_button" >
+            <p className={`it_catd_paragraph  ${isDarkmodeOn ? "it_catd_paragraph_dark" : "it_catd_paragraph_whit"}`}>
+              კომპიუტერების და ნებისმიერი ელექტრონული მოწყობილობის დიაგნოსტიკა შეკეთება</p>
+            <button
+              onClick={() => handleButtonClick('ელექტრონული მოწყობილობების დიაგნოსტიკა')}
+              className={`${isDarkmodeOn ? "contact_us_button" : "contact_us_button_dark"}`}>
+              დაგვიკავშირდით
+            </button>
+          </div>
+
         </motion.div>
         <div className="it_price_container" >
-          <motion.div className="it_child_price"
+          <motion.div className={`${!isDarkmodeOn?  "it_child_price_dark" : "it_child_price" }`}
             animate={control_price}
             initial={initial}>
             500 ლარიდან / თვეში</motion.div>
