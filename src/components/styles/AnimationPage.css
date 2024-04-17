@@ -113,10 +113,11 @@
 }
 
 .animation_footer_container {
-  /* margin-top: 200px; */
+  margin-top: 200px;
 }
 .parent_div {
   /* padding-top: 20px; */
+  margin-top: 0px;  /* droebit */
 }
 
 @media screen and (max-width: 500px) {

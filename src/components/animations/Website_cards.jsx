@@ -1,5 +1,5 @@
 import "../styles/Website_cards.css"
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 // import website_animated_logo from "../../assets/website_logo.webp"
 import logo_level_1 from "../../assets/logo_lvl_1.png"
@@ -111,6 +111,8 @@ export default function Website_cards({ isDarkmodeOn }) {
     }
   };
 
+
+
   return (
     <div>
       <div className="page-content_wb">
@@ -119,7 +121,9 @@ export default function Website_cards({ isDarkmodeOn }) {
         ))}
       </div>
       <div className="motion_parent_cont">
+        {console.log(isDarkmodeOn)}
         <motion.h1
+          className={isDarkmodeOn ? "selected_website_title_white" : "selected_website_title_dark"}
           variants={headerVariants}
           initial="hidden"
           animate="visible"
@@ -139,7 +143,7 @@ export default function Website_cards({ isDarkmodeOn }) {
           </motion.div>
           <div>
             <motion.div
-              className="motion_cont_wb shadow_wb"
+              className={`motion_cont_wb  ${!isDarkmodeOn ? "motion_cont_wb_dark" : "motion_cont_wb_light"} `}
               variants={containerVariants}
               initial="hidden"
               animate="visible"
@@ -166,7 +170,7 @@ export default function Website_cards({ isDarkmodeOn }) {
             animate={{ x: 0 }}
             transition={{ type: 'spring', stiffness: 70, delay: 1.5 }}
           >
-            <h1 className="hown_card_price" >{prices[activeCard]}</h1>
+            <h1 className={ isDarkmodeOn?   "hown_card_price_light" : "hown_card_price_dark"} >{prices[activeCard]}</h1>
           </motion.div>
         </div>
       </div>

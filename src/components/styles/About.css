@@ -34,6 +34,10 @@ canvas {
   margin-top: 200px;
 }
 
+.abut_container {
+  padding-top: 120px;
+}
+
 
 .about_text_container {
   display: flex;
@@ -43,12 +47,14 @@ canvas {
 
 }
 
+
+
+
 .about_text_child_container {
   width: 600px;
   height: 500px;
   background-color: transparent;
   backdrop-filter: blur(15px);
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px;
   padding: 10px;
   border-radius: 10%;
   z-index: 99;
@@ -63,6 +69,16 @@ canvas {
 }
 
 
+.about_dark {
+  box-shadow: rgba(255, 252, 252, 0.4) 0px 2px 4px, rgba(240, 237, 237, 0.3) 0px 7px 13px -3px;
+}
+
+.about_light {
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px;
+
+}
+
+
 .about_title {
   color: black;
 }
@@ -72,7 +88,7 @@ canvas {
 
 }
 
-.about_paralax_container{
+.about_paralax_container {
   margin-top: 60px;
   margin-bottom: 60px;
 }
@@ -104,6 +120,7 @@ canvas {
   width: 400px;
 }
 
+
 .storkhome_title_and_p_cont {
   display: flex;
   flex-wrap: nowrap;
@@ -115,8 +132,17 @@ canvas {
 
 }
 
+.title_p_dark {
+  color: white;
+}
+
+.title_p_light {
+
+  color: rgb(0, 0, 0);
+
+}
+
 .storkhome_title {
-  color: black;
   text-shadow: 3px;
 }
 
@@ -141,16 +167,16 @@ canvas {
 
 .storkhome_paragraph {
   max-width: 400px;
-  color: black;
 }
 
-.sheet_mbded{
+.sheet_mbded {
   width: 400px;
   height: 250px;
 }
 
 .storkhome_title:hover {
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); /* Example shadow with RGBA color */
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  /* Example shadow with RGBA color */
 }
 
 
@@ -158,3 +184,36 @@ canvas {
 
 /* =======================================google sheet iframe styles ============================================== */
 
+
+@media screen and (max-width: 500px) {
+  .about_text_child_container {
+    width: 300px;
+  }
+
+  .about_example_container {
+    gap: 200px;
+    margin-top: 100px;
+    padding: 5px;
+  }
+
+  .about_example_child_container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .storkhome_image {
+    width: 270px;
+  }
+
+  .storkhome_title_and_p_cont {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+    text-align: center;
+    gap: 10px;
+  }
+}

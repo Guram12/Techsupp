@@ -85,7 +85,7 @@ function WebsitePage({
             animate={control_card_selection}
           >გთხოვთ აირჩიოთ სასურველი ვებსაიტის ტიპი</motion.p>
         </div>
-        <Website_cards />
+        <Website_cards isDarkmodeOn={isDarkmodeOn} />
       </div>
       <div>
         <Footer isDarkmodeOn={isDarkmodeOn} />
