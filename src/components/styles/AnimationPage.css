@@ -74,7 +74,7 @@
 
 .motion_example_child_container {
   /* background-color: black; */
-  width: 200px;
+  width: 300px;
   height: 40px;
   border-radius: 15px;
   /* color: white; */
@@ -113,10 +113,11 @@
 }
 
 .animation_footer_container {
-  /* margin-top: 200px; */
+  margin-top: 200px;
 }
 .parent_div {
   /* padding-top: 20px; */
+  margin-top: 0px;  /* droebit */
 }
 
 @media screen and (max-width: 500px) {

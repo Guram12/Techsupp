@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import anime from 'animejs';
 import '../styles/About_animation.css';
 
-export default function AboutAnimation() {
+export default function AboutAnimation({isDarkmodeOn}) {
   const staggerVisualizerRef = useRef(null);
 
   useEffect(() => {

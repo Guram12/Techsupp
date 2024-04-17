@@ -126,7 +126,7 @@ import transition from "../Header/Transition"
             initial={{ x: "100vw" }}
             transition={{ type: "spring", stiffness: 70, delay: 0.5 }}
           >
-            <p className="motion_example_text">იხილეთ მაგალიტები</p>
+            <p className="motion_example_text">ჩვენი დამზადებული ანიმაციები</p>
           </motion.div>
         </div>
       )}

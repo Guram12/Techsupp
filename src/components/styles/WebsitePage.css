@@ -3,11 +3,11 @@
   margin-bottom: 50px;
 }
 
-.card_wb_container{
+.card_wb_container {
   overflow: hidden;
 }
 
-.child_website_allcards_title{
+.child_website_allcards_title {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,7 +15,7 @@
   overflow: hidden;
 }
 
-.child_website_allcards_paragraph{
+.child_website_allcards_paragraph {
   font-size: 25px;
   text-align: center;
 }
@@ -127,10 +127,19 @@
   width: 100%;
 }
 
+.selected_website_title_white {
+  color: rgb(0, 0, 0);
+  margin-top: 30px;
+}
+
+.selected_website_title_dark {
+  color: rgb(255, 255, 255);
+  margin-top: 30px;
+}
+
 .motion_cont_wb {
   width: 300px;
   height: auto;
-  background: white;
   border-radius: 10px;
   /* transition: border-radius 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); */
   margin-bottom: 30px;
@@ -138,10 +147,22 @@
   padding: 10px;
 }
 
-.shadow_wb {
+.motion_cont_wb_dark {
+  box-shadow: rgba(97, 97, 97, 0.4) 0px 2px 4px,
+    rgba(92, 92, 92, 0.3) 0px 7px 13px -3px;
+  background: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  border: 1px solid rgb(65, 65, 65);
+}
+
+
+.motion_cont_wb_light {
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
     rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  background: white;
+  color: black;
 }
+
 
 .wb_li {
   margin-left: 25px;
@@ -153,7 +174,6 @@
   align-items: center;
   flex-wrap: wrap;
   width: 100%;
-  border: 1px solid red;
   margin-top: 50px;
 }
 
@@ -175,20 +195,32 @@
   width: 300px;
   margin-right: 30px;
 }
+
+.hown_card_price_dark {
+  color: white;
+}
+
+.hown_card_price_light {
+  color: black;
+}
+
 @media screen and (max-width: 500px) {
   .website_page_title {
     padding-top: 80px;
   }
-  .wb_catd_and_icon_container{
+
+  .wb_catd_and_icon_container {
     margin-top: 100px;
     gap: 30px;
   }
-  .webservice_child_cont{
+
+  .webservice_child_cont {
     width: 300px;
     height: 500px;
 
   }
-  .webservice_header{
+
+  .webservice_header {
     width: 290px;
   }
 

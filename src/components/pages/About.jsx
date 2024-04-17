@@ -12,7 +12,7 @@ import Parallax from "../animations/Paralax";
 import Modal from 'react-modal'; // This assumes you're using react-modal
 import transition from "../Header/Transition";
 
-const  About = ({ isDarkmodeOn, handle_cursor_on_of, is_cursor_on }) => {
+const About = ({ isDarkmodeOn, handle_cursor_on_of, is_cursor_on }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
 
@@ -43,16 +43,17 @@ const  About = ({ isDarkmodeOn, handle_cursor_on_of, is_cursor_on }) => {
   return (
     <div className="abut_container">
       <div  >
-        <AboutAnimation />
+        <AboutAnimation isDarkmodeOn={isDarkmodeOn} />
       </div>
-      <div className="about_text_container" >
-        <motion.div className="about_text_child_container"
+      <div className="about_text_container " >
+        <motion.div className={`about_text_child_container ${!isDarkmodeOn? "about_dark" : "about_light"}`}
           initial={initial}
           animate={animate}
           transition={transition}
+          style={{ color: "white" }}
         >
-          <h1 className="about_title" >ჩვენს შესახებ</h1>
-          <p className="about_paragraph" >TechSupp-ი არის ქართული მრავალპროფილური სტარტაპი , რომელიც თქვენს ბიზნესს ახალ საფეხურზე აიყვანს,
+          <h1 className="about_title" style={{ color: `${!isDarkmodeOn ? "white" : " black"}` }} >ჩვენს შესახებ</h1>
+          <p className="about_paragraph" style={{ color: `${!isDarkmodeOn ? "white" : " black"}` }} >TechSupp-ი არის ქართული მრავალპროფილური სტარტაპი , რომელიც თქვენს ბიზნესს ახალ საფეხურზე აიყვანს,
             ჩვენი გუნდი დაგეხმარებათ, შექმნათ ახალი ვიზუალი თქვენი ბიზნესისთვის, განავითაროთ იგი, გაიმარტივოთ
             სამუშაო პროცესი და რაც მთავარია ყველანაირი წყვეტის გარეშე მიყვეთ საქმის კურსს. ჩვენი გუნდი იქნება
             თქვენი კომპასი ციფრულ ლაბირინთში.</p>
@@ -70,9 +71,9 @@ const  About = ({ isDarkmodeOn, handle_cursor_on_of, is_cursor_on }) => {
         {/* 1  konteineri  */}
         <div className="about_example_child_container">
           <img src={storkhome_image} alt="storkhom website logo" className="storkhome_image" />
-          <div className="storkhome_title_and_p_cont" >
+          <div className={`storkhome_title_and_p_cont ${!isDarkmodeOn ? "title_p_dark" : "title_p_light"}  `} >
             <a href="https://www.storkhome.ge/hhomepage" target="_blank" rel="noopener noreferrer">
-              <h1 className="storkhome_title">Storkhome</h1>
+              <h1 className={`storkhome_title ${!isDarkmodeOn ? "title_p_dark" : "title_p_light"} `}>Storkhome</h1>
             </a>
             <p className="storkhome_paragraph" >StorkHome ახალი ინოვაციური პლატფორმაა ,
               სადაც მარტივად შეგიძლიათ მიიღოთ საბროკერო მომსახურება. საიტისთვის შეიქმნა
@@ -84,9 +85,9 @@ const  About = ({ isDarkmodeOn, handle_cursor_on_of, is_cursor_on }) => {
         {/* 2  konteineri  */}
         <div className="about_example_child_container">
           <img src={tsvrilmani_image} alt="tsvrilmani website logo" className="storkhome_image" />
-          <div className="storkhome_title_and_p_cont" >
+          <div className={`storkhome_title_and_p_cont ${!isDarkmodeOn ? "title_p_dark" : "title_p_light"}  `} >
             <a href="https://www.tsvrilmani.ge/" target="_blank" rel="noopener noreferrer">
-              <h1 className="storkhome_title" >Tsvrilmani</h1>
+              <h1 className={`storkhome_title ${!isDarkmodeOn ? "title_p_dark" : "title_p_light"} `} >Tsvrilmani</h1>
             </a>
             <p className="storkhome_paragraph" >Tsvrilmani არის ახალი ონლაინ მაღაზია, სადაც
               მარტივად შეძლებთ სახლიდან სახლიდან გაუსვლელად შეიძინოთ საყოფაცხოვრებო ნივთები </p>
@@ -96,9 +97,9 @@ const  About = ({ isDarkmodeOn, handle_cursor_on_of, is_cursor_on }) => {
         {/* 3  konteineri  */}
         <div className="about_example_child_container">
           <img src={inova_image} alt="tsvrilmani website logo" className="storkhome_image" />
-          <div className="storkhome_title_and_p_cont" >
+          <div className={`storkhome_title_and_p_cont ${!isDarkmodeOn ? "title_p_dark" : "title_p_light"}  `}>
             <a href="https://annatoloraia6a.wixsite.com/innovainvitro?fbclid=IwAR23S9mQC1kmPwK5uYgE_-_3CyvJQbRWicBJ_DF4v3huFLGIlMgFtH-m7Q4_aem_AfZvP2_sa3UmxmtNZnZqOCRhl6dPc8gHw3XikNGuo82A7Di_Px0ibavtjyA3IiWJQ1Vt-0XiZ70ONimmWeulTebf" target="_blank" rel="noopener noreferrer">
-              <h1 className="storkhome_title" >Inova-invitro</h1>
+              <h1 className={`storkhome_title ${!isDarkmodeOn ? "title_p_dark" : "title_p_light"} `} >Inova-invitro</h1>
             </a>
             <p className="storkhome_paragraph" >Tsvrilmani არის ახალი ონლაინ მაღაზია, სადაც
               მარტივად შეძლებთ სახლიდან სახლიდან გაუსვლელად შეიძინოთ საყოფაცხოვრებო ნივთები </p>
@@ -110,10 +111,10 @@ const  About = ({ isDarkmodeOn, handle_cursor_on_of, is_cursor_on }) => {
         </div>
 
         {/* 4  konteineri  */}
-        <div className="about_example_child_container">
-            <img src={pos_terminal_image} alt="pos terminal image"  className="storkhome_image" />
+        <div className={`about_example_child_container ${!isDarkmodeOn ? "title_p_dark" : "title_p_light"}  `} >
+          <img src={pos_terminal_image} alt="pos terminal image" className="storkhome_image" />
           <div className="storkhome_title_and_p_cont  high_z_index" >
-            <h1 className="storkhome_title" onClick={openModal} >POS Terminal</h1>
+            <h1 className={`storkhome_title ${!isDarkmodeOn ? "title_p_dark" : "title_p_light"} `} onClick={openModal} >POS Terminal</h1>
             <p className="storkhome_paragraph" >Tsvrilmani არის ახალი ონლაინ მაღაზია, სადაც
               მარტივად შეძლებთ სახლიდან სახლიდან გაუსვლელად შეიძინოთ საყოფაცხოვრებო ნივთები </p>
           </div>
@@ -124,12 +125,14 @@ const  About = ({ isDarkmodeOn, handle_cursor_on_of, is_cursor_on }) => {
             ariaHideApp={false}
             style={{
               content: {
-                height: '90vh',
+                height: '80vh',
                 width: '90vw',
                 borderRadius: "1%",
+                marginTop: "100px",
+                zIndex: "9999999999"
               },
               overlay: {
-                backgroundColor: 'rgba(0, 0, 0, 0.5)' 
+                backgroundColor: 'rgba(0, 0, 0, 0.5)'
               }
             }}
           >
@@ -141,7 +144,7 @@ const  About = ({ isDarkmodeOn, handle_cursor_on_of, is_cursor_on }) => {
         </div>
       </div>
 
-      
+
       <div className="footer_containet" >
         <Footer isDarkmodeOn={isDarkmodeOn} />
 

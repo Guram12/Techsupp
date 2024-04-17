@@ -1,14 +1,11 @@
 import "../styles/MainPage.css";
 import "../styles/card.css";
-
+import "../styles/Compas.css"
 import { useState, useEffect , useRef } from "react";
 import CardAnimation from "../animations/CardAnimation";
 import CubeAnimation from "../animations/CubeAnimation";
 import MainPage_Footer from "../Header/MainPage_Footer";
 import Compass from "../animations/Compass";
-
-import "../styles/Compas.css"
-import rotatable_compass from "../../assets/rotatable_arrow.png"
 import transition from "../Header/Transition";
 
  const mainPage = ({ showSplashScreen }) => {

@@ -18,10 +18,17 @@
   background-color: white;
 }
 
-.header-shadow {
+.header-shadow_dark {
   box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
     rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
+
+
+.header-shadow_light {
+  box-shadow: rgba(92, 92, 92, 0.918) 0px 2px 4px 0px,
+    rgba(94, 94, 94, 0.747) 0px 2px 16px 0px;
+}
+
 .header.header-hidden {
   transform: translateY(-100%);
 }
