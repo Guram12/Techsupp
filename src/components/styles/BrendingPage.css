@@ -85,7 +85,7 @@
 .rebranding_down_card {
   width: 600px;
   height: 100%;
-  background-image: url('../../assets/branding_backgroung.jpg');
+  background-image: url('../../assets/branding_logo_background.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -140,7 +140,7 @@
 .rebranding_down_card2 {
   width: 600px;
   height: 100%;
-  background-image: url('../../assets/brandinb_background_2.webp');
+  background-image: url('../../assets/branding_brand_background.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -198,7 +198,7 @@
 .rebranding_down_card_3 {
   width: 600px;
   height: 100%;
-  background-image: url('../../assets/branding_backgroung.jpg');
+  background-image: url('../../assets/branding_ui_background.webp');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

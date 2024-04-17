@@ -6,7 +6,7 @@ import Parallax from "../animations/Paralax"
 import QRcodeAnimation from "../animations/QRcode_animation"
 import Footer from "../Header/Footer";
 import transition from "../Header/Transition";
-
+import { useEffect } from "react";
 
  function MenuPage({ isDarkmodeOn }) {
 

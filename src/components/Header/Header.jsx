@@ -81,7 +81,7 @@ export default function Header({
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: "-50%" }}
           transition={transition1}
-          onMouseEnter={mouseEnterHandler} // Corrected function name
+          onMouseEnter={mouseEnterHandler}
           onMouseLeave={mouseLeaveHandler}
           className="logo_and_name"
         >
@@ -89,7 +89,7 @@ export default function Header({
             <img
               src={isDarkmodeOn ? logo_black : logo_white}
               alt="company logo"
-              style={{ width: "100px" }}
+              style={{ width: "80px" }}
               className="company_logo"
             />
           </Link>
@@ -98,7 +98,7 @@ export default function Header({
         </motion.div>
       <motion.div
         transition={transition1}
-        onMouseEnter={mouseEnterHandler} // Corrected function name
+        onMouseEnter={mouseEnterHandler}
         onMouseLeave={mouseLeaveHandler}
         className="header_right"
       >
