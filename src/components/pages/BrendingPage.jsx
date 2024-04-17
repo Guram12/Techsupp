@@ -203,7 +203,7 @@ function BrandingPage({ isDarkmodeOn }) {
           <motion.img src={branding_logo} alt="brending icon" className="rebranding_image_1"
             initial={initial}
             animate={controlsFirst} />
-          <div className="rebranding_card_text" ref={refText} >
+          <div className={`rebranding_card_text ${!isDarkmodeOn ? "branding_cards_dark" : "branding_cards_white"} `} ref={refText} >
             <motion.p className="rebranding_card_text_p"
               initial={initialText}
               animate={controlsText}
@@ -221,7 +221,7 @@ function BrandingPage({ isDarkmodeOn }) {
         </div>
         {/* meore konteineri  */}
         <div className="rebrending_down_card_container_1" ref={ref2}>
-          <div className="rebranding_card_text2" ref={ref_branding_Text} >
+          <div className={`rebranding_card_text2 ${!isDarkmodeOn ? "branding_cards_dark" : "branding_cards_white"}`} ref={ref_branding_Text} >
             <motion.p
               initial={initia_branding_lText}
               animate={controls_branding_Text}
@@ -249,7 +249,7 @@ function BrandingPage({ isDarkmodeOn }) {
             initial={initial}
             animate={controlsThird}
           />
-          <div className="rebranding_card_text_3" ref={ref_ui_Text} >
+          <div className={`rebranding_card_text_3 ${!isDarkmodeOn ? "branding_cards_dark" : "branding_cards_white"}`} ref={ref_ui_Text} >
             <motion.p
               initial={initia_ui_lText}
               animate={controls_ui_Text}
@@ -272,7 +272,7 @@ function BrandingPage({ isDarkmodeOn }) {
           animate={controlsFourth}
           className="rebranding_price_child_cont"
         >
-          <button  className={`${isDarkmodeOn ? "contact_us_button" : "contact_us_button_dark"}`}  >დაგვიკავშირდით</button>
+          <button className={`${isDarkmodeOn ? "contact_us_button" : "contact_us_button_dark"}`}  >დაგვიკავშირდით</button>
         </motion.div>
       </div>
       <div>
