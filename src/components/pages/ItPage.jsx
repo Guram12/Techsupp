@@ -156,7 +156,7 @@ export default function ItPage({ isDarkmodeOn, handle_context_change }) {
 
         </motion.div>
         <div className="it_price_container" >
-          <motion.div className={`${!isDarkmodeOn?  "it_child_price_dark" : "it_child_price" }`}
+          <motion.div className={`${!isDarkmodeOn ? "it_child_price_dark" : "it_child_price"}`}
             animate={control_price}
             initial={initial}>
             500 ლარიდან / თვეში</motion.div>

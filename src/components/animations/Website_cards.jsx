@@ -5,9 +5,9 @@ import { motion, useAnimation } from 'framer-motion';
 import logo_level_1 from "../../assets/logo_lvl_1.png"
 import logo_level_2 from "../../assets/logo_lvl_2.png"
 import logo_level_3 from "../../assets/logo_lvl_3.png"
+import { useNavigate } from "react-router-dom";
 
-
-export default function Website_cards({ isDarkmodeOn }) {
+export default function Website_cards({ isDarkmodeOn, handle_context_change }) {
   const [activeCard, setActiveCard] = useState(0);
   const [toggle_card_header, setToggle_card_header] = useState(true);
   const [toggle_left_down_card, setToggle_left_down_card] = useState(true);
@@ -111,6 +111,12 @@ export default function Website_cards({ isDarkmodeOn }) {
     }
   };
 
+  const navigate = useNavigate(); // This hook is used to navigate programmatically
+
+  const handleButtonClick = (message) => {
+    handle_context_change(message);
+    navigate('/contact');
+  };
 
 
   return (
@@ -170,8 +176,15 @@ export default function Website_cards({ isDarkmodeOn }) {
             animate={{ x: 0 }}
             transition={{ type: 'spring', stiffness: 70, delay: 1.5 }}
           >
-            <h1 className={ isDarkmodeOn?   "hown_card_price_light" : "hown_card_price_dark"} >{prices[activeCard]}</h1>
+            <h1 className={isDarkmodeOn ? "hown_card_price_light" : "hown_card_price_dark"} >{prices[activeCard]}</h1>
           </motion.div>
+        </div>
+        <div style={{ paddingTop: "30px" }} >
+          <button
+            onClick={() => handleButtonClick('ვებსაიტის დამზადება')}
+            className={`${isDarkmodeOn ? "contact_us_button" : "contact_us_button_dark"}`}>
+            დაგვიკავშირდით
+          </button>
         </div>
       </div>
     </div>

@@ -32,7 +32,6 @@ function App() {
   // const { cursorVariants, cursorBG } = useContext(CursorContext);
 
   const handle_darkmode_change = (event) => {
-    console.log("clicked dark mode");
     setIsDarkmodeOn(event.target.checked);
   };
 
@@ -129,17 +128,17 @@ const secondlocation = useLocation()
             />
           </>
         )}
-        <audio ref={audioRef} src={background_audio_second} loop muted />
+        <audio ref={audioRef} src={background_audio_second} loop  />
         <AnimatePresence mode="wait" >
 
           <Routes location={secondlocation} key={secondlocation.pathname} >
             <Route path="/*" element={<MainPage isDarkmodeOn={isDarkmodeOn} />} />
             <Route path="about/" element={<About isDarkmodeOn={isDarkmodeOn} />} />
             <Route path="contact/" element={<Contact isDarkmodeOn={isDarkmodeOn} contactMessage={contactMessage} />} />
-            <Route path="/" index element={<MainPage showSplashScreen={showSplashScreen} />} />
+            <Route path="/" index element={<MainPage showSplashScreen={showSplashScreen}  isDarkmodeOn={isDarkmodeOn} />} />
 
 
-            <Route path="services/web-development" element={<WebsitePage isDarkmodeOn={isDarkmodeOn} />} />
+            <Route path="services/web-development" element={<WebsitePage isDarkmodeOn={isDarkmodeOn} handle_context_change={handle_context_change} />} />
             <Route path="services/it" element={<ItPage isDarkmodeOn={isDarkmodeOn} handle_context_change={handle_context_change} />} />
             <Route path="services/menu" element={<MenuPage isDarkmodeOn={isDarkmodeOn} />} />
             <Route path="services/brending" element={<BrendingPage isDarkmodeOn={isDarkmodeOn} />} />

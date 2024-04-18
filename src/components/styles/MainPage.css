@@ -47,6 +47,17 @@
     "wdth" 100;
 }
 
+
+.slogan_dark {
+  color: aliceblue;
+}
+
+.slogan_light {
+  color: rgb(0, 0, 0);
+}
+
+
+
 .movable_arrow {
   width: 40px;
   transition: transform 0.1s linear;
