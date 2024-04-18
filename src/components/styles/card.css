@@ -80,13 +80,23 @@ h1 {
   position: absolute;
   width: 500px;
   height: 300px;
-  background-color: #ffffff;
-  border: 1px solid #423e37;
+  border: 1px solid #b4b4b4;
   box-shadow: 9px 11px 3px 0px rgba(0, 0, 0, 0.2);
   box-sizing: border-box;
   padding: 40px;
   transition: transform 0.3s, opacity 0.2s;
 }
+
+
+.card_dark {
+  background-color: #000000;
+}
+
+
+.card_light {
+  background-color: #000000;
+}
+
 
 .card.hidden {
   z-index: 100;
@@ -159,10 +169,11 @@ h1 {
   .page {
     max-width: 340px;
   }
-.mainpage_bigmom_container {
-  width: auto;
 
-}
+  .mainpage_bigmom_container {
+    width: auto;
+
+  }
 
   .tabs-controls {
     display: flex;
@@ -246,6 +257,7 @@ button.learn-more .circle {
   border-radius: 1.625rem;
 }
 
+
 button.learn-more .circle .icon {
   transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
   position: absolute;
@@ -303,4 +315,3 @@ button:hover .circle .icon.arrow {
 button:hover .button-text {
   color: #fff;
 }
-

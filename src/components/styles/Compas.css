@@ -9,7 +9,6 @@
   position: relative;
   width: 200px;
   height: 200px;
-  border: 3px solid black;
   border-radius: 50%;
   margin: 50px auto;
   display: flex;
@@ -17,10 +16,24 @@
   align-items: center;
   margin-top: 170px;
   margin-left: 150px;
-  background: url('../../assets/compas.png') no-repeat 50% / 90% ;
-  color: #000000;
-  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.5);
 }
+
+.compas_dark {
+  border: 3px solid rgb(255, 255, 255);
+  color: #ffffff;
+  box-shadow: inset 0 0 0 3px rgba(252, 252, 252, 0.5);
+  background: url('../../assets/compas-white.png') no-repeat 50% / 90% ;
+
+  
+}
+
+.compas_light {
+  background: url('../../assets/compas.png') no-repeat 50% / 90% ;
+  border: 3px solid black;
+  color: #000000;
+  box-shadow: inset 0 0 0 3px rgba(0, 0, 0, 0.5);
+}
+
 
 .arrow {
   width: 80px;
@@ -41,6 +54,16 @@
   background: none;
   cursor: pointer;
   user-select: none;
+}
+
+.compass_button_dark {
+  color: #ffffff;
+
+}
+
+
+.compass_button_light{
+  color: #000000;
 }
 
 .compass_text {

@@ -2,7 +2,7 @@ import "../styles/card.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function CardAnimation({ activeTab, handleTabClick }) {
+export default function CardAnimation({ activeTab, handleTabClick, isDarkmodeOn }) {
   const navigate = useNavigate();
 
   const handleButtonClick = (path) => {
@@ -65,7 +65,7 @@ export default function CardAnimation({ activeTab, handleTabClick }) {
 
   const getCardClassName = (index) => {
     // Base class for all cards
-    let className = "card";
+    let className = "card darkmode";
     // Apply 'card--current' to the active card and the first card always has 'card--current'
     if (activeTab === index + 1 || index === 0) {
       className += " card--current";
@@ -87,9 +87,8 @@ export default function CardAnimation({ activeTab, handleTabClick }) {
             <li key={i} className="tabs-controls__item">
               <a
                 href="#!"
-                className={`tabs-controls__link ${
-                  activeTab === i + 1 ? "tabs-controls__link--active" : ""
-                }`}
+                className={`tabs-controls__link ${activeTab === i + 1 ? "tabs-controls__link--active" : ""
+                  }`}
                 onClick={(e) => {
                   e.preventDefault();
                   handleTabClick(i + 1);
@@ -104,12 +103,17 @@ export default function CardAnimation({ activeTab, handleTabClick }) {
         <section className="cards-container">
           <section className="cards-container">
             {cardContents.map((card, i) => (
-              <div key={i} className={getCardClassName(i)} id={`${i + 1}`}>
+              <div key={i} className={getCardClassName(i)} id={`${i + 1}`}
+                style={{
+                  backgroundColor: `${!isDarkmodeOn ? "black" : "white"}`,
+                  border:  `${isDarkmodeOn ? "1px solid #423e37" : "1px solid #b4b4b4"}` , 
+                }}
+              >
                 <div className="card_content_child_container">
                   {/* pirveli shvili  */}
                   <div>
-                    <h1 className="catd_h1_tag">{card.title}</h1>
-                    <p style={{ marginTop: "10px", color: "black" }}>
+                    <h1 className="catd_h1_tag" style={{color: ` ${isDarkmodeOn? "black" : "white" }`}}  >{card.title}</h1>
+                    <p style={{ marginTop: "10px", color: ` ${isDarkmodeOn? "black" : "white" }`}}  >
                       {card.content}
                     </p>
                   </div>
@@ -120,10 +124,10 @@ export default function CardAnimation({ activeTab, handleTabClick }) {
                       className="learn-more"
                       onClick={() => handleButtonClick(card.path)}
                     >
-                      <span className="circle" aria-hidden="true">
-                        <span className="icon arrow" />
+                      <span className="circle"  aria-hidden="true">
+                        <span className="icon arrow"  />
                       </span>
-                      <span className="button-text">დაწვრილებით</span>
+                      <span className="button-text"  >დაწვრილებით</span>
                     </button>
                   </div>
                 </div>

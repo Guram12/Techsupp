@@ -12,6 +12,7 @@ import transition from '../Header/Transition';
 
 function WebsitePage({
   isDarkmodeOn,
+  handle_context_change,
 }) {
   const control_card_selection = useAnimation();
   const { ref, inView } = useInView({
@@ -85,7 +86,7 @@ function WebsitePage({
             animate={control_card_selection}
           >გთხოვთ აირჩიოთ სასურველი ვებსაიტის ტიპი</motion.p>
         </div>
-        <Website_cards isDarkmodeOn={isDarkmodeOn} />
+        <Website_cards isDarkmodeOn={isDarkmodeOn} handle_context_change={handle_context_change} />
       </div>
       <div>
         <Footer isDarkmodeOn={isDarkmodeOn} />
