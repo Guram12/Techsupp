@@ -65,7 +65,7 @@ export default function CardAnimation({ activeTab, handleTabClick, isDarkmodeOn 
 
   const getCardClassName = (index) => {
     // Base class for all cards
-    let className = "card darkmode";
+    let className = "card";
     // Apply 'card--current' to the active card and the first card always has 'card--current'
     if (activeTab === index + 1 || index === 0) {
       className += " card--current";
@@ -107,6 +107,7 @@ export default function CardAnimation({ activeTab, handleTabClick, isDarkmodeOn 
                 style={{
                   backgroundColor: `${!isDarkmodeOn ? "black" : "white"}`,
                   border:  `${isDarkmodeOn ? "1px solid #423e37" : "1px solid #b4b4b4"}` , 
+                  boxShadow: `${isDarkmodeOn? "9px 11px 3px 0px rgba(0, 0, 0, 0.2)" : "9px 9px 3px 2px rgba(136, 132, 132, 0.164)"}`
                 }}
               >
                 <div className="card_content_child_container">

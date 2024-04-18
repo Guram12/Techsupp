@@ -81,7 +81,7 @@ h1 {
   width: 500px;
   height: 300px;
   border: 1px solid #b4b4b4;
-  box-shadow: 9px 11px 3px 0px rgba(0, 0, 0, 0.2);
+
   box-sizing: border-box;
   padding: 40px;
   transition: transform 0.3s, opacity 0.2s;
@@ -90,6 +90,7 @@ h1 {
 
 .card_dark {
   background-color: #000000;
+  
 }
 
 

@@ -27,13 +27,10 @@ svg {
 .wave {
   animation: wave 3s linear;
   animation-iteration-count: infinite;
-  fill: #000000;
   height: 100px;
 }
 
 .drop {
-  fill: var(--col-deepblue);
-  /* fill: aqua; */
   animation: drop 3.2s linear infinite normal;
   stroke: var(--col-deepblue);
   stroke-width: 0.5;
@@ -45,7 +42,6 @@ svg {
 .drop1 {
   animation-delay: 3s;
   animation-duration: 3s;
-  background-color: aqua;
 }
 
 .drop2 {
