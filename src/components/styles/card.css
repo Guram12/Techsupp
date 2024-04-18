@@ -253,7 +253,7 @@ button.learn-more .circle {
   margin: 0;
   width: 3rem;
   height: 3rem;
-  background: #000000;
+  background: #aecab5;
   border-radius: 1.625rem;
 }
 
@@ -275,7 +275,17 @@ button.learn-more .circle .icon.arrow {
   background: none;
 }
 
-button.learn-more .circle .icon.arrow::before {
+button.learn-more .circle .icon.arrow_dark {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  left: 0.625rem;
+  width: 1.125rem;
+  height: 0.125rem;
+  background: none;
+}
+
+
+
+.arrow::before {
   position: absolute;
   content: "";
   top: -0.29rem;
@@ -287,7 +297,20 @@ button.learn-more .circle .icon.arrow::before {
   transform: rotate(45deg);
 }
 
-button.learn-more .button-text {
+.arrow_dark::before{
+  position: absolute;
+  content: "";
+  top: -0.29rem;
+  right: 0.0625rem;
+  width: 0.625rem;
+  height: 0.625rem;
+  border-top: 0.125rem solid #000000;
+  border-right: 0.125rem solid #000000;
+  transform: rotate(45deg);
+}
+
+
+.button-text {
   transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
   position: absolute;
   top: 0;
@@ -303,6 +326,23 @@ button.learn-more .button-text {
   text-transform: uppercase;
 }
 
+.button-text_dark{
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 0.75rem 0;
+  margin: 0 0 0 1.85rem;
+  color: #ffffff;
+  font-weight: 700;
+  line-height: 1.6;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+
 button:hover .circle {
   width: 100%;
 }
@@ -312,6 +352,18 @@ button:hover .circle .icon.arrow {
   transform: translate(1rem, 0);
 }
 
+button:hover .circle .icon.arrow_dark {
+  background: #000000;
+  transform: translate(1rem, 0);
+}
+
+
 button:hover .button-text {
   color: #fff;
+}
+
+
+
+button:hover .button-text_dark {
+  color: #000000;
 }

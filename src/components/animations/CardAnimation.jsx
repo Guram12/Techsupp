@@ -124,10 +124,10 @@ export default function CardAnimation({ activeTab, handleTabClick, isDarkmodeOn 
                       className="learn-more"
                       onClick={() => handleButtonClick(card.path)}
                     >
-                      <span className="circle"  aria-hidden="true">
-                        <span className="icon arrow"  />
+                      <span className="circle" style={{background: `${isDarkmodeOn? "black" : "white"}`}} aria-hidden="true">
+                        <span className={`icon ${ isDarkmodeOn?  "arrow" : "arrow_dark"}`}  />
                       </span>
-                      <span className="button-text"  >დაწვრილებით</span>
+                      <span className={`${isDarkmodeOn? "button-text" : "button-text_dark"}`}  >დაწვრილებით</span>
                     </button>
                   </div>
                 </div>
