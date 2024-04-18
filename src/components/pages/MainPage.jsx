@@ -70,7 +70,7 @@ function mainPage({ showSplashScreen, isDarkmodeOn }){
         <CardAnimation activeTab={activeTab} handleTabClick={setActiveTab} isDarkmodeOn={isDarkmodeOn} />
       </div>
       <div className="mainpage_main_footer_container">
-        <MainPage_Footer />
+        <MainPage_Footer isDarkmodeOn={isDarkmodeOn} />
       </div>
     </div>
   );
