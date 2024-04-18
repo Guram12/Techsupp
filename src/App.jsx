@@ -128,7 +128,7 @@ const secondlocation = useLocation()
             />
           </>
         )}
-        <audio ref={audioRef} src={background_audio_second} loop  />
+        <audio ref={audioRef} src={background_audio_second} loop  muted />
         <AnimatePresence mode="wait" >
 
           <Routes location={secondlocation} key={secondlocation.pathname} >
