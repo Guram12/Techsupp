@@ -1,5 +1,5 @@
 import "../styles/Contact.css"
-import React, { useState  , useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import Compass from "../animations/Compass";
 import transition from "../Header/Transition";
 
@@ -45,20 +45,65 @@ function Contact({ contactMessage }) {
 
 
   return (
-    <div style={{paddingTop: "100px"}} >
-      <div className="contact_input_container" >
+    <div style={{ paddingTop: "100px" }} >
+      <div className="form__group field">
         <form onSubmit={handleSubmit}>
-          <div className="contact_input_container">
-            <input type="text" placeholder="Additional Description" value={inputValue} onChange={e => setInputValue(e.target.value)} />
-            <input type="text" placeholder="Name" value={name} onChange={e => setName(e.target.value)} />
-            <input type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} />
-            <input type="text" placeholder="Mobile" value={mobile} onChange={e => setMobile(e.target.value)} />
-            <button type="submit">Send</button>
+          {/* pirveli inputi  */}
+          <div className="form__group field">
+            <input
+              type="input"
+              className="form__field"
+              placeholder="ინფორმაცია სერვისის შესახებ"
+              name="description"
+              id='name' />
+            <label for="description" className="form__label">ინფორმაცია სერვისის შესახებ</label>
+          </div>
+
+          {/* meore inputi  */}
+          <div className="form__group field" style={{ marginTop: "100px" }} >
+            <input
+              type="input"
+              className="form__field"
+              placeholder="ინფორმაცია სერვისის შესახებ"
+              name="name"
+              id='name' />
+            <label for="name" className="form__label">ინფორმაცია სერვისის შესახებ</label>
+          </div>
+
+          {/* meore inputi  */}
+          <div className="form__group field" style={{ marginTop: "100px" }} >
+            <input
+              type="input"
+              className="form__field"
+              placeholder="ინფორმაცია სერვისის შესახებ"
+
+              name="email"
+              id='name' />
+            <label for="email" className="form__label">ინფორმაცია სერვისის შესახებ</label>
           </div>
         </form>
+      </div>
+      <div>
+
+
+
+
+
+        {/* <div className="contact_input_container" style={{ marginTop: "100px" }} >
+          <form onSubmit={handleSubmit}>
+            <div className="contact_input_container">
+              <input type="text" placeholder="Additional Description" value={inputValue} onChange={e => setInputValue(e.target.value)} />
+              <input type="text" placeholder="Name" value={name} onChange={e => setName(e.target.value)} />
+              <input type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} />
+              <input type="text" placeholder="Mobile" value={mobile} onChange={e => setMobile(e.target.value)} />
+              <button type="submit">Send</button>
+            </div>
+          </form>
+        </div> */}
       </div>
     </div>
   )
 }
 
-export default  transition(Contact)
+export default transition(Contact)
+
