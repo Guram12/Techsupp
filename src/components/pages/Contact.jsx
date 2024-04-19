@@ -54,6 +54,8 @@ function Contact({ contactMessage }) {
               type="input"
               className="form__field"
               placeholder="ინფორმაცია სერვისის შესახებ"
+              value={inputValue}
+              onChange={e => setInputValue(e.target.value)}
               name="description"
               id='name' />
             <label for="description" className="form__label">ინფორმაცია სერვისის შესახებ</label>
@@ -65,6 +67,8 @@ function Contact({ contactMessage }) {
               type="input"
               className="form__field"
               placeholder="ინფორმაცია სერვისის შესახებ"
+              value={name}
+              onChange={e => setName(e.target.value)}
               name="name"
               id='name' />
             <label for="name" className="form__label">ინფორმაცია სერვისის შესახებ</label>
@@ -76,7 +80,8 @@ function Contact({ contactMessage }) {
               type="input"
               className="form__field"
               placeholder="ინფორმაცია სერვისის შესახებ"
-
+              value={email}
+              onChange={e => setEmail(e.target.value)}
               name="email"
               id='name' />
             <label for="email" className="form__label">ინფორმაცია სერვისის შესახებ</label>
@@ -85,21 +90,6 @@ function Contact({ contactMessage }) {
       </div>
       <div>
 
-
-
-
-
-        {/* <div className="contact_input_container" style={{ marginTop: "100px" }} >
-          <form onSubmit={handleSubmit}>
-            <div className="contact_input_container">
-              <input type="text" placeholder="Additional Description" value={inputValue} onChange={e => setInputValue(e.target.value)} />
-              <input type="text" placeholder="Name" value={name} onChange={e => setName(e.target.value)} />
-              <input type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} />
-              <input type="text" placeholder="Mobile" value={mobile} onChange={e => setMobile(e.target.value)} />
-              <button type="submit">Send</button>
-            </div>
-          </form>
-        </div> */}
       </div>
     </div>
   )
