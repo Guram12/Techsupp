@@ -13,6 +13,15 @@ export default function VideoAnimation() {
   const [isMobileView, setIsMobileView] = useState(window.innerWidth < 768);
 
 
+  const [add_z_index, setAdd_z_index] = useState(false);
+
+
+const handle_wrapper_click = ()=> {
+  setAdd_z_index(!add_z_index)
+  console.log("z indec " , add_z_index)
+
+}
+
   useEffect(() => {
     const handleResize = () => {
       setIsMobileView(window.innerWidth < 768);
@@ -25,10 +34,10 @@ export default function VideoAnimation() {
     };
   }, []);
 
-useEffect(()=> {
-  console.log("sigane" ,isMobileView)
+  useEffect(() => {
+    console.log("sigane", isMobileView)
 
-},[isMobileView])
+  }, [isMobileView])
 
 
   useEffect(() => {
@@ -51,7 +60,6 @@ useEffect(()=> {
   const handleCheckboxChange = (checkedSetter) => (event) => {
     event.stopPropagation(); // Prevent click from propagating
     const newValue = event.target.checked; // Use the checked value directly
-    console.log(newValue);
     checkedSetter(newValue); // Update the state with the new value
     // After state update, check if any checkbox is checked to determine scroll behavior
     toggleScroll();
@@ -72,10 +80,10 @@ useEffect(()=> {
   return (
     <div className='main_animation_page_container' onClick={(e) => e.stopPropagation()}   >
       {!isMobileView ?
-        <div>
+        <div >
           {/* 1 video animation  */}
           {!isChecked2 && !isChecked3 && !isChecked4 && (
-            <div className="wrapper">
+            <div className="wrapper" style={{zIndex: `${add_z_index? "99999999" : "3"}`}}  onClick={handle_wrapper_click}  >
               <input type="checkbox" checked={isChecked1} onChange={handleCheckboxChange(setIsChecked1)} />
               <div className="video">
                 <video src={night_basement} loop muted autoPlay playsInline></video>
@@ -88,7 +96,7 @@ useEffect(()=> {
 
           {/* 2 video animation  */}
           {!isChecked1 && !isChecked3 && !isChecked4 && (
-            <div className="wrapper">
+            <div className="wrapper" style={{zIndex: `${add_z_index? "99999999" : "3"}`}}  onClick={handle_wrapper_click}  >
               <input type="checkbox" checked={isChecked2} onChange={handleCheckboxChange(setIsChecked2)} />
               <div className="video">
                 <video src={splashvideo} loop muted autoPlay playsInline></video>
@@ -101,7 +109,7 @@ useEffect(()=> {
 
           {/* 3 video animation  */}
           {!isChecked2 && !isChecked1 && !isChecked4 && (
-            <div className="wrapper">
+            <div className="wrapper" style={{zIndex: `${add_z_index? "99999999" : "3"}`}}  onClick={handle_wrapper_click}  >
               <input type="checkbox" checked={isChecked3} onChange={handleCheckboxChange(setIsChecked3)} />
               <div className="video">
                 <video src={techsupp_name_video} loop muted autoPlay playsInline></video>
@@ -114,7 +122,7 @@ useEffect(()=> {
 
           {/* 4 video animation  */}
           {!isChecked2 && !isChecked1 && !isChecked3 && (
-            <div className="wrapper">
+            <div className="wrapper" style={{zIndex: `${add_z_index? "99999999" : "3"}`}}  onClick={handle_wrapper_click}  >
               <input type="checkbox" checked={isChecked4} onChange={handleCheckboxChange(setIsChecked4)} />
               <div className="video">
                 <video src={bottle_animated_video} loop muted autoPlay ></video>

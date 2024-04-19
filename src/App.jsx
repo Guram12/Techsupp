@@ -109,9 +109,8 @@ function App() {
   return (
     <CursorProvider isDarkmodeOn={isDarkmodeOn}>
       <div
-        className={`main_container ${
-          isDarkmodeOn ? "main_container_white" : "main_container_black"
-        }`}
+        className={`main_container ${isDarkmodeOn ? "main_container_white" : "main_container_black"
+          }`}
       >
         {!(location.pathname === "/members") && (
           <>
@@ -174,19 +173,19 @@ function App() {
             />
             <Route
               path="services/menu"
-              element={<MenuPage isDarkmodeOn={isDarkmodeOn} />}
+              element={<MenuPage isDarkmodeOn={isDarkmodeOn}  handle_context_change = {handle_context_change}/>}
             />
             <Route
               path="services/brending"
-              element={<BrendingPage isDarkmodeOn={isDarkmodeOn} />}
+              element={<BrendingPage  handle_context_change = {handle_context_change} isDarkmodeOn={isDarkmodeOn} />}
             />
             <Route
               path="services/animation"
-              element={<AnimationPage isDarkmodeOn={isDarkmodeOn} />}
+              element={<AnimationPage handle_context_change = {handle_context_change} isDarkmodeOn={isDarkmodeOn} />}
             />
             <Route
               path="services/analitycs"
-              element={<AnaliticPage isDarkmodeOn={isDarkmodeOn} />}
+              element={<AnaliticPage  handle_context_change = {handle_context_change} isDarkmodeOn={isDarkmodeOn} />}
             />
             {/* <Route path="/members" element={<Members />} /> */}
           </Routes>

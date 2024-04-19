@@ -112,6 +112,13 @@
   align-items: center;
 }
 
+.animation_contact_button{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 60px;
+}
+
 .animation_footer_container {
   margin-top: 200px;
 }
