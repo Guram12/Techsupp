@@ -1,41 +1,38 @@
 import "../styles/Contact.css"
 import React, { useState, useEffect } from 'react';
-import Compass from "../animations/Compass";
 import transition from "../Header/Transition";
-
+import { MdCheckCircle, MdError } from 'react-icons/md'; // Import Material Design icons
+import AnimatedLogo from "../animations/Techsupp_logo";
 
 function Contact({ contactMessage }) {
   const [inputValue, setInputValue] = useState(contactMessage);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [mobile, setMobile] = useState('');
-  const [description, setDescription] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [submissionResult, setSubmissionResult] = useState(null);
 
-
+  // const response = await fetch('https://script.google.com/macros/s/AKfycbx0MAIn2p2o-iF6MW4mwlTNCfxEqRse_ifCiaqiAUvkCXUOuKKuedkhi2A0rEWgJrfuwg/exec', {
 
   const handleSubmit = async (event) => {
-    event.preventDefault(); // Prevent default form submission behavior
-
-    try {
-      const response = await fetch('https://script.google.com/macros/s/AKfycbx0MAIn2p2o-iF6MW4mwlTNCfxEqRse_ifCiaqiAUvkCXUOuKKuedkhi2A0rEWgJrfuwg/exec', {
-        method: 'POST',
-        mode: 'no-cors', // Google Script Apps do not support CORS
-        body: JSON.stringify({
-          name,
-          email,
-          mobile,
-          description: inputValue, // Assuming this is the additional description
-        }),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      });
-
-      // Handle the response here. Note: 'no-cors' mode limits the visibility of the response in JavaScript
-      console.log('Form submitted');
-    } catch (error) {
-      console.error('Error:', error);
-    }
+    event.preventDefault();
+    setIsLoading(true);
+    fetch('https://script.google.com/macros/s/AKfycbx0MAIn2p2o-iF6MW4mwlTNCfxEqRse_ifCiaqiAUvkCXUOuKKuedkhi2A0rEWgJrfuwg/exec', {
+      method: 'POST',
+      mode: 'no-cors',
+      body: JSON.stringify({ name, email, mobile, description: inputValue }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    }).then(response => {
+      console.log('Request completed! Unable to verify if successful or not due to no-cors.');
+      setIsLoading(false);
+      setSubmissionResult('success'); // Since we can't determine success, we mark it as unknown
+    }).catch(error => {
+      console.error('Network error:', error);
+      setIsLoading(false);
+      setSubmissionResult('error');
+    });
   };
 
   useEffect(() => {
@@ -45,7 +42,7 @@ function Contact({ contactMessage }) {
 
 
   return (
-    <div style={{ paddingTop: "100px" }} >
+    <div style={{ paddingTop: "100px" }} className="main_contact_container"  >
       <div className="form__group field">
         <form onSubmit={handleSubmit}>
           <div className="form__group field">
@@ -86,23 +83,38 @@ function Contact({ contactMessage }) {
 
           <div className="form__group field">
             <input
-              type="text"
+              type="number"
               className="form__field"
               placeholder="Email"
-              value={email}
-              onChange={e => setEmail(e.target.value)}
-              name="email"
+              value={mobile}
+              onChange={e => setMobile(e.target.value)}
+              name="mobile"
               id='mobile' />
             <label htmlFor="mobile" className="form__label">ტელეფონის ნომერი</label>
           </div>
-
+          <div style={{ marginTop: "100px" }}>
+            {isLoading ? (
+              <button type="button" className="contact_submit_button" disabled>Loading...</button>
+            ) : (
+              <button type="submit" className="contact_submit_button">Send</button>
+            )}
+          </div>
         </form>
+        <div style={{ width: "300px" }} >
+          {submissionResult === 'success' ? <MdCheckCircle size="24px" color="green" /> :
+            submissionResult === 'error' ? <MdError size="24px" color="red" /> : null}
+        </div>
       </div>
-      <div>
-
+      <div className="contact_logo_container" >
+            <AnimatedLogo/>
       </div>
     </div>
   )
 }
 
 export default transition(Contact);
+
+
+
+
+
