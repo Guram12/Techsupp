@@ -84,8 +84,9 @@ export default function Header({
           onMouseEnter={mouseEnterHandler}
           onMouseLeave={mouseLeaveHandler}
           className="logo_and_name"
+          onClick={()=> handleLinkClick(0)}
         >
-          <Link to="/">
+          <Link to="/"  >
             <img
               src={isDarkmodeOn ? logo_black : logo_white}
               alt="company logo"
