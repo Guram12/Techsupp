@@ -7,8 +7,10 @@ import QRcodeAnimation from "../animations/QRcode_animation"
 import Footer from "../Header/Footer";
 import transition from "../Header/Transition";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
- function MenuPage({ isDarkmodeOn }) {
+
+function MenuPage({ isDarkmodeOn, handle_context_change }) {
 
   const animate = { x: 0 };
 
@@ -29,6 +31,15 @@ import { useEffect } from "react";
   }, [inView, controls])
 
 
+  const navigate = useNavigate(); // This hook is used to navigate programmatically
+
+  const handleButtonClick = (message) => {
+    handle_context_change(message);
+    navigate('/contact');
+  };
+
+
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -36,7 +47,7 @@ import { useEffect } from "react";
   return (
     <div>
       <QRcodeAnimation />
-      <div style={{ marginTop: "150px" }} >
+      <div style={{ marginTop: "50px" }} >
         <section>
           <Parallax isDarkmodeOn={isDarkmodeOn} baseVelocity={-5}>website creation</Parallax>
           <Parallax isDarkmodeOn={isDarkmodeOn} baseVelocity={5}>youur designe</Parallax>
@@ -51,9 +62,17 @@ import { useEffect } from "react";
           transition={{ type: 'spring', stiffness: 70 }}
         >
 
-          აქ იქნება ინფორმაცია ქრ კოდზე რა სერვისზე რეებს ვთავაზომთ მომხმარებლებს და ქვემოთ ალბათ ქარდებს დავსვავტ ან არა
-
+          შეთავაზება სარესტორნო ქსელებისთვის. შექმენით ინტერაქციული, მრავალფუნქციური და გამორჩეული QR მენიუ.
+          სერვისში შედის თქვენზე მორგებული დიზაინი, სპეციალური ვიზუალის მქონე QR კოდი, ინტერაქციული ფუნქციონალის
+           შექმნა, მარტივი სამართავი პანელი, კერძების თქვენი სურვილისამებრ კატეგორიებად დაყოფა და QR კოდიდან  მაგიდის შეკვეთის მიღება.
         </motion.div>
+      </div>
+      <div className="menu_contact_button" >
+        <button
+          onClick={() => handleButtonClick(' QR მენიუს დამზადება')}
+          className={`${isDarkmodeOn ? "contact_us_button" : "contact_us_button_dark"}`}>
+          დაგვიკავშირდით
+        </button>
       </div>
       <div>
         <Footer isDarkmodeOn={isDarkmodeOn} />
@@ -65,3 +84,4 @@ import { useEffect } from "react";
 
 export default transition(MenuPage);
 
+// 500 ლარიდან 

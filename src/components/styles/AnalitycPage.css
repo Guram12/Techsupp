@@ -16,7 +16,7 @@
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  margin-bottom: 200px;
+  margin-bottom: 100px;
   display: flex;
   justify-content: center;
   align-items: self-start;
@@ -26,7 +26,7 @@
 }
 
 .analityc_card_down {
-  width: 300px;
+  width: 400px;
   height: 100px;
   backdrop-filter: blur(25px);
   border-radius: 25px;
@@ -38,6 +38,8 @@
   background-color: transparent;
   border: 1px solid #004e71;
   display: flex;
+  flex-direction: column;
+  gap: 10px;
   justify-content: center;
   align-items: center;
   text-align: center;
@@ -45,24 +47,14 @@
     rgba(0, 0, 0, 0.3) 0px 10px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
-.analityc_price_down {
+
+.analityc_contact_button{
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 200px;
-  height: 40px;
-  backdrop-filter: blur(25px);
-  border-radius: 25px;
-  padding: 10px;
-  backdrop-filter: blur(25px);
-  margin-left: 60px;
-  color: rgb(0, 0, 0);
-  margin-top: 40px;
-  font-weight: 700;
-  background-color: #ffffff;
-  margin-left: 100px;
-  /* border: 1px solid #f86259; */
+  margin-bottom: 200px;
 }
+
 
 @media screen and (max-width: 500px) {
   .analitycs_card_container {
@@ -70,8 +62,8 @@
   }
   .analityc_card_down{
     margin-left: 0px;
+    width: 230px;
+    height: 150px;
   }
-  .analityc_price_down{
-    margin-left: 0px;
-  }
+
 }
