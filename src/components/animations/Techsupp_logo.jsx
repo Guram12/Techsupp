@@ -1,4 +1,3 @@
-import "../styles/Techsupp_logo.css"
 import React, { useState, useEffect } from 'react';
 
 
@@ -9,7 +8,6 @@ const AnimatedLogo = () => {
         const interval = setInterval(() => {
             setToggle(prevToggle => !prevToggle);
         }, 2000);
-
         return () => clearInterval(interval);
     }, []);
 
