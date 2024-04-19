@@ -48,44 +48,54 @@ function Contact({ contactMessage }) {
     <div style={{ paddingTop: "100px" }} >
       <div className="form__group field">
         <form onSubmit={handleSubmit}>
-          {/* pirveli inputi  */}
           <div className="form__group field">
             <input
-              type="input"
+              type="text"
               className="form__field"
               placeholder="ინფორმაცია სერვისის შესახებ"
               value={inputValue}
               onChange={e => setInputValue(e.target.value)}
               name="description"
-              id='name' />
-            <label for="description" className="form__label">ინფორმაცია სერვისის შესახებ</label>
+              id='description' />
+            <label htmlFor="description" className="form__label">ინფორმაცია სერვისის შესახებ</label>
           </div>
 
-          {/* meore inputi  */}
-          <div className="form__group field" style={{ marginTop: "100px" }} >
+          <div className="form__group field">
             <input
-              type="input"
+              type="text"
               className="form__field"
-              placeholder="ინფორმაცია სერვისის შესახებ"
+              placeholder="Name"
               value={name}
               onChange={e => setName(e.target.value)}
               name="name"
               id='name' />
-            <label for="name" className="form__label">ინფორმაცია სერვისის შესახებ</label>
+            <label htmlFor="name" className="form__label">სახელი</label>
           </div>
 
-          {/* meore inputi  */}
-          <div className="form__group field" style={{ marginTop: "100px" }} >
+          <div className="form__group field">
             <input
-              type="input"
+              type="text"
               className="form__field"
-              placeholder="ინფორმაცია სერვისის შესახებ"
+              placeholder="Email"
               value={email}
               onChange={e => setEmail(e.target.value)}
               name="email"
-              id='name' />
-            <label for="email" className="form__label">ინფორმაცია სერვისის შესახებ</label>
+              id='email' />
+            <label htmlFor="email" className="form__label">მეილი</label>
           </div>
+
+          <div className="form__group field">
+            <input
+              type="text"
+              className="form__field"
+              placeholder="Email"
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+              name="email"
+              id='mobile' />
+            <label htmlFor="mobile" className="form__label">ტელეფონის ნომერი</label>
+          </div>
+
         </form>
       </div>
       <div>
@@ -95,5 +105,4 @@ function Contact({ contactMessage }) {
   )
 }
 
-export default transition(Contact)
-
+export default transition(Contact);
