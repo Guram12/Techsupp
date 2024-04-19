@@ -18,10 +18,6 @@ import Contact from "./components/pages/Contact.jsx";
 import FacebookMSG from "./components/FacebookMSG.jsx";
 import { AnimatePresence } from "framer-motion";
 
-
-
-
-
 function App() {
   const [showSplashScreen, setShowSplashScreen] = useState(true);
   const [isSoundOff, setIsSoundOff] = useState(false);
@@ -35,19 +31,17 @@ function App() {
     setIsDarkmodeOn(event.target.checked);
   };
 
-const secondlocation = useLocation()
+  const secondlocation = useLocation();
 
   const location = useLocation();
 
   useEffect(() => {
-
     const originalBackgroundColor = document.body.style.backgroundColor;
     document.body.style.backgroundColor = !isDarkmodeOn ? "black" : "white";
     return () => {
       document.body.style.backgroundColor = originalBackgroundColor;
     };
   }, [isDarkmodeOn]);
-
 
   // ================================= for setting contact  context massage =============================
   const [contactMessage, setContactMessage] = useState("");
@@ -115,8 +109,9 @@ const secondlocation = useLocation()
   return (
     <CursorProvider isDarkmodeOn={isDarkmodeOn}>
       <div
-        className={`main_container ${isDarkmodeOn ? "main_container_white" : "main_container_black"
-          }`}
+        className={`main_container ${
+          isDarkmodeOn ? "main_container_white" : "main_container_black"
+        }`}
       >
         {!(location.pathname === "/members") && (
           <>
@@ -128,22 +123,71 @@ const secondlocation = useLocation()
             />
           </>
         )}
-        <audio ref={audioRef} src={background_audio_second} loop  muted />
-        <AnimatePresence mode="wait" >
+        <audio ref={audioRef} src={background_audio_second} loop muted />
+        <AnimatePresence mode="wait">
+          <Routes location={secondlocation} key={secondlocation.pathname}>
+            <Route
+              path="/*"
+              element={<MainPage isDarkmodeOn={isDarkmodeOn} />}
+            />
+            <Route
+              path="about/"
+              element={<About isDarkmodeOn={isDarkmodeOn} />}
+            />
+            <Route
+              path="contact/"
+              element={
+                <Contact
+                  isDarkmodeOn={isDarkmodeOn}
+                  contactMessage={contactMessage}
+                />
+              }
+            />
+            <Route
+              path="/"
+              index
+              element={
+                <MainPage
+                  showSplashScreen={showSplashScreen}
+                  isDarkmodeOn={isDarkmodeOn}
+                />
+              }
+            />
 
-          <Routes location={secondlocation} key={secondlocation.pathname} >
-            <Route path="/*" element={<MainPage isDarkmodeOn={isDarkmodeOn} />} />
-            <Route path="about/" element={<About isDarkmodeOn={isDarkmodeOn} />} />
-            <Route path="contact/" element={<Contact isDarkmodeOn={isDarkmodeOn} contactMessage={contactMessage} />} />
-            <Route path="/" index element={<MainPage showSplashScreen={showSplashScreen}  isDarkmodeOn={isDarkmodeOn} />} />
-
-
-            <Route path="services/web-development" element={<WebsitePage isDarkmodeOn={isDarkmodeOn} handle_context_change={handle_context_change} />} />
-            <Route path="services/it" element={<ItPage isDarkmodeOn={isDarkmodeOn} handle_context_change={handle_context_change} />} />
-            <Route path="services/menu" element={<MenuPage isDarkmodeOn={isDarkmodeOn} />} />
-            <Route path="services/brending" element={<BrendingPage isDarkmodeOn={isDarkmodeOn} />} />
-            <Route path="services/animation" element={<AnimationPage isDarkmodeOn={isDarkmodeOn} />} />
-            <Route path="services/analitycs" element={<AnaliticPage isDarkmodeOn={isDarkmodeOn} />} />
+            <Route
+              path="services/web-development"
+              element={
+                <WebsitePage
+                  isDarkmodeOn={isDarkmodeOn}
+                  handle_context_change={handle_context_change}
+                />
+              }
+            />
+            <Route
+              path="services/it"
+              element={
+                <ItPage
+                  isDarkmodeOn={isDarkmodeOn}
+                  handle_context_change={handle_context_change}
+                />
+              }
+            />
+            <Route
+              path="services/menu"
+              element={<MenuPage isDarkmodeOn={isDarkmodeOn} />}
+            />
+            <Route
+              path="services/brending"
+              element={<BrendingPage isDarkmodeOn={isDarkmodeOn} />}
+            />
+            <Route
+              path="services/animation"
+              element={<AnimationPage isDarkmodeOn={isDarkmodeOn} />}
+            />
+            <Route
+              path="services/analitycs"
+              element={<AnaliticPage isDarkmodeOn={isDarkmodeOn} />}
+            />
             {/* <Route path="/members" element={<Members />} /> */}
           </Routes>
         </AnimatePresence>

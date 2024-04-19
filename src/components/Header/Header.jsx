@@ -13,8 +13,6 @@ import { useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
 import SoundAnimation from "../animations/SoundAnimation";
 
-
-
 export default function Header({
   isSoundOff,
   toggleSound,
@@ -74,7 +72,11 @@ export default function Header({
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -50 }}
-        className={`header ${isScrolled ? `${isDarkmodeOn ? "header-shadow_dark" : "header-shadow_light"}` : ""} ${!isDarkmodeOn ? "header_night" : "header_lignt"} `}
+        className={`header ${
+          isScrolled
+            ? `${isDarkmodeOn ? "header-shadow_dark" : "header-shadow_light"}`
+            : ""
+        } ${!isDarkmodeOn ? "header_night" : "header_lignt"} `}
       >
         <motion.div
           initial={{ opacity: 0, y: "-50%" }}
@@ -102,7 +104,7 @@ export default function Header({
           onMouseLeave={mouseLeaveHandler}
           className="header_right"
         >
-          <div className="sound_container" >
+          <div className="sound_container">
             <SoundAnimation isSoundOff={isSoundOff} toggleSound={toggleSound} />
           </div>
 
@@ -128,12 +130,17 @@ export default function Header({
                   delay: 0.5,
                   ease: [0, 0.71, 0.2, 1.01],
                 }}
-                className={`menu ${!isDarkmodeOn ? "menu_dark" : "menu_light"}   `}
+                className={`menu ${
+                  !isDarkmodeOn ? "menu_dark" : "menu_light"
+                }   `}
               >
                 <div className="flex">
                   <Link
-                    className={`menu_links ${menuState[0].showDot ? "active" : ""
-                      }   ${!isDarkmodeOn ? "dark_menu_item" : "light_menu_item"} `}
+                    className={`menu_links ${
+                      menuState[0].showDot ? "active" : ""
+                    }   ${
+                      !isDarkmodeOn ? "dark_menu_item" : "light_menu_item"
+                    } `}
                     to="/"
                     onMouseEnter={() => handleLinkHover(0)}
                     onMouseLeave={() =>
@@ -159,8 +166,11 @@ export default function Header({
                 </div>
                 <div className="flex">
                   <Link
-                    className={`menu_links ${menuState[1].showDot ? "active" : ""
-                      } ${!isDarkmodeOn ? "dark_menu_item" : "light_menu_item"}  `}
+                    className={`menu_links ${
+                      menuState[1].showDot ? "active" : ""
+                    } ${
+                      !isDarkmodeOn ? "dark_menu_item" : "light_menu_item"
+                    }  `}
                     to="/about"
                     onMouseEnter={() => handleLinkHover(1)}
                     onMouseLeave={() =>
@@ -210,8 +220,11 @@ export default function Header({
               </div> */}
                 <div className="flex">
                   <Link
-                    className={`menu_links ${menuState[3].showDot ? "active" : ""
-                      } ${!isDarkmodeOn ? "dark_menu_item" : "light_menu_item"}  `}
+                    className={`menu_links ${
+                      menuState[3].showDot ? "active" : ""
+                    } ${
+                      !isDarkmodeOn ? "dark_menu_item" : "light_menu_item"
+                    }  `}
                     to="/contact"
                     onMouseEnter={() => handleLinkHover(3)}
                     onMouseLeave={() =>
@@ -241,8 +254,9 @@ export default function Header({
             <div className="menu_arrow" onClick={toggleMenu}>
               {/* Arrow */}
               <img
-                className={`menu_arrow_img ${isOpen ? "rotate-down" : "rotate_up"
-                  }`}
+                className={`menu_arrow_img ${
+                  isOpen ? "rotate-down" : "rotate_up"
+                }`}
                 src={RightArrow}
                 alt="/"
               />
