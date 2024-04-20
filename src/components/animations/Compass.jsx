@@ -9,11 +9,13 @@ function Compass({ angle, rotateTo, isDarkmodeOn }) {
 
   const points = [
     { label: 'ვებსაიტი', angle: 0, rotate: 0 },
-    { label: 'IT', angle: 60, rotate: -60 },
-    { label: 'ანალიტიკა', angle: 120, rotate: -120 },
-    { label: 'რებრენდინგი', angle: 180, rotate: -180 },
-    { label: 'ანიმაცია', angle: 240, rotate: -240 },
-    { label: 'QR', angle: 300, rotate: -300 }
+    { label: 'IT სერვისი', angle: 51.4, rotate: -51.4 },
+    { label: 'ანალიტიკა', angle: 102.8, rotate: -102.8 },
+    { label: 'რებრენდინგი', angle: 154.2 , rotate: -154.2 },
+    { label: 'ანიმაცია', angle: 205.6, rotate: -205.6 },
+    { label: 'QR მენიუ', angle: 257, rotate: -257 },
+    { label: 'სოც. მედია', angle: 308, rotate: -308 }
+
   ];
 
 
