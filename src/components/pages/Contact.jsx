@@ -1,5 +1,5 @@
 import "../styles/Contact.css"
-import React, { useState  , useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import Compass from "../animations/Compass";
 import transition from "../Header/Transition";
 
@@ -45,20 +45,64 @@ function Contact({ contactMessage }) {
 
 
   return (
-    <div style={{paddingTop: "100px"}} >
-      <div className="contact_input_container" >
+    <div style={{ paddingTop: "100px" }} >
+      <div className="form__group field">
         <form onSubmit={handleSubmit}>
-          <div className="contact_input_container">
-            <input type="text" placeholder="Additional Description" value={inputValue} onChange={e => setInputValue(e.target.value)} />
-            <input type="text" placeholder="Name" value={name} onChange={e => setName(e.target.value)} />
-            <input type="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} />
-            <input type="text" placeholder="Mobile" value={mobile} onChange={e => setMobile(e.target.value)} />
-            <button type="submit">Send</button>
+          <div className="form__group field">
+            <input
+              type="text"
+              className="form__field"
+              placeholder="ინფორმაცია სერვისის შესახებ"
+              value={inputValue}
+              onChange={e => setInputValue(e.target.value)}
+              name="description"
+              id='description' />
+            <label htmlFor="description" className="form__label">ინფორმაცია სერვისის შესახებ</label>
           </div>
+
+          <div className="form__group field">
+            <input
+              type="text"
+              className="form__field"
+              placeholder="Name"
+              value={name}
+              onChange={e => setName(e.target.value)}
+              name="name"
+              id='name' />
+            <label htmlFor="name" className="form__label">სახელი</label>
+          </div>
+
+          <div className="form__group field">
+            <input
+              type="text"
+              className="form__field"
+              placeholder="Email"
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+              name="email"
+              id='email' />
+            <label htmlFor="email" className="form__label">მეილი</label>
+          </div>
+
+          <div className="form__group field">
+            <input
+              type="text"
+              className="form__field"
+              placeholder="Email"
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+              name="email"
+              id='mobile' />
+            <label htmlFor="mobile" className="form__label">ტელეფონის ნომერი</label>
+          </div>
+
         </form>
+      </div>
+      <div>
+
       </div>
     </div>
   )
 }
 
-export default  transition(Contact)
+export default transition(Contact);

@@ -16,8 +16,10 @@ import Footer from "../Header/Footer";
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import transition from "../Header/Transition";
+import { useNavigate } from "react-router-dom";
 
-function BrandingPage({ isDarkmodeOn }) {
+
+function BrandingPage({ isDarkmodeOn, handle_context_change }) {
   const [currentAnimationIndex, setCurrentAnimationIndex] = useState(0);
 
   const animations = [<BrandingAnimation />, <BrandingAnimation_2 />, <BrandingAnimation_3 />,
@@ -174,6 +176,18 @@ function BrandingPage({ isDarkmodeOn }) {
 
   // =========================================================================================================================
 
+
+  const navigate = useNavigate(); // This hook is used to navigate programmatically
+
+  const handleButtonClick = (message) => {
+    handle_context_change(message);
+    navigate('/contact');
+    console.log("brending clicked ")
+  };
+
+
+
+
   return (
     <div>
       {/* <SplineAnimation/> */}
@@ -215,7 +229,7 @@ function BrandingPage({ isDarkmodeOn }) {
               animate={controlsText}
               transition={transition_logo_price}
             >
-              99 ლარიდან
+              150 ლარიდან
             </motion.p>
           </div>
         </div>
@@ -226,7 +240,7 @@ function BrandingPage({ isDarkmodeOn }) {
               initial={initia_branding_lText}
               animate={controls_branding_Text}
               transition={transition_branding_Text}
-              className="rebranding_card_text_p2" >სავიზიტო ბარათების დიზაინი / ბრენდირება / რებრენდინგი
+              className="rebranding_card_text_p2" >სავიზიტო ბარათების დიზაინი / ბრენდინგი / რებრენდინგი
             </motion.p>
             <motion.p
               initial={initia_branding_lText}
@@ -272,7 +286,8 @@ function BrandingPage({ isDarkmodeOn }) {
           animate={controlsFourth}
           className="rebranding_price_child_cont"
         >
-          <button className={`${isDarkmodeOn ? "contact_us_button" : "contact_us_button_dark"}`}  >დაგვიკავშირდით</button>
+          <button className={`${isDarkmodeOn ? "contact_us_button" : "contact_us_button_dark"}`}
+           onClick={() => handleButtonClick('ბრენდინგი / რებრენდინგი')}  >დაგვიკავშირდით</button>
         </motion.div>
       </div>
       <div>
