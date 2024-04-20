@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import "../styles/Techsupp_logo.css"
 
 const AnimatedLogo = () => {
     const [toggle, setToggle] = useState(false);

@@ -17,6 +17,8 @@ import CursorProvider from "./components/CursorContext/CursorContext.jsx";
 import Contact from "./components/pages/Contact.jsx";
 import FacebookMSG from "./components/FacebookMSG.jsx";
 import { AnimatePresence } from "framer-motion";
+import SocialMedia from "./components/pages/SocialMedia.jsx";
+
 
 function App() {
   const [showSplashScreen, setShowSplashScreen] = useState(true);
@@ -186,6 +188,10 @@ function App() {
             <Route
               path="services/analitycs"
               element={<AnaliticPage  handle_context_change = {handle_context_change} isDarkmodeOn={isDarkmodeOn} />}
+            />
+                        <Route
+              path="services/socialmedia"
+              element={<SocialMedia  handle_context_change = {handle_context_change} isDarkmodeOn={isDarkmodeOn} />}
             />
             {/* <Route path="/members" element={<Members />} /> */}
           </Routes>

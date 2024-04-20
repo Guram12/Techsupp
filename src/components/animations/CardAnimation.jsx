@@ -16,6 +16,7 @@ export default function CardAnimation({ activeTab, handleTabClick, isDarkmodeOn 
     "რებრენდინგი",
     "ანიმაცია",
     "QR მენიუ",
+    "სოც. მედია",
   ];
 
   const cardContents = [
@@ -60,6 +61,13 @@ export default function CardAnimation({ activeTab, handleTabClick, isDarkmodeOn 
       path: "/services/menu",
       content:
         "შეთავაზება კაფე/ბარებს, რესტორნებს.     ტექსაპი დაგეხმარებათ, თქვენი ბიზნესისთვის QR მენიუს დამზადებაში და შესაბამისად, მომხმარებლებისთვის უფრო მაღალი ხარისხის მომსახურების შექმნაში.",
+    },
+    {
+      title: "სოც. მედია",
+      button_content: "დაწყვრილებით",
+      path: "/services/socialmedia",
+      content:
+        "სოციალური ქსელის მართვა.     ტექსაპი დაგეხმარებათ, თქვენი ბიზნესისთვის QR მენიუს დამზადებაში და შესაბამისად, მომხმარებლებისთვის უფრო მაღალი ხარისხის მომსახურების შექმნაში.",
     },
   ];
 
@@ -140,3 +148,7 @@ export default function CardAnimation({ activeTab, handleTabClick, isDarkmodeOn 
     </div>
   );
 }
+
+
+
+
