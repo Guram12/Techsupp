@@ -1,4 +1,8 @@
-
+.main_contact_container{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
 
 .form__group {
   position: relative;
@@ -60,3 +64,15 @@
   box-shadow: none;
 }
 
+
+.form__field::-webkit-inner-spin-button,
+.form__field::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+.contact_submit_button{
+  width: 100px;
+  height: 40px;
+}
