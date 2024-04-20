@@ -1,8 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
 
 * {
   font-family: "Nunito", sans-serif;
-
 }
 
 .splashscreen_container {
@@ -22,6 +21,7 @@
 /* Define a base class for the container */
 .main_container {
   padding: 0;
+  /* border: 2px solid red; */
   /* Apply a transition to the background-color property */
   transition: background-color 0.5s ease;
   /* Transition time can be adjusted */
@@ -35,7 +35,6 @@
 .main_container_black {
   background-color: rgb(0, 0, 0);
 }
-
 
 /* cursor styles */
 /* .cursor {
