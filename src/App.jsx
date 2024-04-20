@@ -12,22 +12,32 @@ import BrendingPage from "./components/pages/BrendingPage";
 import AnimationPage from "./components/pages/AnimationPage";
 import AnaliticPage from "./components/pages/AnaliticPage";
 import background_audio_second from "./assets/valorant.mp3";
-import Members from "./components/pages/Members";
+// import Members from "./components/pages/Members";
 import CursorProvider from "./components/CursorContext/CursorContext.jsx";
 import Contact from "./components/pages/Contact.jsx";
-import FacebookMSG from "./components/FacebookMSG.jsx";
+// import FacebookMSG from "./components/FacebookMSG.jsx";
 import { AnimatePresence } from "framer-motion";
 import SocialMedia from "./components/pages/SocialMedia.jsx";
-
 
 function App() {
   const [showSplashScreen, setShowSplashScreen] = useState(true);
   const [isSoundOff, setIsSoundOff] = useState(false);
   const [isDarkmodeOn, setIsDarkmodeOn] = useState(true);
 
+  const [isOpen, setIsOpen] = useState(false);
+
   const audioRef = useRef(null);
 
   // const { cursorVariants, cursorBG } = useContext(CursorContext);
+  // const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const close_menu_on_outside_click = () => {
+    setIsOpen(false);
+  };
 
   const handle_darkmode_change = (event) => {
     setIsDarkmodeOn(event.target.checked);
@@ -111,8 +121,9 @@ function App() {
   return (
     <CursorProvider isDarkmodeOn={isDarkmodeOn}>
       <div
-        className={`main_container ${isDarkmodeOn ? "main_container_white" : "main_container_black"
-          }`}
+        className={`main_container ${
+          isDarkmodeOn ? "main_container_white" : "main_container_black"
+        }`}
       >
         {!(location.pathname === "/members") && (
           <>
@@ -121,80 +132,109 @@ function App() {
               toggleSound={toggleSound}
               isDarkmodeOn={isDarkmodeOn}
               handle_darkmode_change={handle_darkmode_change}
+              toggleMenu={toggleMenu}
+              isOpen={isOpen}
             />
           </>
         )}
         <audio ref={audioRef} src={background_audio_second} loop muted />
         <AnimatePresence mode="wait">
-          <Routes location={secondlocation} key={secondlocation.pathname}>
-            <Route
-              path="/*"
-              element={<MainPage isDarkmodeOn={isDarkmodeOn} />}
-            />
-            <Route
-              path="about/"
-              element={<About isDarkmodeOn={isDarkmodeOn} />}
-            />
-            <Route
-              path="contact/"
-              element={
-                <Contact
-                  isDarkmodeOn={isDarkmodeOn}
-                  contactMessage={contactMessage}
-                />
-              }
-            />
-            <Route
-              path="/"
-              index
-              element={
-                <MainPage
-                  showSplashScreen={showSplashScreen}
-                  isDarkmodeOn={isDarkmodeOn}
-                />
-              }
-            />
+          <div onClick={close_menu_on_outside_click}>
+            <Routes location={secondlocation} key={secondlocation.pathname}>
+              <Route
+                path="/*"
+                element={<MainPage isDarkmodeOn={isDarkmodeOn} />}
+              />
+              <Route
+                path="about/"
+                element={<About isDarkmodeOn={isDarkmodeOn} />}
+              />
+              <Route
+                path="contact/"
+                element={
+                  <Contact
+                    isDarkmodeOn={isDarkmodeOn}
+                    contactMessage={contactMessage}
+                  />
+                }
+              />
+              <Route
+                path="/"
+                index
+                element={
+                  <MainPage
+                    showSplashScreen={showSplashScreen}
+                    isDarkmodeOn={isDarkmodeOn}
+                  />
+                }
+              />
 
-            <Route
-              path="services/web-development"
-              element={
-                <WebsitePage
-                  isDarkmodeOn={isDarkmodeOn}
-                  handle_context_change={handle_context_change}
-                />
-              }
-            />
-            <Route
-              path="services/it"
-              element={
-                <ItPage
-                  isDarkmodeOn={isDarkmodeOn}
-                  handle_context_change={handle_context_change}
-                />
-              }
-            />
-            <Route
-              path="services/menu"
-              element={<MenuPage isDarkmodeOn={isDarkmodeOn}  handle_context_change = {handle_context_change}/>}
-            />
-            <Route
-              path="services/brending"
-              element={<BrendingPage  handle_context_change = {handle_context_change} isDarkmodeOn={isDarkmodeOn} />}
-            />
-            <Route
-              path="services/animation"
-              element={<AnimationPage handle_context_change = {handle_context_change} isDarkmodeOn={isDarkmodeOn} />}
-            />
-            <Route
-              path="services/analitycs"
-              element={<AnaliticPage  handle_context_change = {handle_context_change} isDarkmodeOn={isDarkmodeOn} />}
-            />
-                        <Route
-              path="services/socialmedia"
-              element={<SocialMedia  handle_context_change = {handle_context_change} isDarkmodeOn={isDarkmodeOn} />}
-            />
-            {/* <Route path="/members" element={<Members />} /> */}
-          </Routes>
+              <Route
+                path="services/web-development"
+                element={
+                  <WebsitePage
+                    isDarkmodeOn={isDarkmodeOn}
+                    handle_context_change={handle_context_change}
+                  />
+                }
+              />
+              <Route
+                path="services/it"
+                element={
+                  <ItPage
+                    isDarkmodeOn={isDarkmodeOn}
+                    handle_context_change={handle_context_change}
+                  />
+                }
+              />
+              <Route
+                path="services/menu"
+                element={
+                  <MenuPage
+                    isDarkmodeOn={isDarkmodeOn}
+                    handle_context_change={handle_context_change}
+                  />
+                }
+              />
+              <Route
+                path="services/brending"
+                element={
+                  <BrendingPage
+                    handle_context_change={handle_context_change}
+                    isDarkmodeOn={isDarkmodeOn}
+                  />
+                }
+              />
+              <Route
+                path="services/animation"
+                element={
+                  <AnimationPage
+                    handle_context_change={handle_context_change}
+                    isDarkmodeOn={isDarkmodeOn}
+                  />
+                }
+              />
+              <Route
+                path="services/analitycs"
+                element={
+                  <AnaliticPage
+                    handle_context_change={handle_context_change}
+                    isDarkmodeOn={isDarkmodeOn}
+                  />
+                }
+              />
+              <Route
+                path="services/socialmedia"
+                element={
+                  <SocialMedia
+                    handle_context_change={handle_context_change}
+                    isDarkmodeOn={isDarkmodeOn}
+                  />
+                }
+              />
+              {/* <Route path="/members" element={<Members />} /> */}
+            </Routes>
+          </div>
         </AnimatePresence>
       </div>
 
