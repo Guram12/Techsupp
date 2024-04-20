@@ -137,7 +137,7 @@ function App() {
             />
           </>
         )}
-        <audio ref={audioRef} src={background_audio_second} loop muted />
+        <audio ref={audioRef} src={background_audio_second} loop  />
         <AnimatePresence mode="wait">
           <div onClick={close_menu_on_outside_click}>
             <Routes location={secondlocation} key={secondlocation.pathname}>
