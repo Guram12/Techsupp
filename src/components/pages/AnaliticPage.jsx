@@ -7,8 +7,10 @@ import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import Footer from "../Header/Footer";
 import transition from "../Header/Transition";
+import { useNavigate } from "react-router-dom";
 
-function AnaliticPage({ isDarkmodeOn }) {
+
+function AnaliticPage({ isDarkmodeOn , handle_context_change }) {
 
   const initial = { x: '-100vw' };
   const animate = { x: 0 };
@@ -37,6 +39,17 @@ function AnaliticPage({ isDarkmodeOn }) {
     }
   }, [inView, controlsFirst, controlsSecond, controlsThird, controlsFourth]);
 
+
+
+  const navigate = useNavigate(); // This hook is used to navigate programmatically
+
+  const handleButtonClick = (message) => {
+    handle_context_change(message);
+    navigate('/contact');
+  };
+
+
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -47,7 +60,7 @@ function AnaliticPage({ isDarkmodeOn }) {
         <Google_sheet_animation isDarkmodeOn={isDarkmodeOn} />
       </div>
       <div>
-        </div>
+      </div>
       <div className="sheet_paralax" >
         <section>
           <Paralax isDarkmodeOn={isDarkmodeOn} baseVelocity={-5}>google sheet analitycs</Paralax>
@@ -59,26 +72,30 @@ function AnaliticPage({ isDarkmodeOn }) {
           initial={initial}
           animate={controlsFirst}
         >
-          <p>მარტივი ანალიტიკური ფაილები</p>
+          <p>მარტივი ანალიტიკური ფაილები.</p>
+          <p>150 ლარიდან</p>
         </motion.div>
         <motion.div className="analityc_card_down"
           initial={initial}
           animate={controlsSecond}
         >
-          <p>აღწერის ფაილების , პოს ტერმინალის აწყობა</p>
+          <p>აღწერის ფაილების ,მარტივი პოს-ტერმინალის აწყობა</p>
+          <p>350 ლარიდან</p>
         </motion.div>
         <motion.div className="analityc_card_down"
           initial={initial}
           animate={controlsThird}
         >
           <p>თქვენთვის სასურველი კონტროლის მექანიზმების შექმნა</p>
+          <p>ფასი მოთხოვნებიდან გამომდინარე</p>
         </motion.div>
-        <motion.div className="analityc_price_down"
-          initial={initial}
-          animate={controlsFourth}
-        >
-          <p>700 ლარიდან / თვეში</p>
-        </motion.div>
+      </div>
+      <div className="analityc_contact_button" >
+        <button
+          onClick={() => handleButtonClick('ანალიტიკა')}
+          className={`${isDarkmodeOn ? "contact_us_button" : "contact_us_button_dark"}`}>
+          დაგვიკავშირდით
+        </button>
       </div>
       <div>
         <Footer isDarkmodeOn={isDarkmodeOn} />
@@ -90,3 +107,13 @@ function AnaliticPage({ isDarkmodeOn }) {
 
 
 export default transition(AnaliticPage);
+
+
+
+
+
+// 1) 150 laridam
+// agweris failebis,  martivi pos terminalis awyoba, 350 laridan
+
+//  fasi , motxovnebidan gamomdinare gamomdinare
+

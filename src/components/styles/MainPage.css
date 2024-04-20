@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Georgian:wght@100..900&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+Georgian:wght@100..900&display=swap");
 
 @keyframes animate {
   0% {
@@ -13,6 +12,7 @@
 
 .mainpage_cont {
   width: 100%;
+  /* border: 10px solid red; */
   /* display: flex; */
   color: transparent;
   padding-top: 100px;
@@ -33,7 +33,7 @@
   top: 50px;
 }
 
-.sogan_child_container{
+.sogan_child_container {
   margin-top: 120px;
 }
 
@@ -43,10 +43,8 @@
   font-weight: 700;
   font-style: normal;
   font-size: 30px;
-  font-variation-settings:
-    "wdth" 100;
+  font-variation-settings: "wdth" 100;
 }
-
 
 .slogan_dark {
   color: aliceblue;
@@ -55,8 +53,6 @@
 .slogan_light {
   color: rgb(0, 0, 0);
 }
-
-
 
 .movable_arrow {
   width: 40px;
@@ -70,14 +66,12 @@
   /* Ensures rotation around the center */
 }
 
-
 .slogan_child_container {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 30px;
 }
-
 
 .mainpage_main_footer_container {
   overflow-x: hidden;
@@ -96,15 +90,11 @@
   .slogan_container {
     /* display: none; */
     text-align: center;
-
   }
 
   .slogan {
     font-size: 18px;
-
   }
-
-
 }
 
 /* =============================================  service button styles ========================================= */
@@ -157,7 +147,6 @@
   transform: scaleX(1);
   transform-origin: bottom left;
 }
-
 
 /* ================================================================================================================ */
 @media screen and( max-width: 500px) {

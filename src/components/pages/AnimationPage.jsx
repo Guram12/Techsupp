@@ -11,8 +11,10 @@ import { useInView } from 'react-intersection-observer';
 import Footer from "../Header/Footer"
 import motion_background from "../../assets/Motion_media_files/motion_background.webm"
 import transition from "../Header/Transition"
+import { useNavigate } from "react-router-dom"
 
- function AnimationPage({ isDarkmodeOn }) {
+
+function AnimationPage({ isDarkmodeOn , handle_context_change}) {
 
   const [isMobileView, setIsMobileView] = useState(window.innerWidth < 768);
 
@@ -58,9 +60,13 @@ import transition from "../Header/Transition"
   }, [controls_1, inView1])
 
 
-  useEffect(()=> {
-    console.log("darkmode props from animation page " , isDarkmodeOn)
-  },[isDarkmodeOn])
+
+  const navigate = useNavigate(); // This hook is used to navigate programmatically
+
+  const handleButtonClick = (message) => {
+    handle_context_change(message);
+    navigate('/contact');
+  };
 
 
   useEffect(() => {
@@ -117,11 +123,10 @@ import transition from "../Header/Transition"
       {!isMobileView && (
         <div className="motion_example_container" ref={ref1}>
           <motion.div
-            className={`motion_example_child_container  ${
-              !isDarkmodeOn
+            className={`motion_example_child_container  ${!isDarkmodeOn
                 ? "motion_example_child_container_dark"
                 : "motion_example_child_container_light"
-            }`}
+              }`}
             animate={controls_1}
             initial={{ x: "100vw" }}
             transition={{ type: "spring", stiffness: 70, delay: 0.5 }}
@@ -134,7 +139,13 @@ import transition from "../Header/Transition"
       <div className="video_animation_container">
         <VideoAnimation />
       </div>
-
+      <div className="animation_contact_button" >
+        <button
+          onClick={() => handleButtonClick('motion დიზაინის შექმნა')}
+          className={`${isDarkmodeOn ? "contact_us_button" : "contact_us_button_dark"}`}>
+          დაგვიკავშირდით
+        </button>
+      </div>
       <div className="animation_footer_container">
         <Footer isDarkmodeOn={isDarkmodeOn} />
       </div>

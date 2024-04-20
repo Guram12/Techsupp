@@ -21,12 +21,11 @@ canvas {
   }
 }
 
-.parallax>use {
+.parallax > use {
   animation: moveWave 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
   animation-delay: -2s;
   /* Adjust this value to change the animation's speed */
 }
-
 
 .footer_containet {
   width: 100%;
@@ -38,62 +37,56 @@ canvas {
   padding-top: 120px;
 }
 
-
 .about_text_container {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 600px;
-
 }
-
-
-
 
 .about_text_child_container {
   width: 600px;
   height: 500px;
   background-color: transparent;
   backdrop-filter: blur(15px);
-  padding: 10px;
+  padding: 40px;
   border-radius: 10%;
   z-index: 99;
   display: flex;
   justify-content: center;
-  align-items: center;
+  /* align-items: center; */
   text-align: center;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   flex-direction: column;
-  gap: 20px;
-
+  gap: 30px;
+  /* border: 2px solid green; */
 }
 
-
 .about_dark {
-  box-shadow: rgba(255, 252, 252, 0.4) 0px 2px 4px, rgba(240, 237, 237, 0.3) 0px 7px 13px -3px;
+  box-shadow: rgba(255, 252, 252, 0.4) 0px 2px 4px,
+    rgba(240, 237, 237, 0.3) 0px 7px 13px -3px;
 }
 
 .about_light {
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px;
-
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px;
 }
-
 
 .about_title {
   color: black;
 }
 
 .about_paragraph {
-  color: black;
-
+  color: #000000;
+  font-size: 20px;
+  /* border: 1px solid red; */
+  line-height: 30px;
 }
 
 .about_paralax_container {
-  margin-top: 60px;
+  margin-top: 160px;
   margin-bottom: 60px;
 }
-
-
 
 .about_example_container {
   margin-top: 40px;
@@ -120,7 +113,6 @@ canvas {
   width: 400px;
 }
 
-
 .storkhome_title_and_p_cont {
   display: flex;
   flex-wrap: nowrap;
@@ -129,7 +121,6 @@ canvas {
   justify-content: space-around;
   align-items: flex-start;
   height: 100%;
-
 }
 
 .title_p_dark {
@@ -137,9 +128,7 @@ canvas {
 }
 
 .title_p_light {
-
   color: rgb(0, 0, 0);
-
 }
 
 .storkhome_title {
@@ -164,7 +153,6 @@ canvas {
   text-shadow: 2px 2px 4px #555555;
 }
 
-
 .storkhome_paragraph {
   max-width: 400px;
 }
@@ -179,11 +167,7 @@ canvas {
   /* Example shadow with RGBA color */
 }
 
-
-
-
 /* =======================================google sheet iframe styles ============================================== */
-
 
 @media screen and (max-width: 500px) {
   .about_text_child_container {
@@ -215,5 +199,11 @@ canvas {
     padding: 5px;
     text-align: center;
     gap: 10px;
+  }
+  .about_paragraph {
+    font-size: 15px;
+  }
+  .about_text_child_container {
+    /* padding: 10px; */
   }
 }

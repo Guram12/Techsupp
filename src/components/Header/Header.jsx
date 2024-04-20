@@ -18,8 +18,9 @@ export default function Header({
   toggleSound,
   isDarkmodeOn,
   handle_darkmode_change,
+  toggleMenu,
+  isOpen,
 }) {
-  const [isOpen, setIsOpen] = useState(false);
   const [menuState, setMenuState] = useState([
     { showArrow: false, showDot: true },
     { showArrow: false, showDot: false },
@@ -29,6 +30,10 @@ export default function Header({
   const { mouseEnterHandler, mouseLeaveHandler } = useContext(CursorContext);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
+
+  // const closeBurgerMenu = () => {
+  //   setIsOpen(false);
+  // };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -41,9 +46,6 @@ export default function Header({
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
 
   const handleLinkHover = (index) => {
     setMenuState((prevMenuState) =>
@@ -86,9 +88,9 @@ export default function Header({
           onMouseEnter={mouseEnterHandler}
           onMouseLeave={mouseLeaveHandler}
           className="logo_and_name"
-          onClick={()=> handleLinkClick(0)}
+          onClick={() => handleLinkClick(0)}
         >
-          <Link to="/"  >
+          <Link to="/">
             <img
               src={isDarkmodeOn ? logo_black : logo_white}
               alt="company logo"

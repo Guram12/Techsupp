@@ -1,0 +1,23 @@
+.path1, .path2 {
+  transition: transform 1s ease-out;
+}
+
+.toggle_1 .path1 {
+  transform: translate(20px, 50px) scale(1); /* Example transformation */
+}
+
+.toggle_1 .path2 {
+  transform: translate(-20px, -50px) scale(1); /* Example transformation */
+}
+
+.toggle_1 , .toggle_2{
+  background-color: #fff;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  line-height: 1;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
