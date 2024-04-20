@@ -1,0 +1,27 @@
+.media_animation_and_text_cont{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 200px;
+  flex-wrap: wrap;
+}
+
+
+.media_animation_container{
+  position: relative;
+  height: 400px;
+  width: 500px;
+  padding-top: 130px;
+}
+
+
+.media_text_container{
+  width: 400px;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 30px;
+
+}

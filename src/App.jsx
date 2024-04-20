@@ -124,7 +124,7 @@ function App() {
             />
           </>
         )}
-        <audio ref={audioRef} src={background_audio_second} loop muted />
+        <audio ref={audioRef} src={background_audio_second} loop  />
         <AnimatePresence mode="wait">
           <Routes location={secondlocation} key={secondlocation.pathname}>
             <Route
@@ -175,23 +175,23 @@ function App() {
             />
             <Route
               path="services/menu"
-              element={<MenuPage isDarkmodeOn={isDarkmodeOn}  handle_context_change = {handle_context_change}/>}
+              element={<MenuPage isDarkmodeOn={isDarkmodeOn} handle_context_change={handle_context_change} />}
             />
             <Route
               path="services/brending"
-              element={<BrendingPage  handle_context_change = {handle_context_change} isDarkmodeOn={isDarkmodeOn} />}
+              element={<BrendingPage handle_context_change={handle_context_change} isDarkmodeOn={isDarkmodeOn} />}
             />
             <Route
               path="services/animation"
-              element={<AnimationPage handle_context_change = {handle_context_change} isDarkmodeOn={isDarkmodeOn} />}
+              element={<AnimationPage handle_context_change={handle_context_change} isDarkmodeOn={isDarkmodeOn} />}
             />
             <Route
               path="services/analitycs"
-              element={<AnaliticPage  handle_context_change = {handle_context_change} isDarkmodeOn={isDarkmodeOn} />}
+              element={<AnaliticPage handle_context_change={handle_context_change} isDarkmodeOn={isDarkmodeOn} />}
             />
-                        <Route
+            <Route
               path="services/socialmedia"
-              element={<SocialMedia  handle_context_change = {handle_context_change} isDarkmodeOn={isDarkmodeOn} />}
+              element={<SocialMedia handle_context_change={handle_context_change} isDarkmodeOn={isDarkmodeOn} />}
             />
             {/* <Route path="/members" element={<Members />} /> */}
           </Routes>
