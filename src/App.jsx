@@ -32,7 +32,7 @@ function App() {
   // const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen);
+    setIsOpen((isOpen) => !isOpen);
   };
 
   const close_menu_on_outside_click = () => {
@@ -121,9 +121,8 @@ function App() {
   return (
     <CursorProvider isDarkmodeOn={isDarkmodeOn}>
       <div
-        className={`main_container ${
-          isDarkmodeOn ? "main_container_white" : "main_container_black"
-        }`}
+        className={`main_container ${isDarkmodeOn ? "main_container_white" : "main_container_black"
+          }`}
       >
         {!(location.pathname === "/members") && (
           <>
@@ -137,9 +136,10 @@ function App() {
             />
           </>
         )}
-        <audio ref={audioRef} src={background_audio_second} loop  />
-        <AnimatePresence mode="wait">
-          <div onClick={close_menu_on_outside_click}>
+        <audio ref={audioRef} src={background_audio_second} loop muted />
+        <div onClick={close_menu_on_outside_click}>
+          <AnimatePresence mode="wait">
+
             <Routes location={secondlocation} key={secondlocation.pathname}>
               <Route
                 path="/*"
@@ -234,8 +234,8 @@ function App() {
               />
               {/* <Route path="/members" element={<Members />} /> */}
             </Routes>
-          </div>
-        </AnimatePresence>
+          </AnimatePresence>
+        </div>
       </div>
 
       <div className="facebook_container">{/* <FacebookMSG /> */}</div>

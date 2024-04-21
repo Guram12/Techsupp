@@ -108,7 +108,8 @@
 
 .dark_mode {
   border-radius: 50%;
-  box-shadow: rgb(14 30 37 / 0%) 0px 2px 4px 0px, rgb(14 30 37 / 5%) 0px 2px 16px 0px;
+  box-shadow: rgb(14 30 37 / 0%) 0px 2px 4px 0px,
+    rgb(14 30 37 / 5%) 0px 2px 16px 0px;
 }
 
 .menu div {
@@ -223,7 +224,6 @@
   align-items: center;
   /* border: 1px solid; */
 }
-
 @media screen and (max-width: 500px) {
   .header {
     /* border: 2px solid blue;  */
@@ -262,6 +262,9 @@
     right: 0;
     justify-content: center;
     gap: 39px;
-    /* border: 3px solid blue;  */
+  }
+
+  .menu_arrow {
+    display: block;
   }
 }
