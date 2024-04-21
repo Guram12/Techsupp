@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "../styles/About.css";
 import Footer from "../Header/Footer";
-import AboutAnimation from "../animations/About_animation";
+// import AboutAnimation from "../animations/About_animation";
 import { motion, useAnimation } from "framer-motion";
 import storkhome_image from "../../assets/storkhome_image.png";
 import tsvrilmani_image from "../../assets/tsvrilmani.png";
@@ -40,9 +40,9 @@ const About = ({ isDarkmodeOn, handle_cursor_on_of, is_cursor_on }) => {
 
   return (
     <div className="abut_container">
-      <div>
+      {/* <div>
         <AboutAnimation isDarkmodeOn={isDarkmodeOn} />
-      </div>
+      </div> */}
       <div className="about_text_container ">
         <motion.div
           className={`about_text_child_container ${
