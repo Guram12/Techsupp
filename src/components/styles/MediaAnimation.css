@@ -127,3 +127,23 @@
 .media_ul .media_li:nth-child(4).active span {
   background: #5244a1 !important;
 }
+
+
+
+.x-logo {
+  display: inline-block;
+  width: 50px; /* Width of the logo */
+  height: 50px; /* Height of the logo */
+  background-image: url('path/to/your/logo.svg'); /* Path to the SVG file */
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+
+.x-logo:before {
+  content: "X"; /* This sets the content to 'X' */
+  font-family: Arial, sans-serif; /* Specifies the font */
+  font-weight: bold; /* Make it bold */
+  font-size: 24px; /* Set the font size */
+  color: #ffffff; /* Twitter's brand color, adjust as needed */
+}

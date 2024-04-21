@@ -1,0 +1,25 @@
+.slider-container {
+  width: 100%;
+  overflow: hidden;
+  height: 100%; /* Set a fixed height or use 100% if it fits your layout better */
+}
+
+.slider-inner {
+  display: flex;
+  width: calc(150%); /* Ensures enough width to contain all images without breaking the flow */
+  animation: slide 20s linear infinite alternate;
+}
+
+.slider-slide {
+  width: 25%; /* Adjust this based on how many images you want visible at a time */
+  flex-shrink: 0;
+}
+
+@keyframes slide {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-50%);
+  }
+}

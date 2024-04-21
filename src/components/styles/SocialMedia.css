@@ -1,9 +1,11 @@
+
 .media_animation_and_text_cont{
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 200px;
   flex-wrap: wrap;
+  
 }
 
 
@@ -17,11 +19,36 @@
 
 .media_text_container{
   width: 400px;
-  height: 600px;
+  height: 500px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   gap: 30px;
+  border: 1px solid grey;
+}
 
+
+.example_post_images_container{
+  width: 100%;
+  height: 600px;
+  background-image: url("../../assets/posts_background.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  overflow: hidden;
+  margin-top: 100px;
+  margin-bottom: 300px;
+  min-height: 600px;
+position: relative;
+}
+
+.slick-slide img {
+  display: block; 
 }
