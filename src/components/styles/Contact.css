@@ -1,3 +1,11 @@
+.parent_main_contact_container{
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+height: 100vh;
+}
+
+
 .main_contact_container{
   display: flex;
   justify-content: space-around;
@@ -189,3 +197,17 @@
 .contact_submit_button_dark:hover span {
   width: 30px;
 }
+
+
+.contact_booter_element{
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+/* ==================================== link fb container =================================================== */
+
+
