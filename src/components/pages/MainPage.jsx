@@ -1,19 +1,21 @@
 import "../styles/MainPage.css";
 import "../styles/card.css";
 import "../styles/Compas.css";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useContext, useRef } from "react";
 import CardAnimation from "../animations/CardAnimation";
 import CubeAnimation from "../animations/CubeAnimation";
 import MainPage_Footer from "../Header/MainPage_Footer";
 import Compass from "../animations/Compass";
 import transition from "../Header/Transition";
+import { CursorContext } from "../CursorContext/CursorContext";
+import { motion } from "framer-motion";
 
 function mainPage({ showSplashScreen, isDarkmodeOn }) {
   const [angle, setAngle] = useState(0);
   const [activeTab, setActiveTab] = useState(1);
 
   const [arrow_angle, setArrow_angle] = useState(0);
-
+  const { mouseEnterHandler, mouseLeaveHandler } = useContext(CursorContext);
   const rotateTo = (angle, tabId) => {
     setAngle(angle);
     setActiveTab(tabId);
@@ -56,7 +58,11 @@ function mainPage({ showSplashScreen, isDarkmodeOn }) {
       {/* ref={containerRef} onMouseMove={handleMouseMove} */}
       <div className="mainpage_child_cont">
         <div className="slogan_container">
-          <div className="sogan_child_container">
+          <motion.div
+            onMouseEnter={mouseEnterHandler}
+            onMouseLeave={mouseLeaveHandler}
+            className="sogan_child_container"
+          >
             <p
               className={`slogan  ${
                 !isDarkmodeOn ? "slogan_dark" : "slogan_light"
@@ -65,7 +71,7 @@ function mainPage({ showSplashScreen, isDarkmodeOn }) {
               თქვენი კომპასი ციფრულ ლაბირინთში
             </p>
             {/* <img src={rotatable_compass} alt="compass"  className="movable_arrow"style={{ transform: `rotate(${arrow_angle}deg)`, width: "40px" }} /> */}
-          </div>
+          </motion.div>
         </div>
         <Compass
           angle={angle}

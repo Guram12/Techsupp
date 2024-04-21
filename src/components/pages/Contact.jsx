@@ -106,7 +106,7 @@ function Contact({ contactMessage }) {
         </div>
       </div>
       <div className="contact_logo_container" >
-            <AnimatedLogo/>
+        <AnimatedLogo />
       </div>
     </div>
   )
