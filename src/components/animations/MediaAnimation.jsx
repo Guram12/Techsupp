@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import "../styles/MediaAnimation.css";
 
+
 function MediaAnimation() {
   const [activeIndex, setActiveIndex] = useState(0);
   const numIcons = 4; // Total number of icons
@@ -31,7 +32,7 @@ function MediaAnimation() {
             <span />
             <span />
             <span />
-            <span className="fa fa-twitter" />
+            <span className="x-logo" />
           </a>
         </li>
         <li className={`media_li ${activeIndex === 2 ? 'active' : ''}`}>
