@@ -32,7 +32,7 @@ function App() {
   // const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
-    setIsOpen(!isOpen);
+    setIsOpen((isOpen) => !isOpen);
   };
 
   const close_menu_on_outside_click = () => {
@@ -137,7 +137,7 @@ function App() {
             />
           </>
         )}
-        <audio ref={audioRef} src={background_audio_second} loop  />
+        <audio ref={audioRef} src={background_audio_second} loop muted />
         <AnimatePresence mode="wait">
           <div onClick={close_menu_on_outside_click}>
             <Routes location={secondlocation} key={secondlocation.pathname}>

@@ -124,78 +124,71 @@ export default function Header({
                 {isOpen ? "CLOSE" : "MENU"}
               </span>
             </div>
-            {isOpen && (
-              <motion.div
-                initial={{ opacity: 0, scale: 0.5 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{
-                  duration: 0.8,
-                  delay: 0.5,
-                  ease: [0, 0.71, 0.2, 1.01],
-                }}
-                className={`menu ${
-                  !isDarkmodeOn ? "menu_dark" : "menu_light"
-                }   `}
-              >
-                <div className="flex">
-                  <Link
-                    className={`menu_links ${
-                      menuState[0].showDot ? "active" : ""
-                    }   ${
-                      !isDarkmodeOn ? "dark_menu_item" : "light_menu_item"
-                    } `}
-                    to="/"
-                    onMouseEnter={() => handleLinkHover(0)}
-                    onMouseLeave={() =>
-                      setMenuState((prevMenuState) =>
-                        prevMenuState.map((item) => ({
-                          ...item,
-                          showArrow: false,
-                        }))
-                      )
-                    }
-                    onClick={() => handleLinkClick(0)}
-                  >
-                    სერვისები
-                    <div>
-                      {menuState[0].showArrow && !menuState[0].showDot && (
-                        <img className="arrow_img" src={RightArrow} alt="" />
-                      )}
-                      {menuState[0].showDot && (
-                        <div className="link_dott_menu">●</div>
-                      )}
-                    </div>
-                  </Link>
-                </div>
-                <div className="flex">
-                  <Link
-                    className={`menu_links ${
-                      menuState[1].showDot ? "active" : ""
-                    } ${
-                      !isDarkmodeOn ? "dark_menu_item" : "light_menu_item"
-                    }  `}
-                    to="/about"
-                    onMouseEnter={() => handleLinkHover(1)}
-                    onMouseLeave={() =>
-                      setMenuState((prevMenuState) =>
-                        prevMenuState.map((item) => ({
-                          ...item,
-                          showArrow: false,
-                        }))
-                      )
-                    }
-                    onClick={() => handleLinkClick(1)}
-                  >
-                    ჩვენს შესახებ
-                    <div>
-                      {menuState[1].showArrow && !menuState[1].showDot && (
-                        <img className="arrow_img" src={RightArrow} alt="" />
-                      )}
-                      {menuState[1].showDot && " ●"}
-                    </div>
-                  </Link>
-                </div>
-                {/* <div className="flex">
+
+            <motion.div
+              initial={{ scaleY: 0 }}
+              animate={{ scaleY: isOpen ? 1 : 0 }}
+              exit={{ scaleY: 0 }}
+              transition={{ duration: 0.8, ease: "easeInOut" }}
+              className={`menu ${
+                !isDarkmodeOn ? "menu_dark" : "menu_light"
+              }   `}
+            >
+              <div className="flex">
+                <Link
+                  className={`menu_links ${
+                    menuState[0].showDot ? "active" : ""
+                  }   ${!isDarkmodeOn ? "dark_menu_item" : "light_menu_item"} `}
+                  to="/"
+                  onMouseEnter={() => handleLinkHover(0)}
+                  onMouseLeave={() =>
+                    setMenuState((prevMenuState) =>
+                      prevMenuState.map((item) => ({
+                        ...item,
+                        showArrow: false,
+                      }))
+                    )
+                  }
+                  onClick={() => handleLinkClick(0)}
+                >
+                  სერვისები
+                  <div>
+                    {menuState[0].showArrow && !menuState[0].showDot && (
+                      <img className="arrow_img" src={RightArrow} alt="" />
+                    )}
+                    {menuState[0].showDot && (
+                      <div className="link_dott_menu">●</div>
+                    )}
+                  </div>
+                </Link>
+              </div>
+              <div className="flex">
+                <Link
+                  className={`menu_links ${
+                    menuState[1].showDot ? "active" : ""
+                  } ${!isDarkmodeOn ? "dark_menu_item" : "light_menu_item"}  `}
+                  to="/about"
+                  onMouseEnter={() => handleLinkHover(1)}
+                  onMouseLeave={() =>
+                    setMenuState((prevMenuState) =>
+                      prevMenuState.map((item) => ({
+                        ...item,
+                        showArrow: false,
+                      }))
+                    )
+                  }
+                  onClick={() => handleLinkClick(1)}
+                >
+                  ჩვენს შესახებ
+                  <div>
+                    {menuState[1].showArrow && !menuState[1].showDot && (
+                      <img className="arrow_img" src={RightArrow} alt="" />
+                    )}
+                    {menuState[1].showDot && " ●"}
+                  </div>
+                </Link>
+              </div>
+              {/* <div className="flex">
                 <Link
                   className={`menu_links ${
                     menuState[2].showDot ? "active" : ""
@@ -221,42 +214,41 @@ export default function Header({
                   </div>
                 </Link>
               </div> */}
-                <div className="flex">
-                  <Link
-                    className={`menu_links ${
-                      menuState[3].showDot ? "active" : ""
-                    } ${
-                      !isDarkmodeOn ? "dark_menu_item" : "light_menu_item"
-                    }  `}
-                    to="/contact"
-                    onMouseEnter={() => handleLinkHover(3)}
-                    onMouseLeave={() =>
-                      setMenuState((prevMenuState) =>
-                        prevMenuState.map((item) => ({
-                          ...item,
-                          showArrow: false,
-                        }))
-                      )
-                    }
-                    onClick={() => handleLinkClick(3)}
-                  >
-                    კონტაქტები{" "}
-                    <div>
-                      {menuState[3].showArrow && !menuState[3].showDot && (
-                        <img className="arrow_img" src={RightArrow} alt="" />
-                      )}
-                      {menuState[3].showDot && "●"}
-                    </div>
-                  </Link>
-                </div>
-              </motion.div>
-            )}
+              <div className="flex">
+                <Link
+                  className={`menu_links ${
+                    menuState[3].showDot ? "active" : ""
+                  } ${!isDarkmodeOn ? "dark_menu_item" : "light_menu_item"}  `}
+                  to="/contact"
+                  onMouseEnter={() => handleLinkHover(3)}
+                  onMouseLeave={() =>
+                    setMenuState((prevMenuState) =>
+                      prevMenuState.map((item) => ({
+                        ...item,
+                        showArrow: false,
+                      }))
+                    )
+                  }
+                  onClick={() => handleLinkClick(3)}
+                >
+                  კონტაქტები{" "}
+                  <div>
+                    {menuState[3].showArrow && !menuState[3].showDot && (
+                      <img className="arrow_img" src={RightArrow} alt="" />
+                    )}
+                    {menuState[3].showDot && "●"}
+                  </div>
+                </Link>
+              </div>
+            </motion.div>
+
             {/* const toggleMenu = () => {
     setIsOpen(!isOpen);
   }; */}
             <div className="menu_arrow" onClick={toggleMenu}>
               {/* Arrow */}
               <img
+                onClick={toggleMenu}
                 className={`menu_arrow_img ${
                   isOpen ? "rotate-down" : "rotate_up"
                 }`}
