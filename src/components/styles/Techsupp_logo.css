@@ -40,6 +40,7 @@
   place-items: center;
   cursor: pointer;
   line-height: 1;
+  padding-top: 40px;
   box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
 
@@ -52,6 +53,7 @@
   display: grid;
   place-items: center;
   cursor: pointer;
+  padding-top: 40px;
   line-height: 1;
   box-shadow: rgba(255, 255, 255, 0.507) 0px 2px 4px 0px, rgba(226, 226, 226, 0.32) 0px 2px 16px 0px;
 }
