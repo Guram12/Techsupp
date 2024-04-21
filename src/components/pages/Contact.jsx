@@ -1,38 +1,55 @@
 import "../styles/Contact.css"
 import React, { useState, useEffect } from 'react';
 import transition from "../Header/Transition";
-import { MdCheckCircle, MdError } from 'react-icons/md'; // Import Material Design icons
 import AnimatedLogo from "../animations/Techsupp_logo";
+import { color } from "framer-motion";
 
-function Contact({ contactMessage }) {
+function Contact({ contactMessage , isDarkmodeOn }) {
   const [inputValue, setInputValue] = useState(contactMessage);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [mobile, setMobile] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [submissionResult, setSubmissionResult] = useState(null);
+  const [buttonText, setButtonText] = useState('გაგზავნა');
+
+
 
   // const response = await fetch('https://script.google.com/macros/s/AKfycbx0MAIn2p2o-iF6MW4mwlTNCfxEqRse_ifCiaqiAUvkCXUOuKKuedkhi2A0rEWgJrfuwg/exec', {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     setIsLoading(true);
+    setButtonText('იგზავნება...');
+
+    const payload = {
+      name,
+      email,
+      mobile,
+      description: inputValue
+    };
+
     fetch('https://script.google.com/macros/s/AKfycbx0MAIn2p2o-iF6MW4mwlTNCfxEqRse_ifCiaqiAUvkCXUOuKKuedkhi2A0rEWgJrfuwg/exec', {
       method: 'POST',
       mode: 'no-cors',
-      body: JSON.stringify({ name, email, mobile, description: inputValue }),
       headers: {
         'Content-Type': 'application/json',
       },
-    }).then(response => {
-      console.log('Request completed! Unable to verify if successful or not due to no-cors.');
-      setIsLoading(false);
-      setSubmissionResult('success'); // Since we can't determine success, we mark it as unknown
-    }).catch(error => {
-      console.error('Network error:', error);
-      setIsLoading(false);
-      setSubmissionResult('error');
-    });
+      body: JSON.stringify(payload),
+    })
+      .then(response => {
+        console.log('Request completed! Unable to verify if successful or not.');
+        setButtonText('გაგზავნილია');
+        setInputValue("")
+        setName('')
+        setEmail('')
+        setMobile('')
+        setIsLoading(false);
+      })
+      .catch(error => {
+        console.error('Network error:', error);
+        setButtonText('Error');
+        setIsLoading(false);
+      });
   };
 
   useEffect(() => {
@@ -48,65 +65,63 @@ function Contact({ contactMessage }) {
           <div className="form__group field">
             <input
               type="text"
+              style={{color: `${ !isDarkmodeOn ? "white" : "black"}`}}
               className="form__field"
               placeholder="ინფორმაცია სერვისის შესახებ"
               value={inputValue}
               onChange={e => setInputValue(e.target.value)}
               name="description"
               id='description' />
-            <label htmlFor="description" className="form__label">ინფორმაცია სერვისის შესახებ</label>
+            <label htmlFor="description"  className={isDarkmodeOn ? "form__label" : "form__label_dark"}>ინფორმაცია სერვისის შესახებ</label>
           </div>
 
           <div className="form__group field">
             <input
               type="text"
+              style={{color: `${ !isDarkmodeOn ? "white" : "black"}`}}
               className="form__field"
               placeholder="Name"
               value={name}
               onChange={e => setName(e.target.value)}
               name="name"
               id='name' />
-            <label htmlFor="name" className="form__label">სახელი</label>
+            <label htmlFor="name"  className={isDarkmodeOn ? "form__label" : "form__label_dark"} >სახელი</label>
           </div>
 
           <div className="form__group field">
             <input
               type="text"
+              style={{color: `${ !isDarkmodeOn ? "white" : "black"}`}}
               className="form__field"
               placeholder="Email"
               value={email}
               onChange={e => setEmail(e.target.value)}
               name="email"
               id='email' />
-            <label htmlFor="email" className="form__label">მეილი</label>
+            <label htmlFor="email"  className={isDarkmodeOn ? "form__label" : "form__label_dark"} >მეილი</label>
           </div>
 
           <div className="form__group field">
             <input
               type="number"
+              style={{color: `${ !isDarkmodeOn ? "white" : "black"}`}}
               className="form__field"
               placeholder="Email"
               value={mobile}
               onChange={e => setMobile(e.target.value)}
               name="mobile"
               id='mobile' />
-            <label htmlFor="mobile" className="form__label">ტელეფონის ნომერი</label>
+            <label htmlFor="mobile"  className={isDarkmodeOn ? "form__label" : "form__label_dark"} >ტელეფონის ნომერი</label>
           </div>
           <div style={{ marginTop: "100px" }}>
-            {isLoading ? (
-              <button type="button" className="contact_submit_button" disabled>Loading...</button>
-            ) : (
-              <button type="submit" className="contact_submit_button">Send</button>
-            )}
+            <button type="submit" className={ isDarkmodeOn ?  "contact_submit_button"  :  "contact_submit_button_dark" } disabled={isLoading}>
+              {buttonText}<span>⟶</span>
+            </button>
           </div>
         </form>
-        <div style={{ width: "300px" }} >
-          {submissionResult === 'success' ? <MdCheckCircle size="24px" color="green" /> :
-            submissionResult === 'error' ? <MdError size="24px" color="red" /> : null}
-        </div>
       </div>
       <div className="contact_logo_container" >
-        <AnimatedLogo />
+        <AnimatedLogo   isDarkmodeOn={isDarkmodeOn} />
       </div>
     </div>
   )

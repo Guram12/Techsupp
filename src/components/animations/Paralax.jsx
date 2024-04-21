@@ -1,5 +1,7 @@
 import "../styles/Paralax.css";
-import { useRef } from "react";
+import { useRef, useContext } from "react";
+import { CursorContext } from "../CursorContext/CursorContext";
+
 import {
   motion,
   useScroll,
@@ -11,8 +13,11 @@ import {
 } from "framer-motion";
 import { wrap } from "@motionone/utils";
 
-export default function Parallax({ isDarkmodeOn ,children, baseVelocity = 100 }) {
-
+export default function Parallax({
+  isDarkmodeOn,
+  children,
+  baseVelocity = 100,
+}) {
   const baseX = useMotionValue(0);
   const { scrollY } = useScroll();
   const scrollVelocity = useVelocity(scrollY);
@@ -23,6 +28,7 @@ export default function Parallax({ isDarkmodeOn ,children, baseVelocity = 100 })
   const velocityFactor = useTransform(smoothVelocity, [0, 1000], [0, 3], {
     clamp: false,
   });
+  const { mouseEnterHandler, mouseLeaveHandler } = useContext(CursorContext);
 
   const x = useTransform(baseX, (v) => `${wrap(-20, -45, v)}%`);
 
@@ -42,14 +48,31 @@ export default function Parallax({ isDarkmodeOn ,children, baseVelocity = 100 })
   });
   return (
     <div className="parallax">
-      <motion.div className="scroller" style={{ x }}>
-        <span className={isDarkmodeOn ? "" :"night_mode_span" } >{children} </span>
-        <span className={isDarkmodeOn ? "" :"night_mode_span" }>{children} </span>
-        <span className={isDarkmodeOn ? "" :"night_mode_span" }>{children} </span>
-        <span className={isDarkmodeOn ? "" :"night_mode_span" }>{children} </span>
-        <span className={isDarkmodeOn ? "" :"night_mode_span" }>{children} </span>
-        <span className={isDarkmodeOn ? "" :"night_mode_span" }>{children} </span>
+      <motion.div
+        onMouseEnter={mouseEnterHandler}
+        onMouseLeave={mouseLeaveHandler}
+        className="scroller"
+        style={{ x }}
+      >
+        <span className={isDarkmodeOn ? "" : "night_mode_span"}>
+          {children}{" "}
+        </span>
+        <span className={isDarkmodeOn ? "" : "night_mode_span"}>
+          {children}{" "}
+        </span>
+        <span className={isDarkmodeOn ? "" : "night_mode_span"}>
+          {children}{" "}
+        </span>
+        <span className={isDarkmodeOn ? "" : "night_mode_span"}>
+          {children}{" "}
+        </span>
+        <span className={isDarkmodeOn ? "" : "night_mode_span"}>
+          {children}{" "}
+        </span>
+        <span className={isDarkmodeOn ? "" : "night_mode_span"}>
+          {children}{" "}
+        </span>
       </motion.div>
     </div>
   );
-  }
+}

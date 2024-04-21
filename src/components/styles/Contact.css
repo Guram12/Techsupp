@@ -33,8 +33,15 @@
 .form__field:placeholder-shown ~ .form__label {
   font-size: 1.3rem;
   cursor: text;
-  top: 20px;
+  top: 15px;
 }
+
+.form__field:placeholder-shown ~ .form__label_dark {
+  font-size: 1.3rem;
+  cursor: text;
+  top: 15px;
+}
+
 .form__label {
   position: absolute;
   top: 0;
@@ -43,6 +50,16 @@
   font-size: 1rem;
   color: #9b9b9b;
 }
+
+.form__label_dark {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: #9b9b9b;
+}
+
 .form__field:focus {
   padding-bottom: 6px;
   font-weight: 400;
@@ -60,6 +77,20 @@
   font-weight: 700;
 }
 
+.form__field:focus ~ .form__label_dark {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+
+
+
+
 .form__field:required, .form__field:invalid {
   box-shadow: none;
 }
@@ -75,4 +106,86 @@
 .contact_submit_button{
   width: 100px;
   height: 40px;
+}
+
+
+.contact_submit_button {
+  width: 170px;
+  height: 50px;
+  color: #fff;
+  background: #000;
+  font-size: 17px;
+  text-decoration: none;
+  margin: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 0 #000;
+  transition: 0.5s;
+  position: relative;
+}
+
+.contact_submit_button:hover {
+  box-shadow: 8px 10px 0 #000;
+  background: transparent;
+  border: 2px solid #000;
+  color: #000;
+  margin-top: 5px;
+}
+
+.contact_submit_button span {
+  margin-left: 10px;
+  width: 0;
+  overflow: hidden;
+  transition: 0.4s;
+}
+
+.contact_submit_button:hover span {
+  width: 30px;
+}
+
+
+
+/* =====================================    button dark mode styles ============================================ */
+
+
+.contact_submit_button_dark{
+  width: 100px;
+  height: 40px;
+}
+
+
+.contact_submit_button_dark {
+  width: 170px;
+  height: 50px;
+  color: #000000;
+  background: #ffffff;
+  font-size: 17px;
+  text-decoration: none;
+  margin: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 0 #ffffff;
+  transition: 0.5s;
+  position: relative;
+}
+
+.contact_submit_button_dark:hover {
+  box-shadow: 8px 10px 0 #ffffff;
+  background: transparent;
+  border: 2px solid #ffffff;
+  color: #ffffff;
+  margin-top: 5px;
+}
+
+.contact_submit_button_dark span {
+  margin-left: 10px;
+  width: 0;
+  overflow: hidden;
+  transition: 0.4s;
+}
+
+.contact_submit_button_dark:hover span {
+  width: 30px;
 }
