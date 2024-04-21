@@ -13,7 +13,7 @@ function ContinuousSlider() {
       <div className="slider-inner">
         {[...images, ...images].map((src, index) => (
           <div className="slider-slide" key={index}>
-            <img src={src} alt={`Slide ${index}`} style={{ width: '350px', height: '100%' }} />
+            <img src={src} alt={`Slide ${index}`}  className='post_images'  />
           </div>
         ))}
       </div>
