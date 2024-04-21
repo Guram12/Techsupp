@@ -1,21 +1,18 @@
-import "../styles/AnalitycPage.css"
-import React from 'react';
-import { useEffect, useState } from "react";
-import Paralax from "../animations/Paralax"
-import Google_sheet_animation from "../animations/Google_sheet_animation"
-import { motion, useAnimation } from 'framer-motion';
-import { useInView } from 'react-intersection-observer';
+import "../styles/AnalitycPage.css";
+import React from "react";
+import { useEffect, useState, useContext } from "react";
+import Paralax from "../animations/Paralax";
+import Google_sheet_animation from "../animations/Google_sheet_animation";
+import { motion, useAnimation } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import Footer from "../Header/Footer";
 import transition from "../Header/Transition";
 import { useNavigate } from "react-router-dom";
+import { CursorContext } from "../CursorContext/CursorContext";
 
-
-function AnaliticPage({ isDarkmodeOn , handle_context_change }) {
-
-  const initial = { x: '-100vw' };
+function AnaliticPage({ isDarkmodeOn, handle_context_change }) {
+  const initial = { x: "-100vw" };
   const animate = { x: 0 };
-
-
 
   // Framer Motion controls for animation
   const controlsFirst = useAnimation();
@@ -35,20 +32,17 @@ function AnaliticPage({ isDarkmodeOn , handle_context_change }) {
       controlsSecond.start({ ...animate, transition: { delay: 0.2 } }); // Adding delay
       controlsThird.start({ ...animate, transition: { delay: 0.4 } }); // Adding more delay
       controlsFourth.start({ ...animate, transition: { delay: 0.8 } }); // Adding more delay
-
     }
   }, [inView, controlsFirst, controlsSecond, controlsThird, controlsFourth]);
 
-
+  const { mouseEnterHandler, mouseLeaveHandler } = useContext(CursorContext);
 
   const navigate = useNavigate(); // This hook is used to navigate programmatically
 
   const handleButtonClick = (message) => {
     handle_context_change(message);
-    navigate('/contact');
+    navigate("/contact");
   };
-
-
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -56,33 +50,45 @@ function AnaliticPage({ isDarkmodeOn , handle_context_change }) {
 
   return (
     <div>
-      <div className="sheet_animation_cont" >
+      <div className="sheet_animation_cont">
         <Google_sheet_animation isDarkmodeOn={isDarkmodeOn} />
       </div>
-      <div>
-      </div>
-      <div className="sheet_paralax" >
+      <div></div>
+      <div className="sheet_paralax">
         <section>
-          <Paralax isDarkmodeOn={isDarkmodeOn} baseVelocity={-5}>google sheet analitycs</Paralax>
-          <Paralax isDarkmodeOn={isDarkmodeOn} baseVelocity={5}>google sheet analitycs</Paralax>
+          <Paralax isDarkmodeOn={isDarkmodeOn} baseVelocity={-5}>
+            google sheet analitycs
+          </Paralax>
+          <Paralax isDarkmodeOn={isDarkmodeOn} baseVelocity={5}>
+            google sheet analitycs
+          </Paralax>
         </section>
       </div>
-      <div className="analitycs_card_container" ref={ref} >
-        <motion.div className="analityc_card_down"
+      <div className="analitycs_card_container" ref={ref}>
+        <motion.div
+          onMouseEnter={mouseEnterHandler}
+          onMouseLeave={mouseLeaveHandler}
+          className="analityc_card_down"
           initial={initial}
           animate={controlsFirst}
         >
           <p>მარტივი ანალიტიკური ფაილები.</p>
           <p>150 ლარიდან</p>
         </motion.div>
-        <motion.div className="analityc_card_down"
+        <motion.div
+          onMouseEnter={mouseEnterHandler}
+          onMouseLeave={mouseLeaveHandler}
+          className="analityc_card_down"
           initial={initial}
           animate={controlsSecond}
         >
           <p>აღწერის ფაილების ,მარტივი პოს-ტერმინალის აწყობა</p>
           <p>350 ლარიდან</p>
         </motion.div>
-        <motion.div className="analityc_card_down"
+        <motion.div
+          onMouseEnter={mouseEnterHandler}
+          onMouseLeave={mouseLeaveHandler}
+          className="analityc_card_down"
           initial={initial}
           animate={controlsThird}
         >
@@ -90,30 +96,28 @@ function AnaliticPage({ isDarkmodeOn , handle_context_change }) {
           <p>ფასი მოთხოვნებიდან გამომდინარე</p>
         </motion.div>
       </div>
-      <div className="analityc_contact_button" >
-        <button
-          onClick={() => handleButtonClick('ანალიტიკა')}
-          className={`${isDarkmodeOn ? "contact_us_button" : "contact_us_button_dark"}`}>
+      <div className="analityc_contact_button">
+        <motion.button
+          onMouseEnter={mouseEnterHandler}
+          onMouseLeave={mouseLeaveHandler}
+          onClick={() => handleButtonClick("ანალიტიკა")}
+          className={`${
+            isDarkmodeOn ? "contact_us_button" : "contact_us_button_dark"
+          }`}
+        >
           დაგვიკავშირდით
-        </button>
+        </motion.button>
       </div>
       <div>
         <Footer isDarkmodeOn={isDarkmodeOn} />
       </div>
-
     </div>
-  )
+  );
 }
 
-
 export default transition(AnaliticPage);
-
-
-
-
 
 // 1) 150 laridam
 // agweris failebis,  martivi pos terminalis awyoba, 350 laridan
 
 //  fasi , motxovnebidan gamomdinare gamomdinare
-
