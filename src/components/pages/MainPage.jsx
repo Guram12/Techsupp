@@ -7,76 +7,86 @@ import CubeAnimation from "../animations/CubeAnimation";
 import MainPage_Footer from "../Header/MainPage_Footer";
 import Compass from "../animations/Compass";
 import transition from "../Header/Transition";
+import { motion } from "framer-motion";
+
 
 function mainPage({ showSplashScreen, isDarkmodeOn }) {
   const [angle, setAngle] = useState(0);
   const [activeTab, setActiveTab] = useState(1);
+  const [key_1, setKey_1] = useState(false);
+  const [key_2, setKey_2] = useState(true);
+  const [key_3, setKey_3] = useState(1);
 
-  const [arrow_angle, setArrow_angle] = useState(0);
+
+  useEffect(() => {
+    setKey_1(!key_1 )
+    setKey_2(!key_2)
+    setKey_3(key_3 + 1 )
+  }, [isDarkmodeOn])
+
+  // const [arrow_angle, setArrow_angle] = useState(0);
 
   const rotateTo = (angle, tabId) => {
     setAngle(angle);
     setActiveTab(tabId);
   };
 
-  const handleTabClick = (id) => {
-    setActiveTab(id);
-  };
-
-  useEffect(() => {
-    console.log(isDarkmodeOn, "from mainpage ");
-  }, [isDarkmodeOn]);
-
-  //   const containerRef = useRef(null);
-
-  //   const handleMouseMove = (event) => {
-  //     if (!containerRef.current) return;
-
-  //     const { left, top, width, height } = containerRef.current.getBoundingClientRect();
-  //     const center = {
-  //       x: left + width / 2,
-  //       y: top + height / 2,
-  //     };
-
-  //     const mouseX = event.clientX;
-  //     const mouseY = event.clientY;
-
-  //     const radians = Math.atan2(mouseY - center.y, mouseX - center.x);
-  //     const angle = radians * (180 / Math.PI) - 90; // Adjusted by subtracting 90 degrees
-
-  //     setArrow_angle(angle);
+  // const handleTabClick = (id) => {
+  //   setActiveTab(id);
   // };
+
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
+
+  // initial={{ x: '100vw' }}
+  // animate={{ x: 0, opacity: 1 }}
+  // transition={{ type: 'spring', stiffness: 70 }}
+
   return (
     <div className="mainpage_cont">
-      {/* ref={containerRef} onMouseMove={handleMouseMove} */}
       <div className="mainpage_child_cont">
         <div className="slogan_container">
           <div className="sogan_child_container">
-            <p
-              className={`slogan  ${
-                !isDarkmodeOn ? "slogan_dark" : "slogan_light"
-              } `}
+            <motion.div
+              initial={{ y: '-100vw' }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ type: 'spring', stiffness: 40 }}
+              key={key_1}
             >
-              თქვენი კომპასი ციფრულ ლაბირინთში
-            </p>
-            {/* <img src={rotatable_compass} alt="compass"  className="movable_arrow"style={{ transform: `rotate(${arrow_angle}deg)`, width: "40px" }} /> */}
+              <p className={`slogan  ${!isDarkmodeOn ? "slogan_dark" : "slogan_light"} `} > თქვენი კომპასი ციფრულ ლაბირინთში</p>
+
+            </motion.div>
           </div>
         </div>
-        <Compass
-          angle={angle}
-          rotateTo={rotateTo}
-          isDarkmodeOn={isDarkmodeOn}
-        />
-        <CardAnimation
-          activeTab={activeTab}
-          handleTabClick={setActiveTab}
-          isDarkmodeOn={isDarkmodeOn}
-        />
+        <motion.div
+          initial={{ x: '-100vw' }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ type: 'spring', stiffness: 40 }}
+          key={key_2}
+        >
+          <Compass
+            angle={angle}
+            rotateTo={rotateTo}
+            isDarkmodeOn={isDarkmodeOn}
+          />
+        </motion.div>
+        <motion.div
+          initial={{ x: '100vw' }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ type: 'spring', stiffness: 40 }}
+          key={key_3}
+        >
+          <CardAnimation
+            activeTab={activeTab}
+            handleTabClick={setActiveTab}
+            isDarkmodeOn={isDarkmodeOn}
+          />
+
+        </motion.div>
+
       </div>
       <div className="mainpage_main_footer_container">
         <MainPage_Footer isDarkmodeOn={isDarkmodeOn} />

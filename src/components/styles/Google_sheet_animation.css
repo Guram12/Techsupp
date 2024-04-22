@@ -41,8 +41,13 @@
 @media screen and (max-width: 500px) {
   .sheet_logo {
     position: absolute;
-    left: 27%;
-    margin-bottom: 480px;
+    margin-bottom: 280px;
     width: 200px;
+
+  }
+
+  .sheet_image {
+    margin-top: 50px;
+    width: 300px;
   }
 }

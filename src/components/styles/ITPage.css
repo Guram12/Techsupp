@@ -239,7 +239,7 @@
 
 @media screen and (max-width: 500px) {
   .it_child_title_container {
-    width: 80%;
+    width: 300px;
     font-size: 14px;
     display: block;
     /* Ensuring it's not hidden */
@@ -253,7 +253,7 @@
   }
 
   .it_paragraph {
-    width: 320px;
+    width: 300px;
   }
 
   .it_card_container {
@@ -261,7 +261,5 @@
     height: 1900px;
   }
 
-  .sheet_image {
-    margin-top: 200px;
-  }
+
 }

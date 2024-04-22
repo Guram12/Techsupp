@@ -11,11 +11,11 @@ import MenuPage from "./components/pages/MenuPage";
 import BrendingPage from "./components/pages/BrendingPage";
 import AnimationPage from "./components/pages/AnimationPage";
 import AnaliticPage from "./components/pages/AnaliticPage";
-import background_audio_second from "./assets/valorant.mp3";
+import background_audio_second from "./assets/background_music.mp3";
 // import Members from "./components/pages/Members";
 import CursorProvider from "./components/CursorContext/CursorContext.jsx";
 import Contact from "./components/pages/Contact.jsx";
-// import FacebookMSG from "./components/FacebookMSG.jsx";
+import FacebookMSG from "./components/FacebookMSG.jsx";
 import { AnimatePresence } from "framer-motion";
 import SocialMedia from "./components/pages/SocialMedia.jsx";
 
@@ -136,7 +136,7 @@ function App() {
             />
           </>
         )}
-        <audio ref={audioRef} src={background_audio_second} loop muted />
+        <audio ref={audioRef} src={background_audio_second} loop />
         <div onClick={close_menu_on_outside_click}>
           <AnimatePresence mode="wait">
 
@@ -237,8 +237,9 @@ function App() {
           </AnimatePresence>
         </div>
       </div>
-
-      <div className="facebook_container">{/* <FacebookMSG /> */}</div>
+      <div className="facebook_container">
+        {/* <FacebookMSG />  */}
+      </div>
     </CursorProvider>
   );
 }

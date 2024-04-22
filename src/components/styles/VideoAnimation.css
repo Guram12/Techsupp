@@ -91,9 +91,19 @@
   content: attr(data-text);
   padding-left: 26px;
 }
-.wrapper .text > span::before {
-  color: var(--color);
+
+
+.spannnn::before {
+  color: rgb(0, 0, 0);
 }
+
+
+.spannnn_dark::before {
+  color: rgb(255, 255, 255);
+}
+
+
+
 .wrapper .text > span::after {
   color: var(--color-invert);
   clip-path: var(--clip-path);

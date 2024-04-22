@@ -137,7 +137,7 @@ function AnimationPage({ isDarkmodeOn , handle_context_change}) {
       )}
 
       <div className="video_animation_container">
-        <VideoAnimation />
+        <VideoAnimation  isDarkmodeOn={isDarkmodeOn} />
       </div>
       <div className="animation_contact_button" >
         <button

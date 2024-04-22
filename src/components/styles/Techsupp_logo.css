@@ -1,23 +1,72 @@
-.path1, .path2 {
-  transition: transform 1s ease-out;
+@keyframes moveUpAndStay {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-25px);
+  }
 }
 
-.toggle_1 .path1 {
-  transform: translate(20px, 50px) scale(1); /* Example transformation */
+.path1 {
+  animation: moveUpAndStay 4s ease-in-out infinite;
 }
 
-.toggle_1 .path2 {
-  transform: translate(-20px, -50px) scale(1); /* Example transformation */
+.path2 {
+  animation: moveUpAndStay 4s ease-in-out infinite;
+  animation-delay: 0.2s;
 }
 
-.toggle_1 , .toggle_2{
+.path3 {
+  animation: moveUpAndStay 4s ease-in-out infinite;
+  animation-delay: 0.4s;
+}
+
+.path4 {
+  animation: moveUpAndStay 4s ease-in-out infinite;
+  animation-delay: 0.6s;
+}
+
+.path5 {
+  animation: moveUpAndStay 4s ease-in-out infinite;
+  animation-delay: 0.8s;
+}
+
+.big_logo {
   background-color: #fff;
-  width: 56px;
-  height: 56px;
+  width: 500px;
+  height: 500px;
   border-radius: 50%;
   display: grid;
   place-items: center;
   cursor: pointer;
   line-height: 1;
+  padding-top: 40px;
   box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+
+
+.big_logo_dark{
+  background-color: #000000;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  padding-top: 40px;
+  line-height: 1;
+  box-shadow: rgba(255, 255, 255, 0.507) 0px 2px 4px 0px, rgba(226, 226, 226, 0.32) 0px 2px 16px 0px;
+}
+
+
+@media screen and (max-width : 500px) {
+  .big_logo{
+    width: 200px;
+    height: 200px;
+  }
+
+  .big_logo_dark{
+    width: 200px;
+    height: 200px;
+  }
 }

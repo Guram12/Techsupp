@@ -147,3 +147,14 @@
   font-size: 24px; /* Set the font size */
   color: #ffffff; /* Twitter's brand color, adjust as needed */
 }
+
+
+@media screen and (max-width : 500px) {
+  .media_ul .media_li {
+    position: relative;
+    list-style: none;
+    width: 40px;
+    height: 40px;
+    margin: 0px 20px;
+  }
+}

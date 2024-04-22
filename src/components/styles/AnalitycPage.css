@@ -66,4 +66,13 @@
     height: 150px;
   }
 
+  .sheet_paralax {
+    margin-top: 0px;
+    margin-bottom: 70px;
+  }
+
+.sheet_animation_cont{
+  margin-bottom: 0px;
+}
+
 }

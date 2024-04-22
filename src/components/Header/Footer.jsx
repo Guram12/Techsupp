@@ -28,10 +28,6 @@ function Footer({isDarkmodeOn}) {
 // }));
 
 
-useEffect(()=> {
-  console.log("darkmode from footer" , isDarkmodeOn)
-},[isDarkmodeOn])
-
   // Generating bubbles with unique styles
   const bubbles = Array.from({ length: 128 }).map((_, index) => ({
     size: `${2 + Math.random() * (!isMobileView ?   5 : 1 )}rem`,
