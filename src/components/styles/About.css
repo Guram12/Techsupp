@@ -21,7 +21,7 @@ canvas {
   }
 }
 
-.parallax > use {
+.parallax>use {
   animation: moveWave 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
   animation-delay: -2s;
   /* Adjust this value to change the animation's speed */
@@ -47,7 +47,7 @@ canvas {
 .about_text_child_container {
   width: 600px;
   height: 500px;
-  background-color: transparent;
+
   backdrop-filter: blur(15px);
   padding: 40px;
   border-radius: 10%;
@@ -65,11 +65,14 @@ canvas {
 .about_dark {
   box-shadow: rgba(255, 252, 252, 0.4) 0px 2px 4px,
     rgba(240, 237, 237, 0.3) 0px 7px 13px -3px;
+  background-color: #000000;
 }
 
 .about_light {
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
     rgba(0, 0, 0, 0.3) 0px 7px 13px -3px;
+  background-color: #ffffff;
+
 }
 
 .about_title {
@@ -200,10 +203,12 @@ canvas {
     text-align: center;
     gap: 10px;
   }
+
   .about_paragraph {
     font-size: 15px;
   }
-  .about_text_child_container {
-    /* padding: 10px; */
-  }
+
+  /* .about_text_child_container {
+    padding: 10px;
+  } */
 }
