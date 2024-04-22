@@ -3,6 +3,8 @@
   align-items: center;
   justify-content: center;
   gap: 150px;
+  overflow: hidden;
+  height: 450px;
 }
 
 
@@ -118,8 +120,8 @@
 
 @media screen and (max-width: 500px) {
   .media_card_container{
-    flex-wrap: wrap;
     flex-direction: column;
     gap: 50px;
+    height: 1400px;
   }
 }
