@@ -8,10 +8,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 100% !important;
   /* overflow-y: hidden; */
-  height: 100vh;
-  background-color: black;
+  height: 100vh !important;
+  /* background-color: black; */
+  overflow: hidden;
 }
 
 .splashscreen_video {
