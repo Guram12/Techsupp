@@ -1,14 +1,14 @@
 import "../styles/MainPage.css";
 import "../styles/card.css";
 import "../styles/Compas.css";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useContext, useRef } from "react";
 import CardAnimation from "../animations/CardAnimation";
-import CubeAnimation from "../animations/CubeAnimation";
+// import CubeAnimation from "../animations/CubeAnimation";
 import MainPage_Footer from "../Header/MainPage_Footer";
 import Compass from "../animations/Compass";
 import transition from "../Header/Transition";
 import { motion } from "framer-motion";
-
+import { CursorContext } from "../CursorContext/CursorContext";
 
 function mainPage({ showSplashScreen, isDarkmodeOn }) {
   const [angle, setAngle] = useState(0);
@@ -16,13 +16,13 @@ function mainPage({ showSplashScreen, isDarkmodeOn }) {
   const [key_1, setKey_1] = useState(false);
   const [key_2, setKey_2] = useState(true);
   const [key_3, setKey_3] = useState(1);
-
+  const { mouseEnterHandler, mouseLeaveHandler } = useContext(CursorContext);
 
   useEffect(() => {
-    setKey_1(!key_1 )
-    setKey_2(!key_2)
-    setKey_3(key_3 + 1 )
-  }, [isDarkmodeOn])
+    setKey_1(!key_1);
+    setKey_2(!key_2);
+    setKey_3(key_3 + 1);
+  }, [isDarkmodeOn]);
 
   // const [arrow_angle, setArrow_angle] = useState(0);
 
@@ -35,11 +35,9 @@ function mainPage({ showSplashScreen, isDarkmodeOn }) {
   //   setActiveTab(id);
   // };
 
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
 
   // initial={{ x: '100vw' }}
   // animate={{ x: 0, opacity: 1 }}
@@ -51,20 +49,30 @@ function mainPage({ showSplashScreen, isDarkmodeOn }) {
         <div className="slogan_container">
           <div className="sogan_child_container">
             <motion.div
-              initial={{ y: '-100vw' }}
+              initial={{ y: "-100vw" }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ type: 'spring', stiffness: 40 }}
+              transition={{ type: "spring", stiffness: 40 }}
               key={key_1}
             >
-              <p className={`slogan  ${!isDarkmodeOn ? "slogan_dark" : "slogan_light"} `} > თქვენი კომპასი ციფრულ ლაბირინთში</p>
-
+              <motion.p
+                onMouseEnter={mouseEnterHandler}
+                onMouseLeave={mouseLeaveHandler}
+                className={`slogan  ${
+                  !isDarkmodeOn ? "slogan_dark" : "slogan_light"
+                } `}
+              >
+                {" "}
+                თქვენი კომპასი ციფრულ ლაბირინთში
+              </motion.p>
             </motion.div>
           </div>
         </div>
         <motion.div
-          initial={{ x: '-100vw' }}
+          onMouseEnter={mouseEnterHandler}
+          onMouseLeave={mouseLeaveHandler}
+          initial={{ x: "-100vw" }}
           animate={{ x: 0, opacity: 1 }}
-          transition={{ type: 'spring', stiffness: 40 }}
+          transition={{ type: "spring", stiffness: 40 }}
           key={key_2}
         >
           <Compass
@@ -74,9 +82,9 @@ function mainPage({ showSplashScreen, isDarkmodeOn }) {
           />
         </motion.div>
         <motion.div
-          initial={{ x: '100vw' }}
+          initial={{ x: "100vw" }}
           animate={{ x: 0, opacity: 1 }}
-          transition={{ type: 'spring', stiffness: 40 }}
+          transition={{ type: "spring", stiffness: 40 }}
           key={key_3}
         >
           <CardAnimation
@@ -84,9 +92,7 @@ function mainPage({ showSplashScreen, isDarkmodeOn }) {
             handleTabClick={setActiveTab}
             isDarkmodeOn={isDarkmodeOn}
           />
-
         </motion.div>
-
       </div>
       <div className="mainpage_main_footer_container">
         <MainPage_Footer isDarkmodeOn={isDarkmodeOn} />

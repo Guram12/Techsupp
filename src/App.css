@@ -3,53 +3,25 @@
 * {
   font-family: "Nunito", sans-serif;
 }
-
 .splashscreen_container {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100% !important;
-  /* overflow-y: hidden; */
   height: 100vh !important;
-  /* background-color: black; */
   overflow: hidden;
 }
-
 .splashscreen_video {
   width: 100%;
   overflow-y: hidden;
 }
-
-/* Define a base class for the container */
 .main_container {
   padding: 0;
-  /* border: 2px solid red; */
-  /* Apply a transition to the background-color property */
   transition: background-color 0.5s ease;
-  /* Transition time can be adjusted */
-  /* height: 1100px; */
 }
-
 .main_container_white {
   background-color: white;
 }
-
 .main_container_black {
   background-color: rgb(0, 0, 0);
 }
-
-/* cursor styles */
-/* .cursor {
-  width: 32px;
-  height: 32px;
-  background-color: black;
-  top: 0;
-  left: 0;
-  position: fixed;
-  pointer-events: none;
-  z-index: 50;
-  border-radius: 50px;
-  background-color: rgb(14, 17, 18);
-  transform: translateX(886px) translateY(307px) translateZ(0px);
-  mix-blend-mode: normal;
-} */
