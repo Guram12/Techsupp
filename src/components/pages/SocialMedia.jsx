@@ -5,10 +5,9 @@ import Parallax from "../animations/Paralax";
 import React, { useRef, useEffect } from 'react';
 import ContinuousSlider from "../animations/TestSlider";
 import { motion } from 'framer-motion'; // Import Framer Motion
-
-
-
-
+import SocialMediaCards from "../animations/SocialMediaCards";
+import Footer from "../Header/Footer";
+import { useNavigate } from "react-router-dom";
 
 function SocialMedia({ handle_context_change, isDarkmodeOn }) {
 
@@ -16,6 +15,13 @@ function SocialMedia({ handle_context_change, isDarkmodeOn }) {
     window.scrollTo(0, 0);
   }, []);
 
+  const navigate = useNavigate(); // This hook is used to navigate programmatically
+
+
+  const handleButtonClick = (message) => {
+    handle_context_change(message);
+    navigate('/contact');
+  };
 
 
   return (
@@ -30,6 +36,10 @@ function SocialMedia({ handle_context_change, isDarkmodeOn }) {
             initial={{ x: '100vw' }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ type: 'spring', stiffness: 70 }}
+            style={{
+              color: `${isDarkmodeOn ? "black" : "white"}`,
+              boxShadow: `${isDarkmodeOn ? "rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset" : ""}`
+            }}
           >
             <p>
               ბიზნესის წარმატებისთვის თანამედროვე სამყაროში ერთერთი მნიშვნელოვანი რგოლი
@@ -59,7 +69,26 @@ function SocialMedia({ handle_context_change, isDarkmodeOn }) {
 
       <div className="example_post_images_container">
         <ContinuousSlider />
+      </div>
 
+      <div className="cards_title_container" >
+        <h1 style={{ color: `${isDarkmodeOn ? "black" : "white"}` }}  >პაკეტები</h1>
+      </div>
+
+      <div className="media_card_parent_container" >
+        <SocialMediaCards isDarkmodeOn={isDarkmodeOn} />
+      </div>
+
+      <div className="media_contact_button" >
+        <button
+          onClick={() => handleButtonClick('სოციალური მედიის მართვა')}
+          className={`${isDarkmodeOn ? "contact_us_button" : "contact_us_button_dark"}`}>
+          დაგვიკავშირდით
+        </button>
+      </div>
+
+      <div className="media_footer_container" >
+        <Footer isDarkmodeOn={isDarkmodeOn} />
       </div>
     </div>
   );

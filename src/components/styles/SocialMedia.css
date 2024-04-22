@@ -1,5 +1,4 @@
-
-.media_animation_and_text_cont{
+.media_animation_and_text_cont {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10,7 +9,7 @@
 }
 
 
-.media_animation_container{
+.media_animation_container {
   position: relative;
   height: 300px;
   width: 500px;
@@ -31,7 +30,7 @@
 } */
 
 
-.media_text_child_container{
+.media_text_child_container {
   width: 500px;
   height: 400px;
   text-align: start;
@@ -40,14 +39,14 @@
   gap: 10px;
   justify-content: center;
   align-items: center;
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
-  rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  box-shadow: rgba(104, 104, 104, 0.705) 0px 2px 4px, rgba(177, 177, 177, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
   border-radius: 20px;
   padding: 15px;
+  border: 1px solid grey;
 }
 
 
-.example_post_images_container{
+.example_post_images_container {
   width: 100%;
   height: 600px;
   background-image: url("../../assets/posts_background.webp");
@@ -62,28 +61,65 @@
   flex-direction: column;
   overflow: hidden;
   margin-top: 100px;
-  margin-bottom: 300px;
+  margin-bottom: 100px;
   min-height: 600px;
-position: relative;
+  position: relative;
 }
 
-.slick-slide img {
-  display: block; 
+.cards_title_container {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 60px;
 }
+
+
+.slick-slide img {
+  display: block;
+}
+
+
+.media_card_parent_container {
+  width: 100%;
+  height: 500px;
+  /* background-color: rgba(23, 23, 23, 255); */
+  margin-bottom: 30px;
+}
+
+
+.media_contact_button {
+  display: flex;
+  justify-content: center;
+}
+
+
+.media_footer_container {
+  margin-top: 190px;
+}
+
+
+
 
 
 @media screen and (max-width : 500px) {
-  .media_animation_and_text_cont{
+  .media_animation_and_text_cont {
     height: auto;
     gap: 30px;
     margin-bottom: 40px;
   }
-  .media_text_child_container{
+
+  .media_text_child_container {
     width: 300px;
     height: 450px;
     margin-bottom: 30px;
   }
-  .media_animation_container{
+
+  .media_animation_container {
     width: 100%;
+  }
+
+  .media_card_parent_container {
+    height: auto;
   }
 }
