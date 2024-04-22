@@ -4,7 +4,7 @@ import "../styles/Techsupp_logo.css";
 function AnimatedLogo({ isDarkmodeOn }) {
 
     return (
-        <svg style={{ width: "500px", height: "500px" }} className={ isDarkmodeOn ?  "big_logo"  :  "big_logo_dark"} data-bbox="0.03 9.97 389.62 238.56" viewBox="0 0 389.67 254.4" xmlns="http://www.w3.org/2000/svg" data-type="ugc">
+        <svg className={ isDarkmodeOn ?  "big_logo"  :  "big_logo_dark"} data-bbox="0.03 9.97 389.62 238.56" viewBox="0 0 389.67 254.4" xmlns="http://www.w3.org/2000/svg" data-type="ugc">
             <g>
                 <path className="path5" d="m.03 10.38 144-.37" fill="none" stroke={ isDarkmodeOn ?  "#000000" : "white"} strokeMiterlimit="10" strokeWidth="30" />
                 <path className="path4" d="M42.58 70.01h59" fill="none" stroke={ isDarkmodeOn ?  "#000000" : "white"} strokeMiterlimit="10" strokeWidth="30" />
