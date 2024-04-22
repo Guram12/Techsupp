@@ -95,12 +95,12 @@ export default function CardAnimation({ activeTab, handleTabClick, isDarkmodeOn 
             <li key={i} className="tabs-controls__item">
               <a
                 href="#!"
-                className={`tabs-controls__link ${activeTab === i + 1 ? "tabs-controls__link--active" : ""
-                  }`}
-                onClick={(e) => {
+                className={`tabs-controls__link ${activeTab === i + 1 ? "tabs-controls__link--active" : "" }`}
+                onClick={(e) => { 
                   e.preventDefault();
                   handleTabClick(i + 1);
                 }}
+                style={{color: `${!isDarkmodeOn? "white" : "black"}`}}
                 data-id={i + 1}
               >
                 {serviceName}

@@ -17,7 +17,7 @@ function SocialMedia({ handle_context_change, isDarkmodeOn }) {
   }, []);
 
 
-  
+
   return (
     <div style={{ paddingTop: "100px" }}>
       <div className="media_animation_and_text_cont">
@@ -25,21 +25,29 @@ function SocialMedia({ handle_context_change, isDarkmodeOn }) {
           <MediaAnimation />
         </div>
         <div>
-            <motion.div
-              className="media_text_child_container"
-              initial={{ x: '100vw' }}
-              animate={{ x: 0, opacity: 1 }}
-              transition={{ type: 'spring', stiffness: 70 }}
-            >
-              <p>LLorem Ipsum is simply dummy text of the printing and type
-                setting industry. Lorem Ipsum has been the industry's stand
-                ard dummy text ever since the 1500s, when an unknown printer
-                took a galley of type and scrambled it to make a type specim
-                f Letraset sheets containing Lorem Ipsum passages, and more rec
-                ently with desktop publishing software like Aldus PageMaker inc
-                luding versions of Lorem Ipsum.</p>
-            </motion.div>
-          </div>
+          <motion.div
+            className="media_text_child_container"
+            initial={{ x: '100vw' }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ type: 'spring', stiffness: 70 }}
+          >
+            <p>
+              ბიზნესის წარმატებისთვის თანამედროვე სამყაროში ერთერთი მნიშვნელოვანი რგოლი
+              არის სოციალური მედია-მარკეტინგი.
+            </p>
+
+            <p>
+              ჩვენი გუნდი გთავაზობთ
+              სოციალური მედიის (Facebook, Instagram, Linkedin) საშუალებით, გაზარდოთ
+              თქვენი ბრენდის ცნობადობა და მოახდინოთ სწორი კომუნიკაცია მიზნობრივ აუდიტორიასთან.
+            </p>
+            <p>
+              თქვენი და თქვენი კონკურენტების საქმიანობის ანალიზის საფუძველზე, ჩვენ დავსახავთ სტრატეგიულ გეგმებს ბიზნესის წარმატებისთვის.
+            </p>
+
+
+          </motion.div>
+        </div>
 
       </div>
       <div className="menu_paralax_container">
@@ -58,3 +66,41 @@ function SocialMedia({ handle_context_change, isDarkmodeOn }) {
 }
 
 export default transition(SocialMedia);
+
+
+
+// ===1)   silver  1000 ლარი
+// =>    
+// გვერდის შექმნა
+// გვერდის მონიტორინგი
+// 8 პოსტი
+// ქოფირაითინგი
+// დიზაინერის მომსახურება
+// ad management
+// რეპორტინგი
+
+// ===2)   gold  1300 ლარი 
+// =>
+// გვერდის შექმნა
+// გვერდის მონიტორინგი
+// 10 პოსტი
+// 10 სთორი
+// ქოფირაითინგი
+// დიზაინერის მომსახურება
+// ad management
+// რეპორტინგი
+
+
+
+// ===3)   platinium  1700 ლარი
+// =>
+// გვერდის შექმნა
+// გვერდის მონიტორინგი
+// 15 პოსტი
+// 20 სთორი
+// instagram highlight
+// ქოფირაითინგი
+// დიზაინერის მომსახურება
+// ad management
+// ბიუჯეტის გაწერა
+// რეპორტინგი

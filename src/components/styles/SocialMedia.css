@@ -6,6 +6,7 @@
   gap: 200px;
   flex-wrap: wrap;
   height: 500px;
+  overflow: hidden;
 }
 
 
@@ -31,16 +32,18 @@
 
 
 .media_text_child_container{
-  width: 400px;
+  width: 500px;
   height: 400px;
-  text-align: center;
+  text-align: start;
   display: flex;
+  flex-direction: column;
+  gap: 10px;
   justify-content: center;
   align-items: center;
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
   rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
   border-radius: 20px;
-  padding: 10px;
+  padding: 15px;
 }
 
 
@@ -77,6 +80,8 @@ position: relative;
   }
   .media_text_child_container{
     width: 300px;
+    height: 450px;
+    margin-bottom: 30px;
   }
   .media_animation_container{
     width: 100%;
