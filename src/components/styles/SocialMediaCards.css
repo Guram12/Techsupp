@@ -1,0 +1,125 @@
+.media_card_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 150px;
+}
+
+
+.media_card_title_silver {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #423e37;;
+}
+
+
+.media_price_container{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.media_price_silver{
+  background-color: #423e37;
+  color: aliceblue;
+  width: 120px;
+  text-align: center;
+  height: 30px;
+  align-content: center;
+  border-radius:  14px;
+}
+
+.media_price_gold{
+  background-color: rgba(168, 125, 5, 0.993);
+  color: aliceblue;
+  width: 120px;
+  text-align: center;
+  height: 30px;
+  align-content: center;
+  border-radius:  14px;
+}
+
+.media_price_platinium{
+  background-color: #20724b;
+  color: aliceblue;
+  width: 120px;
+  text-align: center;
+  height: 30px;
+  align-content: center;
+  border-radius:  14px;
+}
+
+
+.media_card_title_gold {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px;
+  color:  rgb(218, 160, 0);
+}
+
+.media_card_title_platinium{
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #20724b;
+}
+
+.media_lists {
+  margin-left: 30px;
+  margin-top: 10px;
+
+}
+
+.silver_card {
+  width: 250px;
+  height: 400px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 20px;
+  border: 1px solid grey;
+  box-shadow: 0 14px 8px rgba(128, 128, 128, 0.5);
+  /* Grey shadow */
+  padding: 7px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+
+
+.gold_card {
+  width: 250px;
+  height: 400px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 20px;
+  border: 1px solid rgb(218, 160, 0);
+  box-shadow: 0 14px 8px rgba(233, 165, 19, 0.5);
+  /* Grey shadow */
+  padding: 7px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.platinium_catd {
+  width: 250px;
+  height: 400px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 20px;
+  border: 1px solid#20724b;
+  box-shadow: 0 14px 8px rgba(21, 197, 188, 0.5);
+  /* Grey shadow */
+  padding: 7px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+
+@media screen and (max-width: 500px) {
+  .media_card_container{
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 50px;
+  }
+}
