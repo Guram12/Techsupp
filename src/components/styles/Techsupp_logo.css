@@ -57,3 +57,16 @@
   line-height: 1;
   box-shadow: rgba(255, 255, 255, 0.507) 0px 2px 4px 0px, rgba(226, 226, 226, 0.32) 0px 2px 16px 0px;
 }
+
+
+@media screen and (max-width : 500px) {
+  .big_logo{
+    width: 200px;
+    height: 200px;
+  }
+
+  .big_logo_dark{
+    width: 200px;
+    height: 200px;
+  }
+}

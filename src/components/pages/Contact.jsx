@@ -109,7 +109,7 @@ function Contact({ contactMessage, isDarkmodeOn }) {
                 required
                 name="description"
                 id='description' />
-              <label htmlFor="description" className={isDarkmodeOn ? "form__label" : "form__label_dark"}>ინფორმაცია სერვისის შესახებ</label>
+              <label htmlFor="description" className={isDarkmodeOn ? "form__label" : "form__label_dark"}>სერვისი</label>
             </div>
 
             <div className="form__group field">
@@ -176,10 +176,10 @@ function Contact({ contactMessage, isDarkmodeOn }) {
       </div>
 
       <div className="contact_booter_element" >
-        <p style={{ color: "grey", marginTop: "20px" }} >Powered by TechSupp </p>
+        <p className="powered_techsupp"  >Powered by TechSupp </p>
 
         <div className="social_links" >
-          <a href="https://www.facebook.com/techsuppofficial" target="_blank" rel="noopener noreferrer">
+          <a href="https://ge.linkedin.com/in/tech-supp-0864812b9" target="_blank" rel="noopener noreferrer">
             <button className="Btn_fb">
               <span className="svgContainer_fb">
                 <svg
