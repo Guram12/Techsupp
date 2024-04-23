@@ -25,10 +25,6 @@ function SocialMedia({ handle_context_change, isDarkmodeOn, tweenRef }) {
   };
 
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 50a70ea6206b2671bb58d3d4cd877e6a3a0b28cf
   return (
     <div style={{ paddingTop: "100px" }}>
       <div className="media_animation_and_text_cont">
