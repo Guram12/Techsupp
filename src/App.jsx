@@ -175,6 +175,7 @@ function App() {
                     <MainPage
                       showSplashScreen={showSplashScreen}
                       isDarkmodeOn={isDarkmodeOn}
+                      tweenRef={tweenRef}
                     />
                   }
                 />

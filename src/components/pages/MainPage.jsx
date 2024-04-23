@@ -10,7 +10,7 @@ import transition from "../Header/Transition";
 import { motion } from "framer-motion";
 
 
-function mainPage({ showSplashScreen, isDarkmodeOn }) {
+function mainPage({ showSplashScreen, isDarkmodeOn, tweenRef }) {
   const [angle, setAngle] = useState(0);
   const [activeTab, setActiveTab] = useState(1);
   const [key_1, setKey_1] = useState(false);
@@ -19,9 +19,9 @@ function mainPage({ showSplashScreen, isDarkmodeOn }) {
 
 
   useEffect(() => {
-    setKey_1(!key_1 )
+    setKey_1(!key_1)
     setKey_2(!key_2)
-    setKey_3(key_3 + 1 )
+    setKey_3(key_3 + 1)
   }, [isDarkmodeOn])
 
   // const [arrow_angle, setArrow_angle] = useState(0);
@@ -56,7 +56,10 @@ function mainPage({ showSplashScreen, isDarkmodeOn }) {
               transition={{ type: 'spring', stiffness: 40 }}
               key={key_1}
             >
-              <p className={`slogan  ${!isDarkmodeOn ? "slogan_dark" : "slogan_light"} `} > თქვენი კომპასი ციფრულ ლაბირინთში</p>
+              <p
+                onMouseEnter={() => tweenRef.current.play()}
+                onMouseLeave={() => tweenRef.current.reverse()}
+                className={`slogan  ${!isDarkmodeOn ? "slogan_dark" : "slogan_light"} `} > თქვენი კომპასი ციფრულ ლაბირინთში</p>
 
             </motion.div>
           </div>
@@ -71,6 +74,7 @@ function mainPage({ showSplashScreen, isDarkmodeOn }) {
             angle={angle}
             rotateTo={rotateTo}
             isDarkmodeOn={isDarkmodeOn}
+            tweenRef={tweenRef}
           />
         </motion.div>
         <motion.div
@@ -83,6 +87,7 @@ function mainPage({ showSplashScreen, isDarkmodeOn }) {
             activeTab={activeTab}
             handleTabClick={setActiveTab}
             isDarkmodeOn={isDarkmodeOn}
+            tweenRef={tweenRef}
           />
 
         </motion.div>

@@ -10,7 +10,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 
-function MenuPage({ isDarkmodeOn, handle_context_change }) {
+function MenuPage({ isDarkmodeOn, handle_context_change ,  }) {
 
   const animate = { x: 0 };
 
