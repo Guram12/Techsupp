@@ -197,6 +197,8 @@ function App() {
                     <ItPage
                       isDarkmodeOn={isDarkmodeOn}
                       handle_context_change={handle_context_change}
+                      tweenRef={tweenRef}
+
                     />
                   }
                 />

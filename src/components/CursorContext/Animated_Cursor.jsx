@@ -2,7 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import "../styles/Animated_Cursor.css";
 import { gsap } from 'gsap'; // Make sure GSAP is installed and imported
 
-function Animated_Cursor({children , canvasRef , tweenRef}) {
+function Animated_Cursor({ children, canvasRef, tweenRef }) {
   // const canvasRef = useRef(null);
   // const tweenRef = useRef(null);
 
@@ -24,11 +24,19 @@ function Animated_Cursor({children , canvasRef , tweenRef}) {
     const onResize = () => {
       width = canvas.width = window.innerWidth;
       height = canvas.height = window.innerHeight;
-    };
+  };
+  
 
     const lerp = (a, b, n) => {
       return (1 - n) * a + n * b;
     };
+
+    const handleMouseMove = (e) => {
+      mouseX = e.clientX;  // relative to the viewport
+      mouseY = e.clientY;  // relative to the viewport
+  };
+  
+
 
     const render = () => {
       circle.lastX = lerp(circle.lastX, mouseX, 0.25);
@@ -44,10 +52,7 @@ function Animated_Cursor({children , canvasRef , tweenRef}) {
       requestAnimationFrame(render);
     };
 
-    window.addEventListener('mousemove', (e) => {
-      mouseX = e.pageX;
-      mouseY = e.pageY;
-    });
+    window.addEventListener('mousemove', handleMouseMove);
 
     window.addEventListener('resize', onResize);
 
@@ -56,9 +61,9 @@ function Animated_Cursor({children , canvasRef , tweenRef}) {
     requestAnimationFrame(render);
 
     return () => {
-      window.removeEventListener('mousemove', onMouseMove);
+      window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('resize', onResize);
-    };
+  };
   }, []);
 
   return (
@@ -71,7 +76,7 @@ function Animated_Cursor({children , canvasRef , tweenRef}) {
       <div className="white" />
       <div className="black" />
       {children}
-      <canvas ref={canvasRef} className="js-canvas"  style={{zIndex: "9999999999999999999999999"}} />
+      <canvas ref={canvasRef} className="js-canvas" style={{ zIndex: "9999999999999999999999999" }} />
     </>
   );
 }

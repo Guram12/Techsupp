@@ -11,7 +11,7 @@ import {
 } from "framer-motion";
 import { wrap } from "@motionone/utils";
 
-export default function Parallax({ isDarkmodeOn ,children, baseVelocity = 100 }) {
+export default function Parallax({ isDarkmodeOn, children, tweenRef, baseVelocity = 100 }) {
 
   const baseX = useMotionValue(0);
   const { scrollY } = useScroll();
@@ -41,15 +41,18 @@ export default function Parallax({ isDarkmodeOn ,children, baseVelocity = 100 })
     baseX.set(baseX.get() + moveBy);
   });
   return (
-    <div className="parallax">
+    <div className="parallax"
+      onMouseEnter={() => tweenRef.current.play()}
+      onMouseLeave={() => tweenRef.current.reverse()}
+    >
       <motion.div className="scroller" style={{ x }}>
-        <span className={isDarkmodeOn ? "" :"night_mode_span" } >{children} </span>
-        <span className={isDarkmodeOn ? "" :"night_mode_span" }>{children} </span>
-        <span className={isDarkmodeOn ? "" :"night_mode_span" }>{children} </span>
-        <span className={isDarkmodeOn ? "" :"night_mode_span" }>{children} </span>
-        <span className={isDarkmodeOn ? "" :"night_mode_span" }>{children} </span>
-        <span className={isDarkmodeOn ? "" :"night_mode_span" }>{children} </span>
+        <span className={isDarkmodeOn ? "" : "night_mode_span"} >{children} </span>
+        <span className={isDarkmodeOn ? "" : "night_mode_span"}>{children} </span>
+        <span className={isDarkmodeOn ? "" : "night_mode_span"}>{children} </span>
+        <span className={isDarkmodeOn ? "" : "night_mode_span"}>{children} </span>
+        <span className={isDarkmodeOn ? "" : "night_mode_span"}>{children} </span>
+        <span className={isDarkmodeOn ? "" : "night_mode_span"}>{children} </span>
       </motion.div>
     </div>
   );
-  }
+}

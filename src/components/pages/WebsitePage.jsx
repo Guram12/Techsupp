@@ -39,7 +39,7 @@ function WebsitePage({
   return (
     <div style={{ paddingTop: "50px" }} >
       <div className='website_page_title' >
-        <Website_card_animation isDarkmodeOn={isDarkmodeOn} />
+        <Website_card_animation isDarkmodeOn={isDarkmodeOn} tweenRef={tweenRef} />
       </div>
       <div className="webservice_about_container"  >
         <motion.div

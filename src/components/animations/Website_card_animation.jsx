@@ -8,7 +8,7 @@ import rownd_arrow_white from "../../assets/recycle_white.png"
 
 
 
-export default function Website_card_animation({ isDarkmodeOn }) {
+export default function Website_card_animation({ isDarkmodeOn, tweenRef }) {
   const textRef = useRef(null);
 
   const decodeText = () => {
@@ -84,7 +84,10 @@ export default function Website_card_animation({ isDarkmodeOn }) {
 
 
   return (
-    <div className="all_svg_cont">
+    <div className="all_svg_cont"
+      onMouseEnter={() => tweenRef.current.play()}
+      onMouseLeave={() => tweenRef.current.reverse()}
+    >
       <div className="decode-text" ref={textRef}>
         <div className={`text-animation  ${isDarkmodeOn ? "animation_light_mode" : "animation_dark_mode"}`}>ა</div>
         <div className={`text-animation  ${isDarkmodeOn ? "animation_light_mode" : "animation_dark_mode"}`}>ი</div>
@@ -108,6 +111,7 @@ export default function Website_card_animation({ isDarkmodeOn }) {
         <div className={`text-animation  ${isDarkmodeOn ? "animation_light_mode" : "animation_dark_mode"}`}>ტ</div>
         <div className={`text-animation  ${isDarkmodeOn ? "animation_light_mode" : "animation_dark_mode"}`}>ი</div>
       </div>
+      
       <button className={`refresh ${isDarkmodeOn ? "refresh_dark_mode" : "refresh_light_mode"} `} onClick={decodeText}>
         <img src={isDarkmodeOn ? rownd_arrow_black : rownd_arrow_white} alt="refresh arrow icon" className="refresh_icon_arrow" />
       </button>
