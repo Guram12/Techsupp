@@ -1,12 +1,14 @@
 import React, { useRef, useEffect } from 'react';
 import "../styles/Animated_Cursor.css";
-import { gsap } from 'gsap'; // Make sure GSAP is installed and imported
+import { gsap } from 'gsap';
 
 function Animated_Cursor({ children, canvasRef, tweenRef }) {
-  // const canvasRef = useRef(null);
-  // const tweenRef = useRef(null);
-
   useEffect(() => {
+    // Check if the device width is greater than 500 pixels
+    if (window.innerWidth <= 500) {
+      return;  // Do nothing if width is less than or equal to 500px
+    }
+
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
     let width = canvas.width = window.innerWidth;
@@ -22,21 +24,23 @@ function Animated_Cursor({ children, canvasRef, tweenRef }) {
     };
 
     const onResize = () => {
+      if (window.innerWidth <= 500) {
+        // Optionally clear the canvas if the window is resized to a small size
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        return;
+      }
       width = canvas.width = window.innerWidth;
       height = canvas.height = window.innerHeight;
-  };
-  
+    };
 
     const lerp = (a, b, n) => {
       return (1 - n) * a + n * b;
     };
 
     const handleMouseMove = (e) => {
-      mouseX = e.clientX;  // relative to the viewport
-      mouseY = e.clientY;  // relative to the viewport
-  };
-  
-
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    };
 
     const render = () => {
       circle.lastX = lerp(circle.lastX, mouseX, 0.25);
@@ -53,7 +57,6 @@ function Animated_Cursor({ children, canvasRef, tweenRef }) {
     };
 
     window.addEventListener('mousemove', handleMouseMove);
-
     window.addEventListener('resize', onResize);
 
     tweenRef.current = gsap.to(circle, { duration: 0.25, radius: circle.radius * 3, ease: "power1.inOut", paused: true });
@@ -63,7 +66,7 @@ function Animated_Cursor({ children, canvasRef, tweenRef }) {
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('resize', onResize);
-  };
+    };
   }, []);
 
   return (

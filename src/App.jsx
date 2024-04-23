@@ -153,11 +153,11 @@ function App() {
               <Routes location={secondlocation} key={secondlocation.pathname}>
                 <Route
                   path="/*"
-                  element={<MainPage isDarkmodeOn={isDarkmodeOn} />}
+                  element={<MainPage isDarkmodeOn={isDarkmodeOn}  tweenRef={tweenRef} />}
                 />
                 <Route
                   path="about/"
-                  element={<About isDarkmodeOn={isDarkmodeOn} />}
+                  element={<About isDarkmodeOn={isDarkmodeOn}  tweenRef={tweenRef} />}
                 />
                 <Route
                   path="contact/"
@@ -165,6 +165,7 @@ function App() {
                     <Contact
                       isDarkmodeOn={isDarkmodeOn}
                       contactMessage={contactMessage}
+                      tweenRef={tweenRef}
                     />
                   }
                 />
@@ -187,7 +188,6 @@ function App() {
                       isDarkmodeOn={isDarkmodeOn}
                       handle_context_change={handle_context_change}
                       tweenRef={tweenRef}
-                      canvasRef={canvasRef} 
                     />
                   }
                 />
@@ -208,6 +208,7 @@ function App() {
                     <MenuPage
                       isDarkmodeOn={isDarkmodeOn}
                       handle_context_change={handle_context_change}
+                      tweenRef={tweenRef}
                     />
                   }
                 />
@@ -217,6 +218,7 @@ function App() {
                     <BrendingPage
                       handle_context_change={handle_context_change}
                       isDarkmodeOn={isDarkmodeOn}
+                      tweenRef={tweenRef}
                     />
                   }
                 />
@@ -226,6 +228,7 @@ function App() {
                     <AnimationPage
                       handle_context_change={handle_context_change}
                       isDarkmodeOn={isDarkmodeOn}
+                      tweenRef={tweenRef}
                     />
                   }
                 />
@@ -235,6 +238,7 @@ function App() {
                     <AnaliticPage
                       handle_context_change={handle_context_change}
                       isDarkmodeOn={isDarkmodeOn}
+                      tweenRef={tweenRef}
                     />
                   }
                 />
@@ -244,6 +248,7 @@ function App() {
                     <SocialMedia
                       handle_context_change={handle_context_change}
                       isDarkmodeOn={isDarkmodeOn}
+                      tweenRef={tweenRef}
                     />
                   }
                 />

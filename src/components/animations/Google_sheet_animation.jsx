@@ -8,17 +8,18 @@ import image_1 from "../../assets/sheet_1.png";
 
 
 
-export default function GoogleSheetAnimation({ isDarkmodeOn }) {
+export default function GoogleSheetAnimation({ isDarkmodeOn , tweenRef}) {
 
   return (
-    <div className="sheet_container">
+    <div className="sheet_container"  >
       <motion.div
         key={isDarkmodeOn}
         className="card_sheet"
         initial={{ x: '100vw' }}
         animate={{ x: 0 }}
         transition={{ type: 'spring', stiffness: 70 }}
-
+        onMouseEnter={() => tweenRef.current.play()}
+        onMouseLeave={() => tweenRef.current.reverse()}
       >
         <img src={sheet_image} alt="sheet image" className={`sheet_image ${isDarkmodeOn ? "shadow_light" : "shadow_dark"}`} />
       </motion.div>
@@ -33,6 +34,8 @@ export default function GoogleSheetAnimation({ isDarkmodeOn }) {
           stiffness: 70,
           delay: 0.5  // Delay of half a second before the logo starts animating
         }}
+        onMouseEnter={() => tweenRef.current.play()}
+        onMouseLeave={() => tweenRef.current.reverse()}
       />
     </div>
   );
