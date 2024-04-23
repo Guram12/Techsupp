@@ -13,7 +13,9 @@ import transition from '../Header/Transition';
 function WebsitePage({
   isDarkmodeOn,
   handle_context_change,
+  tweenRef,
 }) {
+
   const control_card_selection = useAnimation();
   const { ref, inView } = useInView({
     triggerOnce: true,
@@ -23,7 +25,7 @@ function WebsitePage({
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  
+
   useEffect(() => {
     if (inView) {
       control_card_selection.start({
@@ -45,7 +47,8 @@ function WebsitePage({
           animate={{ x: 0, opacity: 1 }}
           transition={{ type: 'spring', stiffness: 70 }}
         >
-          <div className="webservice_child_cont">
+          <div className="webservice_child_cont"
+          >
             <h1 className="webservice_header" > საიტის დამზადება</h1>
             <p className="webservice_header">
               ჩვენი გუნდი დაგეხმარებათ, დაამზადოთ სასურველი ვებსაიტი, უმოკლეს დროში.
@@ -56,6 +59,7 @@ function WebsitePage({
             </p>
           </div>
         </motion.div>
+
         <motion.img
           alt="website logo"
           src={web_icon}
@@ -79,7 +83,7 @@ function WebsitePage({
       <div className='card_wb_container' >
         <div className={`child_website_allcards_title 
          ${isDarkmodeOn ? "child_website_allcards_paragraph_dark" : "child_website_allcards_paragraph_white"}`}
-         ref={ref}
+          ref={ref}
         >
           <motion.p className='child_website_allcards_paragraph'
             initial={{ y: '100vh' }}

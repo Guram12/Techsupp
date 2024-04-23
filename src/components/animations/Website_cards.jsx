@@ -7,7 +7,7 @@ import logo_level_2 from "../../assets/logo_lvl_2.png"
 import logo_level_3 from "../../assets/logo_lvl_3.png"
 import { useNavigate } from "react-router-dom";
 
-export default function Website_cards({ isDarkmodeOn, handle_context_change }) {
+function Website_cards({ isDarkmodeOn, handle_context_change }) {
   const [activeCard, setActiveCard] = useState(0);
   const [toggle_card_header, setToggle_card_header] = useState(true);
   const [toggle_left_down_card, setToggle_left_down_card] = useState(true);
@@ -193,8 +193,11 @@ export default function Website_cards({ isDarkmodeOn, handle_context_change }) {
 
 
 
+export default Website_cards;
 
-
+// export default React.memo(Website_cards, (prevProps, nextProps) => {
+//   return prevProps.isDarkmodeOn === nextProps.isDarkmodeOn;
+// });
 
 
 

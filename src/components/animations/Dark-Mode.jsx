@@ -6,11 +6,15 @@ import "../styles/DarkMode.css";
 export default function DarkMode({
   isDarkmodeOn,
   handle_darkmode_change,
+  tweenRef,
 }) {
 
   
   return (
-    <div className="cont_dark_mode">
+    <div className="cont_dark_mode"
+    onMouseEnter={() => tweenRef.current.play()}
+    onMouseLeave={() => tweenRef.current.reverse()}
+    >
       <label className={`toggle ${isDarkmodeOn ? "toggle_white" : "toggle_black"   }`} htmlFor="switch">
         <input id="switch"
           className="input"
