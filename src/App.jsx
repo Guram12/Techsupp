@@ -20,7 +20,49 @@ import SocialMedia from "./components/pages/SocialMedia.jsx";
 import Animated_Cursor from "./components/CursorContext/Animated_Cursor.jsx";
 
 
+
+
+
+
+const gTagId = import.meta.env.VITE_G_TAG_ID;
+
+
+
+const safeGtagCall = (action, ...params) => {
+  if (typeof window.gtag === 'function') {
+    window.gtag(action, ...params);
+  } else {
+    console.warn('gtag not initialized');
+    // Optionally, you could queue these calls to be made once gtag is initialized
+  }
+};
+
+const usePageTracking = () => {
+  const location = useLocation();
+  useEffect(() => {
+    const pagePath = location.pathname + location.search;
+    safeGtagCall("config", gTagId, {
+      page_path: pagePath,
+    });
+  }, [location]);
+};
+
+// function trackButtonClick(buttonName) {
+//   safeGtagCall("event", "click", {
+//     event_category: "Header",
+//     event_label: buttonName,
+//   });
+// }
+
+
+
+
+
+
+
 function App() {
+    usePageTracking();
+
   const [showSplashScreen, setShowSplashScreen] = useState(true);
   const [isSoundOff, setIsSoundOff] = useState(false);
   const [isDarkmodeOn, setIsDarkmodeOn] = useState(true);
@@ -258,7 +300,7 @@ function App() {
           </div>
         </div>
         <div className="facebook_container">
-          <FacebookMSG /> 
+          {/* <FacebookMSG />  */}
         </div>
       </Animated_Cursor>
     </div>
