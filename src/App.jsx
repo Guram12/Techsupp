@@ -20,7 +20,43 @@ import SocialMedia from "./components/pages/SocialMedia.jsx";
 import Animated_Cursor from "./components/CursorContext/Animated_Cursor.jsx";
 
 
+
+
+
+
+const gTagId = import.meta.env.VITE_G_TAG_ID;
+
+
+
+const safeGtagCall = (action, ...params) => {
+  if (typeof window.gtag === 'function') {
+    window.gtag(action, ...params);
+  } else {
+    console.warn('gtag not initialized');
+    // Optionally, you could queue these calls to be made once gtag is initialized
+  }
+};
+
+const usePageTracking = () => {
+  const location = useLocation();
+  useEffect(() => {
+    const pagePath = location.pathname + location.search;
+    safeGtagCall("config", gTagId, {
+      page_path: pagePath,
+    });
+  }, [location]);
+};
+
+
+
+
+
+
+
+
 function App() {
+    usePageTracking();
+
   const [showSplashScreen, setShowSplashScreen] = useState(true);
   const [isSoundOff, setIsSoundOff] = useState(false);
   const [isDarkmodeOn, setIsDarkmodeOn] = useState(true);
@@ -146,7 +182,7 @@ function App() {
               />
             </>
           )}
-          <audio ref={audioRef} src={background_audio_second} loop  />
+          <audio ref={audioRef} src={background_audio_second} loop   />
           <div onClick={close_menu_on_outside_click}>
             <AnimatePresence mode="wait">
 

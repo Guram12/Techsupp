@@ -8,6 +8,12 @@ import Footer from "../Header/Footer";
 import transition from "../Header/Transition";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import qr_menu_1 from "../../assets/qr_menu_1.webp"
+import qr_menu_2 from "../../assets/qr_menu_2.webp"
+import qr_menu_3 from "../../assets/qr_menu_3.webp"
+import qr_menu_4 from "../../assets/qr_menu_4.webp"
+
+
 
 
 function MenuPage({ isDarkmodeOn, handle_context_change, tweenRef }) {
@@ -46,7 +52,30 @@ function MenuPage({ isDarkmodeOn, handle_context_change, tweenRef }) {
 
   return (
     <div>
-      <QRcodeAnimation tweenRef={tweenRef} />
+          <QRcodeAnimation tweenRef={tweenRef} isDarkmodeOn={isDarkmodeOn} />
+      <div className="manu_images_container_down" >
+        <motion.img
+          initial={{ x: '-100vw' }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ type: 'spring', stiffness: 40 }}
+          src={qr_menu_1} alt="qr menu image" className="qr_image" />
+        <motion.img
+          initial={{ x: '-100vw' }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ type: 'spring', stiffness: 40 }}
+          src={qr_menu_2} alt="qr menu image" className="qr_image" />
+        <motion.img
+          initial={{ x: '100vw' }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ type: 'spring', stiffness: 40 }}
+          src={qr_menu_3} alt="qr menu image" className="qr_image" />
+        <motion.img
+          initial={{ x: '100vw' }}
+          animate={{ x: 0, opacity: 1 }}
+          transition={{ type: 'spring', stiffness: 40 }}
+          src={qr_menu_4} alt="qr menu image" className="qr_image" />
+
+      </div>
       <div style={{ marginTop: "50px", marginBottom: "50px" }} >
         <section>
           <Parallax isDarkmodeOn={isDarkmodeOn} baseVelocity={-5} tweenRef={tweenRef} >website creation</Parallax>
@@ -60,6 +89,7 @@ function MenuPage({ isDarkmodeOn, handle_context_change, tweenRef }) {
           initial={{ x: '100vw' }}
           animate={controls}
           transition={{ type: 'spring', stiffness: 70 }}
+          style={{background: `${!isDarkmodeOn?  "black" : "white"}`, color: `${isDarkmodeOn?  "black" : "white"}`}}
         >
           <p
             onMouseEnter={() => tweenRef.current.play()}
