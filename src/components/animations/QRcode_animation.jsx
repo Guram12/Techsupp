@@ -1,25 +1,23 @@
 import React, { useState } from 'react';
 import '../styles/QRcode_animation.css';
 
-export default function QRcodeAnimation({tweenRef}) {
-  // State to handle hover effect
-  const [isHovered, setIsHovered] = useState(false);
+import qr_techsupp_black from "../../assets/TechSupp_qr_black.svg"
 
-  // Toggle function to add or remove hover class
-  const toggleHover = () => {
-    setIsHovered(!isHovered);
-  };
+export default function QRcodeAnimation({tweenRef  , isDarkmodeOn}) {
+
+
+
+
 
   return (
     <div className='qr_parent_container'
       onMouseEnter={() => tweenRef.current.play()}
       onMouseLeave={() => tweenRef.current.reverse()}
-    >
-      <div id="qrcode-container"
-        onMouseEnter={toggleHover}
-        onMouseLeave={toggleHover}>
-        <div id="qrcode" className={isHovered ? '' : 'hover'}></div>
-      </div>
+    > 
+    <div className={isDarkmodeOn? 'qr_techsupp_cont' : "qr_techsupp_cont_dark"} >
+      <img src={ qr_techsupp_black}  alt="techsupp qr code"  className='techsupp_qr_code' />
+
+    </div>
     </div>
   );
 }
