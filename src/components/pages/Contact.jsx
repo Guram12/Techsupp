@@ -4,6 +4,7 @@ import transition from "../Header/Transition";
 import AnimatedLogo from "../animations/Techsupp_logo";
 import { color } from "framer-motion";
 
+
 function Contact({ contactMessage, isDarkmodeOn, tweenRef }) {
   const [inputValue, setInputValue] = useState(contactMessage);
   const [name, setName] = useState('');

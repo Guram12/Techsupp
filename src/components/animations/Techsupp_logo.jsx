@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import "../styles/Techsupp_logo.css";
 
+
 function AnimatedLogo({ isDarkmodeOn, tweenRef }) {
 
     return (

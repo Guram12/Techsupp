@@ -9,6 +9,7 @@ import SocialMediaCards from "../animations/SocialMediaCards";
 import Footer from "../Header/Footer";
 import { useNavigate } from "react-router-dom";
 
+
 function SocialMedia({ handle_context_change, isDarkmodeOn, tweenRef }) {
 
   useEffect(() => {
@@ -16,6 +17,12 @@ function SocialMedia({ handle_context_change, isDarkmodeOn, tweenRef }) {
   }, []);
 
   const navigate = useNavigate(); // This hook is used to navigate programmatically
+
+
+  const handleButtonClick = (message) => {
+    handle_context_change(message);
+    navigate('/contact');
+  };
 
 
   const handleButtonClick = (message) => {
@@ -63,7 +70,6 @@ function SocialMedia({ handle_context_change, isDarkmodeOn, tweenRef }) {
             >
               თქვენი და თქვენი კონკურენტების საქმიანობის ანალიზის საფუძველზე, ჩვენ დავსახავთ სტრატეგიულ გეგმებს ბიზნესის წარმატებისთვის.
             </p>
-
 
           </motion.div>
         </div>

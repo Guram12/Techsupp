@@ -3,7 +3,9 @@ import { motion, useAnimation } from "framer-motion"
 import { useEffect } from "react";
 import { useInView } from 'react-intersection-observer';
 
+
 function SocialMediaCards({ isDarkmodeOn, tweenRef }) {
+
 
   const initial = { x: '100vw' };
   const animate = { x: 0 };
@@ -69,8 +71,6 @@ function SocialMediaCards({ isDarkmodeOn, tweenRef }) {
           </div>
         </div>
       </motion.div>
-
-
       {/* 2 motion div  */}
       <motion.div
         initial={initial}

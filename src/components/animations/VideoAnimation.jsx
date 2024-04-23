@@ -5,6 +5,7 @@ import night_basement from "../../assets/Motion_media_files/night_basement.webm"
 import techsupp_name_video from "../../assets/Motion_media_files/techsupp_name_video.mp4"
 import bottle_animated_video from "../../assets/Motion_media_files/bottle_animated_video.mp4"
 
+
 export default function VideoAnimation({ isDarkmodeOn, tweenRef }) {
   const [isChecked1, setIsChecked1] = useState(false);
   const [isChecked2, setIsChecked2] = useState(false);
@@ -77,6 +78,7 @@ export default function VideoAnimation({ isDarkmodeOn, tweenRef }) {
   };
 
 
+
   useEffect(() => {
     console.log("from videoanimation ---", isDarkmodeOn)
   }, [isDarkmodeOn])
@@ -87,6 +89,7 @@ export default function VideoAnimation({ isDarkmodeOn, tweenRef }) {
         <div >
           {/* 1 video animation  */}
           {!isChecked2 && !isChecked3 && !isChecked4 && (
+
             <div
               onMouseEnter={() => tweenRef.current.play()}
               onMouseLeave={() => tweenRef.current.reverse()}
@@ -97,6 +100,7 @@ export default function VideoAnimation({ isDarkmodeOn, tweenRef }) {
               </div>
               <div className="text" style={{ color: "red" }} >
                 <span onClick={handle_wrapper_click} className={isDarkmodeOn ? "spannnn" : "spannnn_dark"} data-text="Night basement"></span>
+
               </div>
             </div>
           )}
@@ -113,6 +117,7 @@ export default function VideoAnimation({ isDarkmodeOn, tweenRef }) {
               </div>
               <div className="text">
                 <span onClick={handle_wrapper_click} className={isDarkmodeOn ? "spannnn" : "spannnn_dark"} data-text="Techsupp animation"></span>
+
               </div>
             </div>
           )}

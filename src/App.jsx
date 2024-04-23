@@ -125,9 +125,9 @@ function App() {
 
 
   return (
+
     <div>
       <Animated_Cursor canvasRef={canvasRef} tweenRef={tweenRef}  >
-
         <div
           className={`main_container ${isDarkmodeOn ? "main_container_white" : "main_container_black"
             }`}

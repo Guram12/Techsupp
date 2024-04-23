@@ -95,6 +95,7 @@ export default function CardAnimation({ activeTab, handleTabClick, isDarkmodeOn,
             <li key={i} className="tabs-controls__item">
               <a
                 href="#!"
+
                 className={`tabs-controls__link ${activeTab === i + 1 ? "tabs-controls__link--active" : ""}`}
                 onClick={(e) => {
                   e.preventDefault();

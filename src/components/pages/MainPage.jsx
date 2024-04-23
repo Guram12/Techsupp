@@ -10,6 +10,8 @@ import transition from "../Header/Transition";
 import { motion } from "framer-motion";
 
 
+
+
 function mainPage({ showSplashScreen, isDarkmodeOn, tweenRef }) {
   const [angle, setAngle] = useState(0);
   const [activeTab, setActiveTab] = useState(1);
