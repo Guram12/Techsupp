@@ -7,7 +7,7 @@ import logo_level_2 from "../../assets/logo_lvl_2.png"
 import logo_level_3 from "../../assets/logo_lvl_3.png"
 import { useNavigate } from "react-router-dom";
 
-function Website_cards({ isDarkmodeOn, handle_context_change }) {
+function Website_cards({ isDarkmodeOn, handle_context_change, tweenRef }) {
   const [activeCard, setActiveCard] = useState(0);
   const [toggle_card_header, setToggle_card_header] = useState(true);
   const [toggle_left_down_card, setToggle_left_down_card] = useState(true);
@@ -66,9 +66,17 @@ function Website_cards({ isDarkmodeOn, handle_context_change }) {
   const Card = ({ title, copy, button, index }) => (
     <div className="card_wb">
       <div className="content_wb">
-        <h2 className="title_wb">{title}</h2>
-
-        <button className="btn_wb" onClick={() => handle_card_button_click(index)} >{button}</button>
+        <h2
+          className="title_wb"
+          onMouseEnter={() => tweenRef.current.play()}
+          onMouseLeave={() => tweenRef.current.reverse()}
+        >{title}</h2>
+        <button
+          className="btn_wb"
+          onClick={() => handle_card_button_click(index)}
+          onMouseEnter={() => tweenRef.current.play()}
+          onMouseLeave={() => tweenRef.current.reverse()}
+        >{button}</button>
       </div>
     </div>
   );
@@ -126,7 +134,8 @@ function Website_cards({ isDarkmodeOn, handle_context_change }) {
           <Card key={index} {...card} index={index} />
         ))}
       </div>
-      <div className="motion_parent_cont">
+      <div className="motion_parent_cont"
+      >
         {console.log(isDarkmodeOn)}
         <motion.h1
           className={isDarkmodeOn ? "selected_website_title_white" : "selected_website_title_dark"}
@@ -134,6 +143,8 @@ function Website_cards({ isDarkmodeOn, handle_context_change }) {
           initial="hidden"
           animate="visible"
           key={toggle_card_header}
+          onMouseEnter={() => tweenRef.current.play()}
+          onMouseLeave={() => tweenRef.current.reverse()}
         >   {activeCard !== null ? cards[activeCard].title : ''}</motion.h1>
         <div className="wb_catd_and_icon_container" ref={detailsContainerRef} >
 
@@ -145,7 +156,10 @@ function Website_cards({ isDarkmodeOn, handle_context_change }) {
             transition={{ type: 'spring', stiffness: 70, delay: 1.5 }}
 
           >
-            <img className="animated_nowncards_logo" src={leveled_icons[activeCard]} alt="website logo" />
+            <img
+              onMouseEnter={() => tweenRef.current.play()}
+              onMouseLeave={() => tweenRef.current.reverse()}
+              className="animated_nowncards_logo" src={leveled_icons[activeCard]} alt="website logo" />
           </motion.div>
           <div>
             <motion.div
@@ -154,7 +168,8 @@ function Website_cards({ isDarkmodeOn, handle_context_change }) {
               initial="hidden"
               animate="visible"
               key={activeCard}
-
+              onMouseEnter={() => tweenRef.current.play()}
+              onMouseLeave={() => tweenRef.current.reverse()}
             >
               <ul>
                 {activeCard !== null && cards[activeCard].services.map((service, index) => (
@@ -176,11 +191,16 @@ function Website_cards({ isDarkmodeOn, handle_context_change }) {
             animate={{ x: 0 }}
             transition={{ type: 'spring', stiffness: 70, delay: 1.5 }}
           >
-            <h1 className={isDarkmodeOn ? "hown_card_price_light" : "hown_card_price_dark"} >{prices[activeCard]}</h1>
+            <h1
+              onMouseEnter={() => tweenRef.current.play()}
+              onMouseLeave={() => tweenRef.current.reverse()}
+              className={isDarkmodeOn ? "hown_card_price_light" : "hown_card_price_dark"} >{prices[activeCard]}</h1>
           </motion.div>
         </div>
         <div style={{ paddingTop: "30px" }} >
           <button
+            onMouseEnter={() => tweenRef.current.play()}
+            onMouseLeave={() => tweenRef.current.reverse()}
             onClick={() => handleButtonClick('ვებსაიტის დამზადება')}
             className={`${isDarkmodeOn ? "contact_us_button" : "contact_us_button_dark"}`}>
             დაგვიკავშირდით

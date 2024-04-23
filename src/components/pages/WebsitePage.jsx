@@ -49,8 +49,14 @@ function WebsitePage({
         >
           <div className="webservice_child_cont"
           >
-            <h1 className="webservice_header" > საიტის დამზადება</h1>
-            <p className="webservice_header">
+            <h1
+              onMouseEnter={() => tweenRef.current.play()}
+              onMouseLeave={() => tweenRef.current.reverse()}
+              className="webservice_header" > საიტის დამზადება</h1>
+            <p
+              onMouseEnter={() => tweenRef.current.play()}
+              onMouseLeave={() => tweenRef.current.reverse()}
+              className="webservice_header">
               ჩვენი გუნდი დაგეხმარებათ, დაამზადოთ სასურველი ვებსაიტი, უმოკლეს დროში.
               ამასთან, გთავაზობთ, უმაღლესი ხარისხის მომსახურებას, როგორც სამუშაოს
               დასრულების ასევე მუშაობის პროცესში.
@@ -76,8 +82,8 @@ function WebsitePage({
       </div>
       <div className="website_paralax_container" >
         <section>
-          <Paralax isDarkmodeOn={isDarkmodeOn} baseVelocity={-5}>website creation</Paralax>
-          <Paralax isDarkmodeOn={isDarkmodeOn} baseVelocity={5}>youur designe</Paralax>
+          <Paralax isDarkmodeOn={isDarkmodeOn} baseVelocity={-5} tweenRef={tweenRef} >website creation</Paralax>
+          <Paralax isDarkmodeOn={isDarkmodeOn} baseVelocity={5} tweenRef={tweenRef} >youur designe</Paralax>
         </section>
       </div>
       <div className='card_wb_container' >
@@ -88,9 +94,11 @@ function WebsitePage({
           <motion.p className='child_website_allcards_paragraph'
             initial={{ y: '100vh' }}
             animate={control_card_selection}
+            onMouseEnter={() => tweenRef.current.play()}
+            onMouseLeave={() => tweenRef.current.reverse()}
           >გთხოვთ აირჩიოთ სასურველი ვებსაიტის ტიპი</motion.p>
         </div>
-        <Website_cards isDarkmodeOn={isDarkmodeOn} handle_context_change={handle_context_change} />
+        <Website_cards isDarkmodeOn={isDarkmodeOn} handle_context_change={handle_context_change} tweenRef={tweenRef} />
       </div>
       <div>
         <Footer isDarkmodeOn={isDarkmodeOn} />
