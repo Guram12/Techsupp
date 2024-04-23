@@ -9,7 +9,7 @@ import internet_cabel from "../../assets/internet_cabel.webp"
 import computer_service from "../../assets/computer-service.webp"
 import computer_repair from "../../assets/laptop_repair.webp"
 
-export default function ItPage({ isDarkmodeOn, handle_context_change }) {
+export default function ItPage({ isDarkmodeOn, handle_context_change, tweenRef }) {
 
 
   // const isMobile = window.innerWidth <= 500;  // Simple check for mobile devices
@@ -68,9 +68,16 @@ export default function ItPage({ isDarkmodeOn, handle_context_change }) {
             initial={{ y: '100vh' }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ type: 'spring', stiffness: 70, delay: 0.4 }}
+
           >
-            <h1 className="it_title" >IT მომსახურება</h1>
-            <p className="it_paragraph" >თქვენი ბიზნესის უწყვეტ მუშაობაში ჩვენი გამოცდილი გუნდი დაგეხმარებათ.
+            <h1
+              onMouseEnter={() => tweenRef.current.play()}
+              onMouseLeave={() => tweenRef.current.reverse()}
+              className="it_title" >IT მომსახურება</h1>
+            <p
+              onMouseEnter={() => tweenRef.current.play()}
+              onMouseLeave={() => tweenRef.current.reverse()}
+              className="it_paragraph" >თქვენი ბიზნესის უწყვეტ მუშაობაში ჩვენი გამოცდილი გუნდი დაგეხმარებათ.
               დღევანდელ რეალობაში ყველა მსხვილი თუ მცირე ბიზნესი დამოკიდებულია ელექტრონულ
               მოწყობილობებზე, მათმა ხარვეზით მუშაობამ კი შეიძლება პროცესები ძალიან შეაფერხოს,
               შესაბამისად საჭიროა მათი მუდმივი კონტროლი. ჩვენი გუნდი დაგეხმარებათ სწრაფად და
@@ -81,8 +88,8 @@ export default function ItPage({ isDarkmodeOn, handle_context_change }) {
 
       <div className="it_paralax_container"  >
         <section>
-          <Paralax isDarkmodeOn={isDarkmodeOn} baseVelocity={-5}>IT service IT service</Paralax>
-          <Paralax isDarkmodeOn={isDarkmodeOn} baseVelocity={5}>IT service IT service</Paralax>
+          <Paralax isDarkmodeOn={isDarkmodeOn} baseVelocity={-5} tweenRef={tweenRef} >IT service IT service</Paralax>
+          <Paralax isDarkmodeOn={isDarkmodeOn} baseVelocity={5} tweenRef={tweenRef} >IT service IT service</Paralax>
         </section>
       </div>
       <div className="it_card_container" ref={ref} >
@@ -95,12 +102,23 @@ export default function ItPage({ isDarkmodeOn, handle_context_change }) {
             y: -10,
             boxShadow: "0px 10px 20px rgba(0,0,0,0.2)"
           }}>
-          <img src={computer_service} alt="it service image" className="it_image_dard" />
+          <img
+            onMouseEnter={() => tweenRef.current.play()}
+            onMouseLeave={() => tweenRef.current.reverse()}
+            src={computer_service} alt="it service image" className="it_image_dard" />
 
-          <div className="it_card_text_button" >
-            <p className={`it_catd_paragraph  ${isDarkmodeOn ? "it_catd_paragraph_dark" : "it_catd_paragraph_whit"}`} >
+          <div
+            onMouseEnter={() => tweenRef.current.play()}
+            onMouseLeave={() => tweenRef.current.reverse()}
+            className="it_card_text_button" >
+            <p
+              onMouseEnter={() => tweenRef.current.play()}
+              onMouseLeave={() => tweenRef.current.reverse()}
+              className={`it_catd_paragraph  ${isDarkmodeOn ? "it_catd_paragraph_dark" : "it_catd_paragraph_whit"}`} >
               კომპიუტერული სრული მომსახურება</p>
             <button
+              onMouseEnter={() => tweenRef.current.play()}
+              onMouseLeave={() => tweenRef.current.reverse()}
               onClick={() => handleButtonClick('კომპიუტერული სრული მომსახურება')}
               className={`${isDarkmodeOn ? "contact_us_button" : "contact_us_button_dark"}`}>
               დაგვიკავშირდით
@@ -118,12 +136,20 @@ export default function ItPage({ isDarkmodeOn, handle_context_change }) {
             y: -10,
             boxShadow: "0px 10px 20px rgba(0,0,0,0.2)"
           }}>
-          <img src={internet_cabel} alt="it service image" className="it_image_dard" />
+          <img
+            onMouseEnter={() => tweenRef.current.play()}
+            onMouseLeave={() => tweenRef.current.reverse()}
+            src={internet_cabel} alt="it service image" className="it_image_dard" />
 
           <div className="it_card_text_button" >
-            <p className={`it_catd_paragraph  ${isDarkmodeOn ? "it_catd_paragraph_dark" : "it_catd_paragraph_whit"}`} >
+            <p
+              onMouseEnter={() => tweenRef.current.play()}
+              onMouseLeave={() => tweenRef.current.reverse()}
+              className={`it_catd_paragraph  ${isDarkmodeOn ? "it_catd_paragraph_dark" : "it_catd_paragraph_whit"}`} >
               ინტრნეტ კაბელების გაყვანა და ნებისმიერი მოწყობილობისთვის გაწერა</p>
             <button
+              onMouseEnter={() => tweenRef.current.play()}
+              onMouseLeave={() => tweenRef.current.reverse()}
               onClick={() => handleButtonClick('hardware და sofrware მომსახურება')}
               className={`${isDarkmodeOn ? "contact_us_button" : "contact_us_button_dark"}`}>
               დაგვიკავშირდით
@@ -142,12 +168,20 @@ export default function ItPage({ isDarkmodeOn, handle_context_change }) {
             boxShadow: "0px 10px 20px rgba(0,0,0,0.2)"
           }}
         >
-          <img src={computer_repair} alt="it service image" className="it_image_dard" />
+          <img
+            onMouseEnter={() => tweenRef.current.play()}
+            onMouseLeave={() => tweenRef.current.reverse()}
+            src={computer_repair} alt="it service image" className="it_image_dard" />
 
           <div className="it_card_text_button" >
-            <p className={`it_catd_paragraph  ${isDarkmodeOn ? "it_catd_paragraph_dark" : "it_catd_paragraph_whit"}`}>
+            <p
+              onMouseEnter={() => tweenRef.current.play()}
+              onMouseLeave={() => tweenRef.current.reverse()}
+              className={`it_catd_paragraph  ${isDarkmodeOn ? "it_catd_paragraph_dark" : "it_catd_paragraph_whit"}`}>
               კომპიუტერების და ნებისმიერი ელექტრონული მოწყობილობის დიაგნოსტიკა შეკეთება</p>
             <button
+              onMouseEnter={() => tweenRef.current.play()}
+              onMouseLeave={() => tweenRef.current.reverse()}
               onClick={() => handleButtonClick('ელექტრონული მოწყობილობების დიაგნოსტიკა')}
               className={`${isDarkmodeOn ? "contact_us_button" : "contact_us_button_dark"}`}>
               დაგვიკავშირდით
@@ -158,7 +192,10 @@ export default function ItPage({ isDarkmodeOn, handle_context_change }) {
         <div className="it_price_container" >
           <motion.div className={`${!isDarkmodeOn ? "it_child_price_dark" : "it_child_price"}`}
             animate={control_price}
-            initial={initial}>
+            initial={initial}
+            onMouseEnter={() => tweenRef.current.play()}
+            onMouseLeave={() => tweenRef.current.reverse()}
+          >
             500 ლარიდან / თვეში</motion.div>
         </div>
       </div>

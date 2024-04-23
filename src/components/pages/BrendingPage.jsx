@@ -19,7 +19,7 @@ import transition from "../Header/Transition";
 import { useNavigate } from "react-router-dom";
 
 
-function BrandingPage({ isDarkmodeOn, handle_context_change }) {
+function BrandingPage({ isDarkmodeOn, handle_context_change, tweenRef }) {
   const [currentAnimationIndex, setCurrentAnimationIndex] = useState(0);
 
   const animations = [<BrandingAnimation />, <BrandingAnimation_2 />, <BrandingAnimation_3 />,
@@ -193,12 +193,21 @@ function BrandingPage({ isDarkmodeOn, handle_context_change }) {
       {/* <SplineAnimation/> */}
       {/* <Spline_logo/> */}
       <div className="branding_animation_container">
-        <div className="each_animation" >
+        <div className="each_animation"
+          onMouseEnter={() => tweenRef.current.play()}
+          onMouseLeave={() => tweenRef.current.reverse()}
+        >
           {animations[currentAnimationIndex]}
         </div>
         <div className={`${!isDarkmodeOn ? "brending_about_up_dark" : "brending_about_up"}`} >
-          <h1 className={`${!isDarkmodeOn ? "branding_h1_color_dark" : "branding_h1_color_white"}`} >ბრენდინგი/რებრენდინგი</h1>
-          <p>ბიზნესის იმიჯის შესაქმნელად აუცილებელია გქონდეთ საკუთარი ლოგო და დიზაინი.
+          <h1
+            onMouseEnter={() => tweenRef.current.play()}
+            onMouseLeave={() => tweenRef.current.reverse()}
+            className={`${!isDarkmodeOn ? "branding_h1_color_dark" : "branding_h1_color_white"}`} >ბრენდინგი/რებრენდინგი</h1>
+          <p
+            onMouseEnter={() => tweenRef.current.play()}
+            onMouseLeave={() => tweenRef.current.reverse()}
+          >ბიზნესის იმიჯის შესაქმნელად აუცილებელია გქონდეთ საკუთარი ლოგო და დიზაინი.
             ამ ყველაფერში კი ჩვენი გამოცდილი გუნდის წევრები დაგეხმარებიან. ისინი შექმნიან
             თქვენზე მორგებულ დიზაინს და მოარგებენ თქვენს საიტსა თუ სოციალურ მედიას.</p>
         </div>
@@ -206,8 +215,8 @@ function BrandingPage({ isDarkmodeOn, handle_context_change }) {
       </div>
       <div>
         <section className="branding_paralax_container" >
-          <Parallax isDarkmodeOn={isDarkmodeOn} baseVelocity={-5}>Analitycs Analitycs</Parallax>
-          <Parallax isDarkmodeOn={isDarkmodeOn} baseVelocity={5}>Google sheet </Parallax>
+          <Parallax isDarkmodeOn={isDarkmodeOn} baseVelocity={-5} tweenRef={tweenRef} >Analitycs Analitycs</Parallax>
+          <Parallax isDarkmodeOn={isDarkmodeOn} baseVelocity={5} tweenRef={tweenRef} >Google sheet </Parallax>
         </section>
       </div>
       <div className="all_brending_cards_container" >
@@ -221,13 +230,18 @@ function BrandingPage({ isDarkmodeOn, handle_context_change }) {
             <motion.p className="rebranding_card_text_p"
               initial={initialText}
               animate={controlsText}
-              transition={transitionText}>
+              transition={transitionText}
+              onMouseEnter={() => tweenRef.current.play()}
+              onMouseLeave={() => tweenRef.current.reverse()}
+            >
               ბიზნესისთვის ლოგოს შექმნა
             </motion.p>
             <motion.p
               initial={initialText}
               animate={controlsText}
               transition={transition_logo_price}
+              onMouseEnter={() => tweenRef.current.play()}
+              onMouseLeave={() => tweenRef.current.reverse()}
             >
               150 ლარიდან
             </motion.p>
@@ -240,12 +254,16 @@ function BrandingPage({ isDarkmodeOn, handle_context_change }) {
               initial={initia_branding_lText}
               animate={controls_branding_Text}
               transition={transition_branding_Text}
+              onMouseEnter={() => tweenRef.current.play()}
+              onMouseLeave={() => tweenRef.current.reverse()}
               className="rebranding_card_text_p2" >სავიზიტო ბარათების დიზაინი / ბრენდინგი / რებრენდინგი
             </motion.p>
             <motion.p
               initial={initia_branding_lText}
               animate={controls_branding_Text}
               transition={transition_branding_price}
+              onMouseEnter={() => tweenRef.current.play()}
+              onMouseLeave={() => tweenRef.current.reverse()}
             >
               400 ლარიდან
             </motion.p>
@@ -268,12 +286,16 @@ function BrandingPage({ isDarkmodeOn, handle_context_change }) {
               initial={initia_ui_lText}
               animate={controls_ui_Text}
               transition={transition_ui_Text}
+              onMouseEnter={() => tweenRef.current.play()}
+              onMouseLeave={() => tweenRef.current.reverse()}
               className="rebranding_card_text_p_3" >UI/UX დიზაინის შექმნა თქვენი ბიზნესისთვის
             </motion.p>
             <motion.p
               initial={initia_ui_lText}
               animate={controls_ui_Text}
               transition={transition_ui_price}
+              onMouseEnter={() => tweenRef.current.play()}
+              onMouseLeave={() => tweenRef.current.reverse()}
             >
               800 ლარიდან
             </motion.p>
@@ -281,14 +303,15 @@ function BrandingPage({ isDarkmodeOn, handle_context_change }) {
         </div>
       </div>
       <div className="rebranding_price_container" ref={ref4}>
-        <motion.div
-          initial={initial_price}
-          animate={controlsFourth}
+        <div
           className="rebranding_price_child_cont"
         >
-          <button className={`${isDarkmodeOn ? "contact_us_button" : "contact_us_button_dark"}`}
-           onClick={() => handleButtonClick('ბრენდინგი / რებრენდინგი')}  >დაგვიკავშირდით</button>
-        </motion.div>
+          <button
+            onMouseEnter={() => tweenRef.current.play()}
+            onMouseLeave={() => tweenRef.current.reverse()}
+            className={`${isDarkmodeOn ? "contact_us_button" : "contact_us_button_dark"}`}
+            onClick={() => handleButtonClick('ბრენდინგი / რებრენდინგი')}  >დაგვიკავშირდით</button>
+        </div>
       </div>
       <div>
         <Footer isDarkmodeOn={isDarkmodeOn} />

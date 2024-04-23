@@ -6,12 +6,16 @@ import sound_line from "../../assets/sound_line.png"
 export default function SoundAnimation({
   isSoundOff,
   toggleSound,
+  tweenRef
 }) {
 
 
   return (
-    <div className="cont_dark_mode">
-      <label className= "toggle toggle_white  toggle_black" htmlFor="switch_sound">
+    <div className="cont_dark_mode"
+      onMouseEnter={() => tweenRef.current.play()}
+      onMouseLeave={() => tweenRef.current.reverse()}
+    >
+      <label className="toggle toggle_white  toggle_black" htmlFor="switch_sound">
         <input id="switch_sound"
           className="input"
           type="checkbox"
@@ -19,7 +23,7 @@ export default function SoundAnimation({
           onChange={toggleSound}
         />
         <div className="icon icon--moon">
-          <img src={sound_line} alt="sound stop line"  className="sound_stop_line" />
+          <img src={sound_line} alt="sound stop line" className="sound_stop_line" />
         </div>
 
         <div className="icon icon--sun">

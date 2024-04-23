@@ -10,7 +10,7 @@ import transition from "../Header/Transition";
 import { useNavigate } from "react-router-dom";
 
 
-function AnaliticPage({ isDarkmodeOn , handle_context_change }) {
+function AnaliticPage({ isDarkmodeOn, handle_context_change, tweenRef }) {
 
   const initial = { x: '-100vw' };
   const animate = { x: 0 };
@@ -57,41 +57,62 @@ function AnaliticPage({ isDarkmodeOn , handle_context_change }) {
   return (
     <div>
       <div className="sheet_animation_cont" >
-        <Google_sheet_animation isDarkmodeOn={isDarkmodeOn} />
+        <Google_sheet_animation isDarkmodeOn={isDarkmodeOn} tweenRef={tweenRef} />
       </div>
       <div>
       </div>
       <div className="sheet_paralax" >
         <section>
-          <Paralax isDarkmodeOn={isDarkmodeOn} baseVelocity={-5}>google sheet analitycs</Paralax>
-          <Paralax isDarkmodeOn={isDarkmodeOn} baseVelocity={5}>google sheet analitycs</Paralax>
+          <Paralax isDarkmodeOn={isDarkmodeOn} baseVelocity={-5} tweenRef={tweenRef} >google sheet analitycs</Paralax>
+          <Paralax isDarkmodeOn={isDarkmodeOn} baseVelocity={5} tweenRef={tweenRef} >google sheet analitycs</Paralax>
         </section>
       </div>
       <div className="analitycs_card_container" ref={ref} >
         <motion.div className="analityc_card_down"
           initial={initial}
           animate={controlsFirst}
+
         >
-          <p>მარტივი ანალიტიკური ფაილები.</p>
-          <p>150 ლარიდან</p>
+          <p
+            onMouseEnter={() => tweenRef.current.play()}
+            onMouseLeave={() => tweenRef.current.reverse()}
+          >მარტივი ანალიტიკური ფაილები.</p>
+          <p
+            onMouseEnter={() => tweenRef.current.play()}
+            onMouseLeave={() => tweenRef.current.reverse()}
+          >150 ლარიდან</p>
         </motion.div>
         <motion.div className="analityc_card_down"
           initial={initial}
           animate={controlsSecond}
         >
-          <p>აღწერის ფაილების ,მარტივი პოს-ტერმინალის აწყობა</p>
-          <p>350 ლარიდან</p>
+          <p
+            onMouseEnter={() => tweenRef.current.play()}
+            onMouseLeave={() => tweenRef.current.reverse()}
+          >აღწერის ფაილების ,მარტივი პოს-ტერმინალის აწყობა</p>
+          <p
+            onMouseEnter={() => tweenRef.current.play()}
+            onMouseLeave={() => tweenRef.current.reverse()}
+          >350 ლარიდან</p>
         </motion.div>
         <motion.div className="analityc_card_down"
           initial={initial}
           animate={controlsThird}
         >
-          <p>თქვენთვის სასურველი კონტროლის მექანიზმების შექმნა</p>
-          <p>ფასი მოთხოვნებიდან გამომდინარე</p>
+          <p
+            onMouseEnter={() => tweenRef.current.play()}
+            onMouseLeave={() => tweenRef.current.reverse()}
+          >თქვენთვის სასურველი კონტროლის მექანიზმების შექმნა</p>
+          <p
+            onMouseEnter={() => tweenRef.current.play()}
+            onMouseLeave={() => tweenRef.current.reverse()}
+          >ფასი მოთხოვნებიდან გამომდინარე</p>
         </motion.div>
       </div>
       <div className="analityc_contact_button" >
         <button
+          onMouseEnter={() => tweenRef.current.play()}
+          onMouseLeave={() => tweenRef.current.reverse()}
           onClick={() => handleButtonClick('ანალიტიკა')}
           className={`${isDarkmodeOn ? "contact_us_button" : "contact_us_button_dark"}`}>
           დაგვიკავშირდით

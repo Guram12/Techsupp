@@ -14,7 +14,7 @@ import transition from "../Header/Transition"
 import { useNavigate } from "react-router-dom"
 
 
-function AnimationPage({ isDarkmodeOn , handle_context_change}) {
+function AnimationPage({ isDarkmodeOn, handle_context_change, tweenRef }) {
 
   const [isMobileView, setIsMobileView] = useState(window.innerWidth < 768);
 
@@ -77,15 +77,11 @@ function AnimationPage({ isDarkmodeOn , handle_context_change}) {
     <div className="parent_div">
       <div className="motion_video_container_up">
         {/* video content should go here */}
-        <Motion_animation isDarkmodeOn={isDarkmodeOn} />
+        <Motion_animation isDarkmodeOn={isDarkmodeOn} tweenRef={tweenRef} />
       </div>
       <section className="motion_paralax_cont" >
-        <Parallax isDarkmodeOn={isDarkmodeOn} baseVelocity={-5}>
-          motion designe
-        </Parallax>
-        <Parallax isDarkmodeOn={isDarkmodeOn} baseVelocity={5}>
-          motion designe
-        </Parallax>
+        <Parallax isDarkmodeOn={isDarkmodeOn} baseVelocity={-5} tweenRef={tweenRef} > motion designe</Parallax>
+        <Parallax isDarkmodeOn={isDarkmodeOn} baseVelocity={5} tweenRef={tweenRef} > motion designe</Parallax>
       </section>
 
       <div className="motion_background_video_container" ref={ref}>
@@ -97,7 +93,10 @@ function AnimationPage({ isDarkmodeOn , handle_context_change}) {
           transition={{ type: "spring", stiffness: 70, delay: 1 }}
         >
           <div className="motion_child_blur_container">
-            <p className="motion_paragraph">
+            <p
+              onMouseEnter={() => tweenRef.current.play()}
+              onMouseLeave={() => tweenRef.current.reverse()}
+              className="motion_paragraph">
               აქ დავწერთ თუ რას ვთავაზობთ მომხმარებელს მოტიონ დიზაინის სერვისში
               , და ქვემოთ დავწერთ დაახლოებიტ ფასებს{" "}
             </p>
@@ -124,23 +123,28 @@ function AnimationPage({ isDarkmodeOn , handle_context_change}) {
         <div className="motion_example_container" ref={ref1}>
           <motion.div
             className={`motion_example_child_container  ${!isDarkmodeOn
-                ? "motion_example_child_container_dark"
-                : "motion_example_child_container_light"
+              ? "motion_example_child_container_dark"
+              : "motion_example_child_container_light"
               }`}
             animate={controls_1}
             initial={{ x: "100vw" }}
             transition={{ type: "spring", stiffness: 70, delay: 0.5 }}
           >
-            <p className="motion_example_text">ჩვენი დამზადებული ანიმაციები</p>
+            <p
+              onMouseEnter={() => tweenRef.current.play()}
+              onMouseLeave={() => tweenRef.current.reverse()}
+              className="motion_example_text">ჩვენი დამზადებული ანიმაციები</p>
           </motion.div>
         </div>
       )}
 
       <div className="video_animation_container">
-        <VideoAnimation  isDarkmodeOn={isDarkmodeOn} />
+        <VideoAnimation isDarkmodeOn={isDarkmodeOn} tweenRef={tweenRef} />
       </div>
       <div className="animation_contact_button" >
         <button
+          onMouseEnter={() => tweenRef.current.play()}
+          onMouseLeave={() => tweenRef.current.reverse()}
           onClick={() => handleButtonClick('motion დიზაინის შექმნა')}
           className={`${isDarkmodeOn ? "contact_us_button" : "contact_us_button_dark"}`}>
           დაგვიკავშირდით

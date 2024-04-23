@@ -10,7 +10,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 
-function MenuPage({ isDarkmodeOn, handle_context_change }) {
+function MenuPage({ isDarkmodeOn, handle_context_change, tweenRef }) {
 
   const animate = { x: 0 };
 
@@ -46,11 +46,11 @@ function MenuPage({ isDarkmodeOn, handle_context_change }) {
 
   return (
     <div>
-      <QRcodeAnimation />
-      <div style={{ marginTop: "50px" }} >
+      <QRcodeAnimation tweenRef={tweenRef} />
+      <div style={{ marginTop: "50px", marginBottom: "50px" }} >
         <section>
-          <Parallax isDarkmodeOn={isDarkmodeOn} baseVelocity={-5}>website creation</Parallax>
-          <Parallax isDarkmodeOn={isDarkmodeOn} baseVelocity={5}>youur designe</Parallax>
+          <Parallax isDarkmodeOn={isDarkmodeOn} baseVelocity={-5} tweenRef={tweenRef} >website creation</Parallax>
+          <Parallax isDarkmodeOn={isDarkmodeOn} baseVelocity={5} tweenRef={tweenRef} >youur designe</Parallax>
         </section>
       </div>
 
@@ -61,14 +61,20 @@ function MenuPage({ isDarkmodeOn, handle_context_change }) {
           animate={controls}
           transition={{ type: 'spring', stiffness: 70 }}
         >
-
-          შეთავაზება სარესტორნო ქსელებისთვის. შექმენით ინტერაქციული, მრავალფუნქციური და გამორჩეული QR მენიუ.
-          სერვისში შედის თქვენზე მორგებული დიზაინი, სპეციალური ვიზუალის მქონე QR კოდი, ინტერაქციული ფუნქციონალის
-           შექმნა, მარტივი სამართავი პანელი, კერძების თქვენი სურვილისამებრ კატეგორიებად დაყოფა და QR კოდიდან  მაგიდის შეკვეთის მიღება.
+          <p
+            onMouseEnter={() => tweenRef.current.play()}
+            onMouseLeave={() => tweenRef.current.reverse()}
+          >
+            შეთავაზება სარესტორნო ქსელებისთვის. შექმენით ინტერაქციული, მრავალფუნქციური და გამორჩეული QR მენიუ.
+            სერვისში შედის თქვენზე მორგებული დიზაინი, სპეციალური ვიზუალის მქონე QR კოდი, ინტერაქციული ფუნქციონალის
+            შექმნა, მარტივი სამართავი პანელი, კერძების თქვენი სურვილისამებრ კატეგორიებად დაყოფა და QR კოდიდან  მაგიდის შეკვეთის მიღება.
+          </p>
         </motion.div>
       </div>
       <div className="menu_contact_button" >
         <button
+          onMouseEnter={() => tweenRef.current.play()}
+          onMouseLeave={() => tweenRef.current.reverse()}
           onClick={() => handleButtonClick(' QR მენიუს დამზადება')}
           className={`${isDarkmodeOn ? "contact_us_button" : "contact_us_button_dark"}`}>
           დაგვიკავშირდით

@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/Header.css";
 import logo_black from "../../assets/logo_techsupp_black.svg";
 import logo_white from "../../assets/logo_techsupp_white.svg";
@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 import RightArrow from "../../assets/right.png";
 import { motion } from "framer-motion";
 import DarkMode from "../animations/Dark-Mode";
-import { CursorContext } from "../CursorContext/CursorContext";
 import { transition1 } from "../../Transitions";
 import Techsupp_name from "./Techsupp_name";
 import { useLocation } from "react-router-dom";
@@ -20,6 +19,7 @@ export default function Header({
   handle_darkmode_change,
   toggleMenu,
   isOpen,
+  tweenRef
 }) {
   const [menuState, setMenuState] = useState([
     { showArrow: false, showDot: true },
@@ -27,7 +27,6 @@ export default function Header({
     { showArrow: false, showDot: false },
     { showArrow: false, showDot: false },
   ]);
-  const { mouseEnterHandler, mouseLeaveHandler } = useContext(CursorContext);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
 
@@ -74,24 +73,24 @@ export default function Header({
         initial={{ opacity: 0, y: -50 }}
         animate={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -50 }}
-        className={`header ${
-          isScrolled
-            ? `${isDarkmodeOn ? "header-shadow_dark" : "header-shadow_light"}`
-            : ""
-        } ${!isDarkmodeOn ? "header_night" : "header_lignt"} `}
+        className={`header ${isScrolled
+          ? `${isDarkmodeOn ? "header-shadow_dark" : "header-shadow_light"}`
+          : ""
+          } ${!isDarkmodeOn ? "header_night" : "header_lignt"} `}
       >
         <motion.div
           initial={{ opacity: 0, y: "-50%" }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: "-50%" }}
           transition={transition1}
-          onMouseEnter={mouseEnterHandler}
-          onMouseLeave={mouseLeaveHandler}
           className="logo_and_name"
           onClick={() => handleLinkClick(0)}
         >
           <Link to="/">
             <img
+              onMouseEnter={() => tweenRef.current.play()}
+              onMouseLeave={() => tweenRef.current.reverse()}
+
               src={isDarkmodeOn ? logo_black : logo_white}
               alt="company logo"
               style={{ width: "80px" }}
@@ -99,26 +98,28 @@ export default function Header({
             />
           </Link>
           {/* <h1 className="techsupp_main_name" >TechSupp</h1> */}
-          <Techsupp_name isDarkmodeOn={isDarkmodeOn} />
+          <Techsupp_name isDarkmodeOn={isDarkmodeOn} tweenRef={tweenRef} />
         </motion.div>
         <motion.div
           transition={transition1}
-          onMouseEnter={mouseEnterHandler}
-          onMouseLeave={mouseLeaveHandler}
           className="header_right"
         >
           <div className="sound_container">
-            <SoundAnimation isSoundOff={isSoundOff} toggleSound={toggleSound} />
+            <SoundAnimation isSoundOff={isSoundOff} toggleSound={toggleSound} tweenRef={tweenRef} />
           </div>
 
           <div className="dark_mode">
             <DarkMode
               isDarkmodeOn={isDarkmodeOn}
               handle_darkmode_change={handle_darkmode_change}
+              tweenRef={tweenRef}
             />
           </div>
 
-          <div className="menu_button" onClick={toggleMenu}>
+          <div className="menu_button" onClick={toggleMenu}
+            onMouseEnter={() => tweenRef.current.play()}
+            onMouseLeave={() => tweenRef.current.reverse()}
+          >
             <div className="menu_texts" onClick={toggleMenu}>
               <span className="menu_texts_menu " onClick={toggleMenu}>
                 {isOpen ? "CLOSE" : "MENU"}
@@ -130,15 +131,14 @@ export default function Header({
               animate={{ scaleY: isOpen ? 1 : 0 }}
               exit={{ scaleY: 0 }}
               transition={{ duration: 0.8, ease: "easeInOut" }}
-              className={`menu ${
-                !isDarkmodeOn ? "menu_dark" : "menu_light"
-              }   `}
+              className={`menu ${!isDarkmodeOn ? "menu_dark" : "menu_light"}`}
+              onMouseEnter={() => tweenRef.current.play()}
+              onMouseLeave={() => tweenRef.current.reverse()}
             >
               <div className="flex">
                 <Link
-                  className={`menu_links ${
-                    menuState[0].showDot ? "active" : ""
-                  }   ${!isDarkmodeOn ? "dark_menu_item" : "light_menu_item"} `}
+                  className={`menu_links ${menuState[0].showDot ? "active" : ""
+                    }   ${!isDarkmodeOn ? "dark_menu_item" : "light_menu_item"} `}
                   to="/"
                   onMouseEnter={() => handleLinkHover(0)}
                   onMouseLeave={() =>
@@ -164,9 +164,8 @@ export default function Header({
               </div>
               <div className="flex">
                 <Link
-                  className={`menu_links ${
-                    menuState[1].showDot ? "active" : ""
-                  } ${!isDarkmodeOn ? "dark_menu_item" : "light_menu_item"}  `}
+                  className={`menu_links ${menuState[1].showDot ? "active" : ""
+                    } ${!isDarkmodeOn ? "dark_menu_item" : "light_menu_item"}  `}
                   to="/about"
                   onMouseEnter={() => handleLinkHover(1)}
                   onMouseLeave={() =>
@@ -216,9 +215,8 @@ export default function Header({
               </div> */}
               <div className="flex">
                 <Link
-                  className={`menu_links ${
-                    menuState[3].showDot ? "active" : ""
-                  } ${!isDarkmodeOn ? "dark_menu_item" : "light_menu_item"}  `}
+                  className={`menu_links ${menuState[3].showDot ? "active" : ""
+                    } ${!isDarkmodeOn ? "dark_menu_item" : "light_menu_item"}  `}
                   to="/contact"
                   onMouseEnter={() => handleLinkHover(3)}
                   onMouseLeave={() =>
@@ -249,9 +247,8 @@ export default function Header({
               {/* Arrow */}
               <img
                 onClick={toggleMenu}
-                className={`menu_arrow_img ${
-                  isOpen ? "rotate-down" : "rotate_up"
-                }`}
+                className={`menu_arrow_img ${isOpen ? "rotate-down" : "rotate_up"
+                  }`}
                 src={RightArrow}
                 alt="/"
               />

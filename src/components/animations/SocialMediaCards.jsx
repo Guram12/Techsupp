@@ -3,7 +3,9 @@ import { motion, useAnimation } from "framer-motion"
 import { useEffect } from "react";
 import { useInView } from 'react-intersection-observer';
 
-function SocialMediaCards({ isDarkmodeOn }) {
+
+function SocialMediaCards({ isDarkmodeOn, tweenRef }) {
+
 
   const initial = { x: '100vw' };
   const animate = { x: 0 };
@@ -43,8 +45,14 @@ function SocialMediaCards({ isDarkmodeOn }) {
         <div class="silver_card" style={{ backgroundColor: `${!isDarkmodeOn ? "black" : "white"}`, color: `${isDarkmodeOn ? "black" : "white"}` }}  >
           <div
           >
-            <h1 className="media_card_title_silver" >SILVER</h1>
-            <ul className="media_lists" >
+            <h1
+              onMouseEnter={() => tweenRef.current.play()}
+              onMouseLeave={() => tweenRef.current.reverse()}
+              className="media_card_title_silver" >SILVER</h1>
+            <ul
+              onMouseEnter={() => tweenRef.current.play()}
+              onMouseLeave={() => tweenRef.current.reverse()}
+              className="media_lists" >
               <li>გვერდის შექმნა</li>
               <li>გვერდის მონიტორინგი</li>
               <li>8 პოსტი </li>
@@ -56,12 +64,13 @@ function SocialMediaCards({ isDarkmodeOn }) {
           </div>
 
           <div className="media_price_container" >
-            <p className="media_price_silver" >1000 ლარი</p>
+            <p
+              onMouseEnter={() => tweenRef.current.play()}
+              onMouseLeave={() => tweenRef.current.reverse()}
+              className="media_price_silver" >1000 ლარი</p>
           </div>
         </div>
       </motion.div>
-
-
       {/* 2 motion div  */}
       <motion.div
         initial={initial}
@@ -71,8 +80,14 @@ function SocialMediaCards({ isDarkmodeOn }) {
         }}>
         <div class="gold_card" style={{ backgroundColor: `${!isDarkmodeOn ? "black" : "white"}`, color: `${isDarkmodeOn ? "black" : "white"}` }} >
           <div>
-            <h1 className="media_card_title_gold" >GOLD</h1>
-            <ul className="media_lists" >
+            <h1
+              onMouseEnter={() => tweenRef.current.play()}
+              onMouseLeave={() => tweenRef.current.reverse()}
+              className="media_card_title_gold" >GOLD</h1>
+            <ul
+              onMouseEnter={() => tweenRef.current.play()}
+              onMouseLeave={() => tweenRef.current.reverse()}
+              className="media_lists" >
               <li>გვერდის შექმნა</li>
               <li>გვერდის მონიტორინგი</li>
               <li>10 პოსტი</li>
@@ -85,7 +100,10 @@ function SocialMediaCards({ isDarkmodeOn }) {
           </div>
 
           <div className="media_price_container" >
-            <p className="media_price_gold" >1300 ლარი</p>
+            <p
+              onMouseEnter={() => tweenRef.current.play()}
+              onMouseLeave={() => tweenRef.current.reverse()}
+              className="media_price_gold" >1300 ლარი</p>
           </div>
         </div>
       </motion.div>
@@ -99,8 +117,14 @@ function SocialMediaCards({ isDarkmodeOn }) {
         }}>
         <div class="platinium_catd" style={{ backgroundColor: `${!isDarkmodeOn ? "black" : "white"} `, color: `${isDarkmodeOn ? "black" : "white"}` }} >
           <div>
-            <h1 className="media_card_title_platinium" >PLATINIUM</h1>
-            <ul className="media_lists" >
+            <h1
+              onMouseEnter={() => tweenRef.current.play()}
+              onMouseLeave={() => tweenRef.current.reverse()}
+              className="media_card_title_platinium" >PLATINIUM</h1>
+            <ul
+              onMouseEnter={() => tweenRef.current.play()}
+              onMouseLeave={() => tweenRef.current.reverse()}
+              className="media_lists" >
               <li>გვერდის შექმნა</li>
               <li>გვერდის მონიტორინგი</li>
               <li>15 პოსტი</li>
@@ -115,7 +139,10 @@ function SocialMediaCards({ isDarkmodeOn }) {
           </div>
 
           <div className="media_price_container" >
-            <p className="media_price_platinium" >1700 ლარი</p>
+            <p
+              onMouseEnter={() => tweenRef.current.play()}
+              onMouseLeave={() => tweenRef.current.reverse()}
+              className="media_price_platinium" >1700 ლარი</p>
           </div>
 
         </div>

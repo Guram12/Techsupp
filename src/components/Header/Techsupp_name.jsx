@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "../styles/Techsupp_name.css";
 import { useNavigate } from "react-router-dom";
 
-export default function Techsupp_name({ isDarkmodeOn }) {
+export default function Techsupp_name({ isDarkmodeOn , tweenRef}) {
   // Initial state where no divs are selected for animation
   const [animateStates, setAnimateStates] = useState(Array(8).fill(false));
 
@@ -30,7 +30,11 @@ export default function Techsupp_name({ isDarkmodeOn }) {
 
 
   return (
-    <div className="main11111" onClick={handle_techsupp_name_container_click} >
+    <div className="main11111" onClick={handle_techsupp_name_container_click}
+    onMouseEnter={() => tweenRef.current.play()}
+    onMouseLeave={() => tweenRef.current.reverse()}
+
+    >
       <div
         className="content"
         style={{ color: `${!isDarkmodeOn ? "white" : "black"} ` }}

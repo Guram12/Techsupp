@@ -1,5 +1,4 @@
 import "../styles/Footer.css"
-// import "../styles/Footer.scss"
 import React , { useState , useEffect } from "react";
 import transition from "./Transition";
 
@@ -81,3 +80,4 @@ function Footer({isDarkmodeOn}) {
 };
 
 export default transition(Footer)
+

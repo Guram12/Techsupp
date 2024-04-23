@@ -13,7 +13,9 @@ import transition from '../Header/Transition';
 function WebsitePage({
   isDarkmodeOn,
   handle_context_change,
+  tweenRef,
 }) {
+
   const control_card_selection = useAnimation();
   const { ref, inView } = useInView({
     triggerOnce: true,
@@ -23,7 +25,7 @@ function WebsitePage({
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  
+
   useEffect(() => {
     if (inView) {
       control_card_selection.start({
@@ -37,7 +39,7 @@ function WebsitePage({
   return (
     <div style={{ paddingTop: "50px" }} >
       <div className='website_page_title' >
-        <Website_card_animation isDarkmodeOn={isDarkmodeOn} />
+        <Website_card_animation isDarkmodeOn={isDarkmodeOn} tweenRef={tweenRef} />
       </div>
       <div className="webservice_about_container"  >
         <motion.div
@@ -45,9 +47,16 @@ function WebsitePage({
           animate={{ x: 0, opacity: 1 }}
           transition={{ type: 'spring', stiffness: 70 }}
         >
-          <div className="webservice_child_cont">
-            <h1 className="webservice_header" > საიტის დამზადება</h1>
-            <p className="webservice_header">
+          <div className="webservice_child_cont"
+          >
+            <h1
+              onMouseEnter={() => tweenRef.current.play()}
+              onMouseLeave={() => tweenRef.current.reverse()}
+              className="webservice_header" > საიტის დამზადება</h1>
+            <p
+              onMouseEnter={() => tweenRef.current.play()}
+              onMouseLeave={() => tweenRef.current.reverse()}
+              className="webservice_header">
               ჩვენი გუნდი დაგეხმარებათ, დაამზადოთ სასურველი ვებსაიტი, უმოკლეს დროში.
               ამასთან, გთავაზობთ, უმაღლესი ხარისხის მომსახურებას, როგორც სამუშაოს
               დასრულების ასევე მუშაობის პროცესში.
@@ -56,6 +65,7 @@ function WebsitePage({
             </p>
           </div>
         </motion.div>
+
         <motion.img
           alt="website logo"
           src={web_icon}
@@ -72,21 +82,23 @@ function WebsitePage({
       </div>
       <div className="website_paralax_container" >
         <section>
-          <Paralax isDarkmodeOn={isDarkmodeOn} baseVelocity={-5}>website creation</Paralax>
-          <Paralax isDarkmodeOn={isDarkmodeOn} baseVelocity={5}>youur designe</Paralax>
+          <Paralax isDarkmodeOn={isDarkmodeOn} baseVelocity={-5} tweenRef={tweenRef} >website creation</Paralax>
+          <Paralax isDarkmodeOn={isDarkmodeOn} baseVelocity={5} tweenRef={tweenRef} >youur designe</Paralax>
         </section>
       </div>
       <div className='card_wb_container' >
         <div className={`child_website_allcards_title 
          ${isDarkmodeOn ? "child_website_allcards_paragraph_dark" : "child_website_allcards_paragraph_white"}`}
-         ref={ref}
+          ref={ref}
         >
           <motion.p className='child_website_allcards_paragraph'
             initial={{ y: '100vh' }}
             animate={control_card_selection}
+            onMouseEnter={() => tweenRef.current.play()}
+            onMouseLeave={() => tweenRef.current.reverse()}
           >გთხოვთ აირჩიოთ სასურველი ვებსაიტის ტიპი</motion.p>
         </div>
-        <Website_cards isDarkmodeOn={isDarkmodeOn} handle_context_change={handle_context_change} />
+        <Website_cards isDarkmodeOn={isDarkmodeOn} handle_context_change={handle_context_change} tweenRef={tweenRef} />
       </div>
       <div>
         <Footer isDarkmodeOn={isDarkmodeOn} />
