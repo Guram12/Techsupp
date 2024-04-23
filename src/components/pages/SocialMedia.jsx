@@ -9,7 +9,7 @@ import SocialMediaCards from "../animations/SocialMediaCards";
 import Footer from "../Header/Footer";
 import { useNavigate } from "react-router-dom";
 
-function SocialMedia({ handle_context_change, isDarkmodeOn }) {
+function SocialMedia({ handle_context_change, isDarkmodeOn, tweenRef }) {
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -28,7 +28,7 @@ function SocialMedia({ handle_context_change, isDarkmodeOn }) {
     <div style={{ paddingTop: "100px" }}>
       <div className="media_animation_and_text_cont">
         <div className="media_animation_container">
-          <MediaAnimation />
+          <MediaAnimation tweenRef={tweenRef} />
         </div>
         <div>
           <motion.div
@@ -41,17 +41,26 @@ function SocialMedia({ handle_context_change, isDarkmodeOn }) {
               boxShadow: `${isDarkmodeOn ? "rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset" : ""}`
             }}
           >
-            <p>
+            <p
+              onMouseEnter={() => tweenRef.current.play()}
+              onMouseLeave={() => tweenRef.current.reverse()}
+            >
               ბიზნესის წარმატებისთვის თანამედროვე სამყაროში ერთერთი მნიშვნელოვანი რგოლი
               არის სოციალური მედია-მარკეტინგი.
             </p>
 
-            <p>
+            <p
+              onMouseEnter={() => tweenRef.current.play()}
+              onMouseLeave={() => tweenRef.current.reverse()}
+            >
               ჩვენი გუნდი გთავაზობთ
               სოციალური მედიის (Facebook, Instagram, Linkedin) საშუალებით, გაზარდოთ
               თქვენი ბრენდის ცნობადობა და მოახდინოთ სწორი კომუნიკაცია მიზნობრივ აუდიტორიასთან.
             </p>
-            <p>
+            <p
+              onMouseEnter={() => tweenRef.current.play()}
+              onMouseLeave={() => tweenRef.current.reverse()}
+            >
               თქვენი და თქვენი კონკურენტების საქმიანობის ანალიზის საფუძველზე, ჩვენ დავსახავთ სტრატეგიულ გეგმებს ბიზნესის წარმატებისთვის.
             </p>
 
@@ -62,25 +71,30 @@ function SocialMedia({ handle_context_change, isDarkmodeOn }) {
       </div>
       <div className="menu_paralax_container">
         <section>
-          <Parallax isDarkmodeOn={isDarkmodeOn} baseVelocity={-5}>social media</Parallax>
-          <Parallax isDarkmodeOn={isDarkmodeOn} baseVelocity={5}>social media</Parallax>
+          <Parallax isDarkmodeOn={isDarkmodeOn} baseVelocity={-5} tweenRef={tweenRef} >social media</Parallax>
+          <Parallax isDarkmodeOn={isDarkmodeOn} baseVelocity={5} tweenRef={tweenRef} >social media</Parallax>
         </section>
       </div>
 
       <div className="example_post_images_container">
-        <ContinuousSlider />
+        <ContinuousSlider tweenRef={tweenRef} />
       </div>
 
       <div className="cards_title_container" >
-        <h1 style={{ color: `${isDarkmodeOn ? "black" : "white"}` }}  >პაკეტები</h1>
+        <h1
+          onMouseEnter={() => tweenRef.current.play()}
+          onMouseLeave={() => tweenRef.current.reverse()}
+          style={{ color: `${isDarkmodeOn ? "black" : "white"}` }}  >პაკეტები</h1>
       </div>
 
       <div className="media_card_parent_container" >
-        <SocialMediaCards isDarkmodeOn={isDarkmodeOn} />
+        <SocialMediaCards isDarkmodeOn={isDarkmodeOn} tweenRef={tweenRef} />
       </div>
 
       <div className="media_contact_button" >
         <button
+          onMouseEnter={() => tweenRef.current.play()}
+          onMouseLeave={() => tweenRef.current.reverse()}
           onClick={() => handleButtonClick('სოციალური მედიის მართვა')}
           className={`${isDarkmodeOn ? "contact_us_button" : "contact_us_button_dark"}`}>
           დაგვიკავშირდით

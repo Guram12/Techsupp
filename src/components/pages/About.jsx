@@ -12,7 +12,7 @@ import Parallax from "../animations/Paralax";
 import Modal from "react-modal"; // This assumes you're using react-modal
 import transition from "../Header/Transition";
 
-const About = ({ isDarkmodeOn, handle_cursor_on_of, is_cursor_on }) => {
+const About = ({ isDarkmodeOn, handle_cursor_on_of, is_cursor_on, tweenRef }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const openModal = () => {
@@ -45,21 +45,24 @@ const About = ({ isDarkmodeOn, handle_cursor_on_of, is_cursor_on }) => {
       </div>
       <div className="about_text_container ">
         <motion.div
-          className={`about_text_child_container ${
-            !isDarkmodeOn ? "about_dark" : "about_light"
-          }`}
+          className={`about_text_child_container ${!isDarkmodeOn ? "about_dark" : "about_light"
+            }`}
           initial={initial}
           animate={animate}
           transition={transition}
           style={{ color: "white" }}
         >
           <h1
+            onMouseEnter={() => tweenRef.current.play()}
+            onMouseLeave={() => tweenRef.current.reverse()}
             className="about_title"
             style={{ color: `${!isDarkmodeOn ? "white" : " black"}` }}
           >
             ჩვენს შესახებ
           </h1>
           <p
+            onMouseEnter={() => tweenRef.current.play()}
+            onMouseLeave={() => tweenRef.current.reverse()}
             className="about_paragraph"
             style={{ color: `${!isDarkmodeOn ? "white" : " black"}` }}
           >
@@ -74,12 +77,8 @@ const About = ({ isDarkmodeOn, handle_cursor_on_of, is_cursor_on }) => {
 
       <div className="about_paralax_container">
         <section>
-          <Parallax isDarkmodeOn={isDarkmodeOn} baseVelocity={-5}>
-            Your compass in the digital maze
-          </Parallax>
-          <Parallax isDarkmodeOn={isDarkmodeOn} baseVelocity={5}>
-            Your compass in the digital maze
-          </Parallax>
+          <Parallax isDarkmodeOn={isDarkmodeOn} baseVelocity={-5} tweenRef={tweenRef} > Your compass in the digital maze</Parallax>
+          <Parallax isDarkmodeOn={isDarkmodeOn} baseVelocity={5} tweenRef={tweenRef} > Your compass in the digital maze</Parallax>
         </section>
       </div>
 
@@ -92,24 +91,24 @@ const About = ({ isDarkmodeOn, handle_cursor_on_of, is_cursor_on }) => {
             className="storkhome_image"
           />
           <div
-            className={`storkhome_title_and_p_cont ${
-              !isDarkmodeOn ? "title_p_dark" : "title_p_light"
-            }  `}
+            className={`storkhome_title_and_p_cont ${!isDarkmodeOn ? "title_p_dark" : "title_p_light"
+              }  `}
           >
             <a
               href="https://www.storkhome.ge/hhomepage"
               target="_blank"
-              rel="noopener noreferrer"
-            >
-              <h1
-                className={`storkhome_title ${
-                  !isDarkmodeOn ? "title_p_dark" : "title_p_light"
-                } `}
+              rel="noopener noreferrer">
+              <h1 className={`storkhome_title ${!isDarkmodeOn ? "title_p_dark" : "title_p_light"} `}
+                onMouseEnter={() => tweenRef.current.play()}
+                onMouseLeave={() => tweenRef.current.reverse()}
               >
                 Storkhome
               </h1>
             </a>
-            <p className="storkhome_paragraph">
+            <p className="storkhome_paragraph"
+              onMouseEnter={() => tweenRef.current.play()}
+              onMouseLeave={() => tweenRef.current.reverse()}
+            >
               StorkHome ახალი ინოვაციური პლატფორმაა , სადაც მარტივად შეგიძლიათ
               მიიღოთ საბროკერო მომსახურება. საიტისთვის შეიქმნა უნიკალური დიზაინი
               და დაიწერა მრავალი უნიკალური ფუნქციონალი რომლის ნახვაც თავად
@@ -126,9 +125,8 @@ const About = ({ isDarkmodeOn, handle_cursor_on_of, is_cursor_on }) => {
             className="storkhome_image"
           />
           <div
-            className={`storkhome_title_and_p_cont ${
-              !isDarkmodeOn ? "title_p_dark" : "title_p_light"
-            }  `}
+            className={`storkhome_title_and_p_cont ${!isDarkmodeOn ? "title_p_dark" : "title_p_light"
+              }  `}
           >
             <a
               href="https://www.tsvrilmani.ge/"
@@ -136,14 +134,17 @@ const About = ({ isDarkmodeOn, handle_cursor_on_of, is_cursor_on }) => {
               rel="noopener noreferrer"
             >
               <h1
-                className={`storkhome_title ${
-                  !isDarkmodeOn ? "title_p_dark" : "title_p_light"
-                } `}
+                onMouseEnter={() => tweenRef.current.play()}
+                onMouseLeave={() => tweenRef.current.reverse()}
+                className={`storkhome_title ${!isDarkmodeOn ? "title_p_dark" : "title_p_light"} `}
               >
                 Tsvrilmani
               </h1>
             </a>
-            <p className="storkhome_paragraph">
+            <p
+              onMouseEnter={() => tweenRef.current.play()}
+              onMouseLeave={() => tweenRef.current.reverse()}
+              className="storkhome_paragraph">
               Tsvrilmani არის ახალი ონლაინ მაღაზია, სადაც მარტივად შეძლებთ
               სახლიდან სახლიდან გაუსვლელად შეიძინოთ საყოფაცხოვრებო ნივთები{" "}
             </p>
@@ -158,24 +159,24 @@ const About = ({ isDarkmodeOn, handle_cursor_on_of, is_cursor_on }) => {
             className="storkhome_image"
           />
           <div
-            className={`storkhome_title_and_p_cont ${
-              !isDarkmodeOn ? "title_p_dark" : "title_p_light"
-            }  `}
-          >
+            className={`storkhome_title_and_p_cont ${!isDarkmodeOn ? "title_p_dark" : "title_p_light"}`} >
             <a
               href="https://annatoloraia6a.wixsite.com/innovainvitro?fbclid=IwAR23S9mQC1kmPwK5uYgE_-_3CyvJQbRWicBJ_DF4v3huFLGIlMgFtH-m7Q4_aem_AfZvP2_sa3UmxmtNZnZqOCRhl6dPc8gHw3XikNGuo82A7Di_Px0ibavtjyA3IiWJQ1Vt-0XiZ70ONimmWeulTebf"
               target="_blank"
               rel="noopener noreferrer"
             >
               <h1
-                className={`storkhome_title ${
-                  !isDarkmodeOn ? "title_p_dark" : "title_p_light"
-                } `}
+                onMouseEnter={() => tweenRef.current.play()}
+                onMouseLeave={() => tweenRef.current.reverse()}
+                className={`storkhome_title ${!isDarkmodeOn ? "title_p_dark" : "title_p_light"} `}
               >
                 Inova-invitro
               </h1>
             </a>
-            <p className="storkhome_paragraph">
+            <p
+              onMouseEnter={() => tweenRef.current.play()}
+              onMouseLeave={() => tweenRef.current.reverse()}
+              className="storkhome_paragraph">
               Tsvrilmani არის ახალი ონლაინ მაღაზია, სადაც მარტივად შეძლებთ
               სახლიდან სახლიდან გაუსვლელად შეიძინოთ საყოფაცხოვრებო ნივთები{" "}
             </p>
@@ -192,9 +193,8 @@ const About = ({ isDarkmodeOn, handle_cursor_on_of, is_cursor_on }) => {
 
         {/* 4  konteineri  */}
         <div
-          className={`about_example_child_container ${
-            !isDarkmodeOn ? "title_p_dark" : "title_p_light"
-          }  `}
+          className={`about_example_child_container ${!isDarkmodeOn ? "title_p_dark" : "title_p_light"
+            }  `}
         >
           <img
             src={pos_terminal_image}
@@ -203,19 +203,22 @@ const About = ({ isDarkmodeOn, handle_cursor_on_of, is_cursor_on }) => {
           />
           <div className="storkhome_title_and_p_cont  high_z_index">
             <h1
-              className={`storkhome_title ${
-                !isDarkmodeOn ? "title_p_dark" : "title_p_light"
-              } `}
-              onClick={openModal}
+              className={`storkhome_title ${!isDarkmodeOn ? "title_p_dark" : "title_p_light"} `}
+              // onClick={openModal}
+              onMouseEnter={() => tweenRef.current.play()}
+              onMouseLeave={() => tweenRef.current.reverse()}
             >
               POS Terminal
             </h1>
-            <p className="storkhome_paragraph">
+            <p
+              onMouseEnter={() => tweenRef.current.play()}
+              onMouseLeave={() => tweenRef.current.reverse()}
+              className="storkhome_paragraph">
               Tsvrilmani არის ახალი ონლაინ მაღაზია, სადაც მარტივად შეძლებთ
               სახლიდან სახლიდან გაუსვლელად შეიძინოთ საყოფაცხოვრებო ნივთები{" "}
             </p>
           </div>
-          <Modal
+          {/* <Modal
             isOpen={modalIsOpen}
             onRequestClose={closeModal}
             contentLabel="Google Sheet Modal"
@@ -237,7 +240,7 @@ const About = ({ isDarkmodeOn, handle_cursor_on_of, is_cursor_on }) => {
             <div style={{ height: "80%" }}>
               <GoogleSheetEmbed />
             </div>
-          </Modal>
+          </Modal> */}
         </div>
       </div>
 

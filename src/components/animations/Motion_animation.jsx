@@ -4,7 +4,7 @@ import motion_animation_white from "../../assets/Motion_media_files/motion_name_
 import motion_animation_black from "../../assets/Motion_media_files/motion_name_animation_black.webm"
 
 
-export default function Motion_animation({ isDarkmodeOn }) {
+export default function Motion_animation({ isDarkmodeOn , tweenRef}) {
 
 
   useEffect(() => {
@@ -21,6 +21,8 @@ export default function Motion_animation({ isDarkmodeOn }) {
         loop
         preload="auto"
         className='poster_video_tag'
+        onMouseEnter={() => tweenRef.current.play()}
+        onMouseLeave={() => tweenRef.current.reverse()}
       >
         <source src={!isDarkmodeOn?  motion_animation_black : motion_animation_white} type="video/webm" />
       </video>

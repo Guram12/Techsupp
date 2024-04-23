@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import "../styles/MediaAnimation.css";
 
 
-function MediaAnimation() {
+function MediaAnimation({tweenRef}) {
   const [activeIndex, setActiveIndex] = useState(0);
   const numIcons = 4; // Total number of icons
 
@@ -16,7 +16,10 @@ function MediaAnimation() {
 
   return (
     <div>
-      <ul className="media_ul">
+      <ul className="media_ul"
+        onMouseEnter={() => tweenRef.current.play()}
+        onMouseLeave={() => tweenRef.current.reverse()}
+      >
         <li className={`media_li ${activeIndex === 0 ? 'active' : ''}`}>
           <a href="#">
             <span />

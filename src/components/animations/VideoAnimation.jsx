@@ -5,7 +5,7 @@ import night_basement from "../../assets/Motion_media_files/night_basement.webm"
 import techsupp_name_video from "../../assets/Motion_media_files/techsupp_name_video.mp4"
 import bottle_animated_video from "../../assets/Motion_media_files/bottle_animated_video.mp4"
 
-export default function VideoAnimation({isDarkmodeOn}) {
+export default function VideoAnimation({ isDarkmodeOn, tweenRef }) {
   const [isChecked1, setIsChecked1] = useState(false);
   const [isChecked2, setIsChecked2] = useState(false);
   const [isChecked3, setIsChecked3] = useState(false);
@@ -16,11 +16,11 @@ export default function VideoAnimation({isDarkmodeOn}) {
   const [add_z_index, setAdd_z_index] = useState(true);
 
 
-const handle_wrapper_click = ()=> {
-  setAdd_z_index(!add_z_index)
-  console.log("z indec " , add_z_index)
+  const handle_wrapper_click = () => {
+    setAdd_z_index(!add_z_index)
+    console.log("z indec ", add_z_index)
 
-}
+  }
 
   useEffect(() => {
     const handleResize = () => {
@@ -77,9 +77,9 @@ const handle_wrapper_click = ()=> {
   };
 
 
-useEffect(()=> {
-  console.log("from videoanimation ---" , isDarkmodeOn)
-},[isDarkmodeOn])
+  useEffect(() => {
+    console.log("from videoanimation ---", isDarkmodeOn)
+  }, [isDarkmodeOn])
 
   return (
     <div className='main_animation_page_container' onClick={(e) => e.stopPropagation()}   >
@@ -87,52 +87,64 @@ useEffect(()=> {
         <div >
           {/* 1 video animation  */}
           {!isChecked2 && !isChecked3 && !isChecked4 && (
-            <div className="wrapper" style={{zIndex: `${add_z_index? "99999999" : "3"}`}}    >
+            <div
+              onMouseEnter={() => tweenRef.current.play()}
+              onMouseLeave={() => tweenRef.current.reverse()}
+              className="wrapper" style={{ zIndex: `${add_z_index ? "9999999999999" : "3"}` }}    >
               <input type="checkbox" checked={isChecked1} onChange={handleCheckboxChange(setIsChecked1)} />
               <div className="video">
                 <video src={night_basement} loop muted autoPlay playsInline></video>
               </div>
-              <div className="text" style={{color: "red"}} >
-                <span onClick={handle_wrapper_click}  className={ isDarkmodeOn ? "spannnn" : "spannnn_dark"} data-text="Night basement"></span>
+              <div className="text" style={{ color: "red" }} >
+                <span onClick={handle_wrapper_click} className={isDarkmodeOn ? "spannnn" : "spannnn_dark"} data-text="Night basement"></span>
               </div>
             </div>
           )}
 
           {/* 2 video animation  */}
           {!isChecked1 && !isChecked3 && !isChecked4 && (
-            <div className="wrapper" style={{zIndex: `${add_z_index? "99999999" : "3"}`}}    >
+            <div
+              onMouseEnter={() => tweenRef.current.play()}
+              onMouseLeave={() => tweenRef.current.reverse()}
+              className="wrapper" style={{ zIndex: `${add_z_index ? "99999999" : "3"}` }}    >
               <input type="checkbox" checked={isChecked2} onChange={handleCheckboxChange(setIsChecked2)} />
               <div className="video">
                 <video src={splashvideo} loop muted autoPlay playsInline></video>
               </div>
               <div className="text">
-                <span onClick={handle_wrapper_click} className={ isDarkmodeOn ? "spannnn" : "spannnn_dark"} data-text="Techsupp animation"></span>
+                <span onClick={handle_wrapper_click} className={isDarkmodeOn ? "spannnn" : "spannnn_dark"} data-text="Techsupp animation"></span>
               </div>
             </div>
           )}
 
           {/* 3 video animation  */}
           {!isChecked2 && !isChecked1 && !isChecked4 && (
-            <div className="wrapper" style={{zIndex: `${add_z_index? "99999999" : "3"}`}}    >
+            <div
+              onMouseEnter={() => tweenRef.current.play()}
+              onMouseLeave={() => tweenRef.current.reverse()}
+              className="wrapper" style={{ zIndex: `${add_z_index ? "99999999" : "3"}` }}    >
               <input type="checkbox" checked={isChecked3} onChange={handleCheckboxChange(setIsChecked3)} />
               <div className="video">
                 <video src={techsupp_name_video} loop muted autoPlay playsInline></video>
               </div>
               <div className="text">
-                <span onClick={handle_wrapper_click} className={ isDarkmodeOn ? "spannnn" : "spannnn_dark"} data-text="Techsupp animation"></span>
+                <span onClick={handle_wrapper_click} className={isDarkmodeOn ? "spannnn" : "spannnn_dark"} data-text="Techsupp animation"></span>
               </div>
             </div>
           )}
 
           {/* 4 video animation  */}
           {!isChecked2 && !isChecked1 && !isChecked3 && (
-            <div className="wrapper" style={{zIndex: `${add_z_index? "99999999" : "3"}`}}    >
+            <div
+              onMouseEnter={() => tweenRef.current.play()}
+              onMouseLeave={() => tweenRef.current.reverse()}
+              className="wrapper" style={{ zIndex: `${add_z_index ? "99999999" : "3"}` }}    >
               <input type="checkbox" checked={isChecked4} onChange={handleCheckboxChange(setIsChecked4)} />
               <div className="video">
                 <video src={bottle_animated_video} loop muted autoPlay ></video>
               </div>
               <div className="text">
-                <span onClick={handle_wrapper_click} className={ isDarkmodeOn ? "spannnn" : "spannnn_dark"} data-text="Techsupp animation"></span>
+                <span onClick={handle_wrapper_click} className={isDarkmodeOn ? "spannnn" : "spannnn_dark"} data-text="Techsupp animation"></span>
               </div>
             </div>
           )}

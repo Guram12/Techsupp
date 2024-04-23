@@ -100,28 +100,28 @@ function App() {
     setIsSoundOff(!isSoundOff);
   };
 
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {
-  //     setShowSplashScreen(false);
-  //   }, 4500);
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowSplashScreen(false);
+    }, 4500);
 
-  //   return () => clearTimeout(timer);
-  // }, []);
+    return () => clearTimeout(timer);
+  }, []);
 
-  // if (showSplashScreen) {
-  //   return (
-  //     <div className="splashscreen_container">
-  //       <video
-  //         src={techsupp_video}
-  //         autoPlay
-  //         loop
-  //         muted
-  //         playsInline
-  //         className="splashscreen_video"
-  //       ></video>
-  //     </div>
-  //   );
-  // }
+  if (showSplashScreen) {
+    return (
+      <div className="splashscreen_container">
+        <video
+          src={techsupp_video}
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="splashscreen_video"
+        ></video>
+      </div>
+    );
+  }
 
 
   return (
@@ -146,7 +146,7 @@ function App() {
               />
             </>
           )}
-          <audio ref={audioRef} src={background_audio_second} loop muted />
+          <audio ref={audioRef} src={background_audio_second} loop  />
           <div onClick={close_menu_on_outside_click}>
             <AnimatePresence mode="wait">
 
@@ -258,7 +258,7 @@ function App() {
           </div>
         </div>
         <div className="facebook_container">
-          {/* <FacebookMSG />  */}
+          <FacebookMSG /> 
         </div>
       </Animated_Cursor>
     </div>
