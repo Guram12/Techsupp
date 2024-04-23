@@ -25,11 +25,6 @@ function SocialMedia({ handle_context_change, isDarkmodeOn, tweenRef }) {
   };
 
 
-  const handleButtonClick = (message) => {
-    handle_context_change(message);
-    navigate('/contact');
-  };
-
 
   return (
     <div style={{ paddingTop: "100px" }}>
