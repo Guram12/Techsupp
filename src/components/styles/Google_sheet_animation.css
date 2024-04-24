@@ -9,7 +9,7 @@
 }
 
 .sheet_image {
-  width: 600px;
+  width: 500px;
   border-radius: 20px;
 }
 
@@ -41,7 +41,7 @@
 @media screen and (max-width: 500px) {
   .sheet_logo {
     position: absolute;
-    margin-bottom: 470px;
+    margin-bottom: 270px;
     width: 200px;
 
   }
