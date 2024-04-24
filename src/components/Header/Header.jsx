@@ -130,7 +130,7 @@ export default function Header({
               initial={{ scaleY: 0 }}
               animate={{ scaleY: isOpen ? 1 : 0 }}
               exit={{ scaleY: 0 }}
-              transition={{ duration: 0.8, ease: "easeInOut" }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
               className={`menu ${!isDarkmodeOn ? "menu_dark" : "menu_light"}`}
               onMouseEnter={() => tweenRef.current.play()}
               onMouseLeave={() => tweenRef.current.reverse()}
@@ -229,7 +229,7 @@ export default function Header({
                   }
                   onClick={() => handleLinkClick(3)}
                 >
-                  კონტაქტები{" "}
+                  კონტაქტი{" "}
                   <div>
                     {menuState[3].showArrow && !menuState[3].showDot && (
                       <img className="arrow_img" src={RightArrow} alt="" />

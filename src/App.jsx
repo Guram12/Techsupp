@@ -33,7 +33,6 @@ const safeGtagCall = (action, ...params) => {
     window.gtag(action, ...params);
   } else {
     console.warn('gtag not initialized');
-    // Optionally, you could queue these calls to be made once gtag is initialized
   }
 };
 
