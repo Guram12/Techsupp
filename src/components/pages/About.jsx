@@ -66,7 +66,7 @@ const About = ({ isDarkmodeOn, handle_cursor_on_of, is_cursor_on, tweenRef }) =>
             className="about_paragraph"
             style={{ color: `${!isDarkmodeOn ? "white" : " black"}` }}
           >
-            TechSupp-ი არის ქართული მრავალპროფილური სტარტაპი , რომელიც თქვენს
+            TechSupp არის ქართული მრავალპროფილური სტარტაპი , რომელიც თქვენს
             ბიზნესს ახალ საფეხურზე აიყვანს, ჩვენი გუნდი დაგეხმარებათ, შექმნათ
             ახალი ვიზუალი თქვენი ბიზნესისთვის, განავითაროთ იგი, გაიმარტივოთ
             სამუშაო პროცესი და რაც მთავარია ყველანაირი წყვეტის გარეშე მიყვეთ
@@ -146,7 +146,7 @@ const About = ({ isDarkmodeOn, handle_cursor_on_of, is_cursor_on, tweenRef }) =>
               onMouseLeave={() => tweenRef.current.reverse()}
               className="storkhome_paragraph">
               Tsvrilmani არის ახალი ონლაინ მაღაზია, სადაც მარტივად შეძლებთ
-              სახლიდან სახლიდან გაუსვლელად შეიძინოთ საყოფაცხოვრებო ნივთები{" "}
+              სახლიდან  გაუსვლელად შეიძინოთ საყოფაცხოვრებო ნივთები{" "}
             </p>
           </div>
         </div>
@@ -177,8 +177,7 @@ const About = ({ isDarkmodeOn, handle_cursor_on_of, is_cursor_on, tweenRef }) =>
               onMouseEnter={() => tweenRef.current.play()}
               onMouseLeave={() => tweenRef.current.reverse()}
               className="storkhome_paragraph">
-              Tsvrilmani არის ახალი ონლაინ მაღაზია, სადაც მარტივად შეძლებთ
-              სახლიდან სახლიდან გაუსვლელად შეიძინოთ საყოფაცხოვრებო ნივთები{" "}
+              კლინიკა Innovainvitro - ს დაკვეთით სერულებული სავიზიტო ვებსაიტი.
             </p>
           </div>
         </div>
@@ -214,8 +213,12 @@ const About = ({ isDarkmodeOn, handle_cursor_on_of, is_cursor_on, tweenRef }) =>
               onMouseEnter={() => tweenRef.current.play()}
               onMouseLeave={() => tweenRef.current.reverse()}
               className="storkhome_paragraph">
-              Tsvrilmani არის ახალი ონლაინ მაღაზია, სადაც მარტივად შეძლებთ
-              სახლიდან სახლიდან გაუსვლელად შეიძინოთ საყოფაცხოვრებო ნივთები{" "}
+              თქვენი ბიზნესისთვის შექმენილი მარტივი და ბიუჯეტური პოს-ტერმინალი
+            </p>
+            <p
+              onMouseEnter={() => tweenRef.current.play()}
+              onMouseLeave={() => tweenRef.current.reverse()}
+              className="storkhome_paragraph">
             </p>
           </div>
           {/* <Modal
