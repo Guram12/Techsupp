@@ -1,5 +1,7 @@
 import "./App.css";
 import techsupp_video from "./assets/Motion_media_files/splashvideo.webm";
+import techsupp_video_mp4 from "./assets/Motion_media_files/splashvideo.mp4";
+
 import { useState, useEffect, useRef, useContext } from "react";
 import { Route, Routes, Link, useLocation } from "react-router-dom";
 import About from "./components/pages/About";
@@ -54,9 +56,11 @@ const usePageTracking = () => {
 
 
 function App() {
-    usePageTracking();
+  usePageTracking();
 
   const [showSplashScreen, setShowSplashScreen] = useState(true);
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+
   const [isSoundOff, setIsSoundOff] = useState(false);
   const [isDarkmodeOn, setIsDarkmodeOn] = useState(true);
 
@@ -139,21 +143,35 @@ function App() {
     const timer = setTimeout(() => {
       setShowSplashScreen(false);
     }, 4500);
-
     return () => clearTimeout(timer);
   }, []);
 
+  const handleVideoPlay = () => {
+    const videoElement = document.querySelector('.splashscreen_video');
+    if (videoElement) {
+      videoElement.play()
+        .then(() => {
+          setIsVideoPlaying(true); // Confirm video is playing
+        })
+        .catch(error => {
+          console.error('Error playing video:', error);
+        });
+    }
+  };
+
   if (showSplashScreen) {
     return (
-      <div className="splashscreen_container">
+      <div className="splashscreen_container" onClick={handleVideoPlay}>
         <video
-          src={techsupp_video}
           autoPlay
           loop
           muted
           playsInline
           className="splashscreen_video"
-        ></video>
+        >
+          <source src={techsupp_video_mp4} type="video/mp4" />
+          <source src={techsupp_video} type="video/webm" />
+        </video>
       </div>
     );
   }
@@ -181,18 +199,18 @@ function App() {
               />
             </>
           )}
-          <audio ref={audioRef} src={background_audio_second} loop   />
+          <audio ref={audioRef} src={background_audio_second} loop />
           <div onClick={close_menu_on_outside_click}>
             <AnimatePresence mode="wait">
 
               <Routes location={secondlocation} key={secondlocation.pathname}>
                 <Route
                   path="/*"
-                  element={<MainPage isDarkmodeOn={isDarkmodeOn}  tweenRef={tweenRef} />}
+                  element={<MainPage isDarkmodeOn={isDarkmodeOn} tweenRef={tweenRef} />}
                 />
                 <Route
                   path="about/"
-                  element={<About isDarkmodeOn={isDarkmodeOn}  tweenRef={tweenRef} />}
+                  element={<About isDarkmodeOn={isDarkmodeOn} tweenRef={tweenRef} />}
                 />
                 <Route
                   path="contact/"
@@ -293,7 +311,7 @@ function App() {
           </div>
         </div>
         <div className="facebook_container">
-          <FacebookMSG /> 
+          <FacebookMSG />
         </div>
       </Animated_Cursor>
     </div>
