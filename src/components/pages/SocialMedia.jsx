@@ -16,7 +16,7 @@ function SocialMedia({ handle_context_change, isDarkmodeOn, tweenRef }) {
     window.scrollTo(0, 0);
   }, []);
 
-  const navigate = useNavigate(); // This hook is used to navigate programmatically
+  const navigate = useNavigate(); 
 
 
   const handleButtonClick = (message) => {
@@ -110,40 +110,3 @@ function SocialMedia({ handle_context_change, isDarkmodeOn, tweenRef }) {
 
 export default transition(SocialMedia);
 
-
-
-// ===1)   silver  1000 ლარი
-// =>    
-// გვერდის შექმნა
-// გვერდის მონიტორინგი
-// 8 პოსტი
-// ქოფირაითინგი
-// დიზაინერის მომსახურება
-// ad management
-// რეპორტინგი
-
-// ===2)   gold  1300 ლარი 
-// =>
-// გვერდის შექმნა
-// გვერდის მონიტორინგი
-// 10 პოსტი
-// 10 სთორი
-// ქოფირაითინგი
-// დიზაინერის მომსახურება
-// ad management
-// რეპორტინგი
-
-
-
-// ===3)   platinium  1700 ლარი
-// =>
-// გვერდის შექმნა
-// გვერდის მონიტორინგი
-// 15 პოსტი
-// 20 სთორი
-// instagram highlight
-// ქოფირაითინგი
-// დიზაინერის მომსახურება
-// ad management
-// ბიუჯეტის გაწერა
-// რეპორტინგი
