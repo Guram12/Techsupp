@@ -1,5 +1,7 @@
 import "./App.css";
 import techsupp_video from "./assets/Motion_media_files/splashvideo.webm";
+import techsupp_video_mp4 from "./assets/Motion_media_files/splashvideo.mp4";
+
 import { useState, useEffect, useRef, useContext } from "react";
 import { Route, Routes, Link, useLocation } from "react-router-dom";
 import About from "./components/pages/About";
@@ -54,7 +56,7 @@ const usePageTracking = () => {
 
 
 function App() {
-    usePageTracking();
+  usePageTracking();
 
   const [showSplashScreen, setShowSplashScreen] = useState(true);
   const [isSoundOff, setIsSoundOff] = useState(false);
@@ -148,12 +150,30 @@ function App() {
       <div className="splashscreen_container">
         <video
           src={techsupp_video}
+
           autoPlay
           loop
           muted
           playsInline
           className="splashscreen_video"
         ></video>
+        <video autoplay loop muted playsInline className="splashscreen_video">
+          <source src={techsupp_video_mp4}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="splashscreen_video"
+            type="video/mp4" />
+          <source src={techsupp_video}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="splashscreen_video"
+            type="video/webm" />
+        </video>
+
       </div>
     );
   }
@@ -181,18 +201,18 @@ function App() {
               />
             </>
           )}
-          <audio ref={audioRef} src={background_audio_second} loop   />
+          <audio ref={audioRef} src={background_audio_second} loop />
           <div onClick={close_menu_on_outside_click}>
             <AnimatePresence mode="wait">
 
               <Routes location={secondlocation} key={secondlocation.pathname}>
                 <Route
                   path="/*"
-                  element={<MainPage isDarkmodeOn={isDarkmodeOn}  tweenRef={tweenRef} />}
+                  element={<MainPage isDarkmodeOn={isDarkmodeOn} tweenRef={tweenRef} />}
                 />
                 <Route
                   path="about/"
-                  element={<About isDarkmodeOn={isDarkmodeOn}  tweenRef={tweenRef} />}
+                  element={<About isDarkmodeOn={isDarkmodeOn} tweenRef={tweenRef} />}
                 />
                 <Route
                   path="contact/"
@@ -293,7 +313,7 @@ function App() {
           </div>
         </div>
         <div className="facebook_container">
-          <FacebookMSG /> 
+          <FacebookMSG />
         </div>
       </Animated_Cursor>
     </div>
