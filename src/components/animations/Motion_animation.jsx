@@ -24,7 +24,7 @@ export default function Motion_animation({ isDarkmodeOn , tweenRef}) {
         onMouseEnter={() => tweenRef.current.play()}
         onMouseLeave={() => tweenRef.current.reverse()}
       >
-        <source src={!isDarkmodeOn?  motion_animation_black : motion_animation_white} type="video/webm" />
+        <source src={!isDarkmodeOn?  motion_animation_black : motion_animation_white} type="video/mp4" />
       </video>
     </div>
   );
