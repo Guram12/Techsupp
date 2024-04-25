@@ -68,6 +68,8 @@ function App() {
 
   const audioRef = useRef(null);
 
+  const videoRef = useRef(null);  // Using useRef to reference the video DOM element
+
 
   const canvasRef = useRef(null);
   const tweenRef = useRef(null);
@@ -139,38 +141,36 @@ function App() {
     setIsSoundOff(!isSoundOff);
   };
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowSplashScreen(false);
-    }, 4500);
-    return () => clearTimeout(timer);
-  }, []);
 
-  const handleVideoPlay = () => {
-    const videoElement = document.querySelector('.splashscreen_video');
+  useEffect(() => {
+    // This effect sets up the event listener
+    const videoElement = videoRef.current;
     if (videoElement) {
-      videoElement.play()
-        .then(() => {
-          setIsVideoPlaying(true); // Confirm video is playing
-        })
-        .catch(error => {
-          console.error('Error playing video:', error);
-        });
+      const handleVideoEnd = () => {
+        setShowSplashScreen(false);  // Hide splash screen when video ends
+      };
+
+      videoElement.addEventListener('ended', handleVideoEnd);
+
+      return () => {
+        videoElement.removeEventListener('ended', handleVideoEnd);
+      };
     }
-  };
+  }, []);  // Empty dependency array means this effect runs once on mount
 
   if (showSplashScreen) {
     return (
-      <div className="splashscreen_container" onClick={handleVideoPlay}>
+      <div className="splashscreen_container">
         <video
           autoPlay
-          loop
+          loop={false}  // Remove loop if you want the video to stop after playing once
           muted
           playsInline
+          ref={videoRef}  // Attach the ref to the video element
           className="splashscreen_video"
         >
           <source src={techsupp_video_mp4} type="video/mp4" />
-          <source src={techsupp_video} type="video/webm" />
+          {/* <source src={techsupp_video} type="video/webm" /> */}
         </video>
       </div>
     );
