@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/VideoAnimation.css';
-import splashvideo from '../../assets/Motion_media_files/splashvideo.webm';
-import night_basement from "../../assets/Motion_media_files/night_basement.webm";
+import splashvideo from '../../assets/Motion_media_files/splashvideo.mp4';
+import night_basement from "../../assets/Motion_media_files/night_basement.mp4";
 import techsupp_name_video from "../../assets/Motion_media_files/techsupp_name_video.mp4"
 import bottle_animated_video from "../../assets/Motion_media_files/bottle_animated_video.mp4"
 
@@ -35,10 +35,6 @@ export default function VideoAnimation({ isDarkmodeOn, tweenRef }) {
     };
   }, []);
 
-  useEffect(() => {
-    console.log("sigane", isMobileView)
-
-  }, [isMobileView])
 
 
   useEffect(() => {
@@ -77,11 +73,6 @@ export default function VideoAnimation({ isDarkmodeOn, tweenRef }) {
     }
   };
 
-
-
-  useEffect(() => {
-    console.log("from videoanimation ---", isDarkmodeOn)
-  }, [isDarkmodeOn])
 
   return (
     <div className='main_animation_page_container' onClick={(e) => e.stopPropagation()}   >

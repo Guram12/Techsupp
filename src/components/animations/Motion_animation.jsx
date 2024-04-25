@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import "../styles/Motion_animation.css";
-import motion_animation_white from "../../assets/Motion_media_files/motion_name_animation.webm"
-import motion_animation_black from "../../assets/Motion_media_files/motion_name_animation_black.webm"
+import motion_animation_white from "../../assets/Motion_media_files/motion_name_animation.mp4"
+import motion_animation_black from "../../assets/Motion_media_files/motion_name_animation_black.mp4"
 
 
 export default function Motion_animation({ isDarkmodeOn , tweenRef}) {
