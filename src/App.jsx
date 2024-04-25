@@ -59,6 +59,8 @@ function App() {
   usePageTracking();
 
   const [showSplashScreen, setShowSplashScreen] = useState(true);
+  const [isVideoPlaying, setIsVideoPlaying] = useState(false);
+
   const [isSoundOff, setIsSoundOff] = useState(false);
   const [isDarkmodeOn, setIsDarkmodeOn] = useState(true);
 
@@ -141,39 +143,35 @@ function App() {
     const timer = setTimeout(() => {
       setShowSplashScreen(false);
     }, 4500);
-
     return () => clearTimeout(timer);
   }, []);
 
+  const handleVideoPlay = () => {
+    const videoElement = document.querySelector('.splashscreen_video');
+    if (videoElement) {
+      videoElement.play()
+        .then(() => {
+          setIsVideoPlaying(true); // Confirm video is playing
+        })
+        .catch(error => {
+          console.error('Error playing video:', error);
+        });
+    }
+  };
+
   if (showSplashScreen) {
     return (
-      <div className="splashscreen_container">
+      <div className="splashscreen_container" onClick={handleVideoPlay}>
         <video
-          src={techsupp_video}
-
           autoPlay
           loop
           muted
           playsInline
           className="splashscreen_video"
-        ></video>
-        <video autoplay loop muted playsInline className="splashscreen_video">
-          <source src={techsupp_video_mp4}
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="splashscreen_video"
-            type="video/mp4" />
-          <source src={techsupp_video}
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="splashscreen_video"
-            type="video/webm" />
+        >
+          <source src={techsupp_video_mp4} type="video/mp4" />
+          <source src={techsupp_video} type="video/webm" />
         </video>
-
       </div>
     );
   }
