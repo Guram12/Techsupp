@@ -204,10 +204,10 @@ function App() {
             <AnimatePresence mode="wait">
 
               <Routes location={secondlocation} key={secondlocation.pathname}>
-                <Route
+                {/* <Route
                   path="/*"
                   element={<MainPage isDarkmodeOn={isDarkmodeOn} tweenRef={tweenRef} />}
-                />
+                /> */}
                 <Route
                   path="about/"
                   element={<About isDarkmodeOn={isDarkmodeOn} tweenRef={tweenRef} />}
