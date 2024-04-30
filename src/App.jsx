@@ -142,39 +142,39 @@ function App() {
   };
 
 
-  useEffect(() => {
-    // This effect sets up the event listener
-    const videoElement = videoRef.current;
-    if (videoElement) {
-      const handleVideoEnd = () => {
-        setShowSplashScreen(false);  // Hide splash screen when video ends
-      };
+  // useEffect(() => {
+  //   // This effect sets up the event listener
+  //   const videoElement = videoRef.current;
+  //   if (videoElement) {
+  //     const handleVideoEnd = () => {
+  //       setShowSplashScreen(false);  // Hide splash screen when video ends
+  //     };
 
-      videoElement.addEventListener('ended', handleVideoEnd);
+  //     videoElement.addEventListener('ended', handleVideoEnd);
 
-      return () => {
-        videoElement.removeEventListener('ended', handleVideoEnd);
-      };
-    }
-  }, []);  // Empty dependency array means this effect runs once on mount
+  //     return () => {
+  //       videoElement.removeEventListener('ended', handleVideoEnd);
+  //     };
+  //   }
+  // }, []);  // Empty dependency array means this effect runs once on mount
 
-  if (showSplashScreen) {
-    return (
-      <div className="splashscreen_container">
-        <video
-          autoPlay
-          loop={false}  // Remove loop if you want the video to stop after playing once
-          muted
-          playsInline
-          ref={videoRef}  // Attach the ref to the video element
-          className="splashscreen_video"
-        >
-          <source src={techsupp_video_mp4} type="video/mp4" />
-          {/* <source src={techsupp_video} type="video/webm" /> */}
-        </video>
-      </div>
-    );
-  }
+  // if (showSplashScreen) {
+  //   return (
+  //     <div className="splashscreen_container">
+  //       <video
+  //         autoPlay
+  //         loop={false}  // Remove loop if you want the video to stop after playing once
+  //         muted
+  //         playsInline
+  //         ref={videoRef}  // Attach the ref to the video element
+  //         className="splashscreen_video"
+  //       >
+  //         <source src={techsupp_video_mp4} type="video/mp4" />
+  //         {/* <source src={techsupp_video} type="video/webm" /> */}
+  //       </video>
+  //     </div>
+  //   );
+  // }
 
 
   return (
