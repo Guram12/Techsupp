@@ -14,9 +14,6 @@ function Contact({ contactMessage, isDarkmodeOn, tweenRef }) {
   const [buttonText, setButtonText] = useState('გაგზავნა');
 
 
-
-  // const response = await fetch('https://script.google.com/macros/s/AKfycbx0MAIn2p2o-iF6MW4mwlTNCfxEqRse_ifCiaqiAUvkCXUOuKKuedkhi2A0rEWgJrfuwg/exec', {
-
   const handleSubmit = async (event) => {
     event.preventDefault();
     setIsLoading(true);
@@ -28,8 +25,8 @@ function Contact({ contactMessage, isDarkmodeOn, tweenRef }) {
       mobile,
       description: inputValue
     };
-
-    fetch('https://script.google.com/macros/s/AKfycbx0MAIn2p2o-iF6MW4mwlTNCfxEqRse_ifCiaqiAUvkCXUOuKKuedkhi2A0rEWgJrfuwg/exec', {
+    
+    fetch('https://script.google.com/macros/s/AKfycbzI1M0Nc7WdbwKtr4ljRxgd5oSRjtVo8ZUdau1zD4BytU2EgWAX8zlHjpbO3VI0hWPY/exec', {
       method: 'POST',
       mode: 'no-cors',
       headers: {
