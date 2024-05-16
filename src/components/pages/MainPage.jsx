@@ -93,11 +93,11 @@ function mainPage({ showSplashScreen, isDarkmodeOn, tweenRef }) {
           />
 
         </motion.div>
-
+     
       </div>
-      <div className="mainpage_main_footer_container">
+      {/* <div className="mainpage_main_footer_container">
         <MainPage_Footer isDarkmodeOn={isDarkmodeOn} />
-      </div>
+      </div> */}
     </div>
   );
 }
