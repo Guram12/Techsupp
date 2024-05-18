@@ -310,9 +310,9 @@ function App() {
             </AnimatePresence>
           </div>
         </div>
-        <div className="facebook_container">
+        {/* <div className="facebook_container">
           <FacebookMSG />
-        </div>
+        </div> */}
       </Animated_Cursor>
     </div>
 
