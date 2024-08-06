@@ -11,6 +11,8 @@ import GoogleSheetEmbed from "../Google_mbd_component/Google_Sheet_MBD";
 import Parallax from "../animations/Paralax";
 import Modal from "react-modal"; // This assumes you're using react-modal
 import transition from "../Header/Transition";
+import chaburgili_image from "../../assets/chaburgili.png"
+import oneinone_image from  "../../assets/1inone.png"
 
 const About = ({ isDarkmodeOn, handle_cursor_on_of, is_cursor_on, tweenRef }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -83,6 +85,8 @@ const About = ({ isDarkmodeOn, handle_cursor_on_of, is_cursor_on, tweenRef }) =>
       </div>
 
       <div className="about_example_container">
+
+
         {/* 1  konteineri  */}
         <div className="about_example_child_container">
           <img
@@ -117,7 +121,10 @@ const About = ({ isDarkmodeOn, handle_cursor_on_of, is_cursor_on, tweenRef }) =>
           </div>
         </div>
 
-        {/* 2  konteineri  */}
+
+{/* ===================================================================================================================================== */}
+
+        {/* 2  konteineri 
         <div className="about_example_child_container">
           <img
             src={tsvrilmani_image}
@@ -149,9 +156,78 @@ const About = ({ isDarkmodeOn, handle_cursor_on_of, is_cursor_on, tweenRef }) =>
               სახლიდან  გაუსვლელად შეიძინოთ საყოფაცხოვრებო ნივთები{" "}
             </p>
           </div>
-        </div>
+        </div> */}
+
+{/* ===================================================================================================================================== */}
+
 
         {/* 3  konteineri  */}
+        <div className="about_example_child_container">
+          <img
+            src={oneinone_image}
+            alt="tsvrilmani website logo"
+            className="storkhome_image"
+          />
+          <div
+            className={`storkhome_title_and_p_cont ${!isDarkmodeOn ? "title_p_dark" : "title_p_light"}`} >
+            <a
+              href="https://www.1inone.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <h1
+                onMouseEnter={() => tweenRef.current.play()}
+                onMouseLeave={() => tweenRef.current.reverse()}
+                className={`storkhome_title ${!isDarkmodeOn ? "title_p_dark" : "title_p_light"} `}
+              >
+                1inone
+              </h1>
+            </a>
+            <p
+              onMouseEnter={() => tweenRef.current.play()}
+              onMouseLeave={() => tweenRef.current.reverse()}
+              className="storkhome_paragraph">
+              1inone გთავაზობთ ექსკლუზიურ სარეკლამო მომსახურებას ერთ კომპანიასთან თითო ქვეყანაში, მათი ლოგოს ჩვენებით მსოფლიო რუკაზე.
+            </p>
+          </div>
+        </div>
+
+{/* ===================================================================================================================================== */}
+
+        {/* 4  konteineri  */}
+        <div className="about_example_child_container">
+          <img
+            src={chaburgili_image}
+            alt="tsvrilmani website logo"
+            className="storkhome_image"
+          />
+          <div
+            className={`storkhome_title_and_p_cont ${!isDarkmodeOn ? "title_p_dark" : "title_p_light"}`} >
+            <a
+              href="https://www.waterwellflow.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <h1
+                onMouseEnter={() => tweenRef.current.play()}
+                onMouseLeave={() => tweenRef.current.reverse()}
+                className={`storkhome_title ${!isDarkmodeOn ? "title_p_dark" : "title_p_light"} `}
+              >
+                waterwellflow
+              </h1>
+            </a>
+            <p
+              onMouseEnter={() => tweenRef.current.play()}
+              onMouseLeave={() => tweenRef.current.reverse()}
+              className="storkhome_paragraph">
+              ჭაბურღილების მშენებლობა საყოფაცხოვრებო და საწარმო საჭიროებებისთვის
+            </p>
+          </div>
+        </div>
+
+{/* ===================================================================================================================================== */}
+
+        {/* 5  konteineri  */}
         <div className="about_example_child_container">
           <img
             src={inova_image}
@@ -181,6 +257,9 @@ const About = ({ isDarkmodeOn, handle_cursor_on_of, is_cursor_on, tweenRef }) =>
             </p>
           </div>
         </div>
+
+{/* ===================================================================================================================================== */}
+
 
         <div
           style={{
